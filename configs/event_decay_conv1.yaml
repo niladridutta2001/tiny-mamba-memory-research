@@ -1,0 +1,4 @@
+name: event_decay_conv1
+inherits: event_decay.yaml
+model:
+  d_conv: 1

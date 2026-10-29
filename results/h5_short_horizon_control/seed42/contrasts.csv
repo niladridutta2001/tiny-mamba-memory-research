@@ -1,0 +1,7 @@
+eval_alpha,comparison,accuracy_effect_pp,ci_low_pp,ci_high_pp,cluster_count
+0.0,short_minus_original,1.953125,-13.671875,17.96875,32
+0.0,long_minus_short,71.875,56.25,87.109375,32
+0.1,short_minus_original,-3.125,-18.359375,12.109375,32
+0.1,long_minus_short,71.875,55.859375,86.328125,32
+1.0,short_minus_original,0.0,-9.375,9.375,32
+1.0,long_minus_short,14.0625,-6.25,33.984375,32

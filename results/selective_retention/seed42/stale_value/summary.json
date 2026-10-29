@@ -1,0 +1,2641 @@
+{
+  "scope": "matched seed-42 diagnostic",
+  "old_and_new_values_always_differ": true,
+  "stale_value_error_definition": "prediction equals obsolete value / all overwritten queries",
+  "pre_delays": [
+    10,
+    32,
+    64,
+    100,
+    128
+  ],
+  "post_delays": [
+    0,
+    1,
+    4,
+    16,
+    32,
+    64
+  ],
+  "models": {
+    "Baseline": "results\\extended\\seed42\\u1500\\baseline.pt",
+    "Independent decay": "results\\selective_retention\\seed42\\event_decay\\u1500\\baseline.pt",
+    "Coupled gate": "results\\selective_retention\\seed42\\coupled_event_gate\\u1500\\baseline.pt"
+  },
+  "examples_per_condition": 1024,
+  "bootstrap_draws": 10000,
+  "metrics": [
+    {
+      "model": "Baseline",
+      "pre_delay": 10,
+      "post_delay": 0,
+      "retention_accuracy": 0.8837890625,
+      "overwrite_accuracy": 0.41796875,
+      "stale_value_error_rate": 0.5595703125,
+      "other_error_rate": 0.0224609375,
+      "stale_fraction_of_errors": 0.9614093959731543,
+      "n_examples": 1024
+    },
+    {
+      "model": "Independent decay",
+      "pre_delay": 10,
+      "post_delay": 0,
+      "retention_accuracy": 0.93359375,
+      "overwrite_accuracy": 0.3564453125,
+      "stale_value_error_rate": 0.6025390625,
+      "other_error_rate": 0.041015625,
+      "stale_fraction_of_errors": 0.936267071320182,
+      "n_examples": 1024
+    },
+    {
+      "model": "Coupled gate",
+      "pre_delay": 10,
+      "post_delay": 0,
+      "retention_accuracy": 0.916015625,
+      "overwrite_accuracy": 0.42578125,
+      "stale_value_error_rate": 0.5439453125,
+      "other_error_rate": 0.0302734375,
+      "stale_fraction_of_errors": 0.9472789115646258,
+      "n_examples": 1024
+    },
+    {
+      "model": "Baseline",
+      "pre_delay": 10,
+      "post_delay": 1,
+      "retention_accuracy": 0.8779296875,
+      "overwrite_accuracy": 0.4453125,
+      "stale_value_error_rate": 0.5185546875,
+      "other_error_rate": 0.0361328125,
+      "stale_fraction_of_errors": 0.9348591549295775,
+      "n_examples": 1024
+    },
+    {
+      "model": "Independent decay",
+      "pre_delay": 10,
+      "post_delay": 1,
+      "retention_accuracy": 0.9306640625,
+      "overwrite_accuracy": 0.427734375,
+      "stale_value_error_rate": 0.5322265625,
+      "other_error_rate": 0.0400390625,
+      "stale_fraction_of_errors": 0.9300341296928327,
+      "n_examples": 1024
+    },
+    {
+      "model": "Coupled gate",
+      "pre_delay": 10,
+      "post_delay": 1,
+      "retention_accuracy": 0.912109375,
+      "overwrite_accuracy": 0.478515625,
+      "stale_value_error_rate": 0.4833984375,
+      "other_error_rate": 0.0380859375,
+      "stale_fraction_of_errors": 0.9269662921348315,
+      "n_examples": 1024
+    },
+    {
+      "model": "Baseline",
+      "pre_delay": 10,
+      "post_delay": 4,
+      "retention_accuracy": 0.869140625,
+      "overwrite_accuracy": 0.650390625,
+      "stale_value_error_rate": 0.318359375,
+      "other_error_rate": 0.03125,
+      "stale_fraction_of_errors": 0.9106145251396648,
+      "n_examples": 1024
+    },
+    {
+      "model": "Independent decay",
+      "pre_delay": 10,
+      "post_delay": 4,
+      "retention_accuracy": 0.9189453125,
+      "overwrite_accuracy": 0.666015625,
+      "stale_value_error_rate": 0.294921875,
+      "other_error_rate": 0.0390625,
+      "stale_fraction_of_errors": 0.8830409356725146,
+      "n_examples": 1024
+    },
+    {
+      "model": "Coupled gate",
+      "pre_delay": 10,
+      "post_delay": 4,
+      "retention_accuracy": 0.91015625,
+      "overwrite_accuracy": 0.6787109375,
+      "stale_value_error_rate": 0.296875,
+      "other_error_rate": 0.0244140625,
+      "stale_fraction_of_errors": 0.9240121580547113,
+      "n_examples": 1024
+    },
+    {
+      "model": "Baseline",
+      "pre_delay": 10,
+      "post_delay": 16,
+      "retention_accuracy": 0.8330078125,
+      "overwrite_accuracy": 0.5966796875,
+      "stale_value_error_rate": 0.3671875,
+      "other_error_rate": 0.0361328125,
+      "stale_fraction_of_errors": 0.910411622276029,
+      "n_examples": 1024
+    },
+    {
+      "model": "Independent decay",
+      "pre_delay": 10,
+      "post_delay": 16,
+      "retention_accuracy": 0.884765625,
+      "overwrite_accuracy": 0.6171875,
+      "stale_value_error_rate": 0.3310546875,
+      "other_error_rate": 0.0517578125,
+      "stale_fraction_of_errors": 0.8647959183673469,
+      "n_examples": 1024
+    },
+    {
+      "model": "Coupled gate",
+      "pre_delay": 10,
+      "post_delay": 16,
+      "retention_accuracy": 0.8291015625,
+      "overwrite_accuracy": 0.65625,
+      "stale_value_error_rate": 0.2890625,
+      "other_error_rate": 0.0546875,
+      "stale_fraction_of_errors": 0.8409090909090909,
+      "n_examples": 1024
+    },
+    {
+      "model": "Baseline",
+      "pre_delay": 10,
+      "post_delay": 32,
+      "retention_accuracy": 0.77734375,
+      "overwrite_accuracy": 0.5791015625,
+      "stale_value_error_rate": 0.35546875,
+      "other_error_rate": 0.0654296875,
+      "stale_fraction_of_errors": 0.8445475638051044,
+      "n_examples": 1024
+    },
+    {
+      "model": "Independent decay",
+      "pre_delay": 10,
+      "post_delay": 32,
+      "retention_accuracy": 0.7841796875,
+      "overwrite_accuracy": 0.5869140625,
+      "stale_value_error_rate": 0.328125,
+      "other_error_rate": 0.0849609375,
+      "stale_fraction_of_errors": 0.7943262411347518,
+      "n_examples": 1024
+    },
+    {
+      "model": "Coupled gate",
+      "pre_delay": 10,
+      "post_delay": 32,
+      "retention_accuracy": 0.6708984375,
+      "overwrite_accuracy": 0.537109375,
+      "stale_value_error_rate": 0.3125,
+      "other_error_rate": 0.150390625,
+      "stale_fraction_of_errors": 0.6751054852320675,
+      "n_examples": 1024
+    },
+    {
+      "model": "Baseline",
+      "pre_delay": 10,
+      "post_delay": 64,
+      "retention_accuracy": 0.568359375,
+      "overwrite_accuracy": 0.474609375,
+      "stale_value_error_rate": 0.353515625,
+      "other_error_rate": 0.171875,
+      "stale_fraction_of_errors": 0.6728624535315985,
+      "n_examples": 1024
+    },
+    {
+      "model": "Independent decay",
+      "pre_delay": 10,
+      "post_delay": 64,
+      "retention_accuracy": 0.521484375,
+      "overwrite_accuracy": 0.4072265625,
+      "stale_value_error_rate": 0.3466796875,
+      "other_error_rate": 0.24609375,
+      "stale_fraction_of_errors": 0.5848434925864909,
+      "n_examples": 1024
+    },
+    {
+      "model": "Coupled gate",
+      "pre_delay": 10,
+      "post_delay": 64,
+      "retention_accuracy": 0.4716796875,
+      "overwrite_accuracy": 0.376953125,
+      "stale_value_error_rate": 0.314453125,
+      "other_error_rate": 0.30859375,
+      "stale_fraction_of_errors": 0.5047021943573667,
+      "n_examples": 1024
+    },
+    {
+      "model": "Baseline",
+      "pre_delay": 32,
+      "post_delay": 0,
+      "retention_accuracy": 0.8115234375,
+      "overwrite_accuracy": 0.646484375,
+      "stale_value_error_rate": 0.3017578125,
+      "other_error_rate": 0.0517578125,
+      "stale_fraction_of_errors": 0.8535911602209945,
+      "n_examples": 1024
+    },
+    {
+      "model": "Independent decay",
+      "pre_delay": 32,
+      "post_delay": 0,
+      "retention_accuracy": 0.8603515625,
+      "overwrite_accuracy": 0.603515625,
+      "stale_value_error_rate": 0.3291015625,
+      "other_error_rate": 0.0673828125,
+      "stale_fraction_of_errors": 0.8300492610837439,
+      "n_examples": 1024
+    },
+    {
+      "model": "Coupled gate",
+      "pre_delay": 32,
+      "post_delay": 0,
+      "retention_accuracy": 0.7783203125,
+      "overwrite_accuracy": 0.7021484375,
+      "stale_value_error_rate": 0.2509765625,
+      "other_error_rate": 0.046875,
+      "stale_fraction_of_errors": 0.8426229508196721,
+      "n_examples": 1024
+    },
+    {
+      "model": "Baseline",
+      "pre_delay": 32,
+      "post_delay": 1,
+      "retention_accuracy": 0.80859375,
+      "overwrite_accuracy": 0.6337890625,
+      "stale_value_error_rate": 0.30859375,
+      "other_error_rate": 0.0576171875,
+      "stale_fraction_of_errors": 0.8426666666666667,
+      "n_examples": 1024
+    },
+    {
+      "model": "Independent decay",
+      "pre_delay": 32,
+      "post_delay": 1,
+      "retention_accuracy": 0.859375,
+      "overwrite_accuracy": 0.65625,
+      "stale_value_error_rate": 0.298828125,
+      "other_error_rate": 0.044921875,
+      "stale_fraction_of_errors": 0.8693181818181818,
+      "n_examples": 1024
+    },
+    {
+      "model": "Coupled gate",
+      "pre_delay": 32,
+      "post_delay": 1,
+      "retention_accuracy": 0.763671875,
+      "overwrite_accuracy": 0.71484375,
+      "stale_value_error_rate": 0.232421875,
+      "other_error_rate": 0.052734375,
+      "stale_fraction_of_errors": 0.815068493150685,
+      "n_examples": 1024
+    },
+    {
+      "model": "Baseline",
+      "pre_delay": 32,
+      "post_delay": 4,
+      "retention_accuracy": 0.7958984375,
+      "overwrite_accuracy": 0.8408203125,
+      "stale_value_error_rate": 0.12890625,
+      "other_error_rate": 0.0302734375,
+      "stale_fraction_of_errors": 0.8098159509202454,
+      "n_examples": 1024
+    },
+    {
+      "model": "Independent decay",
+      "pre_delay": 32,
+      "post_delay": 4,
+      "retention_accuracy": 0.84765625,
+      "overwrite_accuracy": 0.853515625,
+      "stale_value_error_rate": 0.109375,
+      "other_error_rate": 0.037109375,
+      "stale_fraction_of_errors": 0.7466666666666667,
+      "n_examples": 1024
+    },
+    {
+      "model": "Coupled gate",
+      "pre_delay": 32,
+      "post_delay": 4,
+      "retention_accuracy": 0.7333984375,
+      "overwrite_accuracy": 0.8525390625,
+      "stale_value_error_rate": 0.10546875,
+      "other_error_rate": 0.0419921875,
+      "stale_fraction_of_errors": 0.7152317880794702,
+      "n_examples": 1024
+    },
+    {
+      "model": "Baseline",
+      "pre_delay": 32,
+      "post_delay": 16,
+      "retention_accuracy": 0.7255859375,
+      "overwrite_accuracy": 0.765625,
+      "stale_value_error_rate": 0.171875,
+      "other_error_rate": 0.0625,
+      "stale_fraction_of_errors": 0.7333333333333333,
+      "n_examples": 1024
+    },
+    {
+      "model": "Independent decay",
+      "pre_delay": 32,
+      "post_delay": 16,
+      "retention_accuracy": 0.732421875,
+      "overwrite_accuracy": 0.7841796875,
+      "stale_value_error_rate": 0.158203125,
+      "other_error_rate": 0.0576171875,
+      "stale_fraction_of_errors": 0.7330316742081447,
+      "n_examples": 1024
+    },
+    {
+      "model": "Coupled gate",
+      "pre_delay": 32,
+      "post_delay": 16,
+      "retention_accuracy": 0.640625,
+      "overwrite_accuracy": 0.7578125,
+      "stale_value_error_rate": 0.14453125,
+      "other_error_rate": 0.09765625,
+      "stale_fraction_of_errors": 0.5967741935483871,
+      "n_examples": 1024
+    },
+    {
+      "model": "Baseline",
+      "pre_delay": 32,
+      "post_delay": 32,
+      "retention_accuracy": 0.6171875,
+      "overwrite_accuracy": 0.728515625,
+      "stale_value_error_rate": 0.1884765625,
+      "other_error_rate": 0.0830078125,
+      "stale_fraction_of_errors": 0.6942446043165468,
+      "n_examples": 1024
+    },
+    {
+      "model": "Independent decay",
+      "pre_delay": 32,
+      "post_delay": 32,
+      "retention_accuracy": 0.5908203125,
+      "overwrite_accuracy": 0.6748046875,
+      "stale_value_error_rate": 0.2041015625,
+      "other_error_rate": 0.12109375,
+      "stale_fraction_of_errors": 0.6276276276276276,
+      "n_examples": 1024
+    },
+    {
+      "model": "Coupled gate",
+      "pre_delay": 32,
+      "post_delay": 32,
+      "retention_accuracy": 0.5439453125,
+      "overwrite_accuracy": 0.5947265625,
+      "stale_value_error_rate": 0.2021484375,
+      "other_error_rate": 0.203125,
+      "stale_fraction_of_errors": 0.4987951807228916,
+      "n_examples": 1024
+    },
+    {
+      "model": "Baseline",
+      "pre_delay": 32,
+      "post_delay": 64,
+      "retention_accuracy": 0.458984375,
+      "overwrite_accuracy": 0.5234375,
+      "stale_value_error_rate": 0.2763671875,
+      "other_error_rate": 0.2001953125,
+      "stale_fraction_of_errors": 0.5799180327868853,
+      "n_examples": 1024
+    },
+    {
+      "model": "Independent decay",
+      "pre_delay": 32,
+      "post_delay": 64,
+      "retention_accuracy": 0.4365234375,
+      "overwrite_accuracy": 0.4541015625,
+      "stale_value_error_rate": 0.26171875,
+      "other_error_rate": 0.2841796875,
+      "stale_fraction_of_errors": 0.47942754919499103,
+      "n_examples": 1024
+    },
+    {
+      "model": "Coupled gate",
+      "pre_delay": 32,
+      "post_delay": 64,
+      "retention_accuracy": 0.3642578125,
+      "overwrite_accuracy": 0.4033203125,
+      "stale_value_error_rate": 0.2763671875,
+      "other_error_rate": 0.3203125,
+      "stale_fraction_of_errors": 0.46317512274959083,
+      "n_examples": 1024
+    },
+    {
+      "model": "Baseline",
+      "pre_delay": 64,
+      "post_delay": 0,
+      "retention_accuracy": 0.626953125,
+      "overwrite_accuracy": 0.7607421875,
+      "stale_value_error_rate": 0.15625,
+      "other_error_rate": 0.0830078125,
+      "stale_fraction_of_errors": 0.6530612244897959,
+      "n_examples": 1024
+    },
+    {
+      "model": "Independent decay",
+      "pre_delay": 64,
+      "post_delay": 0,
+      "retention_accuracy": 0.5859375,
+      "overwrite_accuracy": 0.7509765625,
+      "stale_value_error_rate": 0.12890625,
+      "other_error_rate": 0.1201171875,
+      "stale_fraction_of_errors": 0.5176470588235295,
+      "n_examples": 1024
+    },
+    {
+      "model": "Coupled gate",
+      "pre_delay": 64,
+      "post_delay": 0,
+      "retention_accuracy": 0.525390625,
+      "overwrite_accuracy": 0.810546875,
+      "stale_value_error_rate": 0.123046875,
+      "other_error_rate": 0.06640625,
+      "stale_fraction_of_errors": 0.6494845360824743,
+      "n_examples": 1024
+    },
+    {
+      "model": "Baseline",
+      "pre_delay": 64,
+      "post_delay": 1,
+      "retention_accuracy": 0.62109375,
+      "overwrite_accuracy": 0.73828125,
+      "stale_value_error_rate": 0.181640625,
+      "other_error_rate": 0.080078125,
+      "stale_fraction_of_errors": 0.6940298507462687,
+      "n_examples": 1024
+    },
+    {
+      "model": "Independent decay",
+      "pre_delay": 64,
+      "post_delay": 1,
+      "retention_accuracy": 0.580078125,
+      "overwrite_accuracy": 0.80859375,
+      "stale_value_error_rate": 0.1220703125,
+      "other_error_rate": 0.0693359375,
+      "stale_fraction_of_errors": 0.6377551020408163,
+      "n_examples": 1024
+    },
+    {
+      "model": "Coupled gate",
+      "pre_delay": 64,
+      "post_delay": 1,
+      "retention_accuracy": 0.5185546875,
+      "overwrite_accuracy": 0.783203125,
+      "stale_value_error_rate": 0.111328125,
+      "other_error_rate": 0.10546875,
+      "stale_fraction_of_errors": 0.5135135135135135,
+      "n_examples": 1024
+    },
+    {
+      "model": "Baseline",
+      "pre_delay": 64,
+      "post_delay": 4,
+      "retention_accuracy": 0.6025390625,
+      "overwrite_accuracy": 0.8837890625,
+      "stale_value_error_rate": 0.068359375,
+      "other_error_rate": 0.0478515625,
+      "stale_fraction_of_errors": 0.5882352941176471,
+      "n_examples": 1024
+    },
+    {
+      "model": "Independent decay",
+      "pre_delay": 64,
+      "post_delay": 4,
+      "retention_accuracy": 0.5556640625,
+      "overwrite_accuracy": 0.91796875,
+      "stale_value_error_rate": 0.0478515625,
+      "other_error_rate": 0.0341796875,
+      "stale_fraction_of_errors": 0.5833333333333334,
+      "n_examples": 1024
+    },
+    {
+      "model": "Coupled gate",
+      "pre_delay": 64,
+      "post_delay": 4,
+      "retention_accuracy": 0.501953125,
+      "overwrite_accuracy": 0.8837890625,
+      "stale_value_error_rate": 0.0439453125,
+      "other_error_rate": 0.072265625,
+      "stale_fraction_of_errors": 0.37815126050420167,
+      "n_examples": 1024
+    },
+    {
+      "model": "Baseline",
+      "pre_delay": 64,
+      "post_delay": 16,
+      "retention_accuracy": 0.5224609375,
+      "overwrite_accuracy": 0.8134765625,
+      "stale_value_error_rate": 0.109375,
+      "other_error_rate": 0.0771484375,
+      "stale_fraction_of_errors": 0.5863874345549738,
+      "n_examples": 1024
+    },
+    {
+      "model": "Independent decay",
+      "pre_delay": 64,
+      "post_delay": 16,
+      "retention_accuracy": 0.4775390625,
+      "overwrite_accuracy": 0.8359375,
+      "stale_value_error_rate": 0.09375,
+      "other_error_rate": 0.0703125,
+      "stale_fraction_of_errors": 0.5714285714285714,
+      "n_examples": 1024
+    },
+    {
+      "model": "Coupled gate",
+      "pre_delay": 64,
+      "post_delay": 16,
+      "retention_accuracy": 0.41796875,
+      "overwrite_accuracy": 0.7666015625,
+      "stale_value_error_rate": 0.0966796875,
+      "other_error_rate": 0.13671875,
+      "stale_fraction_of_errors": 0.41422594142259417,
+      "n_examples": 1024
+    },
+    {
+      "model": "Baseline",
+      "pre_delay": 64,
+      "post_delay": 32,
+      "retention_accuracy": 0.4560546875,
+      "overwrite_accuracy": 0.765625,
+      "stale_value_error_rate": 0.1328125,
+      "other_error_rate": 0.1015625,
+      "stale_fraction_of_errors": 0.5666666666666667,
+      "n_examples": 1024
+    },
+    {
+      "model": "Independent decay",
+      "pre_delay": 64,
+      "post_delay": 32,
+      "retention_accuracy": 0.423828125,
+      "overwrite_accuracy": 0.6923828125,
+      "stale_value_error_rate": 0.1474609375,
+      "other_error_rate": 0.16015625,
+      "stale_fraction_of_errors": 0.4793650793650794,
+      "n_examples": 1024
+    },
+    {
+      "model": "Coupled gate",
+      "pre_delay": 64,
+      "post_delay": 32,
+      "retention_accuracy": 0.3583984375,
+      "overwrite_accuracy": 0.626953125,
+      "stale_value_error_rate": 0.158203125,
+      "other_error_rate": 0.21484375,
+      "stale_fraction_of_errors": 0.42408376963350786,
+      "n_examples": 1024
+    },
+    {
+      "model": "Baseline",
+      "pre_delay": 64,
+      "post_delay": 64,
+      "retention_accuracy": 0.3291015625,
+      "overwrite_accuracy": 0.5517578125,
+      "stale_value_error_rate": 0.2255859375,
+      "other_error_rate": 0.22265625,
+      "stale_fraction_of_errors": 0.5032679738562091,
+      "n_examples": 1024
+    },
+    {
+      "model": "Independent decay",
+      "pre_delay": 64,
+      "post_delay": 64,
+      "retention_accuracy": 0.3291015625,
+      "overwrite_accuracy": 0.494140625,
+      "stale_value_error_rate": 0.2158203125,
+      "other_error_rate": 0.2900390625,
+      "stale_fraction_of_errors": 0.4266409266409266,
+      "n_examples": 1024
+    },
+    {
+      "model": "Coupled gate",
+      "pre_delay": 64,
+      "post_delay": 64,
+      "retention_accuracy": 0.3408203125,
+      "overwrite_accuracy": 0.404296875,
+      "stale_value_error_rate": 0.24609375,
+      "other_error_rate": 0.349609375,
+      "stale_fraction_of_errors": 0.4131147540983607,
+      "n_examples": 1024
+    },
+    {
+      "model": "Baseline",
+      "pre_delay": 100,
+      "post_delay": 0,
+      "retention_accuracy": 0.443359375,
+      "overwrite_accuracy": 0.794921875,
+      "stale_value_error_rate": 0.08203125,
+      "other_error_rate": 0.123046875,
+      "stale_fraction_of_errors": 0.4,
+      "n_examples": 1024
+    },
+    {
+      "model": "Independent decay",
+      "pre_delay": 100,
+      "post_delay": 0,
+      "retention_accuracy": 0.421875,
+      "overwrite_accuracy": 0.810546875,
+      "stale_value_error_rate": 0.0888671875,
+      "other_error_rate": 0.1005859375,
+      "stale_fraction_of_errors": 0.4690721649484536,
+      "n_examples": 1024
+    },
+    {
+      "model": "Coupled gate",
+      "pre_delay": 100,
+      "post_delay": 0,
+      "retention_accuracy": 0.3623046875,
+      "overwrite_accuracy": 0.8251953125,
+      "stale_value_error_rate": 0.095703125,
+      "other_error_rate": 0.0791015625,
+      "stale_fraction_of_errors": 0.547486033519553,
+      "n_examples": 1024
+    },
+    {
+      "model": "Baseline",
+      "pre_delay": 100,
+      "post_delay": 1,
+      "retention_accuracy": 0.4375,
+      "overwrite_accuracy": 0.80859375,
+      "stale_value_error_rate": 0.0947265625,
+      "other_error_rate": 0.0966796875,
+      "stale_fraction_of_errors": 0.49489795918367346,
+      "n_examples": 1024
+    },
+    {
+      "model": "Independent decay",
+      "pre_delay": 100,
+      "post_delay": 1,
+      "retention_accuracy": 0.4208984375,
+      "overwrite_accuracy": 0.84375,
+      "stale_value_error_rate": 0.0751953125,
+      "other_error_rate": 0.0810546875,
+      "stale_fraction_of_errors": 0.48125,
+      "n_examples": 1024
+    },
+    {
+      "model": "Coupled gate",
+      "pre_delay": 100,
+      "post_delay": 1,
+      "retention_accuracy": 0.3623046875,
+      "overwrite_accuracy": 0.7958984375,
+      "stale_value_error_rate": 0.087890625,
+      "other_error_rate": 0.1162109375,
+      "stale_fraction_of_errors": 0.430622009569378,
+      "n_examples": 1024
+    },
+    {
+      "model": "Baseline",
+      "pre_delay": 100,
+      "post_delay": 4,
+      "retention_accuracy": 0.42578125,
+      "overwrite_accuracy": 0.888671875,
+      "stale_value_error_rate": 0.052734375,
+      "other_error_rate": 0.05859375,
+      "stale_fraction_of_errors": 0.47368421052631576,
+      "n_examples": 1024
+    },
+    {
+      "model": "Independent decay",
+      "pre_delay": 100,
+      "post_delay": 4,
+      "retention_accuracy": 0.4072265625,
+      "overwrite_accuracy": 0.91796875,
+      "stale_value_error_rate": 0.046875,
+      "other_error_rate": 0.03515625,
+      "stale_fraction_of_errors": 0.5714285714285714,
+      "n_examples": 1024
+    },
+    {
+      "model": "Coupled gate",
+      "pre_delay": 100,
+      "post_delay": 4,
+      "retention_accuracy": 0.3583984375,
+      "overwrite_accuracy": 0.884765625,
+      "stale_value_error_rate": 0.0361328125,
+      "other_error_rate": 0.0791015625,
+      "stale_fraction_of_errors": 0.3135593220338983,
+      "n_examples": 1024
+    },
+    {
+      "model": "Baseline",
+      "pre_delay": 100,
+      "post_delay": 16,
+      "retention_accuracy": 0.369140625,
+      "overwrite_accuracy": 0.81640625,
+      "stale_value_error_rate": 0.0751953125,
+      "other_error_rate": 0.1083984375,
+      "stale_fraction_of_errors": 0.4095744680851064,
+      "n_examples": 1024
+    },
+    {
+      "model": "Independent decay",
+      "pre_delay": 100,
+      "post_delay": 16,
+      "retention_accuracy": 0.37109375,
+      "overwrite_accuracy": 0.818359375,
+      "stale_value_error_rate": 0.076171875,
+      "other_error_rate": 0.10546875,
+      "stale_fraction_of_errors": 0.41935483870967744,
+      "n_examples": 1024
+    },
+    {
+      "model": "Coupled gate",
+      "pre_delay": 100,
+      "post_delay": 16,
+      "retention_accuracy": 0.34375,
+      "overwrite_accuracy": 0.767578125,
+      "stale_value_error_rate": 0.0888671875,
+      "other_error_rate": 0.1435546875,
+      "stale_fraction_of_errors": 0.38235294117647056,
+      "n_examples": 1024
+    },
+    {
+      "model": "Baseline",
+      "pre_delay": 100,
+      "post_delay": 32,
+      "retention_accuracy": 0.322265625,
+      "overwrite_accuracy": 0.791015625,
+      "stale_value_error_rate": 0.08203125,
+      "other_error_rate": 0.126953125,
+      "stale_fraction_of_errors": 0.3925233644859813,
+      "n_examples": 1024
+    },
+    {
+      "model": "Independent decay",
+      "pre_delay": 100,
+      "post_delay": 32,
+      "retention_accuracy": 0.3212890625,
+      "overwrite_accuracy": 0.6806640625,
+      "stale_value_error_rate": 0.1240234375,
+      "other_error_rate": 0.1953125,
+      "stale_fraction_of_errors": 0.38837920489296635,
+      "n_examples": 1024
+    },
+    {
+      "model": "Coupled gate",
+      "pre_delay": 100,
+      "post_delay": 32,
+      "retention_accuracy": 0.33984375,
+      "overwrite_accuracy": 0.626953125,
+      "stale_value_error_rate": 0.140625,
+      "other_error_rate": 0.232421875,
+      "stale_fraction_of_errors": 0.3769633507853403,
+      "n_examples": 1024
+    },
+    {
+      "model": "Baseline",
+      "pre_delay": 100,
+      "post_delay": 64,
+      "retention_accuracy": 0.28125,
+      "overwrite_accuracy": 0.5673828125,
+      "stale_value_error_rate": 0.1806640625,
+      "other_error_rate": 0.251953125,
+      "stale_fraction_of_errors": 0.417607223476298,
+      "n_examples": 1024
+    },
+    {
+      "model": "Independent decay",
+      "pre_delay": 100,
+      "post_delay": 64,
+      "retention_accuracy": 0.3203125,
+      "overwrite_accuracy": 0.5107421875,
+      "stale_value_error_rate": 0.19921875,
+      "other_error_rate": 0.2900390625,
+      "stale_fraction_of_errors": 0.40718562874251496,
+      "n_examples": 1024
+    },
+    {
+      "model": "Coupled gate",
+      "pre_delay": 100,
+      "post_delay": 64,
+      "retention_accuracy": 0.30859375,
+      "overwrite_accuracy": 0.40234375,
+      "stale_value_error_rate": 0.23828125,
+      "other_error_rate": 0.359375,
+      "stale_fraction_of_errors": 0.39869281045751637,
+      "n_examples": 1024
+    },
+    {
+      "model": "Baseline",
+      "pre_delay": 128,
+      "post_delay": 0,
+      "retention_accuracy": 0.3408203125,
+      "overwrite_accuracy": 0.7998046875,
+      "stale_value_error_rate": 0.0751953125,
+      "other_error_rate": 0.125,
+      "stale_fraction_of_errors": 0.375609756097561,
+      "n_examples": 1024
+    },
+    {
+      "model": "Independent decay",
+      "pre_delay": 128,
+      "post_delay": 0,
+      "retention_accuracy": 0.318359375,
+      "overwrite_accuracy": 0.8271484375,
+      "stale_value_error_rate": 0.08203125,
+      "other_error_rate": 0.0908203125,
+      "stale_fraction_of_errors": 0.4745762711864407,
+      "n_examples": 1024
+    },
+    {
+      "model": "Coupled gate",
+      "pre_delay": 128,
+      "post_delay": 0,
+      "retention_accuracy": 0.337890625,
+      "overwrite_accuracy": 0.8203125,
+      "stale_value_error_rate": 0.0791015625,
+      "other_error_rate": 0.1005859375,
+      "stale_fraction_of_errors": 0.44021739130434784,
+      "n_examples": 1024
+    },
+    {
+      "model": "Baseline",
+      "pre_delay": 128,
+      "post_delay": 1,
+      "retention_accuracy": 0.3388671875,
+      "overwrite_accuracy": 0.8134765625,
+      "stale_value_error_rate": 0.08203125,
+      "other_error_rate": 0.1044921875,
+      "stale_fraction_of_errors": 0.4397905759162304,
+      "n_examples": 1024
+    },
+    {
+      "model": "Independent decay",
+      "pre_delay": 128,
+      "post_delay": 1,
+      "retention_accuracy": 0.3173828125,
+      "overwrite_accuracy": 0.8564453125,
+      "stale_value_error_rate": 0.0546875,
+      "other_error_rate": 0.0888671875,
+      "stale_fraction_of_errors": 0.38095238095238093,
+      "n_examples": 1024
+    },
+    {
+      "model": "Coupled gate",
+      "pre_delay": 128,
+      "post_delay": 1,
+      "retention_accuracy": 0.337890625,
+      "overwrite_accuracy": 0.8173828125,
+      "stale_value_error_rate": 0.068359375,
+      "other_error_rate": 0.1142578125,
+      "stale_fraction_of_errors": 0.37433155080213903,
+      "n_examples": 1024
+    },
+    {
+      "model": "Baseline",
+      "pre_delay": 128,
+      "post_delay": 4,
+      "retention_accuracy": 0.328125,
+      "overwrite_accuracy": 0.8779296875,
+      "stale_value_error_rate": 0.05078125,
+      "other_error_rate": 0.0712890625,
+      "stale_fraction_of_errors": 0.416,
+      "n_examples": 1024
+    },
+    {
+      "model": "Independent decay",
+      "pre_delay": 128,
+      "post_delay": 4,
+      "retention_accuracy": 0.3134765625,
+      "overwrite_accuracy": 0.916015625,
+      "stale_value_error_rate": 0.037109375,
+      "other_error_rate": 0.046875,
+      "stale_fraction_of_errors": 0.4418604651162791,
+      "n_examples": 1024
+    },
+    {
+      "model": "Coupled gate",
+      "pre_delay": 128,
+      "post_delay": 4,
+      "retention_accuracy": 0.3330078125,
+      "overwrite_accuracy": 0.8681640625,
+      "stale_value_error_rate": 0.0478515625,
+      "other_error_rate": 0.083984375,
+      "stale_fraction_of_errors": 0.362962962962963,
+      "n_examples": 1024
+    },
+    {
+      "model": "Baseline",
+      "pre_delay": 128,
+      "post_delay": 16,
+      "retention_accuracy": 0.3017578125,
+      "overwrite_accuracy": 0.8154296875,
+      "stale_value_error_rate": 0.0712890625,
+      "other_error_rate": 0.11328125,
+      "stale_fraction_of_errors": 0.3862433862433862,
+      "n_examples": 1024
+    },
+    {
+      "model": "Independent decay",
+      "pre_delay": 128,
+      "post_delay": 16,
+      "retention_accuracy": 0.31640625,
+      "overwrite_accuracy": 0.806640625,
+      "stale_value_error_rate": 0.072265625,
+      "other_error_rate": 0.12109375,
+      "stale_fraction_of_errors": 0.37373737373737376,
+      "n_examples": 1024
+    },
+    {
+      "model": "Coupled gate",
+      "pre_delay": 128,
+      "post_delay": 16,
+      "retention_accuracy": 0.3193359375,
+      "overwrite_accuracy": 0.7783203125,
+      "stale_value_error_rate": 0.0830078125,
+      "other_error_rate": 0.138671875,
+      "stale_fraction_of_errors": 0.3744493392070485,
+      "n_examples": 1024
+    },
+    {
+      "model": "Baseline",
+      "pre_delay": 128,
+      "post_delay": 32,
+      "retention_accuracy": 0.28515625,
+      "overwrite_accuracy": 0.7822265625,
+      "stale_value_error_rate": 0.083984375,
+      "other_error_rate": 0.1337890625,
+      "stale_fraction_of_errors": 0.38565022421524664,
+      "n_examples": 1024
+    },
+    {
+      "model": "Independent decay",
+      "pre_delay": 128,
+      "post_delay": 32,
+      "retention_accuracy": 0.32421875,
+      "overwrite_accuracy": 0.6787109375,
+      "stale_value_error_rate": 0.123046875,
+      "other_error_rate": 0.1982421875,
+      "stale_fraction_of_errors": 0.3829787234042553,
+      "n_examples": 1024
+    },
+    {
+      "model": "Coupled gate",
+      "pre_delay": 128,
+      "post_delay": 32,
+      "retention_accuracy": 0.310546875,
+      "overwrite_accuracy": 0.626953125,
+      "stale_value_error_rate": 0.1337890625,
+      "other_error_rate": 0.2392578125,
+      "stale_fraction_of_errors": 0.3586387434554974,
+      "n_examples": 1024
+    },
+    {
+      "model": "Baseline",
+      "pre_delay": 128,
+      "post_delay": 64,
+      "retention_accuracy": 0.25,
+      "overwrite_accuracy": 0.5556640625,
+      "stale_value_error_rate": 0.1748046875,
+      "other_error_rate": 0.26953125,
+      "stale_fraction_of_errors": 0.3934065934065934,
+      "n_examples": 1024
+    },
+    {
+      "model": "Independent decay",
+      "pre_delay": 128,
+      "post_delay": 64,
+      "retention_accuracy": 0.322265625,
+      "overwrite_accuracy": 0.517578125,
+      "stale_value_error_rate": 0.19140625,
+      "other_error_rate": 0.291015625,
+      "stale_fraction_of_errors": 0.3967611336032389,
+      "n_examples": 1024
+    },
+    {
+      "model": "Coupled gate",
+      "pre_delay": 128,
+      "post_delay": 64,
+      "retention_accuracy": 0.283203125,
+      "overwrite_accuracy": 0.4169921875,
+      "stale_value_error_rate": 0.2177734375,
+      "other_error_rate": 0.365234375,
+      "stale_fraction_of_errors": 0.37353433835845895,
+      "n_examples": 1024
+    }
+  ],
+  "contrasts": [
+    {
+      "pre_delay": 10,
+      "post_delay": 0,
+      "metric": "overwrite",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -6.15234375,
+      "ci_low": -9.1796875,
+      "ci_high": -3.02734375
+    },
+    {
+      "pre_delay": 10,
+      "post_delay": 0,
+      "metric": "overwrite",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": -6.93359375,
+      "ci_low": -9.375,
+      "ci_high": -4.58984375
+    },
+    {
+      "pre_delay": 10,
+      "post_delay": 0,
+      "metric": "stale",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 4.296875,
+      "ci_low": 1.07421875,
+      "ci_high": 7.421875
+    },
+    {
+      "pre_delay": 10,
+      "post_delay": 0,
+      "metric": "stale",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 5.859375,
+      "ci_low": 3.3203125,
+      "ci_high": 8.3984375
+    },
+    {
+      "pre_delay": 10,
+      "post_delay": 0,
+      "metric": "retention",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 4.98046875,
+      "ci_low": 3.3203125,
+      "ci_high": 6.73828125
+    },
+    {
+      "pre_delay": 10,
+      "post_delay": 0,
+      "metric": "retention",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 1.7578125,
+      "ci_low": 0.390625,
+      "ci_high": 3.125
+    },
+    {
+      "pre_delay": 10,
+      "post_delay": 1,
+      "metric": "overwrite",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -1.7578125,
+      "ci_low": -4.78515625,
+      "ci_high": 1.3671875
+    },
+    {
+      "pre_delay": 10,
+      "post_delay": 1,
+      "metric": "overwrite",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": -5.078125,
+      "ci_low": -7.32421875,
+      "ci_high": -2.83203125
+    },
+    {
+      "pre_delay": 10,
+      "post_delay": 1,
+      "metric": "stale",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 1.3671875,
+      "ci_low": -1.66015625,
+      "ci_high": 4.39453125
+    },
+    {
+      "pre_delay": 10,
+      "post_delay": 1,
+      "metric": "stale",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 4.8828125,
+      "ci_low": 2.5390625,
+      "ci_high": 7.12890625
+    },
+    {
+      "pre_delay": 10,
+      "post_delay": 1,
+      "metric": "retention",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 5.2734375,
+      "ci_low": 3.515625,
+      "ci_high": 7.03125
+    },
+    {
+      "pre_delay": 10,
+      "post_delay": 1,
+      "metric": "retention",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 1.85546875,
+      "ci_low": 0.48828125,
+      "ci_high": 3.22265625
+    },
+    {
+      "pre_delay": 10,
+      "post_delay": 4,
+      "metric": "overwrite",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 1.5625,
+      "ci_low": -1.5625,
+      "ci_high": 4.58984375
+    },
+    {
+      "pre_delay": 10,
+      "post_delay": 4,
+      "metric": "overwrite",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": -1.26953125,
+      "ci_low": -3.61328125,
+      "ci_high": 1.07421875
+    },
+    {
+      "pre_delay": 10,
+      "post_delay": 4,
+      "metric": "stale",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -2.34375,
+      "ci_low": -5.2734375,
+      "ci_high": 0.5859375
+    },
+    {
+      "pre_delay": 10,
+      "post_delay": 4,
+      "metric": "stale",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": -0.1953125,
+      "ci_low": -2.44140625,
+      "ci_high": 1.953125
+    },
+    {
+      "pre_delay": 10,
+      "post_delay": 4,
+      "metric": "retention",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 4.98046875,
+      "ci_low": 3.22265625,
+      "ci_high": 6.73828125
+    },
+    {
+      "pre_delay": 10,
+      "post_delay": 4,
+      "metric": "retention",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 0.87890625,
+      "ci_low": -0.48828125,
+      "ci_high": 2.24609375
+    },
+    {
+      "pre_delay": 10,
+      "post_delay": 16,
+      "metric": "overwrite",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 2.05078125,
+      "ci_low": -1.171875,
+      "ci_high": 5.2734375
+    },
+    {
+      "pre_delay": 10,
+      "post_delay": 16,
+      "metric": "overwrite",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": -3.90625,
+      "ci_low": -6.4453125,
+      "ci_high": -1.26953125
+    },
+    {
+      "pre_delay": 10,
+      "post_delay": 16,
+      "metric": "stale",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -3.61328125,
+      "ci_low": -6.73828125,
+      "ci_high": -0.5859375
+    },
+    {
+      "pre_delay": 10,
+      "post_delay": 16,
+      "metric": "stale",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 4.19921875,
+      "ci_low": 1.7578125,
+      "ci_high": 6.640625
+    },
+    {
+      "pre_delay": 10,
+      "post_delay": 16,
+      "metric": "retention",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 5.17578125,
+      "ci_low": 3.125,
+      "ci_high": 7.2265625
+    },
+    {
+      "pre_delay": 10,
+      "post_delay": 16,
+      "metric": "retention",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 5.56640625,
+      "ci_low": 3.80859375,
+      "ci_high": 7.32421875
+    },
+    {
+      "pre_delay": 10,
+      "post_delay": 32,
+      "metric": "overwrite",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 0.78125,
+      "ci_low": -2.734375,
+      "ci_high": 4.19921875
+    },
+    {
+      "pre_delay": 10,
+      "post_delay": 32,
+      "metric": "overwrite",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 4.98046875,
+      "ci_low": 2.1484375,
+      "ci_high": 7.71484375
+    },
+    {
+      "pre_delay": 10,
+      "post_delay": 32,
+      "metric": "stale",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -2.734375,
+      "ci_low": -6.15234375,
+      "ci_high": 0.5859375
+    },
+    {
+      "pre_delay": 10,
+      "post_delay": 32,
+      "metric": "stale",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 1.5625,
+      "ci_low": -0.78125,
+      "ci_high": 4.00390625
+    },
+    {
+      "pre_delay": 10,
+      "post_delay": 32,
+      "metric": "retention",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 0.68359375,
+      "ci_low": -2.24609375,
+      "ci_high": 3.61328125
+    },
+    {
+      "pre_delay": 10,
+      "post_delay": 32,
+      "metric": "retention",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 11.328125,
+      "ci_low": 9.08203125,
+      "ci_high": 13.576660156249964
+    },
+    {
+      "pre_delay": 10,
+      "post_delay": 64,
+      "metric": "overwrite",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -6.73828125,
+      "ci_low": -9.9609375,
+      "ci_high": -3.61328125
+    },
+    {
+      "pre_delay": 10,
+      "post_delay": 64,
+      "metric": "overwrite",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 3.02734375,
+      "ci_low": 0.87890625,
+      "ci_high": 5.078125
+    },
+    {
+      "pre_delay": 10,
+      "post_delay": 64,
+      "metric": "stale",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -0.68359375,
+      "ci_low": -3.80859375,
+      "ci_high": 2.44140625
+    },
+    {
+      "pre_delay": 10,
+      "post_delay": 64,
+      "metric": "stale",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 3.22265625,
+      "ci_low": 1.3671875,
+      "ci_high": 5.17578125
+    },
+    {
+      "pre_delay": 10,
+      "post_delay": 64,
+      "metric": "retention",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -4.6875,
+      "ci_low": -7.71484375,
+      "ci_high": -1.5625
+    },
+    {
+      "pre_delay": 10,
+      "post_delay": 64,
+      "metric": "retention",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 4.98046875,
+      "ci_low": 2.734375,
+      "ci_high": 7.2265625
+    },
+    {
+      "pre_delay": 32,
+      "post_delay": 0,
+      "metric": "overwrite",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -4.296875,
+      "ci_low": -7.421875,
+      "ci_high": -1.171875
+    },
+    {
+      "pre_delay": 32,
+      "post_delay": 0,
+      "metric": "overwrite",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": -9.86328125,
+      "ci_low": -12.6953125,
+      "ci_high": -7.03125
+    },
+    {
+      "pre_delay": 32,
+      "post_delay": 0,
+      "metric": "stale",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 2.734375,
+      "ci_low": -0.29296875,
+      "ci_high": 5.6640625
+    },
+    {
+      "pre_delay": 32,
+      "post_delay": 0,
+      "metric": "stale",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 7.8125,
+      "ci_low": 5.17578125,
+      "ci_high": 10.44921875
+    },
+    {
+      "pre_delay": 32,
+      "post_delay": 0,
+      "metric": "retention",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 4.8828125,
+      "ci_low": 2.5390625,
+      "ci_high": 7.2265625
+    },
+    {
+      "pre_delay": 32,
+      "post_delay": 0,
+      "metric": "retention",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 8.203125,
+      "ci_low": 6.15234375,
+      "ci_high": 10.25390625
+    },
+    {
+      "pre_delay": 32,
+      "post_delay": 1,
+      "metric": "overwrite",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 2.24609375,
+      "ci_low": -0.87890625,
+      "ci_high": 5.2734375
+    },
+    {
+      "pre_delay": 32,
+      "post_delay": 1,
+      "metric": "overwrite",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": -5.859375,
+      "ci_low": -8.30078125,
+      "ci_high": -3.41796875
+    },
+    {
+      "pre_delay": 32,
+      "post_delay": 1,
+      "metric": "stale",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -0.9765625,
+      "ci_low": -4.00390625,
+      "ci_high": 2.05078125
+    },
+    {
+      "pre_delay": 32,
+      "post_delay": 1,
+      "metric": "stale",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 6.640625,
+      "ci_low": 4.296875,
+      "ci_high": 8.984375
+    },
+    {
+      "pre_delay": 32,
+      "post_delay": 1,
+      "metric": "retention",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 5.078125,
+      "ci_low": 2.734375,
+      "ci_high": 7.421875
+    },
+    {
+      "pre_delay": 32,
+      "post_delay": 1,
+      "metric": "retention",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 9.5703125,
+      "ci_low": 7.51953125,
+      "ci_high": 11.71875
+    },
+    {
+      "pre_delay": 32,
+      "post_delay": 4,
+      "metric": "overwrite",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 1.26953125,
+      "ci_low": -0.9765625,
+      "ci_high": 3.61328125
+    },
+    {
+      "pre_delay": 32,
+      "post_delay": 4,
+      "metric": "overwrite",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 0.09765625,
+      "ci_low": -1.46484375,
+      "ci_high": 1.66015625
+    },
+    {
+      "pre_delay": 32,
+      "post_delay": 4,
+      "metric": "stale",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -1.953125,
+      "ci_low": -4.1015625,
+      "ci_high": 0.1953125
+    },
+    {
+      "pre_delay": 32,
+      "post_delay": 4,
+      "metric": "stale",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 0.390625,
+      "ci_low": -0.9765625,
+      "ci_high": 1.7578125
+    },
+    {
+      "pre_delay": 32,
+      "post_delay": 4,
+      "metric": "retention",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 5.17578125,
+      "ci_low": 2.63671875,
+      "ci_high": 7.8125
+    },
+    {
+      "pre_delay": 32,
+      "post_delay": 4,
+      "metric": "retention",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 11.42578125,
+      "ci_low": 9.27734375,
+      "ci_high": 13.671875
+    },
+    {
+      "pre_delay": 32,
+      "post_delay": 16,
+      "metric": "overwrite",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 1.85546875,
+      "ci_low": -1.07421875,
+      "ci_high": 4.78515625
+    },
+    {
+      "pre_delay": 32,
+      "post_delay": 16,
+      "metric": "overwrite",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 2.63671875,
+      "ci_low": 0.48828125,
+      "ci_high": 4.6875
+    },
+    {
+      "pre_delay": 32,
+      "post_delay": 16,
+      "metric": "stale",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -1.3671875,
+      "ci_low": -3.80859375,
+      "ci_high": 1.171875
+    },
+    {
+      "pre_delay": 32,
+      "post_delay": 16,
+      "metric": "stale",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 1.3671875,
+      "ci_low": -0.390625,
+      "ci_high": 3.125
+    },
+    {
+      "pre_delay": 32,
+      "post_delay": 16,
+      "metric": "retention",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 0.68359375,
+      "ci_low": -2.44140625,
+      "ci_high": 3.80859375
+    },
+    {
+      "pre_delay": 32,
+      "post_delay": 16,
+      "metric": "retention",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 9.1796875,
+      "ci_low": 7.03125,
+      "ci_high": 11.42578125
+    },
+    {
+      "pre_delay": 32,
+      "post_delay": 32,
+      "metric": "overwrite",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -5.37109375,
+      "ci_low": -8.59375,
+      "ci_high": -2.24609375
+    },
+    {
+      "pre_delay": 32,
+      "post_delay": 32,
+      "metric": "overwrite",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 8.0078125,
+      "ci_low": 5.46875,
+      "ci_high": 10.64453125
+    },
+    {
+      "pre_delay": 32,
+      "post_delay": 32,
+      "metric": "stale",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 1.5625,
+      "ci_low": -1.26953125,
+      "ci_high": 4.39453125
+    },
+    {
+      "pre_delay": 32,
+      "post_delay": 32,
+      "metric": "stale",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 0.1953125,
+      "ci_low": -1.85546875,
+      "ci_high": 2.24609375
+    },
+    {
+      "pre_delay": 32,
+      "post_delay": 32,
+      "metric": "retention",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -2.63671875,
+      "ci_low": -5.76171875,
+      "ci_high": 0.5859375
+    },
+    {
+      "pre_delay": 32,
+      "post_delay": 32,
+      "metric": "retention",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 4.6875,
+      "ci_low": 2.24609375,
+      "ci_high": 7.12890625
+    },
+    {
+      "pre_delay": 32,
+      "post_delay": 64,
+      "metric": "overwrite",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -6.93359375,
+      "ci_low": -9.765625,
+      "ci_high": -4.19921875
+    },
+    {
+      "pre_delay": 32,
+      "post_delay": 64,
+      "metric": "overwrite",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 5.078125,
+      "ci_low": 3.02734375,
+      "ci_high": 7.2265625
+    },
+    {
+      "pre_delay": 32,
+      "post_delay": 64,
+      "metric": "stale",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -1.46484375,
+      "ci_low": -4.39453125,
+      "ci_high": 1.5625
+    },
+    {
+      "pre_delay": 32,
+      "post_delay": 64,
+      "metric": "stale",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": -1.46484375,
+      "ci_low": -3.41796875,
+      "ci_high": 0.48828125
+    },
+    {
+      "pre_delay": 32,
+      "post_delay": 64,
+      "metric": "retention",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -2.24609375,
+      "ci_low": -5.37109375,
+      "ci_high": 0.78125
+    },
+    {
+      "pre_delay": 32,
+      "post_delay": 64,
+      "metric": "retention",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 7.2265625,
+      "ci_low": 4.6875,
+      "ci_high": 9.66796875
+    },
+    {
+      "pre_delay": 64,
+      "post_delay": 0,
+      "metric": "overwrite",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -0.9765625,
+      "ci_low": -4.00390625,
+      "ci_high": 2.05078125
+    },
+    {
+      "pre_delay": 64,
+      "post_delay": 0,
+      "metric": "overwrite",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": -5.95703125,
+      "ci_low": -8.7890625,
+      "ci_high": -3.125
+    },
+    {
+      "pre_delay": 64,
+      "post_delay": 0,
+      "metric": "stale",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -2.734375,
+      "ci_low": -5.178222656249998,
+      "ci_high": -0.390625
+    },
+    {
+      "pre_delay": 64,
+      "post_delay": 0,
+      "metric": "stale",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 0.5859375,
+      "ci_low": -1.5625,
+      "ci_high": 2.734375
+    },
+    {
+      "pre_delay": 64,
+      "post_delay": 0,
+      "metric": "retention",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -4.1015625,
+      "ci_low": -7.32421875,
+      "ci_high": -0.87890625
+    },
+    {
+      "pre_delay": 64,
+      "post_delay": 0,
+      "metric": "retention",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 6.0546875,
+      "ci_low": 3.7109375,
+      "ci_high": 8.49609375
+    },
+    {
+      "pre_delay": 64,
+      "post_delay": 1,
+      "metric": "overwrite",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 7.03125,
+      "ci_low": 4.1015625,
+      "ci_high": 9.86328125
+    },
+    {
+      "pre_delay": 64,
+      "post_delay": 1,
+      "metric": "overwrite",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 2.5390625,
+      "ci_low": 0.09765625,
+      "ci_high": 4.98046875
+    },
+    {
+      "pre_delay": 64,
+      "post_delay": 1,
+      "metric": "stale",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -5.95703125,
+      "ci_low": -8.49609375,
+      "ci_high": -3.41796875
+    },
+    {
+      "pre_delay": 64,
+      "post_delay": 1,
+      "metric": "stale",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 1.07421875,
+      "ci_low": -0.78125,
+      "ci_high": 2.9296875
+    },
+    {
+      "pre_delay": 64,
+      "post_delay": 1,
+      "metric": "retention",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -4.1015625,
+      "ci_low": -7.421875,
+      "ci_high": -0.78125
+    },
+    {
+      "pre_delay": 64,
+      "post_delay": 1,
+      "metric": "retention",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 6.15234375,
+      "ci_low": 3.80859375,
+      "ci_high": 8.49609375
+    },
+    {
+      "pre_delay": 64,
+      "post_delay": 4,
+      "metric": "overwrite",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 3.41796875,
+      "ci_low": 1.5625,
+      "ci_high": 5.17578125
+    },
+    {
+      "pre_delay": 64,
+      "post_delay": 4,
+      "metric": "overwrite",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 3.41796875,
+      "ci_low": 2.05078125,
+      "ci_high": 4.8828125
+    },
+    {
+      "pre_delay": 64,
+      "post_delay": 4,
+      "metric": "stale",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -2.05078125,
+      "ci_low": -3.41796875,
+      "ci_high": -0.68359375
+    },
+    {
+      "pre_delay": 64,
+      "post_delay": 4,
+      "metric": "stale",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 0.390625,
+      "ci_low": -0.390625,
+      "ci_high": 1.171875
+    },
+    {
+      "pre_delay": 64,
+      "post_delay": 4,
+      "metric": "retention",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -4.6875,
+      "ci_low": -7.91015625,
+      "ci_high": -1.3671875
+    },
+    {
+      "pre_delay": 64,
+      "post_delay": 4,
+      "metric": "retention",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 5.37109375,
+      "ci_low": 3.02734375,
+      "ci_high": 7.71484375
+    },
+    {
+      "pre_delay": 64,
+      "post_delay": 16,
+      "metric": "overwrite",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 2.24609375,
+      "ci_low": -0.5859375,
+      "ci_high": 4.98046875
+    },
+    {
+      "pre_delay": 64,
+      "post_delay": 16,
+      "metric": "overwrite",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 6.93359375,
+      "ci_low": 4.58984375,
+      "ci_high": 9.27734375
+    },
+    {
+      "pre_delay": 64,
+      "post_delay": 16,
+      "metric": "stale",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -1.5625,
+      "ci_low": -3.7109375,
+      "ci_high": 0.5859375
+    },
+    {
+      "pre_delay": 64,
+      "post_delay": 16,
+      "metric": "stale",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": -0.29296875,
+      "ci_low": -1.953125,
+      "ci_high": 1.3671875
+    },
+    {
+      "pre_delay": 64,
+      "post_delay": 16,
+      "metric": "retention",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -4.4921875,
+      "ci_low": -7.51953125,
+      "ci_high": -1.5625
+    },
+    {
+      "pre_delay": 64,
+      "post_delay": 16,
+      "metric": "retention",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 5.95703125,
+      "ci_low": 3.7109375,
+      "ci_high": 8.203125
+    },
+    {
+      "pre_delay": 64,
+      "post_delay": 32,
+      "metric": "overwrite",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -7.32421875,
+      "ci_low": -10.25390625,
+      "ci_high": -4.4921875
+    },
+    {
+      "pre_delay": 64,
+      "post_delay": 32,
+      "metric": "overwrite",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 6.54296875,
+      "ci_low": 4.1015625,
+      "ci_high": 8.984375
+    },
+    {
+      "pre_delay": 64,
+      "post_delay": 32,
+      "metric": "stale",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 1.46484375,
+      "ci_low": -1.171875,
+      "ci_high": 4.1015625
+    },
+    {
+      "pre_delay": 64,
+      "post_delay": 32,
+      "metric": "stale",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": -1.07421875,
+      "ci_low": -2.734375,
+      "ci_high": 0.5859375
+    },
+    {
+      "pre_delay": 64,
+      "post_delay": 32,
+      "metric": "retention",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -3.22265625,
+      "ci_low": -6.0546875,
+      "ci_high": -0.29296875
+    },
+    {
+      "pre_delay": 64,
+      "post_delay": 32,
+      "metric": "retention",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 6.54296875,
+      "ci_low": 4.19921875,
+      "ci_high": 8.88671875
+    },
+    {
+      "pre_delay": 64,
+      "post_delay": 64,
+      "metric": "overwrite",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -5.76171875,
+      "ci_low": -8.3984375,
+      "ci_high": -3.02734375
+    },
+    {
+      "pre_delay": 64,
+      "post_delay": 64,
+      "metric": "overwrite",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 8.984375,
+      "ci_low": 6.73828125,
+      "ci_high": 11.23046875
+    },
+    {
+      "pre_delay": 64,
+      "post_delay": 64,
+      "metric": "stale",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -0.9765625,
+      "ci_low": -3.80859375,
+      "ci_high": 1.85546875
+    },
+    {
+      "pre_delay": 64,
+      "post_delay": 64,
+      "metric": "stale",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": -3.02734375,
+      "ci_low": -4.6875,
+      "ci_high": -1.46484375
+    },
+    {
+      "pre_delay": 64,
+      "post_delay": 64,
+      "metric": "retention",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 0.0,
+      "ci_low": -3.22265625,
+      "ci_high": 3.22265625
+    },
+    {
+      "pre_delay": 64,
+      "post_delay": 64,
+      "metric": "retention",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": -1.171875,
+      "ci_low": -3.515625,
+      "ci_high": 1.26953125
+    },
+    {
+      "pre_delay": 100,
+      "post_delay": 0,
+      "metric": "overwrite",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 1.5625,
+      "ci_low": -1.3671875,
+      "ci_high": 4.4921875
+    },
+    {
+      "pre_delay": 100,
+      "post_delay": 0,
+      "metric": "overwrite",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": -1.46484375,
+      "ci_low": -4.296875,
+      "ci_high": 1.46484375
+    },
+    {
+      "pre_delay": 100,
+      "post_delay": 0,
+      "metric": "stale",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 0.68359375,
+      "ci_low": -1.26953125,
+      "ci_high": 2.63671875
+    },
+    {
+      "pre_delay": 100,
+      "post_delay": 0,
+      "metric": "stale",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": -0.68359375,
+      "ci_low": -2.734375,
+      "ci_high": 1.3671875
+    },
+    {
+      "pre_delay": 100,
+      "post_delay": 0,
+      "metric": "retention",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -2.1484375,
+      "ci_low": -5.17578125,
+      "ci_high": 0.87890625
+    },
+    {
+      "pre_delay": 100,
+      "post_delay": 0,
+      "metric": "retention",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 5.95703125,
+      "ci_low": 3.515625,
+      "ci_high": 8.49609375
+    },
+    {
+      "pre_delay": 100,
+      "post_delay": 1,
+      "metric": "overwrite",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 3.515625,
+      "ci_low": 1.07421875,
+      "ci_high": 5.95703125
+    },
+    {
+      "pre_delay": 100,
+      "post_delay": 1,
+      "metric": "overwrite",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 4.78515625,
+      "ci_low": 2.5390625,
+      "ci_high": 7.12890625
+    },
+    {
+      "pre_delay": 100,
+      "post_delay": 1,
+      "metric": "stale",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -1.953125,
+      "ci_low": -3.90625,
+      "ci_high": 0.0
+    },
+    {
+      "pre_delay": 100,
+      "post_delay": 1,
+      "metric": "stale",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": -1.26953125,
+      "ci_low": -2.83203125,
+      "ci_high": 0.390625
+    },
+    {
+      "pre_delay": 100,
+      "post_delay": 1,
+      "metric": "retention",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -1.66015625,
+      "ci_low": -4.6875,
+      "ci_high": 1.3671875
+    },
+    {
+      "pre_delay": 100,
+      "post_delay": 1,
+      "metric": "retention",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 5.859375,
+      "ci_low": 3.41796875,
+      "ci_high": 8.3984375
+    },
+    {
+      "pre_delay": 100,
+      "post_delay": 4,
+      "metric": "overwrite",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 2.9296875,
+      "ci_low": 1.07421875,
+      "ci_high": 4.7875976562499645
+    },
+    {
+      "pre_delay": 100,
+      "post_delay": 4,
+      "metric": "overwrite",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 3.3203125,
+      "ci_low": 1.66015625,
+      "ci_high": 5.078125
+    },
+    {
+      "pre_delay": 100,
+      "post_delay": 4,
+      "metric": "stale",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -0.5859375,
+      "ci_low": -1.85546875,
+      "ci_high": 0.68359375
+    },
+    {
+      "pre_delay": 100,
+      "post_delay": 4,
+      "metric": "stale",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 1.07421875,
+      "ci_low": 0.1953125,
+      "ci_high": 2.05078125
+    },
+    {
+      "pre_delay": 100,
+      "post_delay": 4,
+      "metric": "retention",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -1.85546875,
+      "ci_low": -4.8828125,
+      "ci_high": 1.26953125
+    },
+    {
+      "pre_delay": 100,
+      "post_delay": 4,
+      "metric": "retention",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 4.8828125,
+      "ci_low": 2.44140625,
+      "ci_high": 7.421875
+    },
+    {
+      "pre_delay": 100,
+      "post_delay": 16,
+      "metric": "overwrite",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 0.1953125,
+      "ci_low": -2.5390625,
+      "ci_high": 2.9296875
+    },
+    {
+      "pre_delay": 100,
+      "post_delay": 16,
+      "metric": "overwrite",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 5.078125,
+      "ci_low": 3.02734375,
+      "ci_high": 7.2265625
+    },
+    {
+      "pre_delay": 100,
+      "post_delay": 16,
+      "metric": "stale",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 0.09765625,
+      "ci_low": -1.66015625,
+      "ci_high": 1.85546875
+    },
+    {
+      "pre_delay": 100,
+      "post_delay": 16,
+      "metric": "stale",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": -1.26953125,
+      "ci_low": -2.734375,
+      "ci_high": 0.09765625
+    },
+    {
+      "pre_delay": 100,
+      "post_delay": 16,
+      "metric": "retention",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 0.1953125,
+      "ci_low": -3.02734375,
+      "ci_high": 3.3203125
+    },
+    {
+      "pre_delay": 100,
+      "post_delay": 16,
+      "metric": "retention",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 2.734375,
+      "ci_low": 0.390625,
+      "ci_high": 5.17578125
+    },
+    {
+      "pre_delay": 100,
+      "post_delay": 32,
+      "metric": "overwrite",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -11.03515625,
+      "ci_low": -13.671875,
+      "ci_high": -8.3984375
+    },
+    {
+      "pre_delay": 100,
+      "post_delay": 32,
+      "metric": "overwrite",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 5.37109375,
+      "ci_low": 2.9296875,
+      "ci_high": 7.8125
+    },
+    {
+      "pre_delay": 100,
+      "post_delay": 32,
+      "metric": "stale",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 4.19921875,
+      "ci_low": 2.05078125,
+      "ci_high": 6.4453125
+    },
+    {
+      "pre_delay": 100,
+      "post_delay": 32,
+      "metric": "stale",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": -1.66015625,
+      "ci_low": -3.22265625,
+      "ci_high": -0.09765625
+    },
+    {
+      "pre_delay": 100,
+      "post_delay": 32,
+      "metric": "retention",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -0.09765625,
+      "ci_low": -3.22265625,
+      "ci_high": 2.9296875
+    },
+    {
+      "pre_delay": 100,
+      "post_delay": 32,
+      "metric": "retention",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": -1.85546875,
+      "ci_low": -4.1015625,
+      "ci_high": 0.390625
+    },
+    {
+      "pre_delay": 100,
+      "post_delay": 64,
+      "metric": "overwrite",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -5.6640625,
+      "ci_low": -8.3984375,
+      "ci_high": -2.9296875
+    },
+    {
+      "pre_delay": 100,
+      "post_delay": 64,
+      "metric": "overwrite",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 10.83984375,
+      "ci_low": 8.7890625,
+      "ci_high": 12.98828125
+    },
+    {
+      "pre_delay": 100,
+      "post_delay": 64,
+      "metric": "stale",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 1.85546875,
+      "ci_low": -0.78125,
+      "ci_high": 4.4921875
+    },
+    {
+      "pre_delay": 100,
+      "post_delay": 64,
+      "metric": "stale",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": -3.90625,
+      "ci_low": -5.6640625,
+      "ci_high": -2.1484375
+    },
+    {
+      "pre_delay": 100,
+      "post_delay": 64,
+      "metric": "retention",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 3.90625,
+      "ci_low": 1.07421875,
+      "ci_high": 6.73828125
+    },
+    {
+      "pre_delay": 100,
+      "post_delay": 64,
+      "metric": "retention",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 1.171875,
+      "ci_low": -0.390625,
+      "ci_high": 2.734375
+    },
+    {
+      "pre_delay": 128,
+      "post_delay": 0,
+      "metric": "overwrite",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 2.734375,
+      "ci_low": -0.1953125,
+      "ci_high": 5.56640625
+    },
+    {
+      "pre_delay": 128,
+      "post_delay": 0,
+      "metric": "overwrite",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 0.68359375,
+      "ci_low": -2.05078125,
+      "ci_high": 3.41796875
+    },
+    {
+      "pre_delay": 128,
+      "post_delay": 0,
+      "metric": "stale",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 0.68359375,
+      "ci_low": -1.07421875,
+      "ci_high": 2.44140625
+    },
+    {
+      "pre_delay": 128,
+      "post_delay": 0,
+      "metric": "stale",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 0.29296875,
+      "ci_low": -1.5625,
+      "ci_high": 2.1484375
+    },
+    {
+      "pre_delay": 128,
+      "post_delay": 0,
+      "metric": "retention",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -2.24609375,
+      "ci_low": -5.46875,
+      "ci_high": 0.9765625
+    },
+    {
+      "pre_delay": 128,
+      "post_delay": 0,
+      "metric": "retention",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": -1.953125,
+      "ci_low": -4.296875,
+      "ci_high": 0.390625
+    },
+    {
+      "pre_delay": 128,
+      "post_delay": 1,
+      "metric": "overwrite",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 4.296875,
+      "ci_low": 2.1484375,
+      "ci_high": 6.54296875
+    },
+    {
+      "pre_delay": 128,
+      "post_delay": 1,
+      "metric": "overwrite",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 3.90625,
+      "ci_low": 1.7578125,
+      "ci_high": 6.0546875
+    },
+    {
+      "pre_delay": 128,
+      "post_delay": 1,
+      "metric": "stale",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -2.734375,
+      "ci_low": -4.58984375,
+      "ci_high": -0.9765625
+    },
+    {
+      "pre_delay": 128,
+      "post_delay": 1,
+      "metric": "stale",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": -1.3671875,
+      "ci_low": -2.734375,
+      "ci_high": 0.0
+    },
+    {
+      "pre_delay": 128,
+      "post_delay": 1,
+      "metric": "retention",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -2.1484375,
+      "ci_low": -5.37109375,
+      "ci_high": 0.9765625
+    },
+    {
+      "pre_delay": 128,
+      "post_delay": 1,
+      "metric": "retention",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": -2.05078125,
+      "ci_low": -4.296875,
+      "ci_high": 0.1953125
+    },
+    {
+      "pre_delay": 128,
+      "post_delay": 4,
+      "metric": "overwrite",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 3.80859375,
+      "ci_low": 1.85546875,
+      "ci_high": 5.76171875
+    },
+    {
+      "pre_delay": 128,
+      "post_delay": 4,
+      "metric": "overwrite",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 4.78515625,
+      "ci_low": 2.9296875,
+      "ci_high": 6.640625
+    },
+    {
+      "pre_delay": 128,
+      "post_delay": 4,
+      "metric": "stale",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -1.3671875,
+      "ci_low": -2.734375,
+      "ci_high": -0.09765625
+    },
+    {
+      "pre_delay": 128,
+      "post_delay": 4,
+      "metric": "stale",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": -1.07421875,
+      "ci_low": -2.24609375,
+      "ci_high": 0.09765625
+    },
+    {
+      "pre_delay": 128,
+      "post_delay": 4,
+      "metric": "retention",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -1.46484375,
+      "ci_low": -4.592285156249998,
+      "ci_high": 1.66015625
+    },
+    {
+      "pre_delay": 128,
+      "post_delay": 4,
+      "metric": "retention",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": -1.953125,
+      "ci_low": -4.296875,
+      "ci_high": 0.29296875
+    },
+    {
+      "pre_delay": 128,
+      "post_delay": 16,
+      "metric": "overwrite",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -0.87890625,
+      "ci_low": -3.7109375,
+      "ci_high": 2.05078125
+    },
+    {
+      "pre_delay": 128,
+      "post_delay": 16,
+      "metric": "overwrite",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 2.83203125,
+      "ci_low": 0.68359375,
+      "ci_high": 4.98046875
+    },
+    {
+      "pre_delay": 128,
+      "post_delay": 16,
+      "metric": "stale",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 0.09765625,
+      "ci_low": -1.7578125,
+      "ci_high": 1.85546875
+    },
+    {
+      "pre_delay": 128,
+      "post_delay": 16,
+      "metric": "stale",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": -1.07421875,
+      "ci_low": -2.44140625,
+      "ci_high": 0.29296875
+    },
+    {
+      "pre_delay": 128,
+      "post_delay": 16,
+      "metric": "retention",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 1.46484375,
+      "ci_low": -1.46484375,
+      "ci_high": 4.39453125
+    },
+    {
+      "pre_delay": 128,
+      "post_delay": 16,
+      "metric": "retention",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": -0.29296875,
+      "ci_low": -2.1484375,
+      "ci_high": 1.5649414062499645
+    },
+    {
+      "pre_delay": 128,
+      "post_delay": 32,
+      "metric": "overwrite",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -10.3515625,
+      "ci_low": -13.0859375,
+      "ci_high": -7.71484375
+    },
+    {
+      "pre_delay": 128,
+      "post_delay": 32,
+      "metric": "overwrite",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 5.17578125,
+      "ci_low": 2.734375,
+      "ci_high": 7.6171875
+    },
+    {
+      "pre_delay": 128,
+      "post_delay": 32,
+      "metric": "stale",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 3.90625,
+      "ci_low": 1.66015625,
+      "ci_high": 6.0546875
+    },
+    {
+      "pre_delay": 128,
+      "post_delay": 32,
+      "metric": "stale",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": -1.07421875,
+      "ci_low": -2.5390625,
+      "ci_high": 0.48828125
+    },
+    {
+      "pre_delay": 128,
+      "post_delay": 32,
+      "metric": "retention",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 3.90625,
+      "ci_low": 0.9765625,
+      "ci_high": 6.8359375
+    },
+    {
+      "pre_delay": 128,
+      "post_delay": 32,
+      "metric": "retention",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 1.3671875,
+      "ci_low": -0.2954101562499978,
+      "ci_high": 3.02734375
+    },
+    {
+      "pre_delay": 128,
+      "post_delay": 64,
+      "metric": "overwrite",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -3.80859375,
+      "ci_low": -6.73828125,
+      "ci_high": -0.9765625
+    },
+    {
+      "pre_delay": 128,
+      "post_delay": 64,
+      "metric": "overwrite",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 10.05859375,
+      "ci_low": 8.10546875,
+      "ci_high": 12.109375
+    },
+    {
+      "pre_delay": 128,
+      "post_delay": 64,
+      "metric": "stale",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 1.66015625,
+      "ci_low": -1.07421875,
+      "ci_high": 4.39453125
+    },
+    {
+      "pre_delay": 128,
+      "post_delay": 64,
+      "metric": "stale",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": -2.63671875,
+      "ci_low": -4.39453125,
+      "ci_high": -0.87890625
+    },
+    {
+      "pre_delay": 128,
+      "post_delay": 64,
+      "metric": "retention",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 7.2265625,
+      "ci_low": 4.58984375,
+      "ci_high": 9.9609375
+    },
+    {
+      "pre_delay": 128,
+      "post_delay": 64,
+      "metric": "retention",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 3.90625,
+      "ci_low": 2.05078125,
+      "ci_high": 5.76171875
+    }
+  ]
+}

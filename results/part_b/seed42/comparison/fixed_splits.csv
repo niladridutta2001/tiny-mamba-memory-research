@@ -1,0 +1,16 @@
+model,split,condition,length,query_accuracy,query_count
+Baseline,test_id,ID,128,0.7504544703354817,12102
+Baseline,test_ood_256,OOD,256,0.7122774527547455,23759
+Baseline,test_ood_512,OOD,512,0.6964407939767283,46752
+Baseline,stress_gap_512,Delay stress,512,0.6958747168496253,45912
+Baseline,stress_overwrite_512,Overwrite stress,512,0.696699684242398,46238
+Key-conditioned,test_id,ID,128,0.7557428524210874,12102
+Key-conditioned,test_ood_256,OOD,256,0.7154341512689928,23759
+Key-conditioned,test_ood_512,OOD,512,0.6986225188227242,46752
+Key-conditioned,stress_gap_512,Delay stress,512,0.7006229308241854,45912
+Key-conditioned,stress_overwrite_512,Overwrite stress,512,0.6955101864267486,46238
+Tied routing,test_id,ID,128,0.7549991736902991,12102
+Tied routing,test_ood_256,OOD,256,0.7142135611768172,23759
+Tied routing,test_ood_512,OOD,512,0.6975102669404517,46752
+Tied routing,stress_gap_512,Delay stress,512,0.6995774525178603,45912
+Tied routing,stress_overwrite_512,Overwrite stress,512,0.6949695056014533,46238

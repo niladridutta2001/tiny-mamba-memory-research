@@ -1,0 +1,109 @@
+test,model,condition_a,condition_b,accuracy
+retention,Baseline,10,,0.8896484375
+retention,Independent decay,10,,0.9462890625
+retention,Coupled gate,10,,0.919921875
+retention,Baseline,32,,0.8212890625
+retention,Independent decay,32,,0.8818359375
+retention,Coupled gate,32,,0.779296875
+retention,Baseline,64,,0.6318359375
+retention,Independent decay,64,,0.599609375
+retention,Coupled gate,64,,0.5419921875
+retention,Baseline,128,,0.3349609375
+retention,Independent decay,128,,0.333984375
+retention,Coupled gate,128,,0.3408203125
+retention,Baseline,256,,0.2197265625
+retention,Independent decay,256,,0.314453125
+retention,Coupled gate,256,,0.279296875
+retention,Baseline,500,,0.25
+retention,Independent decay,500,,0.25
+retention,Coupled gate,500,,0.25
+interference,Baseline,10,0.0,0.873046875
+interference,Independent decay,10,0.0,0.9384765625
+interference,Coupled gate,10,0.0,0.9169921875
+interference,Baseline,10,0.1,0.865234375
+interference,Independent decay,10,0.1,0.9326171875
+interference,Coupled gate,10,0.1,0.912109375
+interference,Baseline,10,0.25,0.859375
+interference,Independent decay,10,0.25,0.9267578125
+interference,Coupled gate,10,0.25,0.900390625
+interference,Baseline,10,0.5,0.828125
+interference,Independent decay,10,0.5,0.8916015625
+interference,Coupled gate,10,0.5,0.8388671875
+interference,Baseline,10,0.75,0.755859375
+interference,Independent decay,10,0.75,0.822265625
+interference,Coupled gate,10,0.75,0.7607421875
+interference,Baseline,10,1.0,0.7041015625
+interference,Independent decay,10,1.0,0.7431640625
+interference,Coupled gate,10,1.0,0.7001953125
+interference,Baseline,32,0.0,0.83203125
+interference,Independent decay,32,0.0,0.875
+interference,Coupled gate,32,0.0,0.7822265625
+interference,Baseline,32,0.1,0.7958984375
+interference,Independent decay,32,0.1,0.8427734375
+interference,Coupled gate,32,0.1,0.76171875
+interference,Baseline,32,0.25,0.7021484375
+interference,Independent decay,32,0.25,0.7705078125
+interference,Coupled gate,32,0.25,0.6826171875
+interference,Baseline,32,0.5,0.4814453125
+interference,Independent decay,32,0.5,0.55859375
+interference,Coupled gate,32,0.5,0.5048828125
+interference,Baseline,32,0.75,0.3447265625
+interference,Independent decay,32,0.75,0.4111328125
+interference,Coupled gate,32,0.75,0.37109375
+interference,Baseline,32,1.0,0.283203125
+interference,Independent decay,32,1.0,0.328125
+interference,Coupled gate,32,1.0,0.3037109375
+interference,Baseline,64,0.0,0.61328125
+interference,Independent decay,64,0.0,0.5830078125
+interference,Coupled gate,64,0.0,0.546875
+interference,Baseline,64,0.1,0.5263671875
+interference,Independent decay,64,0.1,0.5302734375
+interference,Coupled gate,64,0.1,0.4658203125
+interference,Baseline,64,0.25,0.3662109375
+interference,Independent decay,64,0.25,0.4013671875
+interference,Coupled gate,64,0.25,0.365234375
+interference,Baseline,64,0.5,0.240234375
+interference,Independent decay,64,0.5,0.2978515625
+interference,Coupled gate,64,0.5,0.271484375
+interference,Baseline,64,0.75,0.2158203125
+interference,Independent decay,64,0.75,0.2470703125
+interference,Coupled gate,64,0.75,0.2275390625
+interference,Baseline,64,1.0,0.2197265625
+interference,Independent decay,64,1.0,0.216796875
+interference,Coupled gate,64,1.0,0.21484375
+interference,Baseline,128,0.0,0.3359375
+interference,Independent decay,128,0.0,0.330078125
+interference,Coupled gate,128,0.0,0.337890625
+interference,Baseline,128,0.1,0.2822265625
+interference,Independent decay,128,0.1,0.2998046875
+interference,Coupled gate,128,0.1,0.3056640625
+interference,Baseline,128,0.25,0.2314453125
+interference,Independent decay,128,0.25,0.26953125
+interference,Coupled gate,128,0.25,0.2548828125
+interference,Baseline,128,0.5,0.2138671875
+interference,Independent decay,128,0.5,0.24609375
+interference,Coupled gate,128,0.5,0.255859375
+interference,Baseline,128,0.75,0.2001953125
+interference,Independent decay,128,0.75,0.2431640625
+interference,Coupled gate,128,0.75,0.23828125
+interference,Baseline,128,1.0,0.18359375
+interference,Independent decay,128,1.0,0.234375
+interference,Coupled gate,128,1.0,0.220703125
+overwrite,Baseline,1,32,0.5478515625
+overwrite,Independent decay,1,32,0.5185546875
+overwrite,Coupled gate,1,32,0.4990234375
+overwrite,Baseline,1,64,0.4345703125
+overwrite,Independent decay,1,64,0.3984375
+overwrite,Coupled gate,1,64,0.3544921875
+overwrite,Baseline,4,32,0.49609375
+overwrite,Independent decay,4,32,0.4794921875
+overwrite,Coupled gate,4,32,0.4619140625
+overwrite,Baseline,4,64,0.4404296875
+overwrite,Independent decay,4,64,0.4345703125
+overwrite,Coupled gate,4,64,0.3701171875
+overwrite,Baseline,8,32,0.4404296875
+overwrite,Independent decay,8,32,0.4248046875
+overwrite,Coupled gate,8,32,0.40625
+overwrite,Baseline,8,64,0.4033203125
+overwrite,Independent decay,8,64,0.3955078125
+overwrite,Coupled gate,8,64,0.3369140625

@@ -1,0 +1,577 @@
+{
+  "supplementary_diagnostic": true,
+  "mandatory_baseline_d_conv": 4,
+  "caveat": "Changing d_conv changes parameter count, initialization trajectory, and optimization behavior.",
+  "pre_delay": 100,
+  "post_delays": [
+    0,
+    1,
+    2,
+    4,
+    8,
+    16,
+    32
+  ],
+  "examples_per_condition": 1024,
+  "bootstrap_draws": 10000,
+  "checkpoints": {
+    "1": "results\\selective_retention\\seed42\\dconv_sweep\\dconv1\\u1500\\baseline.pt",
+    "2": "results\\selective_retention\\seed42\\dconv_sweep\\dconv2\\u1500\\baseline.pt",
+    "4": "results\\selective_retention\\seed42\\event_decay\\u1500\\baseline.pt",
+    "8": "results\\selective_retention\\seed42\\dconv_sweep\\dconv8\\u1500\\baseline.pt"
+  },
+  "peaks": [
+    {
+      "d_conv": 1,
+      "peak_post_delay": 0,
+      "peak_accuracy": 0.9169921875,
+      "immediate_accuracy": 0.9169921875,
+      "peak_gain_pp": 0.0,
+      "peak_gain_ci_low": 0.0,
+      "peak_gain_ci_high": 0.0,
+      "validation_accuracy": 0.940201818861343,
+      "parameter_count": 10149
+    },
+    {
+      "d_conv": 2,
+      "peak_post_delay": 0,
+      "peak_accuracy": 0.9375,
+      "immediate_accuracy": 0.9375,
+      "peak_gain_pp": 0.0,
+      "peak_gain_ci_low": 0.0,
+      "peak_gain_ci_high": 0.0,
+      "validation_accuracy": 0.7771271957144636,
+      "parameter_count": 10213
+    },
+    {
+      "d_conv": 4,
+      "peak_post_delay": 2,
+      "peak_accuracy": 0.94921875,
+      "immediate_accuracy": 0.810546875,
+      "peak_gain_pp": 13.8671875,
+      "peak_gain_ci_low": 11.62109375,
+      "peak_gain_ci_high": 16.30859375,
+      "validation_accuracy": 0.8029151613305096,
+      "parameter_count": 10341
+    },
+    {
+      "d_conv": 8,
+      "peak_post_delay": 4,
+      "peak_accuracy": 0.9736328125,
+      "immediate_accuracy": 0.892578125,
+      "peak_gain_pp": 8.10546875,
+      "peak_gain_ci_low": 6.34765625,
+      "peak_gain_ci_high": 9.9609375,
+      "validation_accuracy": 0.8065279681076367,
+      "parameter_count": 10597
+    }
+  ],
+  "metrics": [
+    {
+      "d_conv": 1,
+      "post_delay": 0,
+      "overwrite_accuracy": 0.9169921875,
+      "stale_value_error_rate": 0.0654296875,
+      "other_error_rate": 0.017578125,
+      "retention_accuracy": 1.0,
+      "validation_accuracy": 0.940201818861343,
+      "parameter_count": 10149,
+      "n_examples": 1024
+    },
+    {
+      "d_conv": 2,
+      "post_delay": 0,
+      "overwrite_accuracy": 0.9375,
+      "stale_value_error_rate": 0.05078125,
+      "other_error_rate": 0.01171875,
+      "retention_accuracy": 0.54296875,
+      "validation_accuracy": 0.7771271957144636,
+      "parameter_count": 10213,
+      "n_examples": 1024
+    },
+    {
+      "d_conv": 4,
+      "post_delay": 0,
+      "overwrite_accuracy": 0.810546875,
+      "stale_value_error_rate": 0.0888671875,
+      "other_error_rate": 0.1005859375,
+      "retention_accuracy": 0.421875,
+      "validation_accuracy": 0.8029151613305096,
+      "parameter_count": 10341,
+      "n_examples": 1024
+    },
+    {
+      "d_conv": 8,
+      "post_delay": 0,
+      "overwrite_accuracy": 0.892578125,
+      "stale_value_error_rate": 0.0615234375,
+      "other_error_rate": 0.0458984375,
+      "retention_accuracy": 0.43359375,
+      "validation_accuracy": 0.8065279681076367,
+      "parameter_count": 10597,
+      "n_examples": 1024
+    },
+    {
+      "d_conv": 1,
+      "post_delay": 1,
+      "overwrite_accuracy": 0.916015625,
+      "stale_value_error_rate": 0.06640625,
+      "other_error_rate": 0.017578125,
+      "retention_accuracy": 1.0,
+      "validation_accuracy": 0.940201818861343,
+      "parameter_count": 10149,
+      "n_examples": 1024
+    },
+    {
+      "d_conv": 2,
+      "post_delay": 1,
+      "overwrite_accuracy": 0.8818359375,
+      "stale_value_error_rate": 0.09765625,
+      "other_error_rate": 0.0205078125,
+      "retention_accuracy": 0.541015625,
+      "validation_accuracy": 0.7771271957144636,
+      "parameter_count": 10213,
+      "n_examples": 1024
+    },
+    {
+      "d_conv": 4,
+      "post_delay": 1,
+      "overwrite_accuracy": 0.84375,
+      "stale_value_error_rate": 0.0751953125,
+      "other_error_rate": 0.0810546875,
+      "retention_accuracy": 0.4208984375,
+      "validation_accuracy": 0.8029151613305096,
+      "parameter_count": 10341,
+      "n_examples": 1024
+    },
+    {
+      "d_conv": 8,
+      "post_delay": 1,
+      "overwrite_accuracy": 0.916015625,
+      "stale_value_error_rate": 0.056640625,
+      "other_error_rate": 0.02734375,
+      "retention_accuracy": 0.43359375,
+      "validation_accuracy": 0.8065279681076367,
+      "parameter_count": 10597,
+      "n_examples": 1024
+    },
+    {
+      "d_conv": 1,
+      "post_delay": 2,
+      "overwrite_accuracy": 0.916015625,
+      "stale_value_error_rate": 0.06640625,
+      "other_error_rate": 0.017578125,
+      "retention_accuracy": 1.0,
+      "validation_accuracy": 0.940201818861343,
+      "parameter_count": 10149,
+      "n_examples": 1024
+    },
+    {
+      "d_conv": 2,
+      "post_delay": 2,
+      "overwrite_accuracy": 0.8408203125,
+      "stale_value_error_rate": 0.109375,
+      "other_error_rate": 0.0498046875,
+      "retention_accuracy": 0.5400390625,
+      "validation_accuracy": 0.7771271957144636,
+      "parameter_count": 10213,
+      "n_examples": 1024
+    },
+    {
+      "d_conv": 4,
+      "post_delay": 2,
+      "overwrite_accuracy": 0.94921875,
+      "stale_value_error_rate": 0.0244140625,
+      "other_error_rate": 0.0263671875,
+      "retention_accuracy": 0.419921875,
+      "validation_accuracy": 0.8029151613305096,
+      "parameter_count": 10341,
+      "n_examples": 1024
+    },
+    {
+      "d_conv": 8,
+      "post_delay": 2,
+      "overwrite_accuracy": 0.9716796875,
+      "stale_value_error_rate": 0.0234375,
+      "other_error_rate": 0.0048828125,
+      "retention_accuracy": 0.4306640625,
+      "validation_accuracy": 0.8065279681076367,
+      "parameter_count": 10597,
+      "n_examples": 1024
+    },
+    {
+      "d_conv": 1,
+      "post_delay": 4,
+      "overwrite_accuracy": 0.9169921875,
+      "stale_value_error_rate": 0.0654296875,
+      "other_error_rate": 0.017578125,
+      "retention_accuracy": 1.0,
+      "validation_accuracy": 0.940201818861343,
+      "parameter_count": 10149,
+      "n_examples": 1024
+    },
+    {
+      "d_conv": 2,
+      "post_delay": 4,
+      "overwrite_accuracy": 0.8330078125,
+      "stale_value_error_rate": 0.111328125,
+      "other_error_rate": 0.0556640625,
+      "retention_accuracy": 0.5380859375,
+      "validation_accuracy": 0.7771271957144636,
+      "parameter_count": 10213,
+      "n_examples": 1024
+    },
+    {
+      "d_conv": 4,
+      "post_delay": 4,
+      "overwrite_accuracy": 0.91796875,
+      "stale_value_error_rate": 0.046875,
+      "other_error_rate": 0.03515625,
+      "retention_accuracy": 0.4072265625,
+      "validation_accuracy": 0.8029151613305096,
+      "parameter_count": 10341,
+      "n_examples": 1024
+    },
+    {
+      "d_conv": 8,
+      "post_delay": 4,
+      "overwrite_accuracy": 0.9736328125,
+      "stale_value_error_rate": 0.01953125,
+      "other_error_rate": 0.0068359375,
+      "retention_accuracy": 0.427734375,
+      "validation_accuracy": 0.8065279681076367,
+      "parameter_count": 10597,
+      "n_examples": 1024
+    },
+    {
+      "d_conv": 1,
+      "post_delay": 8,
+      "overwrite_accuracy": 0.9091796875,
+      "stale_value_error_rate": 0.0732421875,
+      "other_error_rate": 0.017578125,
+      "retention_accuracy": 1.0,
+      "validation_accuracy": 0.940201818861343,
+      "parameter_count": 10149,
+      "n_examples": 1024
+    },
+    {
+      "d_conv": 2,
+      "post_delay": 8,
+      "overwrite_accuracy": 0.8232421875,
+      "stale_value_error_rate": 0.1142578125,
+      "other_error_rate": 0.0625,
+      "retention_accuracy": 0.5322265625,
+      "validation_accuracy": 0.7771271957144636,
+      "parameter_count": 10213,
+      "n_examples": 1024
+    },
+    {
+      "d_conv": 4,
+      "post_delay": 8,
+      "overwrite_accuracy": 0.869140625,
+      "stale_value_error_rate": 0.0634765625,
+      "other_error_rate": 0.0673828125,
+      "retention_accuracy": 0.392578125,
+      "validation_accuracy": 0.8029151613305096,
+      "parameter_count": 10341,
+      "n_examples": 1024
+    },
+    {
+      "d_conv": 8,
+      "post_delay": 8,
+      "overwrite_accuracy": 0.97265625,
+      "stale_value_error_rate": 0.017578125,
+      "other_error_rate": 0.009765625,
+      "retention_accuracy": 0.416015625,
+      "validation_accuracy": 0.8065279681076367,
+      "parameter_count": 10597,
+      "n_examples": 1024
+    },
+    {
+      "d_conv": 1,
+      "post_delay": 16,
+      "overwrite_accuracy": 0.90625,
+      "stale_value_error_rate": 0.0751953125,
+      "other_error_rate": 0.0185546875,
+      "retention_accuracy": 1.0,
+      "validation_accuracy": 0.940201818861343,
+      "parameter_count": 10149,
+      "n_examples": 1024
+    },
+    {
+      "d_conv": 2,
+      "post_delay": 16,
+      "overwrite_accuracy": 0.7880859375,
+      "stale_value_error_rate": 0.1240234375,
+      "other_error_rate": 0.087890625,
+      "retention_accuracy": 0.5068359375,
+      "validation_accuracy": 0.7771271957144636,
+      "parameter_count": 10213,
+      "n_examples": 1024
+    },
+    {
+      "d_conv": 4,
+      "post_delay": 16,
+      "overwrite_accuracy": 0.818359375,
+      "stale_value_error_rate": 0.076171875,
+      "other_error_rate": 0.10546875,
+      "retention_accuracy": 0.37109375,
+      "validation_accuracy": 0.8029151613305096,
+      "parameter_count": 10341,
+      "n_examples": 1024
+    },
+    {
+      "d_conv": 8,
+      "post_delay": 16,
+      "overwrite_accuracy": 0.9140625,
+      "stale_value_error_rate": 0.0517578125,
+      "other_error_rate": 0.0341796875,
+      "retention_accuracy": 0.3974609375,
+      "validation_accuracy": 0.8065279681076367,
+      "parameter_count": 10597,
+      "n_examples": 1024
+    },
+    {
+      "d_conv": 1,
+      "post_delay": 32,
+      "overwrite_accuracy": 0.904296875,
+      "stale_value_error_rate": 0.0771484375,
+      "other_error_rate": 0.0185546875,
+      "retention_accuracy": 1.0,
+      "validation_accuracy": 0.940201818861343,
+      "parameter_count": 10149,
+      "n_examples": 1024
+    },
+    {
+      "d_conv": 2,
+      "post_delay": 32,
+      "overwrite_accuracy": 0.7080078125,
+      "stale_value_error_rate": 0.169921875,
+      "other_error_rate": 0.1220703125,
+      "retention_accuracy": 0.4638671875,
+      "validation_accuracy": 0.7771271957144636,
+      "parameter_count": 10213,
+      "n_examples": 1024
+    },
+    {
+      "d_conv": 4,
+      "post_delay": 32,
+      "overwrite_accuracy": 0.6806640625,
+      "stale_value_error_rate": 0.1240234375,
+      "other_error_rate": 0.1953125,
+      "retention_accuracy": 0.3212890625,
+      "validation_accuracy": 0.8029151613305096,
+      "parameter_count": 10341,
+      "n_examples": 1024
+    },
+    {
+      "d_conv": 8,
+      "post_delay": 32,
+      "overwrite_accuracy": 0.7666015625,
+      "stale_value_error_rate": 0.091796875,
+      "other_error_rate": 0.1416015625,
+      "retention_accuracy": 0.353515625,
+      "validation_accuracy": 0.8065279681076367,
+      "parameter_count": 10597,
+      "n_examples": 1024
+    }
+  ],
+  "contrasts": [
+    {
+      "d_conv_vs_4": 1,
+      "post_delay": 0,
+      "accuracy_effect_pp": 10.64453125,
+      "ci_low": 7.6171875,
+      "ci_high": 13.671875
+    },
+    {
+      "d_conv_vs_4": 1,
+      "post_delay": 1,
+      "accuracy_effect_pp": 7.2265625,
+      "ci_low": 4.6875,
+      "ci_high": 9.765625
+    },
+    {
+      "d_conv_vs_4": 1,
+      "post_delay": 2,
+      "accuracy_effect_pp": -3.3203125,
+      "ci_low": -5.56640625,
+      "ci_high": -1.07421875
+    },
+    {
+      "d_conv_vs_4": 1,
+      "post_delay": 4,
+      "accuracy_effect_pp": -0.09765625,
+      "ci_low": -2.5390625,
+      "ci_high": 2.44140625
+    },
+    {
+      "d_conv_vs_4": 1,
+      "post_delay": 8,
+      "accuracy_effect_pp": 4.00390625,
+      "ci_low": 1.171875,
+      "ci_high": 6.8359375
+    },
+    {
+      "d_conv_vs_4": 1,
+      "post_delay": 16,
+      "accuracy_effect_pp": 8.7890625,
+      "ci_low": 5.56640625,
+      "ci_high": 11.9140625
+    },
+    {
+      "d_conv_vs_4": 1,
+      "post_delay": 32,
+      "accuracy_effect_pp": 22.36328125,
+      "ci_low": 19.04296875,
+      "ci_high": 25.588378906249964
+    },
+    {
+      "d_conv_vs_4": 2,
+      "post_delay": 0,
+      "accuracy_effect_pp": 12.6953125,
+      "ci_low": 9.765625,
+      "ci_high": 15.625
+    },
+    {
+      "d_conv_vs_4": 2,
+      "post_delay": 1,
+      "accuracy_effect_pp": 3.80859375,
+      "ci_low": 0.87890625,
+      "ci_high": 6.73828125
+    },
+    {
+      "d_conv_vs_4": 2,
+      "post_delay": 2,
+      "accuracy_effect_pp": -10.83984375,
+      "ci_low": -13.57421875,
+      "ci_high": -8.10546875
+    },
+    {
+      "d_conv_vs_4": 2,
+      "post_delay": 4,
+      "accuracy_effect_pp": -8.49609375,
+      "ci_low": -11.328125,
+      "ci_high": -5.6640625
+    },
+    {
+      "d_conv_vs_4": 2,
+      "post_delay": 8,
+      "accuracy_effect_pp": -4.58984375,
+      "ci_low": -7.8125,
+      "ci_high": -1.26953125
+    },
+    {
+      "d_conv_vs_4": 2,
+      "post_delay": 16,
+      "accuracy_effect_pp": -3.02734375,
+      "ci_low": -6.640625,
+      "ci_high": 0.5859375
+    },
+    {
+      "d_conv_vs_4": 2,
+      "post_delay": 32,
+      "accuracy_effect_pp": 2.734375,
+      "ci_low": -0.9765625,
+      "ci_high": 6.4453125
+    },
+    {
+      "d_conv_vs_4": 4,
+      "post_delay": 0,
+      "accuracy_effect_pp": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+    },
+    {
+      "d_conv_vs_4": 4,
+      "post_delay": 1,
+      "accuracy_effect_pp": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+    },
+    {
+      "d_conv_vs_4": 4,
+      "post_delay": 2,
+      "accuracy_effect_pp": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+    },
+    {
+      "d_conv_vs_4": 4,
+      "post_delay": 4,
+      "accuracy_effect_pp": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+    },
+    {
+      "d_conv_vs_4": 4,
+      "post_delay": 8,
+      "accuracy_effect_pp": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+    },
+    {
+      "d_conv_vs_4": 4,
+      "post_delay": 16,
+      "accuracy_effect_pp": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+    },
+    {
+      "d_conv_vs_4": 4,
+      "post_delay": 32,
+      "accuracy_effect_pp": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+    },
+    {
+      "d_conv_vs_4": 8,
+      "post_delay": 0,
+      "accuracy_effect_pp": 8.203125,
+      "ci_low": 5.2734375,
+      "ci_high": 11.23046875
+    },
+    {
+      "d_conv_vs_4": 8,
+      "post_delay": 1,
+      "accuracy_effect_pp": 7.2265625,
+      "ci_low": 4.78515625,
+      "ci_high": 9.66796875
+    },
+    {
+      "d_conv_vs_4": 8,
+      "post_delay": 2,
+      "accuracy_effect_pp": 2.24609375,
+      "ci_low": 0.78125,
+      "ci_high": 3.7109375
+    },
+    {
+      "d_conv_vs_4": 8,
+      "post_delay": 4,
+      "accuracy_effect_pp": 5.56640625,
+      "ci_low": 3.80859375,
+      "ci_high": 7.421875
+    },
+    {
+      "d_conv_vs_4": 8,
+      "post_delay": 8,
+      "accuracy_effect_pp": 10.3515625,
+      "ci_low": 8.203125,
+      "ci_high": 12.59765625
+    },
+    {
+      "d_conv_vs_4": 8,
+      "post_delay": 16,
+      "accuracy_effect_pp": 9.5703125,
+      "ci_low": 7.03125,
+      "ci_high": 12.109375
+    },
+    {
+      "d_conv_vs_4": 8,
+      "post_delay": 32,
+      "accuracy_effect_pp": 8.59375,
+      "ci_low": 4.8828125,
+      "ci_high": 12.3046875
+    }
+  ]
+}

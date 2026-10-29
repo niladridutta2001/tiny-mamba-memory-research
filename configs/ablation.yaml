@@ -1,0 +1,5 @@
+name: ablation
+inherits: proposed.yaml
+model:
+  variant: tied_routing
+  mechanism: parameter_matched_key_agnostic_input_write_routing

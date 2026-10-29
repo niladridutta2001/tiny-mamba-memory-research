@@ -1,0 +1,100 @@
+{
+  "question": "Does a separately optimized short-horizon head outperform the jointly trained original head on 511-step examples?",
+  "control": {
+    "backbone": "Frozen alpha=1 backbone during head training",
+    "head": "Linear(32,5), same initialization seed and 500-update optimizer budget as H5 P3",
+    "training_source": "Assignment train split, sequence lengths 32--128",
+    "sampling": "Balanced labels 1--4; sample count matched to the long-horizon head",
+    "n_train": 384,
+    "n_validation": 128,
+    "min_sequence_length": 32,
+    "max_sequence_length": 128,
+    "short_train_accuracy": 0.8333333730697632,
+    "short_validation_accuracy": 0.7109375,
+    "short_validation_nll": 0.9691582322120667,
+    "original_head_short_validation_accuracy": 0.7578125,
+    "original_head_short_validation_nll": 0.5892808437347412
+  },
+  "metrics": [
+    {
+      "eval_alpha": 0.0,
+      "original_accuracy": 0.2578125,
+      "short_head_accuracy": 0.27734375,
+      "long_head_accuracy": 0.99609375,
+      "original_nll": 2.101776361465454,
+      "short_head_nll": 4.928267002105713,
+      "long_head_nll": 0.06629306823015213,
+      "n_test": 256
+    },
+    {
+      "eval_alpha": 0.1,
+      "original_accuracy": 0.29296875,
+      "short_head_accuracy": 0.26171875,
+      "long_head_accuracy": 0.98046875,
+      "original_nll": 2.0182478427886963,
+      "short_head_nll": 3.459303379058838,
+      "long_head_nll": 0.11078443378210068,
+      "n_test": 256
+    },
+    {
+      "eval_alpha": 1.0,
+      "original_accuracy": 0.25,
+      "short_head_accuracy": 0.25,
+      "long_head_accuracy": 0.390625,
+      "original_nll": 1.7653884887695312,
+      "short_head_nll": 3.0230655670166016,
+      "long_head_nll": 1.2488157749176025,
+      "n_test": 256
+    }
+  ],
+  "contrasts": [
+    {
+      "eval_alpha": 0.0,
+      "comparison": "short_minus_original",
+      "accuracy_effect_pp": 1.953125,
+      "ci_low_pp": -13.671875,
+      "ci_high_pp": 17.96875,
+      "cluster_count": 32
+    },
+    {
+      "eval_alpha": 0.0,
+      "comparison": "long_minus_short",
+      "accuracy_effect_pp": 71.875,
+      "ci_low_pp": 56.25,
+      "ci_high_pp": 87.109375,
+      "cluster_count": 32
+    },
+    {
+      "eval_alpha": 0.1,
+      "comparison": "short_minus_original",
+      "accuracy_effect_pp": -3.125,
+      "ci_low_pp": -18.359375,
+      "ci_high_pp": 12.109375,
+      "cluster_count": 32
+    },
+    {
+      "eval_alpha": 0.1,
+      "comparison": "long_minus_short",
+      "accuracy_effect_pp": 71.875,
+      "ci_low_pp": 55.859375,
+      "ci_high_pp": 86.328125,
+      "cluster_count": 32
+    },
+    {
+      "eval_alpha": 1.0,
+      "comparison": "short_minus_original",
+      "accuracy_effect_pp": 0.0,
+      "ci_low_pp": -9.375,
+      "ci_high_pp": 9.375,
+      "cluster_count": 32
+    },
+    {
+      "eval_alpha": 1.0,
+      "comparison": "long_minus_short",
+      "accuracy_effect_pp": 14.0625,
+      "ci_low_pp": -6.25,
+      "ci_high_pp": 33.984375,
+      "cluster_count": 32
+    }
+  ]
+}

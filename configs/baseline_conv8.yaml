@@ -1,0 +1,6 @@
+name: baseline_conv8
+inherits: baseline.yaml
+model:
+  variant: baseline
+  d_conv: 8
+  mechanism: fixed_causal_depthwise_convolution

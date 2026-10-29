@@ -1,0 +1,101 @@
+model,split,target_class,support,recall
+Original Mamba,test_id,0,2817,0.9396521121760738
+Original Mamba,test_id,1,2294,0.6142109851787271
+Original Mamba,test_id,2,2360,0.7101694915254237
+Original Mamba,test_id,3,2217,0.6887686062246279
+Original Mamba,test_id,4,2414,0.7551781275890638
+Original Mamba,test_ood_256,0,2681,0.9268929503916449
+Original Mamba,test_ood_256,1,5285,0.6003784295175023
+Original Mamba,test_ood_256,2,5379,0.7185350436884179
+Original Mamba,test_ood_256,3,5252,0.7113480578827114
+Original Mamba,test_ood_256,4,5162,0.7098024021697017
+Original Mamba,test_ood_512,0,2793,0.9373433583959899
+Original Mamba,test_ood_512,1,11087,0.5868133850455488
+Original Mamba,test_ood_512,2,10724,0.7183886609474077
+Original Mamba,test_ood_512,3,10724,0.7310704960835509
+Original Mamba,test_ood_512,4,11424,0.6908263305322129
+Original Mamba,stress_gap_512,0,1935,0.9235142118863049
+Original Mamba,stress_gap_512,1,11135,0.5981140547822182
+Original Mamba,stress_gap_512,2,10687,0.7075886591185553
+Original Mamba,stress_gap_512,3,11098,0.7260767705892953
+Original Mamba,stress_gap_512,4,11057,0.7128515872298091
+Original Mamba,stress_overwrite_512,0,1980,0.9146464646464646
+Original Mamba,stress_overwrite_512,1,11162,0.6010571582153736
+Original Mamba,stress_overwrite_512,2,11020,0.7212341197822142
+Original Mamba,stress_overwrite_512,3,10928,0.7207174231332357
+Original Mamba,stress_overwrite_512,4,11148,0.7059562253318981
+Fixed width 8,test_id,0,2817,0.8775292864749734
+Fixed width 8,test_id,1,2294,0.7410636442894507
+Fixed width 8,test_id,2,2360,0.761864406779661
+Fixed width 8,test_id,3,2217,0.6801984663960307
+Fixed width 8,test_id,4,2414,0.7419221209610605
+Fixed width 8,test_ood_256,0,2681,0.8675867213726222
+Fixed width 8,test_ood_256,1,5285,0.7072847682119205
+Fixed width 8,test_ood_256,2,5379,0.747350808700502
+Fixed width 8,test_ood_256,3,5252,0.6944021325209444
+Fixed width 8,test_ood_256,4,5162,0.722200697404107
+Fixed width 8,test_ood_512,0,2793,0.8771929824561403
+Fixed width 8,test_ood_512,1,11087,0.6973031478307928
+Fixed width 8,test_ood_512,2,10724,0.7307907497202536
+Fixed width 8,test_ood_512,3,10724,0.683793360686311
+Fixed width 8,test_ood_512,4,11424,0.7249649859943977
+Fixed width 8,stress_gap_512,0,1935,0.8739018087855297
+Fixed width 8,stress_gap_512,1,11135,0.704265828468792
+Fixed width 8,stress_gap_512,2,10687,0.7321044259380556
+Fixed width 8,stress_gap_512,3,11098,0.6696702108488016
+Fixed width 8,stress_gap_512,4,11057,0.7285882246540653
+Fixed width 8,stress_overwrite_512,0,1980,0.8752525252525253
+Fixed width 8,stress_overwrite_512,1,11162,0.6907364271635907
+Fixed width 8,stress_overwrite_512,2,11020,0.7475499092558984
+Fixed width 8,stress_overwrite_512,3,10928,0.6720351390922401
+Fixed width 8,stress_overwrite_512,4,11148,0.735827054180122
+Static mixture,test_id,0,2817,0.8942137025204118
+Static mixture,test_id,1,2294,0.7205754141238012
+Static mixture,test_id,2,2360,0.7788135593220339
+Static mixture,test_id,3,2217,0.7704104645917907
+Static mixture,test_id,4,2414,0.6942833471416736
+Static mixture,test_ood_256,0,2681,0.8940693770980978
+Static mixture,test_ood_256,1,5285,0.6823084200567644
+Static mixture,test_ood_256,2,5379,0.7687302472578547
+Static mixture,test_ood_256,3,5252,0.7694211728865195
+Static mixture,test_ood_256,4,5162,0.6805501743510267
+Static mixture,test_ood_512,0,2793,0.8983172216254923
+Static mixture,test_ood_512,1,11087,0.653919004239199
+Static mixture,test_ood_512,2,10724,0.7559679224170086
+Static mixture,test_ood_512,3,10724,0.7867400223797091
+Static mixture,test_ood_512,4,11424,0.6825980392156863
+Static mixture,stress_gap_512,0,1935,0.8987080103359173
+Static mixture,stress_gap_512,1,11135,0.6663673102828918
+Static mixture,stress_gap_512,2,10687,0.758398053710115
+Static mixture,stress_gap_512,3,11098,0.7815822670751487
+Static mixture,stress_gap_512,4,11057,0.6689879714208193
+Static mixture,stress_overwrite_512,0,1980,0.8939393939393939
+Static mixture,stress_overwrite_512,1,11162,0.6496147643791436
+Static mixture,stress_overwrite_512,2,11020,0.769600725952813
+Static mixture,stress_overwrite_512,3,10928,0.7826683748169839
+Static mixture,stress_overwrite_512,4,11148,0.6721385001794044
+Adaptive mixture,test_id,0,2817,0.9197728079517217
+Adaptive mixture,test_id,1,2294,0.7249346120313862
+Adaptive mixture,test_id,2,2360,0.7898305084745763
+Adaptive mixture,test_id,3,2217,0.8042399639152007
+Adaptive mixture,test_id,4,2414,0.6847555923777962
+Adaptive mixture,test_ood_256,0,2681,0.9201790376725103
+Adaptive mixture,test_ood_256,1,5285,0.7012298959318827
+Adaptive mixture,test_ood_256,2,5379,0.7815579103922662
+Adaptive mixture,test_ood_256,3,5252,0.8036938309215537
+Adaptive mixture,test_ood_256,4,5162,0.6728012398295234
+Adaptive mixture,test_ood_512,0,2793,0.9266022198353026
+Adaptive mixture,test_ood_512,1,11087,0.6958600162352304
+Adaptive mixture,test_ood_512,2,10724,0.7424468481909735
+Adaptive mixture,test_ood_512,3,10724,0.8032450578142484
+Adaptive mixture,test_ood_512,4,11424,0.6720063025210085
+Adaptive mixture,stress_gap_512,0,1935,0.924547803617571
+Adaptive mixture,stress_gap_512,1,11135,0.6996856757970363
+Adaptive mixture,stress_gap_512,2,10687,0.7439880228314775
+Adaptive mixture,stress_gap_512,3,11098,0.7987024689133178
+Adaptive mixture,stress_gap_512,4,11057,0.6680835669711495
+Adaptive mixture,stress_overwrite_512,0,1980,0.9176767676767676
+Adaptive mixture,stress_overwrite_512,1,11162,0.6925282207489697
+Adaptive mixture,stress_overwrite_512,2,11020,0.7605263157894737
+Adaptive mixture,stress_overwrite_512,3,10928,0.8049963396778916
+Adaptive mixture,stress_overwrite_512,4,11148,0.6710620739146035

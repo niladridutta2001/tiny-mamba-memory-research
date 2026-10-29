@@ -1,0 +1,147 @@
+{
+  "hypothesis": "Reducing attenuation improves decodability, but the original readout is mismatched to the modified hidden-state distribution.",
+  "falsification": "A decay-matched retrained readout fails to improve over the frozen original head.",
+  "scope": "Frozen seed-42 independently gated width-4 backbone; separate generated train/validation/test sequences.",
+  "checkpoint": "results\\selective_retention\\seed42\\event_decay\\u1500\\baseline.pt",
+  "readout": {
+    "type": "Linear(32, 5)",
+    "updates": 500,
+    "optimizer": "AdamW",
+    "learning_rate": 0.03
+  },
+  "matched_metrics": [
+    {
+      "alpha": 0.0,
+      "original_accuracy": 0.2578125,
+      "retrained_accuracy": 0.99609375,
+      "accuracy_gain_pp": 73.828125,
+      "original_nll": 2.101776599884033,
+      "retrained_nll": 0.0662931278347969,
+      "original_correct_class_probability": 0.24582073092460632,
+      "retrained_correct_class_probability": 0.9410392045974731,
+      "validation_accuracy": 0.9921875,
+      "n_train": 384,
+      "n_validation": 128,
+      "n_test": 256
+    },
+    {
+      "alpha": 0.1,
+      "original_accuracy": 0.29296875,
+      "retrained_accuracy": 0.98046875,
+      "accuracy_gain_pp": 68.75,
+      "original_nll": 2.018247604370117,
+      "retrained_nll": 0.11078448593616486,
+      "original_correct_class_probability": 0.2451094388961792,
+      "retrained_correct_class_probability": 0.9079335927963257,
+      "validation_accuracy": 0.9921875,
+      "n_train": 384,
+      "n_validation": 128,
+      "n_test": 256
+    },
+    {
+      "alpha": 1.0,
+      "original_accuracy": 0.25,
+      "retrained_accuracy": 0.39453125,
+      "accuracy_gain_pp": 14.453125,
+      "original_nll": 1.7653883695602417,
+      "retrained_nll": 1.2488309144973755,
+      "original_correct_class_probability": 0.24644026160240173,
+      "retrained_correct_class_probability": 0.31424418091773987,
+      "validation_accuracy": 0.4296875,
+      "n_train": 384,
+      "n_validation": 128,
+      "n_test": 256
+    }
+  ],
+  "cross_decay_metrics": [
+    {
+      "train_alpha": 0.0,
+      "eval_alpha": 0.0,
+      "accuracy": 0.99609375,
+      "nll": 0.0662931278347969,
+      "mean_correct_class_probability": 0.9410392045974731
+    },
+    {
+      "train_alpha": 0.0,
+      "eval_alpha": 0.1,
+      "accuracy": 0.25390625,
+      "nll": 23.765151977539062,
+      "mean_correct_class_probability": 0.25772547721862793
+    },
+    {
+      "train_alpha": 0.0,
+      "eval_alpha": 1.0,
+      "accuracy": 0.2578125,
+      "nll": 29.553028106689453,
+      "mean_correct_class_probability": 0.2623748183250427
+    },
+    {
+      "train_alpha": 0.1,
+      "eval_alpha": 0.0,
+      "accuracy": 0.33984375,
+      "nll": 16.84466552734375,
+      "mean_correct_class_probability": 0.3285042643547058
+    },
+    {
+      "train_alpha": 0.1,
+      "eval_alpha": 0.1,
+      "accuracy": 0.98046875,
+      "nll": 0.11078448593616486,
+      "mean_correct_class_probability": 0.9079335927963257
+    },
+    {
+      "train_alpha": 0.1,
+      "eval_alpha": 1.0,
+      "accuracy": 0.25,
+      "nll": 17.46733856201172,
+      "mean_correct_class_probability": 0.2504516541957855
+    },
+    {
+      "train_alpha": 1.0,
+      "eval_alpha": 0.0,
+      "accuracy": 0.25,
+      "nll": 26.9316463470459,
+      "mean_correct_class_probability": 0.2513079047203064
+    },
+    {
+      "train_alpha": 1.0,
+      "eval_alpha": 0.1,
+      "accuracy": 0.3125,
+      "nll": 16.135868072509766,
+      "mean_correct_class_probability": 0.31336113810539246
+    },
+    {
+      "train_alpha": 1.0,
+      "eval_alpha": 1.0,
+      "accuracy": 0.39453125,
+      "nll": 1.2488309144973755,
+      "mean_correct_class_probability": 0.31424418091773987
+    }
+  ],
+  "contrasts": [
+    {
+      "alpha": 0.0,
+      "comparison": "matched_retrained_vs_original_head",
+      "accuracy_effect_pp": 73.828125,
+      "ci_low_pp": 58.59375,
+      "ci_high_pp": 87.5,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 0.1,
+      "comparison": "matched_retrained_vs_original_head",
+      "accuracy_effect_pp": 68.75,
+      "ci_low_pp": 52.34375,
+      "ci_high_pp": 83.984375,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 1.0,
+      "comparison": "matched_retrained_vs_original_head",
+      "accuracy_effect_pp": 14.453125,
+      "ci_low_pp": -5.859375,
+      "ci_high_pp": 33.59375,
+      "cluster_count": 32
+    }
+  ]
+}

@@ -1,0 +1,193 @@
+{
+  "scope": "Frozen seed-42 independently gated width-4 model; diagnostic OOD intervention",
+  "checkpoint": "results\\selective_retention\\seed42\\event_decay\\u1500\\baseline.pt",
+  "sequence": {
+    "prefix_events": 32,
+    "set_index": 32,
+    "noop_count": 510,
+    "query_index": 543,
+    "set_to_query_delay": 511,
+    "normal_convolution_washout_noops": 3,
+    "decay_intervened_noops": 507
+  },
+  "intervention": "Multiply only the recurrent decay exponent during post-washout NOOPs; preserve delta*B*u writes, convolution, weights, and readout.",
+  "metrics": [
+    {
+      "alpha": 0.0,
+      "normal_washout_noops": 3,
+      "intervened_noops": 507,
+      "n_task_test": 256,
+      "probe_accuracy": 0.453125,
+      "task_accuracy": 0.24609375,
+      "mean_nll": 2.0976271629333496,
+      "mean_correct_class_probability": 0.24636605381965637,
+      "mean_logit_margin": -1.2710332870483398,
+      "median_cumulative_log10_retention": -0.40516719222068787,
+      "p10_cumulative_log10_retention": -4.7247796058654785,
+      "p90_cumulative_log10_retention": -0.06934721022844315
+    },
+    {
+      "alpha": 0.1,
+      "normal_washout_noops": 3,
+      "intervened_noops": 507,
+      "n_task_test": 256,
+      "probe_accuracy": 0.44921875,
+      "task_accuracy": 0.31640625,
+      "mean_nll": 2.009974956512451,
+      "mean_correct_class_probability": 0.2472183108329773,
+      "mean_logit_margin": -1.1165242195129395,
+      "median_cumulative_log10_retention": -3.358471155166626,
+      "p10_cumulative_log10_retention": -88.52747344970703,
+      "p90_cumulative_log10_retention": -0.5256063342094421
+    },
+    {
+      "alpha": 0.25,
+      "normal_washout_noops": 3,
+      "intervened_noops": 507,
+      "n_task_test": 256,
+      "probe_accuracy": 0.4140625,
+      "task_accuracy": 0.265625,
+      "mean_nll": 1.8740358352661133,
+      "mean_correct_class_probability": 0.2503384053707123,
+      "mean_logit_margin": -0.9374310374259949,
+      "median_cumulative_log10_retention": -7.703513145446777,
+      "p10_cumulative_log10_retention": -214.90277099609375,
+      "p90_cumulative_log10_retention": -1.1787301301956177
+    },
+    {
+      "alpha": 0.5,
+      "normal_washout_noops": 3,
+      "intervened_noops": 507,
+      "n_task_test": 256,
+      "probe_accuracy": 0.390625,
+      "task_accuracy": 0.30078125,
+      "mean_nll": 1.7973414659500122,
+      "mean_correct_class_probability": 0.25079119205474854,
+      "mean_logit_margin": -0.9141390323638916,
+      "median_cumulative_log10_retention": -14.925684928894043,
+      "p10_cumulative_log10_retention": -425.5114440917969,
+      "p90_cumulative_log10_retention": -2.2659482955932617
+    },
+    {
+      "alpha": 0.75,
+      "normal_washout_noops": 3,
+      "intervened_noops": 507,
+      "n_task_test": 256,
+      "probe_accuracy": 0.359375,
+      "task_accuracy": 0.25,
+      "mean_nll": 1.7753074169158936,
+      "mean_correct_class_probability": 0.24814312160015106,
+      "mean_logit_margin": -0.9176169037818909,
+      "median_cumulative_log10_retention": -22.149377822875977,
+      "p10_cumulative_log10_retention": -636.0977172851562,
+      "p90_cumulative_log10_retention": -3.355293035507202
+    },
+    {
+      "alpha": 1.0,
+      "normal_washout_noops": 3,
+      "intervened_noops": 507,
+      "n_task_test": 256,
+      "probe_accuracy": 0.33984375,
+      "task_accuracy": 0.25,
+      "mean_nll": 1.766968846321106,
+      "mean_correct_class_probability": 0.2463674247264862,
+      "mean_logit_margin": -0.9049795866012573,
+      "median_cumulative_log10_retention": -29.380891799926758,
+      "p10_cumulative_log10_retention": -846.6907958984375,
+      "p90_cumulative_log10_retention": -4.447354793548584
+    },
+    {
+      "alpha": 1.25,
+      "normal_washout_noops": 3,
+      "intervened_noops": 507,
+      "n_task_test": 256,
+      "probe_accuracy": 0.33984375,
+      "task_accuracy": 0.25,
+      "mean_nll": 1.7639272212982178,
+      "mean_correct_class_probability": 0.24508759379386902,
+      "mean_logit_margin": -0.8919734954833984,
+      "median_cumulative_log10_retention": -36.61599349975586,
+      "p10_cumulative_log10_retention": -1057.2060546875,
+      "p90_cumulative_log10_retention": -5.543490886688232
+    }
+  ],
+  "contrasts": [
+    {
+      "alpha": 0.0,
+      "comparison": "alpha_vs_trained_alpha_1",
+      "task_accuracy_effect_pp": -0.390625,
+      "ci_low_pp": -19.140625,
+      "ci_high_pp": 18.359375,
+      "probe_accuracy_effect_pp": 11.328125,
+      "probe_ci_low_pp": 2.34375,
+      "probe_ci_high_pp": 21.09375,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 0.1,
+      "comparison": "alpha_vs_trained_alpha_1",
+      "task_accuracy_effect_pp": 6.640625,
+      "ci_low_pp": -12.5,
+      "ci_high_pp": 25.78125,
+      "probe_accuracy_effect_pp": 10.9375,
+      "probe_ci_low_pp": 3.125,
+      "probe_ci_high_pp": 19.140625,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 0.25,
+      "comparison": "alpha_vs_trained_alpha_1",
+      "task_accuracy_effect_pp": 1.5625,
+      "ci_low_pp": -13.28125,
+      "ci_high_pp": 16.40625,
+      "probe_accuracy_effect_pp": 7.421875,
+      "probe_ci_low_pp": 0.0,
+      "probe_ci_high_pp": 14.453125,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 0.5,
+      "comparison": "alpha_vs_trained_alpha_1",
+      "task_accuracy_effect_pp": 5.078125,
+      "ci_low_pp": -1.5625,
+      "ci_high_pp": 14.0625,
+      "probe_accuracy_effect_pp": 5.078125,
+      "probe_ci_low_pp": -1.953125,
+      "probe_ci_high_pp": 12.109375,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 0.75,
+      "comparison": "alpha_vs_trained_alpha_1",
+      "task_accuracy_effect_pp": 0.0,
+      "ci_low_pp": 0.0,
+      "ci_high_pp": 0.0,
+      "probe_accuracy_effect_pp": 1.953125,
+      "probe_ci_low_pp": -2.734375,
+      "probe_ci_high_pp": 6.640625,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 1.0,
+      "comparison": "alpha_vs_trained_alpha_1",
+      "task_accuracy_effect_pp": 0.0,
+      "ci_low_pp": 0.0,
+      "ci_high_pp": 0.0,
+      "probe_accuracy_effect_pp": 0.0,
+      "probe_ci_low_pp": 0.0,
+      "probe_ci_high_pp": 0.0,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 1.25,
+      "comparison": "alpha_vs_trained_alpha_1",
+      "task_accuracy_effect_pp": 0.0,
+      "ci_low_pp": 0.0,
+      "ci_high_pp": 0.0,
+      "probe_accuracy_effect_pp": 0.0,
+      "probe_ci_low_pp": -3.90625,
+      "probe_ci_high_pp": 4.296875,
+      "cluster_count": 32
+    }
+  ]
+}

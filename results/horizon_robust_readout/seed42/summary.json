@@ -1,0 +1,281 @@
+{
+  "constraint": "No length-511 labels are used for training or model selection. Short-stats, short-affine, and robust heads see no long features. Long-calibration mean/std and CORAL use a separate unlabeled 511-step calibration set, never the labeled test batch.",
+  "feature_geometry": [
+    {
+      "eval_alpha": 0.0,
+      "class_mean_shift_rms": 0.8462868928909302,
+      "within_class_covariance_gap": 1.9621027708053589,
+      "original_head_mean_margin": -1.2777397632598877,
+      "original_head_positive_margin_rate": 0.2578125
+    },
+    {
+      "eval_alpha": 0.1,
+      "class_mean_shift_rms": 0.6643822193145752,
+      "within_class_covariance_gap": 1.531419277191162,
+      "original_head_mean_margin": -1.1238807439804077,
+      "original_head_positive_margin_rate": 0.29296875
+    },
+    {
+      "eval_alpha": 1.0,
+      "class_mean_shift_rms": 0.6961439847946167,
+      "within_class_covariance_gap": 1.1912860870361328,
+      "original_head_mean_margin": -0.9029363393783569,
+      "original_head_positive_margin_rate": 0.25
+    }
+  ],
+  "affine_alignment": [
+    {
+      "eval_alpha": 0.0,
+      "raw_accuracy": 0.27734375,
+      "short_stats_accuracy": 0.28125,
+      "short_affine_accuracy": 0.28125,
+      "target_mean_std_accuracy": 0.28515625,
+      "target_coral_accuracy": 0.7109375,
+      "raw_nll": 4.928267002105713,
+      "short_stats_nll": 4.919156074523926,
+      "short_affine_nll": 4.812954425811768,
+      "target_mean_std_nll": 4.212061405181885,
+      "target_coral_nll": 0.7058534026145935
+    },
+    {
+      "eval_alpha": 0.1,
+      "raw_accuracy": 0.26171875,
+      "short_stats_accuracy": 0.26171875,
+      "short_affine_accuracy": 0.26171875,
+      "target_mean_std_accuracy": 0.30859375,
+      "target_coral_accuracy": 0.7265625,
+      "raw_nll": 3.459303379058838,
+      "short_stats_nll": 3.4575698375701904,
+      "short_affine_nll": 3.439269781112671,
+      "target_mean_std_nll": 3.1273818016052246,
+      "target_coral_nll": 0.8046573996543884
+    },
+    {
+      "eval_alpha": 1.0,
+      "raw_accuracy": 0.25,
+      "short_stats_accuracy": 0.25,
+      "short_affine_accuracy": 0.25,
+      "target_mean_std_accuracy": 0.25,
+      "target_coral_accuracy": 0.36328125,
+      "raw_nll": 3.0230655670166016,
+      "short_stats_nll": 3.0230655670166016,
+      "short_affine_nll": 3.0230655670166016,
+      "target_mean_std_nll": 3.252256393432617,
+      "target_coral_nll": 2.3740293979644775
+    }
+  ],
+  "short_validation": [
+    {
+      "config": "baseline",
+      "natural_accuracy": 0.7109375,
+      "natural_nll": 0.9691582322120667,
+      "mean_perturbed_accuracy": 0.7161458333333334
+    },
+    {
+      "config": "symmetric_0.1",
+      "natural_accuracy": 0.7109375,
+      "natural_nll": 0.9691315293312073,
+      "mean_perturbed_accuracy": 0.7161458333333334
+    },
+    {
+      "config": "symmetric_1",
+      "natural_accuracy": 0.7109375,
+      "natural_nll": 0.9687889218330383,
+      "mean_perturbed_accuracy": 0.7239583333333334
+    },
+    {
+      "config": "symmetric_5",
+      "natural_accuracy": 0.71875,
+      "natural_nll": 0.9660139679908752,
+      "mean_perturbed_accuracy": 0.7239583333333334
+    },
+    {
+      "config": "teacher_0.1",
+      "natural_accuracy": 0.7109375,
+      "natural_nll": 0.9695391654968262,
+      "mean_perturbed_accuracy": 0.7161458333333334
+    },
+    {
+      "config": "teacher_1",
+      "natural_accuracy": 0.7109375,
+      "natural_nll": 0.9726182222366333,
+      "mean_perturbed_accuracy": 0.7161458333333334
+    },
+    {
+      "config": "teacher_5",
+      "natural_accuracy": 0.71875,
+      "natural_nll": 0.9858655333518982,
+      "mean_perturbed_accuracy": 0.7135416666666666
+    }
+  ],
+  "robust_readout": [
+    {
+      "config": "baseline",
+      "mode": "none",
+      "lambda": 0.0,
+      "eval_alpha": 0.0,
+      "accuracy": 0.27734375,
+      "nll": 4.928267002105713
+    },
+    {
+      "config": "baseline",
+      "mode": "none",
+      "lambda": 0.0,
+      "eval_alpha": 0.1,
+      "accuracy": 0.26171875,
+      "nll": 3.459303379058838
+    },
+    {
+      "config": "baseline",
+      "mode": "none",
+      "lambda": 0.0,
+      "eval_alpha": 1.0,
+      "accuracy": 0.25,
+      "nll": 3.0230655670166016
+    },
+    {
+      "config": "symmetric_0.1",
+      "mode": "symmetric",
+      "lambda": 0.1,
+      "eval_alpha": 0.0,
+      "accuracy": 0.28125,
+      "nll": 4.923159599304199
+    },
+    {
+      "config": "symmetric_0.1",
+      "mode": "symmetric",
+      "lambda": 0.1,
+      "eval_alpha": 0.1,
+      "accuracy": 0.26171875,
+      "nll": 3.457702398300171
+    },
+    {
+      "config": "symmetric_0.1",
+      "mode": "symmetric",
+      "lambda": 0.1,
+      "eval_alpha": 1.0,
+      "accuracy": 0.25,
+      "nll": 3.0218005180358887
+    },
+    {
+      "config": "symmetric_1",
+      "mode": "symmetric",
+      "lambda": 1.0,
+      "eval_alpha": 0.0,
+      "accuracy": 0.28125,
+      "nll": 4.880130290985107
+    },
+    {
+      "config": "symmetric_1",
+      "mode": "symmetric",
+      "lambda": 1.0,
+      "eval_alpha": 0.1,
+      "accuracy": 0.26171875,
+      "nll": 3.4447178840637207
+    },
+    {
+      "config": "symmetric_1",
+      "mode": "symmetric",
+      "lambda": 1.0,
+      "eval_alpha": 1.0,
+      "accuracy": 0.25,
+      "nll": 3.0119009017944336
+    },
+    {
+      "config": "symmetric_5",
+      "mode": "symmetric",
+      "lambda": 5.0,
+      "eval_alpha": 0.0,
+      "accuracy": 0.28125,
+      "nll": 4.721430778503418
+    },
+    {
+      "config": "symmetric_5",
+      "mode": "symmetric",
+      "lambda": 5.0,
+      "eval_alpha": 0.1,
+      "accuracy": 0.2578125,
+      "nll": 3.4012765884399414
+    },
+    {
+      "config": "symmetric_5",
+      "mode": "symmetric",
+      "lambda": 5.0,
+      "eval_alpha": 1.0,
+      "accuracy": 0.25,
+      "nll": 2.9833171367645264
+    },
+    {
+      "config": "teacher_0.1",
+      "mode": "teacher",
+      "lambda": 0.1,
+      "eval_alpha": 0.0,
+      "accuracy": 0.28125,
+      "nll": 4.910674571990967
+    },
+    {
+      "config": "teacher_0.1",
+      "mode": "teacher",
+      "lambda": 0.1,
+      "eval_alpha": 0.1,
+      "accuracy": 0.26171875,
+      "nll": 3.4572577476501465
+    },
+    {
+      "config": "teacher_0.1",
+      "mode": "teacher",
+      "lambda": 0.1,
+      "eval_alpha": 1.0,
+      "accuracy": 0.25,
+      "nll": 3.025595188140869
+    },
+    {
+      "config": "teacher_1",
+      "mode": "teacher",
+      "lambda": 1.0,
+      "eval_alpha": 0.0,
+      "accuracy": 0.28125,
+      "nll": 4.7534894943237305
+    },
+    {
+      "config": "teacher_1",
+      "mode": "teacher",
+      "lambda": 1.0,
+      "eval_alpha": 0.1,
+      "accuracy": 0.2578125,
+      "nll": 3.4394378662109375
+    },
+    {
+      "config": "teacher_1",
+      "mode": "teacher",
+      "lambda": 1.0,
+      "eval_alpha": 1.0,
+      "accuracy": 0.25,
+      "nll": 3.052109479904175
+    },
+    {
+      "config": "teacher_5",
+      "mode": "teacher",
+      "lambda": 5.0,
+      "eval_alpha": 0.0,
+      "accuracy": 0.27734375,
+      "nll": 4.351940155029297
+    },
+    {
+      "config": "teacher_5",
+      "mode": "teacher",
+      "lambda": 5.0,
+      "eval_alpha": 0.1,
+      "accuracy": 0.25390625,
+      "nll": 3.454756259918213
+    },
+    {
+      "config": "teacher_5",
+      "mode": "teacher",
+      "lambda": 5.0,
+      "eval_alpha": 1.0,
+      "accuracy": 0.25,
+      "nll": 3.231485366821289
+    }
+  ]
+}

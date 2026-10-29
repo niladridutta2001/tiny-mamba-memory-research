@@ -1,0 +1,9 @@
+name: adaptive_kernel_only
+inherits: baseline.yaml
+model:
+  variant: adaptive_kernel_only
+  d_conv: 8
+  mechanism: input_conditioned_shared_kernel_mask_without_retention_gate
+  candidate_widths: [1, 2, 4, 8]
+  router: linear_softmax
+  initial_effective_width: 4

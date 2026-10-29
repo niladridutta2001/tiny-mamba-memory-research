@@ -1,0 +1,5 @@
+model,role,parameter_count,training_updates,training_seconds,hardware,recorded_training_peak_gpu_memory_bytes
+Original Mamba,Baseline,10149,1500,449.64432030008174,NVIDIA GeForce GTX 1650,53193216
+Fixed width 8,Supplementary reference,10405,1500,524.195548000047,NVIDIA GeForce GTX 1650,53162496
+Static mixture,Ablation,10729,1500,656.628915600013,NVIDIA GeForce GTX 1650,56937472
+Adaptive mixture,Proposed,10729,1500,1096.3895395,NVIDIA GeForce GTX 1650,57461760

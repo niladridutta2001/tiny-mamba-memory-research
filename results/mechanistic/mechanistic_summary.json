@@ -1,0 +1,122 @@
+[
+  {
+    "delay": 0,
+    "behavior_accuracy_mean": 0.7604166666666666,
+    "behavior_accuracy_ci95_lower": 0.4877915124911814,
+    "behavior_accuracy_ci95_upper": 1.033041820842152,
+    "probe_accuracy_mean": 0.9427083333333334,
+    "probe_accuracy_ci95_lower": 0.8530697348125,
+    "probe_accuracy_ci95_upper": 1.0323469318541667,
+    "median_log10_retention_mean": 0.0,
+    "median_log10_retention_ci95_lower": 0.0,
+    "median_log10_retention_ci95_upper": 0.0
+  },
+  {
+    "delay": 1,
+    "behavior_accuracy_mean": 0.8125,
+    "behavior_accuracy_ci95_lower": 0.5435842044375,
+    "behavior_accuracy_ci95_upper": 1.0814157955625001,
+    "probe_accuracy_mean": 0.5703125,
+    "probe_accuracy_ci95_lower": 0.47183107709016026,
+    "probe_accuracy_ci95_upper": 0.6687939229098397,
+    "median_log10_retention_mean": -0.11785237739483516,
+    "median_log10_retention_ci95_lower": -0.15014473926964145,
+    "median_log10_retention_ci95_upper": -0.08556001552002886
+  },
+  {
+    "delay": 2,
+    "behavior_accuracy_mean": 0.9375,
+    "behavior_accuracy_ci95_lower": 0.8598706965213241,
+    "behavior_accuracy_ci95_upper": 1.015129303478676,
+    "probe_accuracy_mean": 0.5989583333333334,
+    "probe_accuracy_ci95_lower": 0.5437809701843347,
+    "probe_accuracy_ci95_upper": 0.654135696482332,
+    "median_log10_retention_mean": -0.22486773133277893,
+    "median_log10_retention_ci95_lower": -0.31438537410345413,
+    "median_log10_retention_ci95_upper": -0.13535008856210373
+  },
+  {
+    "delay": 4,
+    "behavior_accuracy_mean": 0.875,
+    "behavior_accuracy_ci95_lower": 0.875,
+    "behavior_accuracy_ci95_upper": 0.875,
+    "probe_accuracy_mean": 0.5859375,
+    "probe_accuracy_ci95_lower": 0.5180118594561586,
+    "probe_accuracy_ci95_upper": 0.6538631405438414,
+    "median_log10_retention_mean": -0.43733689188957214,
+    "median_log10_retention_ci95_lower": -0.5184744068390407,
+    "median_log10_retention_ci95_upper": -0.3561993769401036
+  },
+  {
+    "delay": 10,
+    "behavior_accuracy_mean": 0.84375,
+    "behavior_accuracy_ci95_lower": 0.7092921022187499,
+    "behavior_accuracy_ci95_upper": 0.9782078977812501,
+    "probe_accuracy_mean": 0.4908854166666667,
+    "probe_accuracy_ci95_lower": 0.39368719415168263,
+    "probe_accuracy_ci95_upper": 0.5880836391816507,
+    "median_log10_retention_mean": -0.9126389225323995,
+    "median_log10_retention_ci95_lower": -1.261410220606718,
+    "median_log10_retention_ci95_upper": -0.563867624458081
+  },
+  {
+    "delay": 32,
+    "behavior_accuracy_mean": 0.6458333333333334,
+    "behavior_accuracy_ci95_lower": 0.46655613629166665,
+    "behavior_accuracy_ci95_upper": 0.8251105303750002,
+    "probe_accuracy_mean": 0.4817708333333333,
+    "probe_accuracy_ci95_lower": 0.38265403981435453,
+    "probe_accuracy_ci95_upper": 0.5808876268523121,
+    "median_log10_retention_mean": -2.646646499633789,
+    "median_log10_retention_ci95_lower": -4.039010669760906,
+    "median_log10_retention_ci95_upper": -1.254282329506672
+  },
+  {
+    "delay": 64,
+    "behavior_accuracy_mean": 0.4583333333333333,
+    "behavior_accuracy_ci95_lower": 0.1445982385104166,
+    "behavior_accuracy_ci95_upper": 0.77206842815625,
+    "probe_accuracy_mean": 0.4700520833333333,
+    "probe_accuracy_ci95_lower": 0.42965251292988393,
+    "probe_accuracy_ci95_upper": 0.5104516537367827,
+    "median_log10_retention_mean": -5.171612183252971,
+    "median_log10_retention_ci95_lower": -8.042371666010506,
+    "median_log10_retention_ci95_upper": -2.3008527004954344
+  },
+  {
+    "delay": 128,
+    "behavior_accuracy_mean": 0.28125,
+    "behavior_accuracy_ci95_lower": 0.20362069652132414,
+    "behavior_accuracy_ci95_upper": 0.35887930347867586,
+    "probe_accuracy_mean": 0.4557291666666667,
+    "probe_accuracy_ci95_lower": 0.421651022394731,
+    "probe_accuracy_ci95_upper": 0.48980731093860236,
+    "median_log10_retention_mean": -10.22032896677653,
+    "median_log10_retention_ci95_lower": -16.020176040995363,
+    "median_log10_retention_ci95_upper": -4.420481892557695
+  },
+  {
+    "delay": 256,
+    "behavior_accuracy_mean": 0.23958333333333334,
+    "behavior_accuracy_ci95_lower": 0.19476403407291665,
+    "behavior_accuracy_ci95_upper": 0.28440263259375004,
+    "probe_accuracy_mean": 0.4166666666666667,
+    "probe_accuracy_ci95_lower": 0.30977945030529425,
+    "probe_accuracy_ci95_upper": 0.5235538830280392,
+    "median_log10_retention_mean": -20.306934992472332,
+    "median_log10_retention_ci95_lower": -32.08548165016076,
+    "median_log10_retention_ci95_upper": -8.528388334783905
+  },
+  {
+    "delay": 500,
+    "behavior_accuracy_mean": 0.25,
+    "behavior_accuracy_ci95_lower": 0.25,
+    "behavior_accuracy_ci95_upper": 0.25,
+    "probe_accuracy_mean": 0.33984375,
+    "probe_accuracy_ci95_lower": 0.28942203833203123,
+    "probe_accuracy_ci95_upper": 0.39026546166796877,
+    "median_log10_retention_mean": -39.560282389322914,
+    "median_log10_retention_ci95_lower": -62.716233288985265,
+    "median_log10_retention_ci95_upper": -16.404331489660567
+  }
+]

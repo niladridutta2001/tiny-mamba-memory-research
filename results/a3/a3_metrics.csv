@@ -1,0 +1,21 @@
+split,condition,length,query_count,baseline,query_accuracy
+test_id,ID,128,12102,Neural,0.2567344240621385
+test_id,ID,128,12102,Always UNSET,0.23277144273673772
+test_id,ID,128,12102,Train majority,0.23277144273673772
+test_id,ID,128,12102,Oracle,1.0
+test_ood_256,OOD,256,23759,Neural,0.14811229428848016
+test_ood_256,OOD,256,23759,Always UNSET,0.11284144955595775
+test_ood_256,OOD,256,23759,Train majority,0.11284144955595775
+test_ood_256,OOD,256,23759,Oracle,1.0
+test_ood_512,OOD,512,46752,Neural,0.10446611909650924
+test_ood_512,OOD,512,46752,Always UNSET,0.05974075975359343
+test_ood_512,OOD,512,46752,Train majority,0.05974075975359343
+test_ood_512,OOD,512,46752,Oracle,1.0
+stress_gap_512,Delay stress,512,45912,Neural,0.08640442585816345
+stress_gap_512,Delay stress,512,45912,Always UNSET,0.04214584422373236
+stress_gap_512,Delay stress,512,45912,Train majority,0.04214584422373236
+stress_gap_512,Delay stress,512,45912,Oracle,1.0
+stress_overwrite_512,Overwrite stress,512,46238,Neural,0.08858514641636749
+stress_overwrite_512,Overwrite stress,512,46238,Always UNSET,0.04282192136338077
+stress_overwrite_512,Overwrite stress,512,46238,Train majority,0.04282192136338077
+stress_overwrite_512,Overwrite stress,512,46238,Oracle,1.0

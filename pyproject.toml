@@ -1,0 +1,32 @@
+[project]
+name = "tiny-mamba-memory-research"
+version = "0.1.0"
+description = "Controlled long-horizon state-tracking experiments with mamba-minimal"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+  "einops>=0.8,<1",
+  "matplotlib>=3.9,<4",
+  "numpy>=2,<3",
+  "pandas>=2.2,<3",
+  "pyyaml>=6,<7",
+  "torch==2.6.0",
+]
+
+[dependency-groups]
+dev = [
+  "ipykernel>=6,<7",
+  "jupyterlab>=4,<5",
+  "pytest>=8,<9",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu124" }
+
+[[tool.uv.index]]
+name = "pytorch-cu124"
+url = "https://download.pytorch.org/whl/cu124"
+explicit = true

@@ -1,0 +1,4 @@
+name: event_decay_conv8
+inherits: event_decay.yaml
+model:
+  d_conv: 8

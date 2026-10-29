@@ -1,0 +1,8 @@
+alpha,comparison,task_accuracy_effect_pp,ci_low_pp,ci_high_pp,probe_accuracy_effect_pp,probe_ci_low_pp,probe_ci_high_pp,cluster_count
+0.0,alpha_vs_trained_alpha_1,-0.390625,-19.140625,18.359375,11.328125,2.34375,21.09375,32
+0.1,alpha_vs_trained_alpha_1,6.640625,-12.5,25.78125,10.9375,3.125,19.140625,32
+0.25,alpha_vs_trained_alpha_1,1.5625,-13.28125,16.40625,7.421875,0.0,14.453125,32
+0.5,alpha_vs_trained_alpha_1,5.078125,-1.5625,14.0625,5.078125,-1.953125,12.109375,32
+0.75,alpha_vs_trained_alpha_1,0.0,0.0,0.0,1.953125,-2.734375,6.640625,32
+1.0,alpha_vs_trained_alpha_1,0.0,0.0,0.0,0.0,0.0,0.0,32
+1.25,alpha_vs_trained_alpha_1,0.0,0.0,0.0,0.0,-3.90625,4.296875,32

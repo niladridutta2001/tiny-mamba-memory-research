@@ -1,0 +1,1920 @@
+{
+  "scope": "matched seed-42 experiment",
+  "checkpoints": {
+    "Baseline": "results\\extended\\seed42\\u1500\\baseline.pt",
+    "Independent decay": "results\\selective_retention\\seed42\\event_decay\\u1500\\baseline.pt",
+    "Coupled gate": "results\\selective_retention\\seed42\\coupled_event_gate\\u1500\\baseline.pt"
+  },
+  "examples_per_condition": 1024,
+  "bootstrap_draws": 10000,
+  "metrics": [
+    {
+      "test": "retention",
+      "model": "Baseline",
+      "condition_a": 10,
+      "condition_b": "",
+      "accuracy": 0.8896484375
+    },
+    {
+      "test": "retention",
+      "model": "Independent decay",
+      "condition_a": 10,
+      "condition_b": "",
+      "accuracy": 0.9462890625
+    },
+    {
+      "test": "retention",
+      "model": "Coupled gate",
+      "condition_a": 10,
+      "condition_b": "",
+      "accuracy": 0.919921875
+    },
+    {
+      "test": "retention",
+      "model": "Baseline",
+      "condition_a": 32,
+      "condition_b": "",
+      "accuracy": 0.8212890625
+    },
+    {
+      "test": "retention",
+      "model": "Independent decay",
+      "condition_a": 32,
+      "condition_b": "",
+      "accuracy": 0.8818359375
+    },
+    {
+      "test": "retention",
+      "model": "Coupled gate",
+      "condition_a": 32,
+      "condition_b": "",
+      "accuracy": 0.779296875
+    },
+    {
+      "test": "retention",
+      "model": "Baseline",
+      "condition_a": 64,
+      "condition_b": "",
+      "accuracy": 0.6318359375
+    },
+    {
+      "test": "retention",
+      "model": "Independent decay",
+      "condition_a": 64,
+      "condition_b": "",
+      "accuracy": 0.599609375
+    },
+    {
+      "test": "retention",
+      "model": "Coupled gate",
+      "condition_a": 64,
+      "condition_b": "",
+      "accuracy": 0.5419921875
+    },
+    {
+      "test": "retention",
+      "model": "Baseline",
+      "condition_a": 128,
+      "condition_b": "",
+      "accuracy": 0.3349609375
+    },
+    {
+      "test": "retention",
+      "model": "Independent decay",
+      "condition_a": 128,
+      "condition_b": "",
+      "accuracy": 0.333984375
+    },
+    {
+      "test": "retention",
+      "model": "Coupled gate",
+      "condition_a": 128,
+      "condition_b": "",
+      "accuracy": 0.3408203125
+    },
+    {
+      "test": "retention",
+      "model": "Baseline",
+      "condition_a": 256,
+      "condition_b": "",
+      "accuracy": 0.2197265625
+    },
+    {
+      "test": "retention",
+      "model": "Independent decay",
+      "condition_a": 256,
+      "condition_b": "",
+      "accuracy": 0.314453125
+    },
+    {
+      "test": "retention",
+      "model": "Coupled gate",
+      "condition_a": 256,
+      "condition_b": "",
+      "accuracy": 0.279296875
+    },
+    {
+      "test": "retention",
+      "model": "Baseline",
+      "condition_a": 500,
+      "condition_b": "",
+      "accuracy": 0.25
+    },
+    {
+      "test": "retention",
+      "model": "Independent decay",
+      "condition_a": 500,
+      "condition_b": "",
+      "accuracy": 0.25
+    },
+    {
+      "test": "retention",
+      "model": "Coupled gate",
+      "condition_a": 500,
+      "condition_b": "",
+      "accuracy": 0.25
+    },
+    {
+      "test": "interference",
+      "model": "Baseline",
+      "condition_a": 10,
+      "condition_b": 0.0,
+      "accuracy": 0.873046875
+    },
+    {
+      "test": "interference",
+      "model": "Independent decay",
+      "condition_a": 10,
+      "condition_b": 0.0,
+      "accuracy": 0.9384765625
+    },
+    {
+      "test": "interference",
+      "model": "Coupled gate",
+      "condition_a": 10,
+      "condition_b": 0.0,
+      "accuracy": 0.9169921875
+    },
+    {
+      "test": "interference",
+      "model": "Baseline",
+      "condition_a": 10,
+      "condition_b": 0.1,
+      "accuracy": 0.865234375
+    },
+    {
+      "test": "interference",
+      "model": "Independent decay",
+      "condition_a": 10,
+      "condition_b": 0.1,
+      "accuracy": 0.9326171875
+    },
+    {
+      "test": "interference",
+      "model": "Coupled gate",
+      "condition_a": 10,
+      "condition_b": 0.1,
+      "accuracy": 0.912109375
+    },
+    {
+      "test": "interference",
+      "model": "Baseline",
+      "condition_a": 10,
+      "condition_b": 0.25,
+      "accuracy": 0.859375
+    },
+    {
+      "test": "interference",
+      "model": "Independent decay",
+      "condition_a": 10,
+      "condition_b": 0.25,
+      "accuracy": 0.9267578125
+    },
+    {
+      "test": "interference",
+      "model": "Coupled gate",
+      "condition_a": 10,
+      "condition_b": 0.25,
+      "accuracy": 0.900390625
+    },
+    {
+      "test": "interference",
+      "model": "Baseline",
+      "condition_a": 10,
+      "condition_b": 0.5,
+      "accuracy": 0.828125
+    },
+    {
+      "test": "interference",
+      "model": "Independent decay",
+      "condition_a": 10,
+      "condition_b": 0.5,
+      "accuracy": 0.8916015625
+    },
+    {
+      "test": "interference",
+      "model": "Coupled gate",
+      "condition_a": 10,
+      "condition_b": 0.5,
+      "accuracy": 0.8388671875
+    },
+    {
+      "test": "interference",
+      "model": "Baseline",
+      "condition_a": 10,
+      "condition_b": 0.75,
+      "accuracy": 0.755859375
+    },
+    {
+      "test": "interference",
+      "model": "Independent decay",
+      "condition_a": 10,
+      "condition_b": 0.75,
+      "accuracy": 0.822265625
+    },
+    {
+      "test": "interference",
+      "model": "Coupled gate",
+      "condition_a": 10,
+      "condition_b": 0.75,
+      "accuracy": 0.7607421875
+    },
+    {
+      "test": "interference",
+      "model": "Baseline",
+      "condition_a": 10,
+      "condition_b": 1.0,
+      "accuracy": 0.7041015625
+    },
+    {
+      "test": "interference",
+      "model": "Independent decay",
+      "condition_a": 10,
+      "condition_b": 1.0,
+      "accuracy": 0.7431640625
+    },
+    {
+      "test": "interference",
+      "model": "Coupled gate",
+      "condition_a": 10,
+      "condition_b": 1.0,
+      "accuracy": 0.7001953125
+    },
+    {
+      "test": "interference",
+      "model": "Baseline",
+      "condition_a": 32,
+      "condition_b": 0.0,
+      "accuracy": 0.83203125
+    },
+    {
+      "test": "interference",
+      "model": "Independent decay",
+      "condition_a": 32,
+      "condition_b": 0.0,
+      "accuracy": 0.875
+    },
+    {
+      "test": "interference",
+      "model": "Coupled gate",
+      "condition_a": 32,
+      "condition_b": 0.0,
+      "accuracy": 0.7822265625
+    },
+    {
+      "test": "interference",
+      "model": "Baseline",
+      "condition_a": 32,
+      "condition_b": 0.1,
+      "accuracy": 0.7958984375
+    },
+    {
+      "test": "interference",
+      "model": "Independent decay",
+      "condition_a": 32,
+      "condition_b": 0.1,
+      "accuracy": 0.8427734375
+    },
+    {
+      "test": "interference",
+      "model": "Coupled gate",
+      "condition_a": 32,
+      "condition_b": 0.1,
+      "accuracy": 0.76171875
+    },
+    {
+      "test": "interference",
+      "model": "Baseline",
+      "condition_a": 32,
+      "condition_b": 0.25,
+      "accuracy": 0.7021484375
+    },
+    {
+      "test": "interference",
+      "model": "Independent decay",
+      "condition_a": 32,
+      "condition_b": 0.25,
+      "accuracy": 0.7705078125
+    },
+    {
+      "test": "interference",
+      "model": "Coupled gate",
+      "condition_a": 32,
+      "condition_b": 0.25,
+      "accuracy": 0.6826171875
+    },
+    {
+      "test": "interference",
+      "model": "Baseline",
+      "condition_a": 32,
+      "condition_b": 0.5,
+      "accuracy": 0.4814453125
+    },
+    {
+      "test": "interference",
+      "model": "Independent decay",
+      "condition_a": 32,
+      "condition_b": 0.5,
+      "accuracy": 0.55859375
+    },
+    {
+      "test": "interference",
+      "model": "Coupled gate",
+      "condition_a": 32,
+      "condition_b": 0.5,
+      "accuracy": 0.5048828125
+    },
+    {
+      "test": "interference",
+      "model": "Baseline",
+      "condition_a": 32,
+      "condition_b": 0.75,
+      "accuracy": 0.3447265625
+    },
+    {
+      "test": "interference",
+      "model": "Independent decay",
+      "condition_a": 32,
+      "condition_b": 0.75,
+      "accuracy": 0.4111328125
+    },
+    {
+      "test": "interference",
+      "model": "Coupled gate",
+      "condition_a": 32,
+      "condition_b": 0.75,
+      "accuracy": 0.37109375
+    },
+    {
+      "test": "interference",
+      "model": "Baseline",
+      "condition_a": 32,
+      "condition_b": 1.0,
+      "accuracy": 0.283203125
+    },
+    {
+      "test": "interference",
+      "model": "Independent decay",
+      "condition_a": 32,
+      "condition_b": 1.0,
+      "accuracy": 0.328125
+    },
+    {
+      "test": "interference",
+      "model": "Coupled gate",
+      "condition_a": 32,
+      "condition_b": 1.0,
+      "accuracy": 0.3037109375
+    },
+    {
+      "test": "interference",
+      "model": "Baseline",
+      "condition_a": 64,
+      "condition_b": 0.0,
+      "accuracy": 0.61328125
+    },
+    {
+      "test": "interference",
+      "model": "Independent decay",
+      "condition_a": 64,
+      "condition_b": 0.0,
+      "accuracy": 0.5830078125
+    },
+    {
+      "test": "interference",
+      "model": "Coupled gate",
+      "condition_a": 64,
+      "condition_b": 0.0,
+      "accuracy": 0.546875
+    },
+    {
+      "test": "interference",
+      "model": "Baseline",
+      "condition_a": 64,
+      "condition_b": 0.1,
+      "accuracy": 0.5263671875
+    },
+    {
+      "test": "interference",
+      "model": "Independent decay",
+      "condition_a": 64,
+      "condition_b": 0.1,
+      "accuracy": 0.5302734375
+    },
+    {
+      "test": "interference",
+      "model": "Coupled gate",
+      "condition_a": 64,
+      "condition_b": 0.1,
+      "accuracy": 0.4658203125
+    },
+    {
+      "test": "interference",
+      "model": "Baseline",
+      "condition_a": 64,
+      "condition_b": 0.25,
+      "accuracy": 0.3662109375
+    },
+    {
+      "test": "interference",
+      "model": "Independent decay",
+      "condition_a": 64,
+      "condition_b": 0.25,
+      "accuracy": 0.4013671875
+    },
+    {
+      "test": "interference",
+      "model": "Coupled gate",
+      "condition_a": 64,
+      "condition_b": 0.25,
+      "accuracy": 0.365234375
+    },
+    {
+      "test": "interference",
+      "model": "Baseline",
+      "condition_a": 64,
+      "condition_b": 0.5,
+      "accuracy": 0.240234375
+    },
+    {
+      "test": "interference",
+      "model": "Independent decay",
+      "condition_a": 64,
+      "condition_b": 0.5,
+      "accuracy": 0.2978515625
+    },
+    {
+      "test": "interference",
+      "model": "Coupled gate",
+      "condition_a": 64,
+      "condition_b": 0.5,
+      "accuracy": 0.271484375
+    },
+    {
+      "test": "interference",
+      "model": "Baseline",
+      "condition_a": 64,
+      "condition_b": 0.75,
+      "accuracy": 0.2158203125
+    },
+    {
+      "test": "interference",
+      "model": "Independent decay",
+      "condition_a": 64,
+      "condition_b": 0.75,
+      "accuracy": 0.2470703125
+    },
+    {
+      "test": "interference",
+      "model": "Coupled gate",
+      "condition_a": 64,
+      "condition_b": 0.75,
+      "accuracy": 0.2275390625
+    },
+    {
+      "test": "interference",
+      "model": "Baseline",
+      "condition_a": 64,
+      "condition_b": 1.0,
+      "accuracy": 0.2197265625
+    },
+    {
+      "test": "interference",
+      "model": "Independent decay",
+      "condition_a": 64,
+      "condition_b": 1.0,
+      "accuracy": 0.216796875
+    },
+    {
+      "test": "interference",
+      "model": "Coupled gate",
+      "condition_a": 64,
+      "condition_b": 1.0,
+      "accuracy": 0.21484375
+    },
+    {
+      "test": "interference",
+      "model": "Baseline",
+      "condition_a": 128,
+      "condition_b": 0.0,
+      "accuracy": 0.3359375
+    },
+    {
+      "test": "interference",
+      "model": "Independent decay",
+      "condition_a": 128,
+      "condition_b": 0.0,
+      "accuracy": 0.330078125
+    },
+    {
+      "test": "interference",
+      "model": "Coupled gate",
+      "condition_a": 128,
+      "condition_b": 0.0,
+      "accuracy": 0.337890625
+    },
+    {
+      "test": "interference",
+      "model": "Baseline",
+      "condition_a": 128,
+      "condition_b": 0.1,
+      "accuracy": 0.2822265625
+    },
+    {
+      "test": "interference",
+      "model": "Independent decay",
+      "condition_a": 128,
+      "condition_b": 0.1,
+      "accuracy": 0.2998046875
+    },
+    {
+      "test": "interference",
+      "model": "Coupled gate",
+      "condition_a": 128,
+      "condition_b": 0.1,
+      "accuracy": 0.3056640625
+    },
+    {
+      "test": "interference",
+      "model": "Baseline",
+      "condition_a": 128,
+      "condition_b": 0.25,
+      "accuracy": 0.2314453125
+    },
+    {
+      "test": "interference",
+      "model": "Independent decay",
+      "condition_a": 128,
+      "condition_b": 0.25,
+      "accuracy": 0.26953125
+    },
+    {
+      "test": "interference",
+      "model": "Coupled gate",
+      "condition_a": 128,
+      "condition_b": 0.25,
+      "accuracy": 0.2548828125
+    },
+    {
+      "test": "interference",
+      "model": "Baseline",
+      "condition_a": 128,
+      "condition_b": 0.5,
+      "accuracy": 0.2138671875
+    },
+    {
+      "test": "interference",
+      "model": "Independent decay",
+      "condition_a": 128,
+      "condition_b": 0.5,
+      "accuracy": 0.24609375
+    },
+    {
+      "test": "interference",
+      "model": "Coupled gate",
+      "condition_a": 128,
+      "condition_b": 0.5,
+      "accuracy": 0.255859375
+    },
+    {
+      "test": "interference",
+      "model": "Baseline",
+      "condition_a": 128,
+      "condition_b": 0.75,
+      "accuracy": 0.2001953125
+    },
+    {
+      "test": "interference",
+      "model": "Independent decay",
+      "condition_a": 128,
+      "condition_b": 0.75,
+      "accuracy": 0.2431640625
+    },
+    {
+      "test": "interference",
+      "model": "Coupled gate",
+      "condition_a": 128,
+      "condition_b": 0.75,
+      "accuracy": 0.23828125
+    },
+    {
+      "test": "interference",
+      "model": "Baseline",
+      "condition_a": 128,
+      "condition_b": 1.0,
+      "accuracy": 0.18359375
+    },
+    {
+      "test": "interference",
+      "model": "Independent decay",
+      "condition_a": 128,
+      "condition_b": 1.0,
+      "accuracy": 0.234375
+    },
+    {
+      "test": "interference",
+      "model": "Coupled gate",
+      "condition_a": 128,
+      "condition_b": 1.0,
+      "accuracy": 0.220703125
+    },
+    {
+      "test": "overwrite",
+      "model": "Baseline",
+      "condition_a": 1,
+      "condition_b": 32,
+      "accuracy": 0.5478515625
+    },
+    {
+      "test": "overwrite",
+      "model": "Independent decay",
+      "condition_a": 1,
+      "condition_b": 32,
+      "accuracy": 0.5185546875
+    },
+    {
+      "test": "overwrite",
+      "model": "Coupled gate",
+      "condition_a": 1,
+      "condition_b": 32,
+      "accuracy": 0.4990234375
+    },
+    {
+      "test": "overwrite",
+      "model": "Baseline",
+      "condition_a": 1,
+      "condition_b": 64,
+      "accuracy": 0.4345703125
+    },
+    {
+      "test": "overwrite",
+      "model": "Independent decay",
+      "condition_a": 1,
+      "condition_b": 64,
+      "accuracy": 0.3984375
+    },
+    {
+      "test": "overwrite",
+      "model": "Coupled gate",
+      "condition_a": 1,
+      "condition_b": 64,
+      "accuracy": 0.3544921875
+    },
+    {
+      "test": "overwrite",
+      "model": "Baseline",
+      "condition_a": 4,
+      "condition_b": 32,
+      "accuracy": 0.49609375
+    },
+    {
+      "test": "overwrite",
+      "model": "Independent decay",
+      "condition_a": 4,
+      "condition_b": 32,
+      "accuracy": 0.4794921875
+    },
+    {
+      "test": "overwrite",
+      "model": "Coupled gate",
+      "condition_a": 4,
+      "condition_b": 32,
+      "accuracy": 0.4619140625
+    },
+    {
+      "test": "overwrite",
+      "model": "Baseline",
+      "condition_a": 4,
+      "condition_b": 64,
+      "accuracy": 0.4404296875
+    },
+    {
+      "test": "overwrite",
+      "model": "Independent decay",
+      "condition_a": 4,
+      "condition_b": 64,
+      "accuracy": 0.4345703125
+    },
+    {
+      "test": "overwrite",
+      "model": "Coupled gate",
+      "condition_a": 4,
+      "condition_b": 64,
+      "accuracy": 0.3701171875
+    },
+    {
+      "test": "overwrite",
+      "model": "Baseline",
+      "condition_a": 8,
+      "condition_b": 32,
+      "accuracy": 0.4404296875
+    },
+    {
+      "test": "overwrite",
+      "model": "Independent decay",
+      "condition_a": 8,
+      "condition_b": 32,
+      "accuracy": 0.4248046875
+    },
+    {
+      "test": "overwrite",
+      "model": "Coupled gate",
+      "condition_a": 8,
+      "condition_b": 32,
+      "accuracy": 0.40625
+    },
+    {
+      "test": "overwrite",
+      "model": "Baseline",
+      "condition_a": 8,
+      "condition_b": 64,
+      "accuracy": 0.4033203125
+    },
+    {
+      "test": "overwrite",
+      "model": "Independent decay",
+      "condition_a": 8,
+      "condition_b": 64,
+      "accuracy": 0.3955078125
+    },
+    {
+      "test": "overwrite",
+      "model": "Coupled gate",
+      "condition_a": 8,
+      "condition_b": 64,
+      "accuracy": 0.3369140625
+    }
+  ],
+  "contrasts": [
+    {
+      "test": "retention",
+      "condition_a": 10,
+      "condition_b": "",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 5.6640625,
+      "ci_low": 3.90625,
+      "ci_high": 7.421875
+    },
+    {
+      "test": "retention",
+      "condition_a": 10,
+      "condition_b": "",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 2.63671875,
+      "ci_low": 1.46484375,
+      "ci_high": 3.90625
+    },
+    {
+      "test": "retention",
+      "condition_a": 10,
+      "condition_b": "",
+      "comparison": "coupled_vs_baseline",
+      "effect_pp": 3.02734375,
+      "ci_low": 1.171875,
+      "ci_high": 4.98046875
+    },
+    {
+      "test": "retention",
+      "condition_a": 32,
+      "condition_b": "",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 6.0546875,
+      "ci_low": 3.80859375,
+      "ci_high": 8.30078125
+    },
+    {
+      "test": "retention",
+      "condition_a": 32,
+      "condition_b": "",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 10.25390625,
+      "ci_low": 8.30078125,
+      "ci_high": 12.3046875
+    },
+    {
+      "test": "retention",
+      "condition_a": 32,
+      "condition_b": "",
+      "comparison": "coupled_vs_baseline",
+      "effect_pp": -4.19921875,
+      "ci_low": -6.93359375,
+      "ci_high": -1.5625
+    },
+    {
+      "test": "retention",
+      "condition_a": 64,
+      "condition_b": "",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -3.22265625,
+      "ci_low": -6.54296875,
+      "ci_high": 0.09765625
+    },
+    {
+      "test": "retention",
+      "condition_a": 64,
+      "condition_b": "",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 5.76171875,
+      "ci_low": 3.41796875,
+      "ci_high": 8.203125
+    },
+    {
+      "test": "retention",
+      "condition_a": 64,
+      "condition_b": "",
+      "comparison": "coupled_vs_baseline",
+      "effect_pp": -8.984375,
+      "ci_low": -12.5,
+      "ci_high": -5.46875
+    },
+    {
+      "test": "retention",
+      "condition_a": 128,
+      "condition_b": "",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -0.09765625,
+      "ci_low": -3.3203125,
+      "ci_high": 3.125
+    },
+    {
+      "test": "retention",
+      "condition_a": 128,
+      "condition_b": "",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": -0.68359375,
+      "ci_low": -3.02734375,
+      "ci_high": 1.7578125
+    },
+    {
+      "test": "retention",
+      "condition_a": 128,
+      "condition_b": "",
+      "comparison": "coupled_vs_baseline",
+      "effect_pp": 0.5859375,
+      "ci_low": -2.63671875,
+      "ci_high": 3.7109375
+    },
+    {
+      "test": "retention",
+      "condition_a": 256,
+      "condition_b": "",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 9.47265625,
+      "ci_low": 6.640625,
+      "ci_high": 12.3046875
+    },
+    {
+      "test": "retention",
+      "condition_a": 256,
+      "condition_b": "",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 3.515625,
+      "ci_low": 1.26953125,
+      "ci_high": 5.76171875
+    },
+    {
+      "test": "retention",
+      "condition_a": 256,
+      "condition_b": "",
+      "comparison": "coupled_vs_baseline",
+      "effect_pp": 5.95703125,
+      "ci_low": 3.3203125,
+      "ci_high": 8.59375
+    },
+    {
+      "test": "retention",
+      "condition_a": 500,
+      "condition_b": "",
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 0.0,
+      "ci_low": -2.1484375,
+      "ci_high": 2.1484375
+    },
+    {
+      "test": "retention",
+      "condition_a": 500,
+      "condition_b": "",
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 0.0,
+      "ci_low": -2.24609375,
+      "ci_high": 2.1484375
+    },
+    {
+      "test": "retention",
+      "condition_a": 500,
+      "condition_b": "",
+      "comparison": "coupled_vs_baseline",
+      "effect_pp": 0.0,
+      "ci_low": -2.24609375,
+      "ci_high": 2.1484375
+    },
+    {
+      "test": "interference",
+      "condition_a": 10,
+      "condition_b": 0.0,
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 6.54296875,
+      "ci_low": 4.8828125,
+      "ci_high": 8.30078125
+    },
+    {
+      "test": "interference",
+      "condition_a": 10,
+      "condition_b": 0.0,
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 2.1484375,
+      "ci_low": 0.87890625,
+      "ci_high": 3.41796875
+    },
+    {
+      "test": "interference",
+      "condition_a": 10,
+      "condition_b": 0.0,
+      "comparison": "coupled_vs_baseline",
+      "effect_pp": 4.39453125,
+      "ci_low": 2.5390625,
+      "ci_high": 6.34765625
+    },
+    {
+      "test": "interference",
+      "condition_a": 10,
+      "condition_b": 0.1,
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 6.73828125,
+      "ci_low": 4.8828125,
+      "ci_high": 8.69140625
+    },
+    {
+      "test": "interference",
+      "condition_a": 10,
+      "condition_b": 0.1,
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 2.05078125,
+      "ci_low": 0.78125,
+      "ci_high": 3.41796875
+    },
+    {
+      "test": "interference",
+      "condition_a": 10,
+      "condition_b": 0.1,
+      "comparison": "coupled_vs_baseline",
+      "effect_pp": 4.6875,
+      "ci_low": 2.734375,
+      "ci_high": 6.640625
+    },
+    {
+      "test": "interference",
+      "condition_a": 10,
+      "condition_b": 0.25,
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 6.73828125,
+      "ci_low": 4.8828125,
+      "ci_high": 8.69140625
+    },
+    {
+      "test": "interference",
+      "condition_a": 10,
+      "condition_b": 0.25,
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 2.63671875,
+      "ci_low": 1.3671875,
+      "ci_high": 4.00390625
+    },
+    {
+      "test": "interference",
+      "condition_a": 10,
+      "condition_b": 0.25,
+      "comparison": "coupled_vs_baseline",
+      "effect_pp": 4.1015625,
+      "ci_low": 2.1484375,
+      "ci_high": 6.15234375
+    },
+    {
+      "test": "interference",
+      "condition_a": 10,
+      "condition_b": 0.5,
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 6.34765625,
+      "ci_low": 4.1015625,
+      "ci_high": 8.59375
+    },
+    {
+      "test": "interference",
+      "condition_a": 10,
+      "condition_b": 0.5,
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 5.2734375,
+      "ci_low": 3.3203125,
+      "ci_high": 7.2265625
+    },
+    {
+      "test": "interference",
+      "condition_a": 10,
+      "condition_b": 0.5,
+      "comparison": "coupled_vs_baseline",
+      "effect_pp": 1.07421875,
+      "ci_low": -1.171875,
+      "ci_high": 3.3203125
+    },
+    {
+      "test": "interference",
+      "condition_a": 10,
+      "condition_b": 0.75,
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 6.640625,
+      "ci_low": 4.1015625,
+      "ci_high": 9.27734375
+    },
+    {
+      "test": "interference",
+      "condition_a": 10,
+      "condition_b": 0.75,
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 6.15234375,
+      "ci_low": 3.90625,
+      "ci_high": 8.3984375
+    },
+    {
+      "test": "interference",
+      "condition_a": 10,
+      "condition_b": 0.75,
+      "comparison": "coupled_vs_baseline",
+      "effect_pp": 0.48828125,
+      "ci_low": -1.953125,
+      "ci_high": 3.02734375
+    },
+    {
+      "test": "interference",
+      "condition_a": 10,
+      "condition_b": 1.0,
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 3.90625,
+      "ci_low": 0.9765625,
+      "ci_high": 6.8359375
+    },
+    {
+      "test": "interference",
+      "condition_a": 10,
+      "condition_b": 1.0,
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 4.296875,
+      "ci_low": 1.85546875,
+      "ci_high": 6.640625
+    },
+    {
+      "test": "interference",
+      "condition_a": 10,
+      "condition_b": 1.0,
+      "comparison": "coupled_vs_baseline",
+      "effect_pp": -0.390625,
+      "ci_low": -3.125,
+      "ci_high": 2.3461914062499645
+    },
+    {
+      "test": "interference",
+      "condition_a": 32,
+      "condition_b": 0.0,
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 4.296875,
+      "ci_low": 1.953125,
+      "ci_high": 6.640625
+    },
+    {
+      "test": "interference",
+      "condition_a": 32,
+      "condition_b": 0.0,
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 9.27734375,
+      "ci_low": 7.421875,
+      "ci_high": 11.23046875
+    },
+    {
+      "test": "interference",
+      "condition_a": 32,
+      "condition_b": 0.0,
+      "comparison": "coupled_vs_baseline",
+      "effect_pp": -4.98046875,
+      "ci_low": -7.51953125,
+      "ci_high": -2.34375
+    },
+    {
+      "test": "interference",
+      "condition_a": 32,
+      "condition_b": 0.1,
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 4.6875,
+      "ci_low": 2.05078125,
+      "ci_high": 7.2265625
+    },
+    {
+      "test": "interference",
+      "condition_a": 32,
+      "condition_b": 0.1,
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 8.10546875,
+      "ci_low": 6.15234375,
+      "ci_high": 10.15625
+    },
+    {
+      "test": "interference",
+      "condition_a": 32,
+      "condition_b": 0.1,
+      "comparison": "coupled_vs_baseline",
+      "effect_pp": -3.41796875,
+      "ci_low": -6.15234375,
+      "ci_high": -0.68359375
+    },
+    {
+      "test": "interference",
+      "condition_a": 32,
+      "condition_b": 0.25,
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 6.8359375,
+      "ci_low": 3.90625,
+      "ci_high": 9.765625
+    },
+    {
+      "test": "interference",
+      "condition_a": 32,
+      "condition_b": 0.25,
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 8.7890625,
+      "ci_low": 6.54296875,
+      "ci_high": 11.03515625
+    },
+    {
+      "test": "interference",
+      "condition_a": 32,
+      "condition_b": 0.25,
+      "comparison": "coupled_vs_baseline",
+      "effect_pp": -1.953125,
+      "ci_low": -4.8828125,
+      "ci_high": 0.9765625
+    },
+    {
+      "test": "interference",
+      "condition_a": 32,
+      "condition_b": 0.5,
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 7.71484375,
+      "ci_low": 4.6875,
+      "ci_high": 10.83984375
+    },
+    {
+      "test": "interference",
+      "condition_a": 32,
+      "condition_b": 0.5,
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 5.37109375,
+      "ci_low": 2.9296875,
+      "ci_high": 7.8125
+    },
+    {
+      "test": "interference",
+      "condition_a": 32,
+      "condition_b": 0.5,
+      "comparison": "coupled_vs_baseline",
+      "effect_pp": 2.34375,
+      "ci_low": -0.68359375,
+      "ci_high": 5.37109375
+    },
+    {
+      "test": "interference",
+      "condition_a": 32,
+      "condition_b": 0.75,
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 6.640625,
+      "ci_low": 3.515625,
+      "ci_high": 9.765625
+    },
+    {
+      "test": "interference",
+      "condition_a": 32,
+      "condition_b": 0.75,
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 4.00390625,
+      "ci_low": 1.5625,
+      "ci_high": 6.4453125
+    },
+    {
+      "test": "interference",
+      "condition_a": 32,
+      "condition_b": 0.75,
+      "comparison": "coupled_vs_baseline",
+      "effect_pp": 2.63671875,
+      "ci_low": -0.29296875,
+      "ci_high": 5.6640625
+    },
+    {
+      "test": "interference",
+      "condition_a": 32,
+      "condition_b": 1.0,
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 4.4921875,
+      "ci_low": 1.5600585937500022,
+      "ci_high": 7.421875
+    },
+    {
+      "test": "interference",
+      "condition_a": 32,
+      "condition_b": 1.0,
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 2.44140625,
+      "ci_low": 0.0,
+      "ci_high": 4.8828125
+    },
+    {
+      "test": "interference",
+      "condition_a": 32,
+      "condition_b": 1.0,
+      "comparison": "coupled_vs_baseline",
+      "effect_pp": 2.05078125,
+      "ci_low": -0.68359375,
+      "ci_high": 4.8828125
+    },
+    {
+      "test": "interference",
+      "condition_a": 64,
+      "condition_b": 0.0,
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -3.02734375,
+      "ci_low": -6.34765625,
+      "ci_high": 0.1953125
+    },
+    {
+      "test": "interference",
+      "condition_a": 64,
+      "condition_b": 0.0,
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 3.61328125,
+      "ci_low": 1.26953125,
+      "ci_high": 5.95703125
+    },
+    {
+      "test": "interference",
+      "condition_a": 64,
+      "condition_b": 0.0,
+      "comparison": "coupled_vs_baseline",
+      "effect_pp": -6.640625,
+      "ci_low": -10.05859375,
+      "ci_high": -3.22265625
+    },
+    {
+      "test": "interference",
+      "condition_a": 64,
+      "condition_b": 0.1,
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 0.390625,
+      "ci_low": -2.83203125,
+      "ci_high": 3.61328125
+    },
+    {
+      "test": "interference",
+      "condition_a": 64,
+      "condition_b": 0.1,
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 6.4453125,
+      "ci_low": 4.296875,
+      "ci_high": 8.69140625
+    },
+    {
+      "test": "interference",
+      "condition_a": 64,
+      "condition_b": 0.1,
+      "comparison": "coupled_vs_baseline",
+      "effect_pp": -6.0546875,
+      "ci_low": -9.47265625,
+      "ci_high": -2.8295898437500355
+    },
+    {
+      "test": "interference",
+      "condition_a": 64,
+      "condition_b": 0.25,
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 3.515625,
+      "ci_low": 0.48828125,
+      "ci_high": 6.54296875
+    },
+    {
+      "test": "interference",
+      "condition_a": 64,
+      "condition_b": 0.25,
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 3.61328125,
+      "ci_low": 1.26953125,
+      "ci_high": 5.95703125
+    },
+    {
+      "test": "interference",
+      "condition_a": 64,
+      "condition_b": 0.25,
+      "comparison": "coupled_vs_baseline",
+      "effect_pp": -0.09765625,
+      "ci_low": -3.22265625,
+      "ci_high": 3.02734375
+    },
+    {
+      "test": "interference",
+      "condition_a": 64,
+      "condition_b": 0.5,
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 5.76171875,
+      "ci_low": 3.02734375,
+      "ci_high": 8.49609375
+    },
+    {
+      "test": "interference",
+      "condition_a": 64,
+      "condition_b": 0.5,
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 2.63671875,
+      "ci_low": 0.390625,
+      "ci_high": 4.78515625
+    },
+    {
+      "test": "interference",
+      "condition_a": 64,
+      "condition_b": 0.5,
+      "comparison": "coupled_vs_baseline",
+      "effect_pp": 3.125,
+      "ci_low": 0.48828125,
+      "ci_high": 5.6640625
+    },
+    {
+      "test": "interference",
+      "condition_a": 64,
+      "condition_b": 0.75,
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 3.125,
+      "ci_low": 0.48828125,
+      "ci_high": 5.859375
+    },
+    {
+      "test": "interference",
+      "condition_a": 64,
+      "condition_b": 0.75,
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 1.953125,
+      "ci_low": -0.1953125,
+      "ci_high": 4.19921875
+    },
+    {
+      "test": "interference",
+      "condition_a": 64,
+      "condition_b": 0.75,
+      "comparison": "coupled_vs_baseline",
+      "effect_pp": 1.171875,
+      "ci_low": -1.46484375,
+      "ci_high": 3.80859375
+    },
+    {
+      "test": "interference",
+      "condition_a": 64,
+      "condition_b": 1.0,
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -0.29296875,
+      "ci_low": -2.9296875,
+      "ci_high": 2.34375
+    },
+    {
+      "test": "interference",
+      "condition_a": 64,
+      "condition_b": 1.0,
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 0.1953125,
+      "ci_low": -2.1484375,
+      "ci_high": 2.4438476562499645
+    },
+    {
+      "test": "interference",
+      "condition_a": 64,
+      "condition_b": 1.0,
+      "comparison": "coupled_vs_baseline",
+      "effect_pp": -0.48828125,
+      "ci_low": -2.9296875,
+      "ci_high": 1.953125
+    },
+    {
+      "test": "interference",
+      "condition_a": 128,
+      "condition_b": 0.0,
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -0.5859375,
+      "ci_low": -3.90625,
+      "ci_high": 2.63671875
+    },
+    {
+      "test": "interference",
+      "condition_a": 128,
+      "condition_b": 0.0,
+      "comparison": "independent_vs_coupled",
+      "effect_pp": -0.78125,
+      "ci_low": -3.125,
+      "ci_high": 1.66015625
+    },
+    {
+      "test": "interference",
+      "condition_a": 128,
+      "condition_b": 0.0,
+      "comparison": "coupled_vs_baseline",
+      "effect_pp": 0.1953125,
+      "ci_low": -3.02734375,
+      "ci_high": 3.41796875
+    },
+    {
+      "test": "interference",
+      "condition_a": 128,
+      "condition_b": 0.1,
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 1.7578125,
+      "ci_low": -0.9765625,
+      "ci_high": 4.4921875
+    },
+    {
+      "test": "interference",
+      "condition_a": 128,
+      "condition_b": 0.1,
+      "comparison": "independent_vs_coupled",
+      "effect_pp": -0.5859375,
+      "ci_low": -2.63671875,
+      "ci_high": 1.46484375
+    },
+    {
+      "test": "interference",
+      "condition_a": 128,
+      "condition_b": 0.1,
+      "comparison": "coupled_vs_baseline",
+      "effect_pp": 2.34375,
+      "ci_low": -0.390625,
+      "ci_high": 5.078125
+    },
+    {
+      "test": "interference",
+      "condition_a": 128,
+      "condition_b": 0.25,
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 3.80859375,
+      "ci_low": 1.26953125,
+      "ci_high": 6.34765625
+    },
+    {
+      "test": "interference",
+      "condition_a": 128,
+      "condition_b": 0.25,
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 1.46484375,
+      "ci_low": -0.5859375,
+      "ci_high": 3.61328125
+    },
+    {
+      "test": "interference",
+      "condition_a": 128,
+      "condition_b": 0.25,
+      "comparison": "coupled_vs_baseline",
+      "effect_pp": 2.34375,
+      "ci_low": -0.09765625,
+      "ci_high": 4.78515625
+    },
+    {
+      "test": "interference",
+      "condition_a": 128,
+      "condition_b": 0.5,
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 3.22265625,
+      "ci_low": 0.5859375,
+      "ci_high": 5.859375
+    },
+    {
+      "test": "interference",
+      "condition_a": 128,
+      "condition_b": 0.5,
+      "comparison": "independent_vs_coupled",
+      "effect_pp": -0.9765625,
+      "ci_low": -3.22265625,
+      "ci_high": 1.26953125
+    },
+    {
+      "test": "interference",
+      "condition_a": 128,
+      "condition_b": 0.5,
+      "comparison": "coupled_vs_baseline",
+      "effect_pp": 4.19921875,
+      "ci_low": 1.66015625,
+      "ci_high": 6.73828125
+    },
+    {
+      "test": "interference",
+      "condition_a": 128,
+      "condition_b": 0.75,
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 4.296875,
+      "ci_low": 1.85546875,
+      "ci_high": 6.73828125
+    },
+    {
+      "test": "interference",
+      "condition_a": 128,
+      "condition_b": 0.75,
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 0.48828125,
+      "ci_low": -1.7578125,
+      "ci_high": 2.734375
+    },
+    {
+      "test": "interference",
+      "condition_a": 128,
+      "condition_b": 0.75,
+      "comparison": "coupled_vs_baseline",
+      "effect_pp": 3.80859375,
+      "ci_low": 1.26953125,
+      "ci_high": 6.34765625
+    },
+    {
+      "test": "interference",
+      "condition_a": 128,
+      "condition_b": 1.0,
+      "comparison": "independent_vs_baseline",
+      "effect_pp": 5.078125,
+      "ci_low": 2.63671875,
+      "ci_high": 7.6171875
+    },
+    {
+      "test": "interference",
+      "condition_a": 128,
+      "condition_b": 1.0,
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 1.3671875,
+      "ci_low": -0.68359375,
+      "ci_high": 3.41796875
+    },
+    {
+      "test": "interference",
+      "condition_a": 128,
+      "condition_b": 1.0,
+      "comparison": "coupled_vs_baseline",
+      "effect_pp": 3.7109375,
+      "ci_low": 1.26953125,
+      "ci_high": 6.15234375
+    },
+    {
+      "test": "overwrite",
+      "condition_a": 1,
+      "condition_b": 32,
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -2.9296875,
+      "ci_low": -6.4453125,
+      "ci_high": 0.48828125
+    },
+    {
+      "test": "overwrite",
+      "condition_a": 1,
+      "condition_b": 32,
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 1.953125,
+      "ci_low": -0.68359375,
+      "ci_high": 4.6875
+    },
+    {
+      "test": "overwrite",
+      "condition_a": 1,
+      "condition_b": 32,
+      "comparison": "coupled_vs_baseline",
+      "effect_pp": -4.8828125,
+      "ci_low": -8.59375,
+      "ci_high": -1.171875
+    },
+    {
+      "test": "overwrite",
+      "condition_a": 1,
+      "condition_b": 64,
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -3.61328125,
+      "ci_low": -6.740722656249998,
+      "ci_high": -0.390625
+    },
+    {
+      "test": "overwrite",
+      "condition_a": 1,
+      "condition_b": 64,
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 4.39453125,
+      "ci_low": 2.44140625,
+      "ci_high": 6.4453125
+    },
+    {
+      "test": "overwrite",
+      "condition_a": 1,
+      "condition_b": 64,
+      "comparison": "coupled_vs_baseline",
+      "effect_pp": -8.0078125,
+      "ci_low": -11.330566406249998,
+      "ci_high": -4.58984375
+    },
+    {
+      "test": "overwrite",
+      "condition_a": 4,
+      "condition_b": 32,
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -1.66015625,
+      "ci_low": -4.58984375,
+      "ci_high": 1.26953125
+    },
+    {
+      "test": "overwrite",
+      "condition_a": 4,
+      "condition_b": 32,
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 1.7578125,
+      "ci_low": -0.390625,
+      "ci_high": 4.00390625
+    },
+    {
+      "test": "overwrite",
+      "condition_a": 4,
+      "condition_b": 32,
+      "comparison": "coupled_vs_baseline",
+      "effect_pp": -3.41796875,
+      "ci_low": -6.54296875,
+      "ci_high": -0.29296875
+    },
+    {
+      "test": "overwrite",
+      "condition_a": 4,
+      "condition_b": 64,
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -0.5859375,
+      "ci_low": -3.90625,
+      "ci_high": 2.63671875
+    },
+    {
+      "test": "overwrite",
+      "condition_a": 4,
+      "condition_b": 64,
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 6.4453125,
+      "ci_low": 4.296875,
+      "ci_high": 8.59375
+    },
+    {
+      "test": "overwrite",
+      "condition_a": 4,
+      "condition_b": 64,
+      "comparison": "coupled_vs_baseline",
+      "effect_pp": -7.03125,
+      "ci_low": -10.3515625,
+      "ci_high": -3.7109375
+    },
+    {
+      "test": "overwrite",
+      "condition_a": 8,
+      "condition_b": 32,
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -1.5625,
+      "ci_low": -4.296875,
+      "ci_high": 1.171875
+    },
+    {
+      "test": "overwrite",
+      "condition_a": 8,
+      "condition_b": 32,
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 1.85546875,
+      "ci_low": -0.5859375,
+      "ci_high": 4.39453125
+    },
+    {
+      "test": "overwrite",
+      "condition_a": 8,
+      "condition_b": 32,
+      "comparison": "coupled_vs_baseline",
+      "effect_pp": -3.41796875,
+      "ci_low": -6.4453125,
+      "ci_high": -0.3881835937500355
+    },
+    {
+      "test": "overwrite",
+      "condition_a": 8,
+      "condition_b": 64,
+      "comparison": "independent_vs_baseline",
+      "effect_pp": -0.78125,
+      "ci_low": -4.00390625,
+      "ci_high": 2.5390625
+    },
+    {
+      "test": "overwrite",
+      "condition_a": 8,
+      "condition_b": 64,
+      "comparison": "independent_vs_coupled",
+      "effect_pp": 5.859375,
+      "ci_low": 3.515625,
+      "ci_high": 8.203125
+    },
+    {
+      "test": "overwrite",
+      "condition_a": 8,
+      "condition_b": 64,
+      "comparison": "coupled_vs_baseline",
+      "effect_pp": -6.640625,
+      "ci_low": -9.9609375,
+      "ci_high": -3.3203125
+    }
+  ],
+  "fixed_splits": [
+    {
+      "model": "Baseline",
+      "split": "test_id",
+      "condition": "ID",
+      "length": 128,
+      "query_accuracy": 0.7504544703354817,
+      "query_count": 12102
+    },
+    {
+      "model": "Baseline",
+      "split": "test_ood_256",
+      "condition": "OOD",
+      "length": 256,
+      "query_accuracy": 0.7122774527547455,
+      "query_count": 23759
+    },
+    {
+      "model": "Baseline",
+      "split": "test_ood_512",
+      "condition": "OOD",
+      "length": 512,
+      "query_accuracy": 0.6964407939767283,
+      "query_count": 46752
+    },
+    {
+      "model": "Baseline",
+      "split": "stress_gap_512",
+      "condition": "Delay stress",
+      "length": 512,
+      "query_accuracy": 0.6958747168496253,
+      "query_count": 45912
+    },
+    {
+      "model": "Baseline",
+      "split": "stress_overwrite_512",
+      "condition": "Overwrite stress",
+      "length": 512,
+      "query_accuracy": 0.696699684242398,
+      "query_count": 46238
+    },
+    {
+      "model": "Independent decay",
+      "split": "test_id",
+      "condition": "ID",
+      "length": 128,
+      "query_accuracy": 0.7641712113700215,
+      "query_count": 12102
+    },
+    {
+      "model": "Independent decay",
+      "split": "test_ood_256",
+      "condition": "OOD",
+      "length": 256,
+      "query_accuracy": 0.7270928911149459,
+      "query_count": 23759
+    },
+    {
+      "model": "Independent decay",
+      "split": "test_ood_512",
+      "condition": "OOD",
+      "length": 512,
+      "query_accuracy": 0.7114561943874059,
+      "query_count": 46752
+    },
+    {
+      "model": "Independent decay",
+      "split": "stress_gap_512",
+      "condition": "Delay stress",
+      "length": 512,
+      "query_accuracy": 0.7132340128942325,
+      "query_count": 45912
+    },
+    {
+      "model": "Independent decay",
+      "split": "stress_overwrite_512",
+      "condition": "Overwrite stress",
+      "length": 512,
+      "query_accuracy": 0.7088541891950344,
+      "query_count": 46238
+    },
+    {
+      "model": "Coupled gate",
+      "split": "test_id",
+      "condition": "ID",
+      "length": 128,
+      "query_accuracy": 0.7464881837712775,
+      "query_count": 12102
+    },
+    {
+      "model": "Coupled gate",
+      "split": "test_ood_256",
+      "condition": "OOD",
+      "length": 256,
+      "query_accuracy": 0.7098362725703944,
+      "query_count": 23759
+    },
+    {
+      "model": "Coupled gate",
+      "split": "test_ood_512",
+      "condition": "OOD",
+      "length": 512,
+      "query_accuracy": 0.6883555783709788,
+      "query_count": 46752
+    },
+    {
+      "model": "Coupled gate",
+      "split": "stress_gap_512",
+      "condition": "Delay stress",
+      "length": 512,
+      "query_accuracy": 0.6905384213277574,
+      "query_count": 45912
+    },
+    {
+      "model": "Coupled gate",
+      "split": "stress_overwrite_512",
+      "condition": "Overwrite stress",
+      "length": 512,
+      "query_accuracy": 0.6907305679311389,
+      "query_count": 46238
+    }
+  ],
+  "learned_gates": [
+    {
+      "model": "Independent decay",
+      "event": "NOOP",
+      "mean_multiplier": 0.7941574454307556,
+      "std_multiplier": 0.14838431775569916,
+      "min_multiplier": 0.5045372247695923,
+      "max_multiplier": 1.1877480745315552,
+      "fraction_below_one": 0.90625
+    },
+    {
+      "model": "Independent decay",
+      "event": "SET",
+      "mean_multiplier": 0.8475065231323242,
+      "std_multiplier": 0.15180720388889313,
+      "min_multiplier": 0.5340959429740906,
+      "max_multiplier": 1.2282370328903198,
+      "fraction_below_one": 0.8125
+    },
+    {
+      "model": "Independent decay",
+      "event": "QUERY",
+      "mean_multiplier": 0.862101137638092,
+      "std_multiplier": 0.1341944932937622,
+      "min_multiplier": 0.5997139811515808,
+      "max_multiplier": 1.2088786363601685,
+      "fraction_below_one": 0.828125
+    },
+    {
+      "model": "Coupled gate",
+      "event": "NOOP",
+      "mean_multiplier": 0.8688770532608032,
+      "std_multiplier": 0.125589519739151,
+      "min_multiplier": 0.5878408551216125,
+      "max_multiplier": 1.1893616914749146,
+      "fraction_below_one": 0.859375
+    },
+    {
+      "model": "Coupled gate",
+      "event": "SET",
+      "mean_multiplier": 0.9630666971206665,
+      "std_multiplier": 0.22522203624248505,
+      "min_multiplier": 0.61021488904953,
+      "max_multiplier": 1.6433937549591064,
+      "fraction_below_one": 0.6875
+    },
+    {
+      "model": "Coupled gate",
+      "event": "QUERY",
+      "mean_multiplier": 0.9816752076148987,
+      "std_multiplier": 0.1562802940607071,
+      "min_multiplier": 0.6631370186805725,
+      "max_multiplier": 1.4791210889816284,
+      "fraction_below_one": 0.546875
+    }
+  ]
+}

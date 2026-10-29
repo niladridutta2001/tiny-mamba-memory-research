@@ -1,0 +1,86 @@
+{
+  "scope": "Matched seed-42 event-decay models trained only on assignment sequences of length 32--128.",
+  "objectives": {
+    "baseline": "Query cross-entropy",
+    "class_conditional": "Query cross-entropy plus class-conditional mean/covariance alignment across query-gap bins <=8, 9--32, >32",
+    "global_covariance": "Query cross-entropy plus label-agnostic covariance alignment across the same bins"
+  },
+  "geometry_lambda": 1.0,
+  "training": {
+    "baseline": {
+      "updates": 1500,
+      "mean_cross_entropy": 1.0239826602141062,
+      "mean_geometry_loss": 0.0,
+      "mean_active_geometry_groups": 0.0,
+      "elapsed_seconds": 564.4227148001082
+    },
+    "class_conditional": {
+      "updates": 1500,
+      "mean_cross_entropy": 1.0387689182162285,
+      "mean_geometry_loss": 0.028914587885917473,
+      "mean_active_geometry_groups": 11.774,
+      "elapsed_seconds": 880.1476621001493
+    },
+    "global_covariance": {
+      "updates": 1500,
+      "mean_cross_entropy": 0.9985629609425862,
+      "mean_geometry_loss": 0.00920623946453755,
+      "mean_active_geometry_groups": 3.0,
+      "elapsed_seconds": 784.730652899947
+    }
+  },
+  "metrics": [
+    {
+      "variant": "baseline",
+      "validation_accuracy": 0.8029151613305096,
+      "long_accuracy": 0.25,
+      "long_nll": 1.7653883695602417,
+      "class_mean_shift_rms": 0.6961439847946167,
+      "within_class_covariance_gap": 1.1912862062454224,
+      "mean_correct_class_margin": -0.9029362797737122,
+      "positive_margin_rate": 0.25,
+      "short_class_geometry_loss": 0.07895232737064362,
+      "short_global_covariance_loss": 0.01263468712568283
+    },
+    {
+      "variant": "class_conditional",
+      "validation_accuracy": 0.7423695029276193,
+      "long_accuracy": 0.26953125,
+      "long_nll": 1.5335607528686523,
+      "class_mean_shift_rms": 0.7200821042060852,
+      "within_class_covariance_gap": 0.8920901417732239,
+      "mean_correct_class_margin": -0.5276657938957214,
+      "positive_margin_rate": 0.26953125,
+      "short_class_geometry_loss": 0.009416285902261734,
+      "short_global_covariance_loss": 0.0012536157155409455
+    },
+    {
+      "variant": "global_covariance",
+      "validation_accuracy": 0.8169926498069017,
+      "long_accuracy": 0.25,
+      "long_nll": 1.8939980268478394,
+      "class_mean_shift_rms": 0.6655596494674683,
+      "within_class_covariance_gap": 1.281549096107483,
+      "mean_correct_class_margin": -1.0829042196273804,
+      "positive_margin_rate": 0.25,
+      "short_class_geometry_loss": 0.046010300517082214,
+      "short_global_covariance_loss": 0.004877658095210791
+    }
+  ],
+  "contrasts": [
+    {
+      "comparison": "class_conditional_minus_baseline",
+      "accuracy_effect_pp": 1.953125,
+      "ci_low_pp": -13.28125,
+      "ci_high_pp": 17.578125,
+      "cluster_count": 32
+    },
+    {
+      "comparison": "global_covariance_minus_baseline",
+      "accuracy_effect_pp": 0.0,
+      "ci_low_pp": -15.625,
+      "ci_high_pp": 15.625,
+      "cluster_count": 32
+    }
+  ]
+}

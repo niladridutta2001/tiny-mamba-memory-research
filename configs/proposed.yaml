@@ -1,0 +1,8 @@
+name: proposed
+inherits: baseline.yaml
+model:
+  variant: key_routing
+  mechanism: key_conditioned_input_write_routing
+  route_shape: [8, 64]
+  route_activation: sigmoid
+  route_init: 0.95

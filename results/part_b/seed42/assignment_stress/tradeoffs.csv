@@ -1,0 +1,4 @@
+model,role,parameter_count,training_updates,training_seconds,hardware,recorded_training_peak_gpu_memory_bytes
+Original Mamba,Baseline,10149,1500,449.6443203,NVIDIA GeForce GTX 1650,53193216
+Adaptive mixture,Proposed key-conditioned routing,10661,1500,953.6044524000026,NVIDIA GeForce GTX 1650,57888256
+Static mixture,Ablation tied routing,10661,1500,1162.3070569999982,NVIDIA GeForce GTX 1650,57888256

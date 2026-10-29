@@ -1,0 +1,168 @@
+{
+  "checkpoint": "results\\a3\\checkpoints\\baseline.pt",
+  "device": "cuda",
+  "train_majority_class": 0,
+  "train_majority_count": 20901,
+  "rows": [
+    {
+      "split": "test_id",
+      "condition": "ID",
+      "length": 128,
+      "query_count": 12102,
+      "baseline": "Neural",
+      "query_accuracy": 0.2567344240621385
+    },
+    {
+      "split": "test_id",
+      "condition": "ID",
+      "length": 128,
+      "query_count": 12102,
+      "baseline": "Always UNSET",
+      "query_accuracy": 0.23277144273673772
+    },
+    {
+      "split": "test_id",
+      "condition": "ID",
+      "length": 128,
+      "query_count": 12102,
+      "baseline": "Train majority",
+      "query_accuracy": 0.23277144273673772
+    },
+    {
+      "split": "test_id",
+      "condition": "ID",
+      "length": 128,
+      "query_count": 12102,
+      "baseline": "Oracle",
+      "query_accuracy": 1.0
+    },
+    {
+      "split": "test_ood_256",
+      "condition": "OOD",
+      "length": 256,
+      "query_count": 23759,
+      "baseline": "Neural",
+      "query_accuracy": 0.14811229428848016
+    },
+    {
+      "split": "test_ood_256",
+      "condition": "OOD",
+      "length": 256,
+      "query_count": 23759,
+      "baseline": "Always UNSET",
+      "query_accuracy": 0.11284144955595775
+    },
+    {
+      "split": "test_ood_256",
+      "condition": "OOD",
+      "length": 256,
+      "query_count": 23759,
+      "baseline": "Train majority",
+      "query_accuracy": 0.11284144955595775
+    },
+    {
+      "split": "test_ood_256",
+      "condition": "OOD",
+      "length": 256,
+      "query_count": 23759,
+      "baseline": "Oracle",
+      "query_accuracy": 1.0
+    },
+    {
+      "split": "test_ood_512",
+      "condition": "OOD",
+      "length": 512,
+      "query_count": 46752,
+      "baseline": "Neural",
+      "query_accuracy": 0.10446611909650924
+    },
+    {
+      "split": "test_ood_512",
+      "condition": "OOD",
+      "length": 512,
+      "query_count": 46752,
+      "baseline": "Always UNSET",
+      "query_accuracy": 0.05974075975359343
+    },
+    {
+      "split": "test_ood_512",
+      "condition": "OOD",
+      "length": 512,
+      "query_count": 46752,
+      "baseline": "Train majority",
+      "query_accuracy": 0.05974075975359343
+    },
+    {
+      "split": "test_ood_512",
+      "condition": "OOD",
+      "length": 512,
+      "query_count": 46752,
+      "baseline": "Oracle",
+      "query_accuracy": 1.0
+    },
+    {
+      "split": "stress_gap_512",
+      "condition": "Delay stress",
+      "length": 512,
+      "query_count": 45912,
+      "baseline": "Neural",
+      "query_accuracy": 0.08640442585816345
+    },
+    {
+      "split": "stress_gap_512",
+      "condition": "Delay stress",
+      "length": 512,
+      "query_count": 45912,
+      "baseline": "Always UNSET",
+      "query_accuracy": 0.04214584422373236
+    },
+    {
+      "split": "stress_gap_512",
+      "condition": "Delay stress",
+      "length": 512,
+      "query_count": 45912,
+      "baseline": "Train majority",
+      "query_accuracy": 0.04214584422373236
+    },
+    {
+      "split": "stress_gap_512",
+      "condition": "Delay stress",
+      "length": 512,
+      "query_count": 45912,
+      "baseline": "Oracle",
+      "query_accuracy": 1.0
+    },
+    {
+      "split": "stress_overwrite_512",
+      "condition": "Overwrite stress",
+      "length": 512,
+      "query_count": 46238,
+      "baseline": "Neural",
+      "query_accuracy": 0.08858514641636749
+    },
+    {
+      "split": "stress_overwrite_512",
+      "condition": "Overwrite stress",
+      "length": 512,
+      "query_count": 46238,
+      "baseline": "Always UNSET",
+      "query_accuracy": 0.04282192136338077
+    },
+    {
+      "split": "stress_overwrite_512",
+      "condition": "Overwrite stress",
+      "length": 512,
+      "query_count": 46238,
+      "baseline": "Train majority",
+      "query_accuracy": 0.04282192136338077
+    },
+    {
+      "split": "stress_overwrite_512",
+      "condition": "Overwrite stress",
+      "length": 512,
+      "query_count": 46238,
+      "baseline": "Oracle",
+      "query_accuracy": 1.0
+    }
+  ]
+}

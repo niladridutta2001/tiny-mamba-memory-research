@@ -1,0 +1,5 @@
+name: static_kernel_mix
+inherits: static_kernel_mix_only.yaml
+model:
+  variant: static_kernel_mix_only
+  mechanism: input_independent_shared_kernel_mask_without_retention_gate

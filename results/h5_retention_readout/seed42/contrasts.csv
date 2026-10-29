@@ -1,0 +1,4 @@
+alpha,comparison,accuracy_effect_pp,ci_low_pp,ci_high_pp,cluster_count
+0.0,matched_retrained_vs_original_head,73.828125,58.59375,87.5,32
+0.1,matched_retrained_vs_original_head,68.75,52.34375,83.984375,32
+1.0,matched_retrained_vs_original_head,14.453125,-5.859375,33.59375,32

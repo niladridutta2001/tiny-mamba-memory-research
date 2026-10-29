@@ -1,0 +1,8 @@
+name: event_decay
+inherits: baseline.yaml
+model:
+  variant: event_decay
+  mechanism: event_conditioned_independent_retention_gate
+  gate_shape: [3, 64]
+  gate_transform: exp_tanh
+  gate_init: 0.0

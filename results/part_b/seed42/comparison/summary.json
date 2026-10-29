@@ -1,0 +1,1955 @@
+{
+  "checkpoints": {
+    "Baseline": "results\\extended\\seed42\\u1500\\baseline.pt",
+    "Key-conditioned": "results\\part_b\\seed42\\key_routing\\u1500\\baseline.pt",
+    "Tied routing": "results\\part_b\\seed42\\tied_routing\\u1500\\baseline.pt"
+  },
+  "examples_per_h2_condition": 1024,
+  "bootstrap_draws": 10000,
+  "routing_summary": {
+    "gate_mean": 0.9462661743164062,
+    "gate_min": 0.8187403082847595,
+    "gate_max": 0.9809051752090454,
+    "mean_channel_std_across_keys": 0.015218047425150871,
+    "max_channel_std_across_keys": 0.045462947338819504,
+    "mean_pairwise_cosine_similarity": 0.9995768666267395,
+    "mean_pairwise_normalized_l2": 0.028634408488869667,
+    "median_pairwise_normalized_l2": 0.028191834688186646,
+    "min_pairwise_normalized_l2": 0.018384207040071487,
+    "max_pairwise_normalized_l2": 0.04005923867225647,
+    "mean_channel_variance_across_keys": 0.00033289939165115356,
+    "median_channel_variance_across_keys": 0.00014065091090742499,
+    "max_channel_variance_across_keys": 0.0020668795332312584,
+    "mean_absolute_centered_gate": 0.011445671319961548
+  },
+  "tied_routing_summary": {
+    "gate_mean": 0.949868381023407,
+    "gate_min": 0.9218812584877014,
+    "gate_max": 0.9679155945777893,
+    "mean_channel_std_across_keys": 4.470348358154297e-08,
+    "max_channel_std_across_keys": 1.1920928955078125e-07,
+    "mean_pairwise_cosine_similarity": 1.0,
+    "mean_pairwise_normalized_l2": 0.0,
+    "median_pairwise_normalized_l2": 0.0,
+    "min_pairwise_normalized_l2": 0.0,
+    "max_pairwise_normalized_l2": 0.0,
+    "mean_channel_variance_across_keys": 3.4416913763379853e-15,
+    "median_channel_variance_across_keys": 3.552713678800501e-15,
+    "max_channel_variance_across_keys": 1.4210854715202004e-14,
+    "mean_absolute_centered_gate": 4.470348358154297e-08
+  },
+  "metrics": [
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 10,
+      "kind": "set",
+      "density": 0.0,
+      "accuracy": 0.873046875,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 10,
+      "kind": "query",
+      "density": 0.0,
+      "accuracy": 0.873046875,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 10,
+      "kind": "set",
+      "density": 0.1,
+      "accuracy": 0.865234375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 10,
+      "kind": "query",
+      "density": 0.1,
+      "accuracy": 0.880859375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 10,
+      "kind": "set",
+      "density": 0.25,
+      "accuracy": 0.859375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 10,
+      "kind": "query",
+      "density": 0.25,
+      "accuracy": 0.8916015625,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 10,
+      "kind": "set",
+      "density": 0.5,
+      "accuracy": 0.828125,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 10,
+      "kind": "query",
+      "density": 0.5,
+      "accuracy": 0.90234375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 10,
+      "kind": "set",
+      "density": 0.75,
+      "accuracy": 0.755859375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 10,
+      "kind": "query",
+      "density": 0.75,
+      "accuracy": 0.8974609375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 10,
+      "kind": "set",
+      "density": 1.0,
+      "accuracy": 0.7041015625,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 10,
+      "kind": "query",
+      "density": 1.0,
+      "accuracy": 0.8798828125,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 32,
+      "kind": "set",
+      "density": 0.0,
+      "accuracy": 0.83203125,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 32,
+      "kind": "query",
+      "density": 0.0,
+      "accuracy": 0.83203125,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 32,
+      "kind": "set",
+      "density": 0.1,
+      "accuracy": 0.7958984375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 32,
+      "kind": "query",
+      "density": 0.1,
+      "accuracy": 0.8515625,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 32,
+      "kind": "set",
+      "density": 0.25,
+      "accuracy": 0.7021484375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 32,
+      "kind": "query",
+      "density": 0.25,
+      "accuracy": 0.875,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 32,
+      "kind": "set",
+      "density": 0.5,
+      "accuracy": 0.4814453125,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 32,
+      "kind": "query",
+      "density": 0.5,
+      "accuracy": 0.8720703125,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 32,
+      "kind": "set",
+      "density": 0.75,
+      "accuracy": 0.3447265625,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 32,
+      "kind": "query",
+      "density": 0.75,
+      "accuracy": 0.8115234375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 32,
+      "kind": "set",
+      "density": 1.0,
+      "accuracy": 0.283203125,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 32,
+      "kind": "query",
+      "density": 1.0,
+      "accuracy": 0.7158203125,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 64,
+      "kind": "set",
+      "density": 0.0,
+      "accuracy": 0.61328125,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 64,
+      "kind": "query",
+      "density": 0.0,
+      "accuracy": 0.61328125,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 64,
+      "kind": "set",
+      "density": 0.1,
+      "accuracy": 0.5263671875,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 64,
+      "kind": "query",
+      "density": 0.1,
+      "accuracy": 0.650390625,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 64,
+      "kind": "set",
+      "density": 0.25,
+      "accuracy": 0.3662109375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 64,
+      "kind": "query",
+      "density": 0.25,
+      "accuracy": 0.6337890625,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 64,
+      "kind": "set",
+      "density": 0.5,
+      "accuracy": 0.240234375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 64,
+      "kind": "query",
+      "density": 0.5,
+      "accuracy": 0.5400390625,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 64,
+      "kind": "set",
+      "density": 0.75,
+      "accuracy": 0.2158203125,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 64,
+      "kind": "query",
+      "density": 0.75,
+      "accuracy": 0.396484375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 64,
+      "kind": "set",
+      "density": 1.0,
+      "accuracy": 0.2197265625,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 64,
+      "kind": "query",
+      "density": 1.0,
+      "accuracy": 0.30859375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 128,
+      "kind": "set",
+      "density": 0.0,
+      "accuracy": 0.3359375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 128,
+      "kind": "query",
+      "density": 0.0,
+      "accuracy": 0.3359375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 128,
+      "kind": "set",
+      "density": 0.1,
+      "accuracy": 0.2822265625,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 128,
+      "kind": "query",
+      "density": 0.1,
+      "accuracy": 0.3193359375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 128,
+      "kind": "set",
+      "density": 0.25,
+      "accuracy": 0.2314453125,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 128,
+      "kind": "query",
+      "density": 0.25,
+      "accuracy": 0.32421875,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 128,
+      "kind": "set",
+      "density": 0.5,
+      "accuracy": 0.2138671875,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 128,
+      "kind": "query",
+      "density": 0.5,
+      "accuracy": 0.2724609375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 128,
+      "kind": "set",
+      "density": 0.75,
+      "accuracy": 0.2001953125,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 128,
+      "kind": "query",
+      "density": 0.75,
+      "accuracy": 0.21484375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 128,
+      "kind": "set",
+      "density": 1.0,
+      "accuracy": 0.18359375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Baseline",
+      "delay": 128,
+      "kind": "query",
+      "density": 1.0,
+      "accuracy": 0.203125,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 10,
+      "kind": "set",
+      "density": 0.0,
+      "accuracy": 0.9326171875,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 10,
+      "kind": "query",
+      "density": 0.0,
+      "accuracy": 0.9326171875,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 10,
+      "kind": "set",
+      "density": 0.1,
+      "accuracy": 0.92578125,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 10,
+      "kind": "query",
+      "density": 0.1,
+      "accuracy": 0.9345703125,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 10,
+      "kind": "set",
+      "density": 0.25,
+      "accuracy": 0.919921875,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 10,
+      "kind": "query",
+      "density": 0.25,
+      "accuracy": 0.9404296875,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 10,
+      "kind": "set",
+      "density": 0.5,
+      "accuracy": 0.8759765625,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 10,
+      "kind": "query",
+      "density": 0.5,
+      "accuracy": 0.94140625,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 10,
+      "kind": "set",
+      "density": 0.75,
+      "accuracy": 0.7880859375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 10,
+      "kind": "query",
+      "density": 0.75,
+      "accuracy": 0.9306640625,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 10,
+      "kind": "set",
+      "density": 1.0,
+      "accuracy": 0.71484375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 10,
+      "kind": "query",
+      "density": 1.0,
+      "accuracy": 0.9208984375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 32,
+      "kind": "set",
+      "density": 0.0,
+      "accuracy": 0.837890625,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 32,
+      "kind": "query",
+      "density": 0.0,
+      "accuracy": 0.837890625,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 32,
+      "kind": "set",
+      "density": 0.1,
+      "accuracy": 0.8037109375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 32,
+      "kind": "query",
+      "density": 0.1,
+      "accuracy": 0.85546875,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 32,
+      "kind": "set",
+      "density": 0.25,
+      "accuracy": 0.708984375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 32,
+      "kind": "query",
+      "density": 0.25,
+      "accuracy": 0.8837890625,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 32,
+      "kind": "set",
+      "density": 0.5,
+      "accuracy": 0.5244140625,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 32,
+      "kind": "query",
+      "density": 0.5,
+      "accuracy": 0.8623046875,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 32,
+      "kind": "set",
+      "density": 0.75,
+      "accuracy": 0.3681640625,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 32,
+      "kind": "query",
+      "density": 0.75,
+      "accuracy": 0.7744140625,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 32,
+      "kind": "set",
+      "density": 1.0,
+      "accuracy": 0.2998046875,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 32,
+      "kind": "query",
+      "density": 1.0,
+      "accuracy": 0.7080078125,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 64,
+      "kind": "set",
+      "density": 0.0,
+      "accuracy": 0.5791015625,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 64,
+      "kind": "query",
+      "density": 0.0,
+      "accuracy": 0.5791015625,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 64,
+      "kind": "set",
+      "density": 0.1,
+      "accuracy": 0.5263671875,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 64,
+      "kind": "query",
+      "density": 0.1,
+      "accuracy": 0.59375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 64,
+      "kind": "set",
+      "density": 0.25,
+      "accuracy": 0.380859375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 64,
+      "kind": "query",
+      "density": 0.25,
+      "accuracy": 0.615234375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 64,
+      "kind": "set",
+      "density": 0.5,
+      "accuracy": 0.2685546875,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 64,
+      "kind": "query",
+      "density": 0.5,
+      "accuracy": 0.53125,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 64,
+      "kind": "set",
+      "density": 0.75,
+      "accuracy": 0.2373046875,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 64,
+      "kind": "query",
+      "density": 0.75,
+      "accuracy": 0.470703125,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 64,
+      "kind": "set",
+      "density": 1.0,
+      "accuracy": 0.205078125,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 64,
+      "kind": "query",
+      "density": 1.0,
+      "accuracy": 0.3935546875,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 128,
+      "kind": "set",
+      "density": 0.0,
+      "accuracy": 0.3837890625,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 128,
+      "kind": "query",
+      "density": 0.0,
+      "accuracy": 0.3837890625,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 128,
+      "kind": "set",
+      "density": 0.1,
+      "accuracy": 0.3251953125,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 128,
+      "kind": "query",
+      "density": 0.1,
+      "accuracy": 0.4072265625,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 128,
+      "kind": "set",
+      "density": 0.25,
+      "accuracy": 0.2587890625,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 128,
+      "kind": "query",
+      "density": 0.25,
+      "accuracy": 0.3466796875,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 128,
+      "kind": "set",
+      "density": 0.5,
+      "accuracy": 0.2451171875,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 128,
+      "kind": "query",
+      "density": 0.5,
+      "accuracy": 0.3330078125,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 128,
+      "kind": "set",
+      "density": 0.75,
+      "accuracy": 0.2392578125,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 128,
+      "kind": "query",
+      "density": 0.75,
+      "accuracy": 0.2607421875,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 128,
+      "kind": "set",
+      "density": 1.0,
+      "accuracy": 0.2099609375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Key-conditioned",
+      "delay": 128,
+      "kind": "query",
+      "density": 1.0,
+      "accuracy": 0.2158203125,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 10,
+      "kind": "set",
+      "density": 0.0,
+      "accuracy": 0.93359375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 10,
+      "kind": "query",
+      "density": 0.0,
+      "accuracy": 0.93359375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 10,
+      "kind": "set",
+      "density": 0.1,
+      "accuracy": 0.9248046875,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 10,
+      "kind": "query",
+      "density": 0.1,
+      "accuracy": 0.9326171875,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 10,
+      "kind": "set",
+      "density": 0.25,
+      "accuracy": 0.9189453125,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 10,
+      "kind": "query",
+      "density": 0.25,
+      "accuracy": 0.94140625,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 10,
+      "kind": "set",
+      "density": 0.5,
+      "accuracy": 0.8720703125,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 10,
+      "kind": "query",
+      "density": 0.5,
+      "accuracy": 0.9423828125,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 10,
+      "kind": "set",
+      "density": 0.75,
+      "accuracy": 0.78515625,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 10,
+      "kind": "query",
+      "density": 0.75,
+      "accuracy": 0.9306640625,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 10,
+      "kind": "set",
+      "density": 1.0,
+      "accuracy": 0.7099609375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 10,
+      "kind": "query",
+      "density": 1.0,
+      "accuracy": 0.919921875,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 32,
+      "kind": "set",
+      "density": 0.0,
+      "accuracy": 0.8369140625,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 32,
+      "kind": "query",
+      "density": 0.0,
+      "accuracy": 0.8369140625,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 32,
+      "kind": "set",
+      "density": 0.1,
+      "accuracy": 0.8046875,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 32,
+      "kind": "query",
+      "density": 0.1,
+      "accuracy": 0.85546875,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 32,
+      "kind": "set",
+      "density": 0.25,
+      "accuracy": 0.708984375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 32,
+      "kind": "query",
+      "density": 0.25,
+      "accuracy": 0.8828125,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 32,
+      "kind": "set",
+      "density": 0.5,
+      "accuracy": 0.5234375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 32,
+      "kind": "query",
+      "density": 0.5,
+      "accuracy": 0.8623046875,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 32,
+      "kind": "set",
+      "density": 0.75,
+      "accuracy": 0.3681640625,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 32,
+      "kind": "query",
+      "density": 0.75,
+      "accuracy": 0.77734375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 32,
+      "kind": "set",
+      "density": 1.0,
+      "accuracy": 0.298828125,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 32,
+      "kind": "query",
+      "density": 1.0,
+      "accuracy": 0.7080078125,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 64,
+      "kind": "set",
+      "density": 0.0,
+      "accuracy": 0.583984375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 64,
+      "kind": "query",
+      "density": 0.0,
+      "accuracy": 0.583984375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 64,
+      "kind": "set",
+      "density": 0.1,
+      "accuracy": 0.5234375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 64,
+      "kind": "query",
+      "density": 0.1,
+      "accuracy": 0.58984375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 64,
+      "kind": "set",
+      "density": 0.25,
+      "accuracy": 0.380859375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 64,
+      "kind": "query",
+      "density": 0.25,
+      "accuracy": 0.6103515625,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 64,
+      "kind": "set",
+      "density": 0.5,
+      "accuracy": 0.267578125,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 64,
+      "kind": "query",
+      "density": 0.5,
+      "accuracy": 0.5341796875,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 64,
+      "kind": "set",
+      "density": 0.75,
+      "accuracy": 0.23828125,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 64,
+      "kind": "query",
+      "density": 0.75,
+      "accuracy": 0.4716796875,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 64,
+      "kind": "set",
+      "density": 1.0,
+      "accuracy": 0.208984375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 64,
+      "kind": "query",
+      "density": 1.0,
+      "accuracy": 0.4013671875,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 128,
+      "kind": "set",
+      "density": 0.0,
+      "accuracy": 0.38671875,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 128,
+      "kind": "query",
+      "density": 0.0,
+      "accuracy": 0.38671875,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 128,
+      "kind": "set",
+      "density": 0.1,
+      "accuracy": 0.3232421875,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 128,
+      "kind": "query",
+      "density": 0.1,
+      "accuracy": 0.4091796875,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 128,
+      "kind": "set",
+      "density": 0.25,
+      "accuracy": 0.2568359375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 128,
+      "kind": "query",
+      "density": 0.25,
+      "accuracy": 0.3466796875,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 128,
+      "kind": "set",
+      "density": 0.5,
+      "accuracy": 0.2490234375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 128,
+      "kind": "query",
+      "density": 0.5,
+      "accuracy": 0.3349609375,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 128,
+      "kind": "set",
+      "density": 0.75,
+      "accuracy": 0.232421875,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 128,
+      "kind": "query",
+      "density": 0.75,
+      "accuracy": 0.26171875,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 128,
+      "kind": "set",
+      "density": 1.0,
+      "accuracy": 0.20703125,
+      "condition": ""
+    },
+    {
+      "test": "H2",
+      "model": "Tied routing",
+      "delay": 128,
+      "kind": "query",
+      "density": 1.0,
+      "accuracy": 0.21875,
+      "condition": ""
+    },
+    {
+      "test": "retention",
+      "model": "Baseline",
+      "delay": 10,
+      "kind": "",
+      "density": "",
+      "accuracy": 0.8896484375,
+      "condition": "isolated"
+    },
+    {
+      "test": "retention",
+      "model": "Key-conditioned",
+      "delay": 10,
+      "kind": "",
+      "density": "",
+      "accuracy": 0.93359375,
+      "condition": "isolated"
+    },
+    {
+      "test": "retention",
+      "model": "Tied routing",
+      "delay": 10,
+      "kind": "",
+      "density": "",
+      "accuracy": 0.93359375,
+      "condition": "isolated"
+    },
+    {
+      "test": "retention",
+      "model": "Baseline",
+      "delay": 32,
+      "kind": "",
+      "density": "",
+      "accuracy": 0.8212890625,
+      "condition": "isolated"
+    },
+    {
+      "test": "retention",
+      "model": "Key-conditioned",
+      "delay": 32,
+      "kind": "",
+      "density": "",
+      "accuracy": 0.8408203125,
+      "condition": "isolated"
+    },
+    {
+      "test": "retention",
+      "model": "Tied routing",
+      "delay": 32,
+      "kind": "",
+      "density": "",
+      "accuracy": 0.841796875,
+      "condition": "isolated"
+    },
+    {
+      "test": "retention",
+      "model": "Baseline",
+      "delay": 64,
+      "kind": "",
+      "density": "",
+      "accuracy": 0.6318359375,
+      "condition": "isolated"
+    },
+    {
+      "test": "retention",
+      "model": "Key-conditioned",
+      "delay": 64,
+      "kind": "",
+      "density": "",
+      "accuracy": 0.5986328125,
+      "condition": "isolated"
+    },
+    {
+      "test": "retention",
+      "model": "Tied routing",
+      "delay": 64,
+      "kind": "",
+      "density": "",
+      "accuracy": 0.6015625,
+      "condition": "isolated"
+    },
+    {
+      "test": "retention",
+      "model": "Baseline",
+      "delay": 128,
+      "kind": "",
+      "density": "",
+      "accuracy": 0.3349609375,
+      "condition": "isolated"
+    },
+    {
+      "test": "retention",
+      "model": "Key-conditioned",
+      "delay": 128,
+      "kind": "",
+      "density": "",
+      "accuracy": 0.380859375,
+      "condition": "isolated"
+    },
+    {
+      "test": "retention",
+      "model": "Tied routing",
+      "delay": 128,
+      "kind": "",
+      "density": "",
+      "accuracy": 0.3876953125,
+      "condition": "isolated"
+    }
+  ],
+  "contrasts": [
+    {
+      "delay": 10,
+      "density": 0.0,
+      "comparison": "proposed_vs_tied",
+      "effect_pp": -0.09765625,
+      "ci_low": -0.48828125,
+      "ci_high": 0.1953125
+    },
+    {
+      "delay": 10,
+      "density": 0.0,
+      "comparison": "interference_did",
+      "effect_pp": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+    },
+    {
+      "delay": 10,
+      "density": 0.1,
+      "comparison": "proposed_vs_tied",
+      "effect_pp": 0.09765625,
+      "ci_low": 0.0,
+      "ci_high": 0.29296875
+    },
+    {
+      "delay": 10,
+      "density": 0.1,
+      "comparison": "interference_did",
+      "effect_pp": 0.1953125,
+      "ci_low": -0.1953125,
+      "ci_high": 0.5859375
+    },
+    {
+      "delay": 10,
+      "density": 0.25,
+      "comparison": "proposed_vs_tied",
+      "effect_pp": 0.09765625,
+      "ci_low": 0.0,
+      "ci_high": 0.29296875
+    },
+    {
+      "delay": 10,
+      "density": 0.25,
+      "comparison": "interference_did",
+      "effect_pp": 0.1953125,
+      "ci_low": -0.1953125,
+      "ci_high": 0.5859375
+    },
+    {
+      "delay": 10,
+      "density": 0.5,
+      "comparison": "proposed_vs_tied",
+      "effect_pp": 0.390625,
+      "ci_low": 0.09765625,
+      "ci_high": 0.78125
+    },
+    {
+      "delay": 10,
+      "density": 0.5,
+      "comparison": "interference_did",
+      "effect_pp": 0.48828125,
+      "ci_low": 0.0,
+      "ci_high": 0.9765625
+    },
+    {
+      "delay": 10,
+      "density": 0.75,
+      "comparison": "proposed_vs_tied",
+      "effect_pp": 0.29296875,
+      "ci_low": -0.29296875,
+      "ci_high": 0.87890625
+    },
+    {
+      "delay": 10,
+      "density": 0.75,
+      "comparison": "interference_did",
+      "effect_pp": 0.390625,
+      "ci_low": -0.29296875,
+      "ci_high": 1.07421875
+    },
+    {
+      "delay": 10,
+      "density": 1.0,
+      "comparison": "proposed_vs_tied",
+      "effect_pp": 0.48828125,
+      "ci_low": 0.09765625,
+      "ci_high": 0.9765625
+    },
+    {
+      "delay": 10,
+      "density": 1.0,
+      "comparison": "interference_did",
+      "effect_pp": 0.5859375,
+      "ci_low": 0.0,
+      "ci_high": 1.26953125
+    },
+    {
+      "delay": 32,
+      "density": 0.0,
+      "comparison": "proposed_vs_tied",
+      "effect_pp": 0.09765625,
+      "ci_low": -0.29296875,
+      "ci_high": 0.48828125
+    },
+    {
+      "delay": 32,
+      "density": 0.0,
+      "comparison": "interference_did",
+      "effect_pp": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+    },
+    {
+      "delay": 32,
+      "density": 0.1,
+      "comparison": "proposed_vs_tied",
+      "effect_pp": -0.09765625,
+      "ci_low": -0.48828125,
+      "ci_high": 0.1953125
+    },
+    {
+      "delay": 32,
+      "density": 0.1,
+      "comparison": "interference_did",
+      "effect_pp": -0.1953125,
+      "ci_low": -0.78125,
+      "ci_high": 0.29296875
+    },
+    {
+      "delay": 32,
+      "density": 0.25,
+      "comparison": "proposed_vs_tied",
+      "effect_pp": 0.0,
+      "ci_low": -0.48828125,
+      "ci_high": 0.48828125
+    },
+    {
+      "delay": 32,
+      "density": 0.25,
+      "comparison": "interference_did",
+      "effect_pp": -0.09765625,
+      "ci_low": -0.68359375,
+      "ci_high": 0.48828125
+    },
+    {
+      "delay": 32,
+      "density": 0.5,
+      "comparison": "proposed_vs_tied",
+      "effect_pp": 0.09765625,
+      "ci_low": -0.390625,
+      "ci_high": 0.5859375
+    },
+    {
+      "delay": 32,
+      "density": 0.5,
+      "comparison": "interference_did",
+      "effect_pp": 0.0,
+      "ci_low": -0.68359375,
+      "ci_high": 0.68359375
+    },
+    {
+      "delay": 32,
+      "density": 0.75,
+      "comparison": "proposed_vs_tied",
+      "effect_pp": 0.0,
+      "ci_low": -0.68359375,
+      "ci_high": 0.68359375
+    },
+    {
+      "delay": 32,
+      "density": 0.75,
+      "comparison": "interference_did",
+      "effect_pp": -0.09765625,
+      "ci_low": -0.87890625,
+      "ci_high": 0.68359375
+    },
+    {
+      "delay": 32,
+      "density": 1.0,
+      "comparison": "proposed_vs_tied",
+      "effect_pp": 0.09765625,
+      "ci_low": -0.390625,
+      "ci_high": 0.5859375
+    },
+    {
+      "delay": 32,
+      "density": 1.0,
+      "comparison": "interference_did",
+      "effect_pp": 0.0,
+      "ci_low": -0.68359375,
+      "ci_high": 0.68359375
+    },
+    {
+      "delay": 64,
+      "density": 0.0,
+      "comparison": "proposed_vs_tied",
+      "effect_pp": -0.48828125,
+      "ci_low": -0.9765625,
+      "ci_high": -0.09765625
+    },
+    {
+      "delay": 64,
+      "density": 0.0,
+      "comparison": "interference_did",
+      "effect_pp": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+    },
+    {
+      "delay": 64,
+      "density": 0.1,
+      "comparison": "proposed_vs_tied",
+      "effect_pp": 0.29296875,
+      "ci_low": -0.09765625,
+      "ci_high": 0.78125
+    },
+    {
+      "delay": 64,
+      "density": 0.1,
+      "comparison": "interference_did",
+      "effect_pp": 0.78125,
+      "ci_low": 0.1953125,
+      "ci_high": 1.3671875
+    },
+    {
+      "delay": 64,
+      "density": 0.25,
+      "comparison": "proposed_vs_tied",
+      "effect_pp": 0.0,
+      "ci_low": -0.5859375,
+      "ci_high": 0.5859375
+    },
+    {
+      "delay": 64,
+      "density": 0.25,
+      "comparison": "interference_did",
+      "effect_pp": 0.48828125,
+      "ci_low": -0.1953125,
+      "ci_high": 1.171875
+    },
+    {
+      "delay": 64,
+      "density": 0.5,
+      "comparison": "proposed_vs_tied",
+      "effect_pp": 0.09765625,
+      "ci_low": -0.29296875,
+      "ci_high": 0.48828125
+    },
+    {
+      "delay": 64,
+      "density": 0.5,
+      "comparison": "interference_did",
+      "effect_pp": 0.5859375,
+      "ci_low": 0.0,
+      "ci_high": 1.171875
+    },
+    {
+      "delay": 64,
+      "density": 0.75,
+      "comparison": "proposed_vs_tied",
+      "effect_pp": -0.09765625,
+      "ci_low": -0.48828125,
+      "ci_high": 0.1953125
+    },
+    {
+      "delay": 64,
+      "density": 0.75,
+      "comparison": "interference_did",
+      "effect_pp": 0.390625,
+      "ci_low": -0.09765625,
+      "ci_high": 0.9765625
+    },
+    {
+      "delay": 64,
+      "density": 1.0,
+      "comparison": "proposed_vs_tied",
+      "effect_pp": -0.390625,
+      "ci_low": -0.87890625,
+      "ci_high": 0.0
+    },
+    {
+      "delay": 64,
+      "density": 1.0,
+      "comparison": "interference_did",
+      "effect_pp": 0.09765625,
+      "ci_low": -0.48828125,
+      "ci_high": 0.68359375
+    },
+    {
+      "delay": 128,
+      "density": 0.0,
+      "comparison": "proposed_vs_tied",
+      "effect_pp": -0.29296875,
+      "ci_low": -0.78125,
+      "ci_high": 0.09765625
+    },
+    {
+      "delay": 128,
+      "density": 0.0,
+      "comparison": "interference_did",
+      "effect_pp": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+    },
+    {
+      "delay": 128,
+      "density": 0.1,
+      "comparison": "proposed_vs_tied",
+      "effect_pp": 0.1953125,
+      "ci_low": -0.1953125,
+      "ci_high": 0.5859375
+    },
+    {
+      "delay": 128,
+      "density": 0.1,
+      "comparison": "interference_did",
+      "effect_pp": 0.48828125,
+      "ci_low": -0.09765625,
+      "ci_high": 1.07421875
+    },
+    {
+      "delay": 128,
+      "density": 0.25,
+      "comparison": "proposed_vs_tied",
+      "effect_pp": 0.1953125,
+      "ci_low": -0.1953125,
+      "ci_high": 0.5859375
+    },
+    {
+      "delay": 128,
+      "density": 0.25,
+      "comparison": "interference_did",
+      "effect_pp": 0.48828125,
+      "ci_low": -0.09765625,
+      "ci_high": 1.07421875
+    },
+    {
+      "delay": 128,
+      "density": 0.5,
+      "comparison": "proposed_vs_tied",
+      "effect_pp": -0.390625,
+      "ci_low": -0.87890625,
+      "ci_high": 0.0
+    },
+    {
+      "delay": 128,
+      "density": 0.5,
+      "comparison": "interference_did",
+      "effect_pp": -0.09765625,
+      "ci_low": -0.68359375,
+      "ci_high": 0.48828125
+    },
+    {
+      "delay": 128,
+      "density": 0.75,
+      "comparison": "proposed_vs_tied",
+      "effect_pp": 0.68359375,
+      "ci_low": 0.1953125,
+      "ci_high": 1.26953125
+    },
+    {
+      "delay": 128,
+      "density": 0.75,
+      "comparison": "interference_did",
+      "effect_pp": 0.9765625,
+      "ci_low": 0.390625,
+      "ci_high": 1.66015625
+    },
+    {
+      "delay": 128,
+      "density": 1.0,
+      "comparison": "proposed_vs_tied",
+      "effect_pp": 0.29296875,
+      "ci_low": -0.29296875,
+      "ci_high": 0.87890625
+    },
+    {
+      "delay": 128,
+      "density": 1.0,
+      "comparison": "interference_did",
+      "effect_pp": 0.5859375,
+      "ci_low": -0.09765625,
+      "ci_high": 1.3671875
+    }
+  ],
+  "fixed_splits": [
+    {
+      "model": "Baseline",
+      "split": "test_id",
+      "condition": "ID",
+      "length": 128,
+      "query_accuracy": 0.7504544703354817,
+      "query_count": 12102
+    },
+    {
+      "model": "Baseline",
+      "split": "test_ood_256",
+      "condition": "OOD",
+      "length": 256,
+      "query_accuracy": 0.7122774527547455,
+      "query_count": 23759
+    },
+    {
+      "model": "Baseline",
+      "split": "test_ood_512",
+      "condition": "OOD",
+      "length": 512,
+      "query_accuracy": 0.6964407939767283,
+      "query_count": 46752
+    },
+    {
+      "model": "Baseline",
+      "split": "stress_gap_512",
+      "condition": "Delay stress",
+      "length": 512,
+      "query_accuracy": 0.6958747168496253,
+      "query_count": 45912
+    },
+    {
+      "model": "Baseline",
+      "split": "stress_overwrite_512",
+      "condition": "Overwrite stress",
+      "length": 512,
+      "query_accuracy": 0.696699684242398,
+      "query_count": 46238
+    },
+    {
+      "model": "Key-conditioned",
+      "split": "test_id",
+      "condition": "ID",
+      "length": 128,
+      "query_accuracy": 0.7557428524210874,
+      "query_count": 12102
+    },
+    {
+      "model": "Key-conditioned",
+      "split": "test_ood_256",
+      "condition": "OOD",
+      "length": 256,
+      "query_accuracy": 0.7154341512689928,
+      "query_count": 23759
+    },
+    {
+      "model": "Key-conditioned",
+      "split": "test_ood_512",
+      "condition": "OOD",
+      "length": 512,
+      "query_accuracy": 0.6986225188227242,
+      "query_count": 46752
+    },
+    {
+      "model": "Key-conditioned",
+      "split": "stress_gap_512",
+      "condition": "Delay stress",
+      "length": 512,
+      "query_accuracy": 0.7006229308241854,
+      "query_count": 45912
+    },
+    {
+      "model": "Key-conditioned",
+      "split": "stress_overwrite_512",
+      "condition": "Overwrite stress",
+      "length": 512,
+      "query_accuracy": 0.6955101864267486,
+      "query_count": 46238
+    },
+    {
+      "model": "Tied routing",
+      "split": "test_id",
+      "condition": "ID",
+      "length": 128,
+      "query_accuracy": 0.7549991736902991,
+      "query_count": 12102
+    },
+    {
+      "model": "Tied routing",
+      "split": "test_ood_256",
+      "condition": "OOD",
+      "length": 256,
+      "query_accuracy": 0.7142135611768172,
+      "query_count": 23759
+    },
+    {
+      "model": "Tied routing",
+      "split": "test_ood_512",
+      "condition": "OOD",
+      "length": 512,
+      "query_accuracy": 0.6975102669404517,
+      "query_count": 46752
+    },
+    {
+      "model": "Tied routing",
+      "split": "stress_gap_512",
+      "condition": "Delay stress",
+      "length": 512,
+      "query_accuracy": 0.6995774525178603,
+      "query_count": 45912
+    },
+    {
+      "model": "Tied routing",
+      "split": "stress_overwrite_512",
+      "condition": "Overwrite stress",
+      "length": 512,
+      "query_accuracy": 0.6949695056014533,
+      "query_count": 46238
+    }
+  ]
+}

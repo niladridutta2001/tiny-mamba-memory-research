@@ -1,0 +1,11 @@
+.venv/
+.uv-cache/
+__pycache__/
+.pytest_cache/
+.ipynb_checkpoints/
+*.py[cod]
+data/generated/
+results/*.csv
+results/*.json
+results/**/checkpoints/
+results/smoke_a2/

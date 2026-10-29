@@ -1,0 +1,5 @@
+split,comparison,probe_accuracy_effect_pp,ci_low_pp,ci_high_pp,n_paired_probes
+stress_gap_512,adaptive_vs_static,-1.2,-5.6000000000000005,3.0,500
+stress_gap_512,adaptive_vs_original,0.4,-4.8,5.6000000000000005,500
+stress_overwrite_512,adaptive_vs_static,-1.0,-3.2,1.2,500
+stress_overwrite_512,adaptive_vs_original,5.0,1.2,8.799999999999999,500

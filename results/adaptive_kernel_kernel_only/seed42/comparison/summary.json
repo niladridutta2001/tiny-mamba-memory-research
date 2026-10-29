@@ -1,0 +1,748 @@
+{
+  "scope": "matched seed-42 kernel-only experiment; no model has an event-conditioned retention gate",
+  "architectural_limitation": "The adaptive router sees the current token-side representation, not recurrent state; it cannot directly identify an overwrite.",
+  "checkpoints": {
+    "Fixed width 4": "results\\extended\\seed42\\u1500\\baseline.pt",
+    "Fixed width 8": "results\\adaptive_kernel_kernel_only\\seed42\\fixed8\\u1500\\baseline.pt",
+    "Static mixture": "results\\adaptive_kernel_kernel_only\\seed42\\static\\u1500\\baseline.pt",
+    "Adaptive mixture": "results\\adaptive_kernel_kernel_only\\seed42\\adaptive\\u1500\\baseline.pt"
+  },
+  "validation_accuracy": {
+    "Fixed width 4": 0.7919521614550891,
+    "Fixed width 8": 0.800548149993771,
+    "Static mixture": 0.8162451725426685,
+    "Adaptive mixture": 0.8225987292886509
+  },
+  "metrics": [
+    {
+      "model": "Fixed width 4",
+      "post_delay": 0,
+      "overwrite_accuracy": 0.794921875,
+      "stale_value_error_rate": 0.08203125,
+      "other_error_rate": 0.123046875,
+      "retention_accuracy": 0.443359375,
+      "validation_accuracy": 0.7919521614550891,
+      "n_examples": 1024
+    },
+    {
+      "model": "Fixed width 8",
+      "post_delay": 0,
+      "overwrite_accuracy": 0.8720703125,
+      "stale_value_error_rate": 0.0439453125,
+      "other_error_rate": 0.083984375,
+      "retention_accuracy": 0.3232421875,
+      "validation_accuracy": 0.800548149993771,
+      "n_examples": 1024
+    },
+    {
+      "model": "Static mixture",
+      "post_delay": 0,
+      "overwrite_accuracy": 0.8984375,
+      "stale_value_error_rate": 0.0390625,
+      "other_error_rate": 0.0625,
+      "retention_accuracy": 0.421875,
+      "validation_accuracy": 0.8162451725426685,
+      "n_examples": 1024
+    },
+    {
+      "model": "Adaptive mixture",
+      "post_delay": 0,
+      "overwrite_accuracy": 0.802734375,
+      "stale_value_error_rate": 0.07421875,
+      "other_error_rate": 0.123046875,
+      "retention_accuracy": 0.2333984375,
+      "validation_accuracy": 0.8225987292886509,
+      "n_examples": 1024
+    },
+    {
+      "model": "Fixed width 4",
+      "post_delay": 1,
+      "overwrite_accuracy": 0.80859375,
+      "stale_value_error_rate": 0.0947265625,
+      "other_error_rate": 0.0966796875,
+      "retention_accuracy": 0.4375,
+      "validation_accuracy": 0.7919521614550891,
+      "n_examples": 1024
+    },
+    {
+      "model": "Fixed width 8",
+      "post_delay": 1,
+      "overwrite_accuracy": 0.94921875,
+      "stale_value_error_rate": 0.0244140625,
+      "other_error_rate": 0.0263671875,
+      "retention_accuracy": 0.3203125,
+      "validation_accuracy": 0.800548149993771,
+      "n_examples": 1024
+    },
+    {
+      "model": "Static mixture",
+      "post_delay": 1,
+      "overwrite_accuracy": 0.96875,
+      "stale_value_error_rate": 0.01171875,
+      "other_error_rate": 0.01953125,
+      "retention_accuracy": 0.41796875,
+      "validation_accuracy": 0.8162451725426685,
+      "n_examples": 1024
+    },
+    {
+      "model": "Adaptive mixture",
+      "post_delay": 1,
+      "overwrite_accuracy": 0.94140625,
+      "stale_value_error_rate": 0.01171875,
+      "other_error_rate": 0.046875,
+      "retention_accuracy": 0.2314453125,
+      "validation_accuracy": 0.8225987292886509,
+      "n_examples": 1024
+    },
+    {
+      "model": "Fixed width 4",
+      "post_delay": 2,
+      "overwrite_accuracy": 0.9267578125,
+      "stale_value_error_rate": 0.0283203125,
+      "other_error_rate": 0.044921875,
+      "retention_accuracy": 0.4326171875,
+      "validation_accuracy": 0.7919521614550891,
+      "n_examples": 1024
+    },
+    {
+      "model": "Fixed width 8",
+      "post_delay": 2,
+      "overwrite_accuracy": 0.955078125,
+      "stale_value_error_rate": 0.009765625,
+      "other_error_rate": 0.03515625,
+      "retention_accuracy": 0.3173828125,
+      "validation_accuracy": 0.800548149993771,
+      "n_examples": 1024
+    },
+    {
+      "model": "Static mixture",
+      "post_delay": 2,
+      "overwrite_accuracy": 0.9697265625,
+      "stale_value_error_rate": 0.01171875,
+      "other_error_rate": 0.0185546875,
+      "retention_accuracy": 0.4130859375,
+      "validation_accuracy": 0.8162451725426685,
+      "n_examples": 1024
+    },
+    {
+      "model": "Adaptive mixture",
+      "post_delay": 2,
+      "overwrite_accuracy": 0.935546875,
+      "stale_value_error_rate": 0.013671875,
+      "other_error_rate": 0.05078125,
+      "retention_accuracy": 0.2265625,
+      "validation_accuracy": 0.8225987292886509,
+      "n_examples": 1024
+    },
+    {
+      "model": "Fixed width 4",
+      "post_delay": 4,
+      "overwrite_accuracy": 0.888671875,
+      "stale_value_error_rate": 0.052734375,
+      "other_error_rate": 0.05859375,
+      "retention_accuracy": 0.42578125,
+      "validation_accuracy": 0.7919521614550891,
+      "n_examples": 1024
+    },
+    {
+      "model": "Fixed width 8",
+      "post_delay": 4,
+      "overwrite_accuracy": 0.974609375,
+      "stale_value_error_rate": 0.005859375,
+      "other_error_rate": 0.01953125,
+      "retention_accuracy": 0.318359375,
+      "validation_accuracy": 0.800548149993771,
+      "n_examples": 1024
+    },
+    {
+      "model": "Static mixture",
+      "post_delay": 4,
+      "overwrite_accuracy": 0.9580078125,
+      "stale_value_error_rate": 0.0205078125,
+      "other_error_rate": 0.021484375,
+      "retention_accuracy": 0.4111328125,
+      "validation_accuracy": 0.8162451725426685,
+      "n_examples": 1024
+    },
+    {
+      "model": "Adaptive mixture",
+      "post_delay": 4,
+      "overwrite_accuracy": 0.92578125,
+      "stale_value_error_rate": 0.0107421875,
+      "other_error_rate": 0.0634765625,
+      "retention_accuracy": 0.212890625,
+      "validation_accuracy": 0.8225987292886509,
+      "n_examples": 1024
+    },
+    {
+      "model": "Fixed width 4",
+      "post_delay": 8,
+      "overwrite_accuracy": 0.828125,
+      "stale_value_error_rate": 0.076171875,
+      "other_error_rate": 0.095703125,
+      "retention_accuracy": 0.3974609375,
+      "validation_accuracy": 0.7919521614550891,
+      "n_examples": 1024
+    },
+    {
+      "model": "Fixed width 8",
+      "post_delay": 8,
+      "overwrite_accuracy": 0.9677734375,
+      "stale_value_error_rate": 0.01171875,
+      "other_error_rate": 0.0205078125,
+      "retention_accuracy": 0.3154296875,
+      "validation_accuracy": 0.800548149993771,
+      "n_examples": 1024
+    },
+    {
+      "model": "Static mixture",
+      "post_delay": 8,
+      "overwrite_accuracy": 0.939453125,
+      "stale_value_error_rate": 0.021484375,
+      "other_error_rate": 0.0390625,
+      "retention_accuracy": 0.4052734375,
+      "validation_accuracy": 0.8162451725426685,
+      "n_examples": 1024
+    },
+    {
+      "model": "Adaptive mixture",
+      "post_delay": 8,
+      "overwrite_accuracy": 0.9208984375,
+      "stale_value_error_rate": 0.0185546875,
+      "other_error_rate": 0.060546875,
+      "retention_accuracy": 0.201171875,
+      "validation_accuracy": 0.8225987292886509,
+      "n_examples": 1024
+    },
+    {
+      "model": "Fixed width 4",
+      "post_delay": 16,
+      "overwrite_accuracy": 0.81640625,
+      "stale_value_error_rate": 0.0751953125,
+      "other_error_rate": 0.1083984375,
+      "retention_accuracy": 0.369140625,
+      "validation_accuracy": 0.7919521614550891,
+      "n_examples": 1024
+    },
+    {
+      "model": "Fixed width 8",
+      "post_delay": 16,
+      "overwrite_accuracy": 0.8955078125,
+      "stale_value_error_rate": 0.0537109375,
+      "other_error_rate": 0.05078125,
+      "retention_accuracy": 0.3134765625,
+      "validation_accuracy": 0.800548149993771,
+      "n_examples": 1024
+    },
+    {
+      "model": "Static mixture",
+      "post_delay": 16,
+      "overwrite_accuracy": 0.939453125,
+      "stale_value_error_rate": 0.021484375,
+      "other_error_rate": 0.0390625,
+      "retention_accuracy": 0.384765625,
+      "validation_accuracy": 0.8162451725426685,
+      "n_examples": 1024
+    },
+    {
+      "model": "Adaptive mixture",
+      "post_delay": 16,
+      "overwrite_accuracy": 0.8408203125,
+      "stale_value_error_rate": 0.0263671875,
+      "other_error_rate": 0.1328125,
+      "retention_accuracy": 0.1845703125,
+      "validation_accuracy": 0.8225987292886509,
+      "n_examples": 1024
+    },
+    {
+      "model": "Fixed width 4",
+      "post_delay": 32,
+      "overwrite_accuracy": 0.791015625,
+      "stale_value_error_rate": 0.08203125,
+      "other_error_rate": 0.126953125,
+      "retention_accuracy": 0.322265625,
+      "validation_accuracy": 0.7919521614550891,
+      "n_examples": 1024
+    },
+    {
+      "model": "Fixed width 8",
+      "post_delay": 32,
+      "overwrite_accuracy": 0.748046875,
+      "stale_value_error_rate": 0.1162109375,
+      "other_error_rate": 0.1357421875,
+      "retention_accuracy": 0.328125,
+      "validation_accuracy": 0.800548149993771,
+      "n_examples": 1024
+    },
+    {
+      "model": "Static mixture",
+      "post_delay": 32,
+      "overwrite_accuracy": 0.8447265625,
+      "stale_value_error_rate": 0.060546875,
+      "other_error_rate": 0.0947265625,
+      "retention_accuracy": 0.322265625,
+      "validation_accuracy": 0.8162451725426685,
+      "n_examples": 1024
+    },
+    {
+      "model": "Adaptive mixture",
+      "post_delay": 32,
+      "overwrite_accuracy": 0.7431640625,
+      "stale_value_error_rate": 0.0478515625,
+      "other_error_rate": 0.208984375,
+      "retention_accuracy": 0.14453125,
+      "validation_accuracy": 0.8225987292886509,
+      "n_examples": 1024
+    }
+  ],
+  "contrasts": [
+    {
+      "post_delay": 0,
+      "metric": "accuracy",
+      "comparison": "adaptive_vs_static",
+      "effect_pp": -9.5703125,
+      "ci_low": -12.40234375,
+      "ci_high": -6.640625
+    },
+    {
+      "post_delay": 0,
+      "metric": "accuracy",
+      "comparison": "adaptive_vs_fixed4",
+      "effect_pp": 0.78125,
+      "ci_low": -2.63671875,
+      "ci_high": 4.1015625
+    },
+    {
+      "post_delay": 0,
+      "metric": "stale",
+      "comparison": "adaptive_vs_static",
+      "effect_pp": 3.515625,
+      "ci_low": 1.66015625,
+      "ci_high": 5.37109375
+    },
+    {
+      "post_delay": 0,
+      "metric": "stale",
+      "comparison": "adaptive_vs_fixed4",
+      "effect_pp": -0.78125,
+      "ci_low": -3.02734375,
+      "ci_high": 1.46484375
+    },
+    {
+      "post_delay": 1,
+      "metric": "accuracy",
+      "comparison": "adaptive_vs_static",
+      "effect_pp": -2.734375,
+      "ci_low": -4.58984375,
+      "ci_high": -0.9765625
+    },
+    {
+      "post_delay": 1,
+      "metric": "accuracy",
+      "comparison": "adaptive_vs_fixed4",
+      "effect_pp": 13.28125,
+      "ci_low": 10.3515625,
+      "ci_high": 16.2109375
+    },
+    {
+      "post_delay": 1,
+      "metric": "stale",
+      "comparison": "adaptive_vs_static",
+      "effect_pp": 0.0,
+      "ci_low": -0.9765625,
+      "ci_high": 0.9765625
+    },
+    {
+      "post_delay": 1,
+      "metric": "stale",
+      "comparison": "adaptive_vs_fixed4",
+      "effect_pp": -8.30078125,
+      "ci_low": -10.25390625,
+      "ci_high": -6.34765625
+    },
+    {
+      "post_delay": 2,
+      "metric": "accuracy",
+      "comparison": "adaptive_vs_static",
+      "effect_pp": -3.41796875,
+      "ci_low": -5.2734375,
+      "ci_high": -1.5625
+    },
+    {
+      "post_delay": 2,
+      "metric": "accuracy",
+      "comparison": "adaptive_vs_fixed4",
+      "effect_pp": 0.87890625,
+      "ci_low": -1.3671875,
+      "ci_high": 3.125
+    },
+    {
+      "post_delay": 2,
+      "metric": "stale",
+      "comparison": "adaptive_vs_static",
+      "effect_pp": 0.1953125,
+      "ci_low": -0.78125,
+      "ci_high": 1.171875
+    },
+    {
+      "post_delay": 2,
+      "metric": "stale",
+      "comparison": "adaptive_vs_fixed4",
+      "effect_pp": -1.46484375,
+      "ci_low": -2.734375,
+      "ci_high": -0.29296875
+    },
+    {
+      "post_delay": 4,
+      "metric": "accuracy",
+      "comparison": "adaptive_vs_static",
+      "effect_pp": -3.22265625,
+      "ci_low": -5.37109375,
+      "ci_high": -1.171875
+    },
+    {
+      "post_delay": 4,
+      "metric": "accuracy",
+      "comparison": "adaptive_vs_fixed4",
+      "effect_pp": 3.7109375,
+      "ci_low": 1.26953125,
+      "ci_high": 6.25
+    },
+    {
+      "post_delay": 4,
+      "metric": "stale",
+      "comparison": "adaptive_vs_static",
+      "effect_pp": -0.9765625,
+      "ci_low": -2.05078125,
+      "ci_high": 0.09765625
+    },
+    {
+      "post_delay": 4,
+      "metric": "stale",
+      "comparison": "adaptive_vs_fixed4",
+      "effect_pp": -4.19921875,
+      "ci_low": -5.76171875,
+      "ci_high": -2.734375
+    },
+    {
+      "post_delay": 8,
+      "metric": "accuracy",
+      "comparison": "adaptive_vs_static",
+      "effect_pp": -1.85546875,
+      "ci_low": -4.1015625,
+      "ci_high": 0.48828125
+    },
+    {
+      "post_delay": 8,
+      "metric": "accuracy",
+      "comparison": "adaptive_vs_fixed4",
+      "effect_pp": 9.27734375,
+      "ci_low": 6.4453125,
+      "ci_high": 12.109375
+    },
+    {
+      "post_delay": 8,
+      "metric": "stale",
+      "comparison": "adaptive_vs_static",
+      "effect_pp": -0.29296875,
+      "ci_low": -1.46484375,
+      "ci_high": 0.87890625
+    },
+    {
+      "post_delay": 8,
+      "metric": "stale",
+      "comparison": "adaptive_vs_fixed4",
+      "effect_pp": -5.76171875,
+      "ci_low": -7.51953125,
+      "ci_high": -4.00390625
+    },
+    {
+      "post_delay": 16,
+      "metric": "accuracy",
+      "comparison": "adaptive_vs_static",
+      "effect_pp": -9.86328125,
+      "ci_low": -12.40234375,
+      "ci_high": -7.32421875
+    },
+    {
+      "post_delay": 16,
+      "metric": "accuracy",
+      "comparison": "adaptive_vs_fixed4",
+      "effect_pp": 2.44140625,
+      "ci_low": -0.87890625,
+      "ci_high": 5.76171875
+    },
+    {
+      "post_delay": 16,
+      "metric": "stale",
+      "comparison": "adaptive_vs_static",
+      "effect_pp": 0.48828125,
+      "ci_low": -0.87890625,
+      "ci_high": 1.85546875
+    },
+    {
+      "post_delay": 16,
+      "metric": "stale",
+      "comparison": "adaptive_vs_fixed4",
+      "effect_pp": -4.8828125,
+      "ci_low": -6.73828125,
+      "ci_high": -3.02734375
+    },
+    {
+      "post_delay": 32,
+      "metric": "accuracy",
+      "comparison": "adaptive_vs_static",
+      "effect_pp": -10.15625,
+      "ci_low": -13.18359375,
+      "ci_high": -7.12890625
+    },
+    {
+      "post_delay": 32,
+      "metric": "accuracy",
+      "comparison": "adaptive_vs_fixed4",
+      "effect_pp": -4.78515625,
+      "ci_low": -8.30078125,
+      "ci_high": -1.26953125
+    },
+    {
+      "post_delay": 32,
+      "metric": "stale",
+      "comparison": "adaptive_vs_static",
+      "effect_pp": -1.26953125,
+      "ci_low": -3.125,
+      "ci_high": 0.48828125
+    },
+    {
+      "post_delay": 32,
+      "metric": "stale",
+      "comparison": "adaptive_vs_fixed4",
+      "effect_pp": -3.41796875,
+      "ci_low": -5.37109375,
+      "ci_high": -1.46484375
+    }
+  ],
+  "fixed_splits": [
+    {
+      "model": "Fixed width 4",
+      "split": "test_id",
+      "condition": "ID",
+      "length": 128,
+      "query_accuracy": 0.7504544703354817,
+      "query_count": 12102
+    },
+    {
+      "model": "Fixed width 4",
+      "split": "test_ood_256",
+      "condition": "OOD",
+      "length": 256,
+      "query_accuracy": 0.7122774527547455,
+      "query_count": 23759
+    },
+    {
+      "model": "Fixed width 4",
+      "split": "test_ood_512",
+      "condition": "OOD",
+      "length": 512,
+      "query_accuracy": 0.6964407939767283,
+      "query_count": 46752
+    },
+    {
+      "model": "Fixed width 4",
+      "split": "stress_gap_512",
+      "condition": "Delay stress",
+      "length": 512,
+      "query_accuracy": 0.6958747168496253,
+      "query_count": 45912
+    },
+    {
+      "model": "Fixed width 4",
+      "split": "stress_overwrite_512",
+      "condition": "Overwrite stress",
+      "length": 512,
+      "query_accuracy": 0.696699684242398,
+      "query_count": 46238
+    },
+    {
+      "model": "Fixed width 8",
+      "split": "test_id",
+      "condition": "ID",
+      "length": 128,
+      "query_accuracy": 0.7659064617418608,
+      "query_count": 12102
+    },
+    {
+      "model": "Fixed width 8",
+      "split": "test_ood_256",
+      "condition": "OOD",
+      "length": 256,
+      "query_accuracy": 0.7348373248032325,
+      "query_count": 23759
+    },
+    {
+      "model": "Fixed width 8",
+      "split": "test_ood_512",
+      "condition": "OOD",
+      "length": 512,
+      "query_accuracy": 0.719391683778234,
+      "query_count": 46752
+    },
+    {
+      "model": "Fixed width 8",
+      "split": "stress_gap_512",
+      "condition": "Delay stress",
+      "length": 512,
+      "query_accuracy": 0.7153903119010281,
+      "query_count": 45912
+    },
+    {
+      "model": "Fixed width 8",
+      "split": "stress_overwrite_512",
+      "condition": "Overwrite stress",
+      "length": 512,
+      "query_accuracy": 0.7186296985163718,
+      "query_count": 46238
+    },
+    {
+      "model": "Static mixture",
+      "split": "test_id",
+      "condition": "ID",
+      "length": 128,
+      "query_accuracy": 0.7762353330028094,
+      "query_count": 12102
+    },
+    {
+      "model": "Static mixture",
+      "split": "test_ood_256",
+      "condition": "OOD",
+      "length": 256,
+      "query_accuracy": 0.7446441348541605,
+      "query_count": 23759
+    },
+    {
+      "model": "Static mixture",
+      "split": "test_ood_512",
+      "condition": "OOD",
+      "length": 512,
+      "query_accuracy": 0.7294019507186859,
+      "query_count": 46752
+    },
+    {
+      "model": "Static mixture",
+      "split": "stress_gap_512",
+      "condition": "Delay stress",
+      "length": 512,
+      "query_accuracy": 0.7260629029447639,
+      "query_count": 45912
+    },
+    {
+      "model": "Static mixture",
+      "split": "stress_overwrite_512",
+      "condition": "Overwrite stress",
+      "length": 512,
+      "query_accuracy": 0.7255504130801506,
+      "query_count": 46238
+    },
+    {
+      "model": "Adaptive mixture",
+      "split": "test_id",
+      "condition": "ID",
+      "length": 128,
+      "query_accuracy": 0.7894562882168237,
+      "query_count": 12102
+    },
+    {
+      "model": "Adaptive mixture",
+      "split": "test_ood_256",
+      "condition": "OOD",
+      "length": 256,
+      "query_accuracy": 0.7605959846794899,
+      "query_count": 23759
+    },
+    {
+      "model": "Adaptive mixture",
+      "split": "test_ood_512",
+      "condition": "OOD",
+      "length": 512,
+      "query_accuracy": 0.7391341546885695,
+      "query_count": 46752
+    },
+    {
+      "model": "Adaptive mixture",
+      "split": "stress_gap_512",
+      "condition": "Delay stress",
+      "length": 512,
+      "query_accuracy": 0.7357989196724168,
+      "query_count": 45912
+    },
+    {
+      "model": "Adaptive mixture",
+      "split": "stress_overwrite_512",
+      "condition": "Overwrite stress",
+      "length": 512,
+      "query_accuracy": 0.7397811324019204,
+      "query_count": 46238
+    }
+  ],
+  "router_by_event": [
+    {
+      "model": "Static mixture",
+      "event": "NOOP",
+      "mean_prob_width_1": 0.0169281754642725,
+      "mean_prob_width_2": 0.022677680477499962,
+      "mean_prob_width_4": 0.8840287327766418,
+      "mean_prob_width_8": 0.07636532932519913,
+      "mean_expected_width": 4.209321102127433,
+      "std_expected_width_across_tokens": 0.0
+    },
+    {
+      "model": "Static mixture",
+      "event": "SET",
+      "mean_prob_width_1": 0.0169281754642725,
+      "mean_prob_width_2": 0.022677680477499962,
+      "mean_prob_width_4": 0.8840287327766418,
+      "mean_prob_width_8": 0.07636532932519913,
+      "mean_expected_width": 4.209321102127433,
+      "std_expected_width_across_tokens": 0.0
+    },
+    {
+      "model": "Static mixture",
+      "event": "QUERY",
+      "mean_prob_width_1": 0.0169281754642725,
+      "mean_prob_width_2": 0.022677680477499962,
+      "mean_prob_width_4": 0.8840287327766418,
+      "mean_prob_width_8": 0.07636532932519913,
+      "mean_expected_width": 4.209321102127433,
+      "std_expected_width_across_tokens": 0.0
+    },
+    {
+      "model": "Adaptive mixture",
+      "event": "NOOP",
+      "mean_prob_width_1": 0.0010335823753848672,
+      "mean_prob_width_2": 0.0008666761568747461,
+      "mean_prob_width_4": 7.956143235787749e-05,
+      "mean_prob_width_8": 0.9980201721191406,
+      "mean_expected_width": 7.987246557371691,
+      "std_expected_width_across_tokens": 0.0
+    },
+    {
+      "model": "Adaptive mixture",
+      "event": "SET",
+      "mean_prob_width_1": 0.11788340657949448,
+      "mean_prob_width_2": 0.09936690330505371,
+      "mean_prob_width_4": 0.10585982352495193,
+      "mean_prob_width_8": 0.6768898963928223,
+      "mean_expected_width": 6.155175480707612,
+      "std_expected_width_across_tokens": 2.1005664461247817
+    },
+    {
+      "model": "Adaptive mixture",
+      "event": "QUERY",
+      "mean_prob_width_1": 0.003806983819231391,
+      "mean_prob_width_2": 0.005129911471158266,
+      "mean_prob_width_4": 0.09924127906560898,
+      "mean_prob_width_8": 0.8918218016624451,
+      "mean_expected_width": 7.5456064161037375,
+      "std_expected_width_across_tokens": 0.9765081534353033
+    }
+  ]
+}

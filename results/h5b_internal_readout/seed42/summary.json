@@ -1,0 +1,986 @@
+{
+  "hypothesis": "Long-horizon information remains in recurrent h_t but is lost or obscured along C_t and subsequent output transformations.",
+  "scope": "Frozen seed-42 independently gated width-4 model; identical disjoint train/validation/test contexts for every probe.",
+  "decay_multipliers": [
+    0.0,
+    0.05,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.65,
+    0.8,
+    1.0,
+    1.25
+  ],
+  "probe_definitions": {
+    "state": "Flattened 64x8 recurrent state plus 8D queried-key one-hot",
+    "ssm_output": "64D recurrent readout C_t h_t before D skip",
+    "final_feature": "32D final normalized backbone representation z_t",
+    "original_head": "Original trained Linear(32,5) classifier on z_t"
+  },
+  "metrics": [
+    {
+      "alpha": 0.0,
+      "probe": "state",
+      "input_dim": 520,
+      "parameter_count": 2605,
+      "validation_accuracy": 0.8203125,
+      "test_accuracy": 0.86328125,
+      "test_nll": 0.7489414811134338
+    },
+    {
+      "alpha": 0.0,
+      "probe": "ssm_output",
+      "input_dim": 64,
+      "parameter_count": 325,
+      "validation_accuracy": 0.7265625,
+      "test_accuracy": 0.67578125,
+      "test_nll": 0.8746341466903687
+    },
+    {
+      "alpha": 0.0,
+      "probe": "final_feature",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 1.0,
+      "test_accuracy": 0.99609375,
+      "test_nll": 0.0666399747133255
+    },
+    {
+      "alpha": 0.0,
+      "probe": "original_head",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": "",
+      "test_accuracy": 0.2578125,
+      "test_nll": 2.101776599884033
+    },
+    {
+      "alpha": 0.05,
+      "probe": "state",
+      "input_dim": 520,
+      "parameter_count": 2605,
+      "validation_accuracy": 0.6875,
+      "test_accuracy": 0.66015625,
+      "test_nll": 1.7814754247665405
+    },
+    {
+      "alpha": 0.05,
+      "probe": "ssm_output",
+      "input_dim": 64,
+      "parameter_count": 325,
+      "validation_accuracy": 0.546875,
+      "test_accuracy": 0.51171875,
+      "test_nll": 1.178358793258667
+    },
+    {
+      "alpha": 0.05,
+      "probe": "final_feature",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.9921875,
+      "test_accuracy": 0.984375,
+      "test_nll": 0.07383235543966293
+    },
+    {
+      "alpha": 0.05,
+      "probe": "original_head",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": "",
+      "test_accuracy": 0.32421875,
+      "test_nll": 2.0190422534942627
+    },
+    {
+      "alpha": 0.1,
+      "probe": "state",
+      "input_dim": 520,
+      "parameter_count": 2605,
+      "validation_accuracy": 0.640625,
+      "test_accuracy": 0.59765625,
+      "test_nll": 2.3289568424224854
+    },
+    {
+      "alpha": 0.1,
+      "probe": "ssm_output",
+      "input_dim": 64,
+      "parameter_count": 325,
+      "validation_accuracy": 0.5390625,
+      "test_accuracy": 0.484375,
+      "test_nll": 1.1906806230545044
+    },
+    {
+      "alpha": 0.1,
+      "probe": "final_feature",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.984375,
+      "test_accuracy": 0.9765625,
+      "test_nll": 0.10638809204101562
+    },
+    {
+      "alpha": 0.1,
+      "probe": "original_head",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": "",
+      "test_accuracy": 0.29296875,
+      "test_nll": 2.018247604370117
+    },
+    {
+      "alpha": 0.2,
+      "probe": "state",
+      "input_dim": 520,
+      "parameter_count": 2605,
+      "validation_accuracy": 0.578125,
+      "test_accuracy": 0.55078125,
+      "test_nll": 1.8505685329437256
+    },
+    {
+      "alpha": 0.2,
+      "probe": "ssm_output",
+      "input_dim": 64,
+      "parameter_count": 325,
+      "validation_accuracy": 0.5,
+      "test_accuracy": 0.4375,
+      "test_nll": 1.2096792459487915
+    },
+    {
+      "alpha": 0.2,
+      "probe": "final_feature",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.9609375,
+      "test_accuracy": 0.94921875,
+      "test_nll": 0.25470301508903503
+    },
+    {
+      "alpha": 0.2,
+      "probe": "original_head",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": "",
+      "test_accuracy": 0.26171875,
+      "test_nll": 1.9179019927978516
+    },
+    {
+      "alpha": 0.3,
+      "probe": "state",
+      "input_dim": 520,
+      "parameter_count": 2605,
+      "validation_accuracy": 0.484375,
+      "test_accuracy": 0.51953125,
+      "test_nll": 1.6185277700424194
+    },
+    {
+      "alpha": 0.3,
+      "probe": "ssm_output",
+      "input_dim": 64,
+      "parameter_count": 325,
+      "validation_accuracy": 0.46875,
+      "test_accuracy": 0.4140625,
+      "test_nll": 1.218852162361145
+    },
+    {
+      "alpha": 0.3,
+      "probe": "final_feature",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.8984375,
+      "test_accuracy": 0.859375,
+      "test_nll": 0.4741630554199219
+    },
+    {
+      "alpha": 0.3,
+      "probe": "original_head",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": "",
+      "test_accuracy": 0.28125,
+      "test_nll": 1.8536432981491089
+    },
+    {
+      "alpha": 0.4,
+      "probe": "state",
+      "input_dim": 520,
+      "parameter_count": 2605,
+      "validation_accuracy": 0.5,
+      "test_accuracy": 0.47265625,
+      "test_nll": 1.5158182382583618
+    },
+    {
+      "alpha": 0.4,
+      "probe": "ssm_output",
+      "input_dim": 64,
+      "parameter_count": 325,
+      "validation_accuracy": 0.4140625,
+      "test_accuracy": 0.44140625,
+      "test_nll": 1.2478636503219604
+    },
+    {
+      "alpha": 0.4,
+      "probe": "final_feature",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.78125,
+      "test_accuracy": 0.7421875,
+      "test_nll": 0.701999306678772
+    },
+    {
+      "alpha": 0.4,
+      "probe": "original_head",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": "",
+      "test_accuracy": 0.25,
+      "test_nll": 1.8199968338012695
+    },
+    {
+      "alpha": 0.5,
+      "probe": "state",
+      "input_dim": 520,
+      "parameter_count": 2605,
+      "validation_accuracy": 0.46875,
+      "test_accuracy": 0.4375,
+      "test_nll": 1.4972116947174072
+    },
+    {
+      "alpha": 0.5,
+      "probe": "ssm_output",
+      "input_dim": 64,
+      "parameter_count": 325,
+      "validation_accuracy": 0.4140625,
+      "test_accuracy": 0.4296875,
+      "test_nll": 1.2858375310897827
+    },
+    {
+      "alpha": 0.5,
+      "probe": "final_feature",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.6796875,
+      "test_accuracy": 0.62109375,
+      "test_nll": 0.885651707649231
+    },
+    {
+      "alpha": 0.5,
+      "probe": "original_head",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": "",
+      "test_accuracy": 0.30078125,
+      "test_nll": 1.8002113103866577
+    },
+    {
+      "alpha": 0.65,
+      "probe": "state",
+      "input_dim": 520,
+      "parameter_count": 2605,
+      "validation_accuracy": 0.421875,
+      "test_accuracy": 0.42578125,
+      "test_nll": 1.388127326965332
+    },
+    {
+      "alpha": 0.65,
+      "probe": "ssm_output",
+      "input_dim": 64,
+      "parameter_count": 325,
+      "validation_accuracy": 0.3828125,
+      "test_accuracy": 0.4140625,
+      "test_nll": 1.3004953861236572
+    },
+    {
+      "alpha": 0.65,
+      "probe": "final_feature",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.578125,
+      "test_accuracy": 0.5390625,
+      "test_nll": 1.0680345296859741
+    },
+    {
+      "alpha": 0.65,
+      "probe": "original_head",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": "",
+      "test_accuracy": 0.25,
+      "test_nll": 1.7826879024505615
+    },
+    {
+      "alpha": 0.8,
+      "probe": "state",
+      "input_dim": 520,
+      "parameter_count": 2605,
+      "validation_accuracy": 0.34375,
+      "test_accuracy": 0.43359375,
+      "test_nll": 1.3764021396636963
+    },
+    {
+      "alpha": 0.8,
+      "probe": "ssm_output",
+      "input_dim": 64,
+      "parameter_count": 325,
+      "validation_accuracy": 0.359375,
+      "test_accuracy": 0.40234375,
+      "test_nll": 1.3099743127822876
+    },
+    {
+      "alpha": 0.8,
+      "probe": "final_feature",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.515625,
+      "test_accuracy": 0.46875,
+      "test_nll": 1.1788129806518555
+    },
+    {
+      "alpha": 0.8,
+      "probe": "original_head",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": "",
+      "test_accuracy": 0.25,
+      "test_nll": 1.77267324924469
+    },
+    {
+      "alpha": 1.0,
+      "probe": "state",
+      "input_dim": 520,
+      "parameter_count": 2605,
+      "validation_accuracy": 0.3359375,
+      "test_accuracy": 0.40625,
+      "test_nll": 1.3772836923599243
+    },
+    {
+      "alpha": 1.0,
+      "probe": "ssm_output",
+      "input_dim": 64,
+      "parameter_count": 325,
+      "validation_accuracy": 0.3203125,
+      "test_accuracy": 0.3671875,
+      "test_nll": 1.3340450525283813
+    },
+    {
+      "alpha": 1.0,
+      "probe": "final_feature",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.4296875,
+      "test_accuracy": 0.39453125,
+      "test_nll": 1.2647136449813843
+    },
+    {
+      "alpha": 1.0,
+      "probe": "original_head",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": "",
+      "test_accuracy": 0.25,
+      "test_nll": 1.7653883695602417
+    },
+    {
+      "alpha": 1.25,
+      "probe": "state",
+      "input_dim": 520,
+      "parameter_count": 2605,
+      "validation_accuracy": 0.359375,
+      "test_accuracy": 0.37890625,
+      "test_nll": 1.3741875886917114
+    },
+    {
+      "alpha": 1.25,
+      "probe": "ssm_output",
+      "input_dim": 64,
+      "parameter_count": 325,
+      "validation_accuracy": 0.28125,
+      "test_accuracy": 0.359375,
+      "test_nll": 1.351341724395752
+    },
+    {
+      "alpha": 1.25,
+      "probe": "final_feature",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.375,
+      "test_accuracy": 0.33203125,
+      "test_nll": 1.3116813898086548
+    },
+    {
+      "alpha": 1.25,
+      "probe": "original_head",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": "",
+      "test_accuracy": 0.25,
+      "test_nll": 1.761360764503479
+    }
+  ],
+  "parameter_matched_controls": [
+    {
+      "alpha": 0.0,
+      "probe": "state_pca32",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.75,
+      "test_accuracy": 0.67578125,
+      "test_nll": 0.915777325630188
+    },
+    {
+      "alpha": 0.0,
+      "probe": "ssm_output_pca32",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.59375,
+      "test_accuracy": 0.51171875,
+      "test_nll": 1.1014407873153687
+    },
+    {
+      "alpha": 0.0,
+      "probe": "final_feature",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 1.0,
+      "test_accuracy": 0.99609375,
+      "test_nll": 0.0666399747133255
+    },
+    {
+      "alpha": 0.05,
+      "probe": "state_pca32",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.5859375,
+      "test_accuracy": 0.58984375,
+      "test_nll": 1.074265718460083
+    },
+    {
+      "alpha": 0.05,
+      "probe": "ssm_output_pca32",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.515625,
+      "test_accuracy": 0.46875,
+      "test_nll": 1.1774382591247559
+    },
+    {
+      "alpha": 0.05,
+      "probe": "final_feature",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.9921875,
+      "test_accuracy": 0.984375,
+      "test_nll": 0.07383235543966293
+    },
+    {
+      "alpha": 0.1,
+      "probe": "state_pca32",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.5390625,
+      "test_accuracy": 0.51953125,
+      "test_nll": 1.2014403343200684
+    },
+    {
+      "alpha": 0.1,
+      "probe": "ssm_output_pca32",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.5,
+      "test_accuracy": 0.47265625,
+      "test_nll": 1.2085397243499756
+    },
+    {
+      "alpha": 0.1,
+      "probe": "final_feature",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.984375,
+      "test_accuracy": 0.9765625,
+      "test_nll": 0.10638809204101562
+    },
+    {
+      "alpha": 0.2,
+      "probe": "state_pca32",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.484375,
+      "test_accuracy": 0.45703125,
+      "test_nll": 1.2689101696014404
+    },
+    {
+      "alpha": 0.2,
+      "probe": "ssm_output_pca32",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.484375,
+      "test_accuracy": 0.43359375,
+      "test_nll": 1.2633763551712036
+    },
+    {
+      "alpha": 0.2,
+      "probe": "final_feature",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.9609375,
+      "test_accuracy": 0.94921875,
+      "test_nll": 0.25470301508903503
+    },
+    {
+      "alpha": 0.3,
+      "probe": "state_pca32",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.4609375,
+      "test_accuracy": 0.421875,
+      "test_nll": 1.3227227926254272
+    },
+    {
+      "alpha": 0.3,
+      "probe": "ssm_output_pca32",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.4453125,
+      "test_accuracy": 0.42578125,
+      "test_nll": 1.2756600379943848
+    },
+    {
+      "alpha": 0.3,
+      "probe": "final_feature",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.8984375,
+      "test_accuracy": 0.859375,
+      "test_nll": 0.4741630554199219
+    },
+    {
+      "alpha": 0.4,
+      "probe": "state_pca32",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.40625,
+      "test_accuracy": 0.40625,
+      "test_nll": 1.3490458726882935
+    },
+    {
+      "alpha": 0.4,
+      "probe": "ssm_output_pca32",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.4609375,
+      "test_accuracy": 0.41796875,
+      "test_nll": 1.2793854475021362
+    },
+    {
+      "alpha": 0.4,
+      "probe": "final_feature",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.78125,
+      "test_accuracy": 0.7421875,
+      "test_nll": 0.701999306678772
+    },
+    {
+      "alpha": 0.5,
+      "probe": "state_pca32",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.4140625,
+      "test_accuracy": 0.37109375,
+      "test_nll": 1.3504599332809448
+    },
+    {
+      "alpha": 0.5,
+      "probe": "ssm_output_pca32",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.453125,
+      "test_accuracy": 0.39453125,
+      "test_nll": 1.300995945930481
+    },
+    {
+      "alpha": 0.5,
+      "probe": "final_feature",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.6796875,
+      "test_accuracy": 0.62109375,
+      "test_nll": 0.885651707649231
+    },
+    {
+      "alpha": 0.65,
+      "probe": "state_pca32",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.40625,
+      "test_accuracy": 0.41796875,
+      "test_nll": 1.3346999883651733
+    },
+    {
+      "alpha": 0.65,
+      "probe": "ssm_output_pca32",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.46875,
+      "test_accuracy": 0.375,
+      "test_nll": 1.3226885795593262
+    },
+    {
+      "alpha": 0.65,
+      "probe": "final_feature",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.578125,
+      "test_accuracy": 0.5390625,
+      "test_nll": 1.0680345296859741
+    },
+    {
+      "alpha": 0.8,
+      "probe": "state_pca32",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.3515625,
+      "test_accuracy": 0.4140625,
+      "test_nll": 1.349123239517212
+    },
+    {
+      "alpha": 0.8,
+      "probe": "ssm_output_pca32",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.421875,
+      "test_accuracy": 0.3828125,
+      "test_nll": 1.3265010118484497
+    },
+    {
+      "alpha": 0.8,
+      "probe": "final_feature",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.515625,
+      "test_accuracy": 0.46875,
+      "test_nll": 1.1788129806518555
+    },
+    {
+      "alpha": 1.0,
+      "probe": "state_pca32",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.375,
+      "test_accuracy": 0.40625,
+      "test_nll": 1.3422290086746216
+    },
+    {
+      "alpha": 1.0,
+      "probe": "ssm_output_pca32",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.421875,
+      "test_accuracy": 0.37890625,
+      "test_nll": 1.3504410982131958
+    },
+    {
+      "alpha": 1.0,
+      "probe": "final_feature",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.4296875,
+      "test_accuracy": 0.39453125,
+      "test_nll": 1.2647136449813843
+    },
+    {
+      "alpha": 1.25,
+      "probe": "state_pca32",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.3515625,
+      "test_accuracy": 0.3828125,
+      "test_nll": 1.3669958114624023
+    },
+    {
+      "alpha": 1.25,
+      "probe": "ssm_output_pca32",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.4140625,
+      "test_accuracy": 0.390625,
+      "test_nll": 1.3502476215362549
+    },
+    {
+      "alpha": 1.25,
+      "probe": "final_feature",
+      "input_dim": 32,
+      "parameter_count": 165,
+      "validation_accuracy": 0.375,
+      "test_accuracy": 0.33203125,
+      "test_nll": 1.3116813898086548
+    }
+  ],
+  "contrasts": [
+    {
+      "alpha": 0.0,
+      "comparison": "state_minus_ssm_output",
+      "accuracy_effect_pp": 18.75,
+      "ci_low_pp": 10.537109375000009,
+      "ci_high_pp": 26.953125,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 0.0,
+      "comparison": "ssm_output_minus_final_feature",
+      "accuracy_effect_pp": -32.03125,
+      "ci_low_pp": -39.84375,
+      "ci_high_pp": -24.21875,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 0.0,
+      "comparison": "final_feature_minus_original_head",
+      "accuracy_effect_pp": 73.828125,
+      "ci_low_pp": 58.203125,
+      "ci_high_pp": 87.11914062499986,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 0.05,
+      "comparison": "state_minus_ssm_output",
+      "accuracy_effect_pp": 14.84375,
+      "ci_low_pp": 6.640625,
+      "ci_high_pp": 23.046875,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 0.05,
+      "comparison": "ssm_output_minus_final_feature",
+      "accuracy_effect_pp": -47.265625,
+      "ci_low_pp": -54.6875,
+      "ci_high_pp": -39.84375,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 0.05,
+      "comparison": "final_feature_minus_original_head",
+      "accuracy_effect_pp": 66.015625,
+      "ci_low_pp": 49.21875,
+      "ci_high_pp": 81.640625,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 0.1,
+      "comparison": "state_minus_ssm_output",
+      "accuracy_effect_pp": 11.328125,
+      "ci_low_pp": 3.90625,
+      "ci_high_pp": 19.140625,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 0.1,
+      "comparison": "ssm_output_minus_final_feature",
+      "accuracy_effect_pp": -49.21875,
+      "ci_low_pp": -56.25,
+      "ci_high_pp": -41.796875,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 0.1,
+      "comparison": "final_feature_minus_original_head",
+      "accuracy_effect_pp": 68.359375,
+      "ci_low_pp": 51.953125,
+      "ci_high_pp": 83.59375,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 0.2,
+      "comparison": "state_minus_ssm_output",
+      "accuracy_effect_pp": 11.328125,
+      "ci_low_pp": 3.515625,
+      "ci_high_pp": 19.140625,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 0.2,
+      "comparison": "ssm_output_minus_final_feature",
+      "accuracy_effect_pp": -51.171875,
+      "ci_low_pp": -58.984375,
+      "ci_high_pp": -43.359375,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 0.2,
+      "comparison": "final_feature_minus_original_head",
+      "accuracy_effect_pp": 68.75,
+      "ci_low_pp": 51.171875,
+      "ci_high_pp": 84.765625,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 0.3,
+      "comparison": "state_minus_ssm_output",
+      "accuracy_effect_pp": 10.546875,
+      "ci_low_pp": 1.5625,
+      "ci_high_pp": 18.75,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 0.3,
+      "comparison": "ssm_output_minus_final_feature",
+      "accuracy_effect_pp": -44.53125,
+      "ci_low_pp": -51.5625,
+      "ci_high_pp": -37.109375,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 0.3,
+      "comparison": "final_feature_minus_original_head",
+      "accuracy_effect_pp": 57.8125,
+      "ci_low_pp": 39.0625,
+      "ci_high_pp": 75.390625,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 0.4,
+      "comparison": "state_minus_ssm_output",
+      "accuracy_effect_pp": 3.125,
+      "ci_low_pp": -6.640625,
+      "ci_high_pp": 11.71875,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 0.4,
+      "comparison": "ssm_output_minus_final_feature",
+      "accuracy_effect_pp": -30.078125,
+      "ci_low_pp": -38.28125,
+      "ci_high_pp": -21.484375,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 0.4,
+      "comparison": "final_feature_minus_original_head",
+      "accuracy_effect_pp": 49.21875,
+      "ci_low_pp": 29.6875,
+      "ci_high_pp": 66.796875,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 0.5,
+      "comparison": "state_minus_ssm_output",
+      "accuracy_effect_pp": 0.78125,
+      "ci_low_pp": -8.984375,
+      "ci_high_pp": 10.546875,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 0.5,
+      "comparison": "ssm_output_minus_final_feature",
+      "accuracy_effect_pp": -19.140625,
+      "ci_low_pp": -27.734375,
+      "ci_high_pp": -10.546875,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 0.5,
+      "comparison": "final_feature_minus_original_head",
+      "accuracy_effect_pp": 32.03125,
+      "ci_low_pp": 12.109375,
+      "ci_high_pp": 50.78125,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 0.65,
+      "comparison": "state_minus_ssm_output",
+      "accuracy_effect_pp": 1.171875,
+      "ci_low_pp": -7.421875,
+      "ci_high_pp": 9.765625,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 0.65,
+      "comparison": "ssm_output_minus_final_feature",
+      "accuracy_effect_pp": -12.5,
+      "ci_low_pp": -21.09375,
+      "ci_high_pp": -4.296875,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 0.65,
+      "comparison": "final_feature_minus_original_head",
+      "accuracy_effect_pp": 28.90625,
+      "ci_low_pp": 9.765625,
+      "ci_high_pp": 47.65625,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 0.8,
+      "comparison": "state_minus_ssm_output",
+      "accuracy_effect_pp": 3.125,
+      "ci_low_pp": -3.90625,
+      "ci_high_pp": 10.15625,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 0.8,
+      "comparison": "ssm_output_minus_final_feature",
+      "accuracy_effect_pp": -6.640625,
+      "ci_low_pp": -14.84375,
+      "ci_high_pp": 1.171875,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 0.8,
+      "comparison": "final_feature_minus_original_head",
+      "accuracy_effect_pp": 21.875,
+      "ci_low_pp": 1.5625,
+      "ci_high_pp": 41.40625,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 1.0,
+      "comparison": "state_minus_ssm_output",
+      "accuracy_effect_pp": 3.90625,
+      "ci_low_pp": -2.734375,
+      "ci_high_pp": 10.546875,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 1.0,
+      "comparison": "ssm_output_minus_final_feature",
+      "accuracy_effect_pp": -2.734375,
+      "ci_low_pp": -10.546875,
+      "ci_high_pp": 4.296875,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 1.0,
+      "comparison": "final_feature_minus_original_head",
+      "accuracy_effect_pp": 14.453125,
+      "ci_low_pp": -5.859375,
+      "ci_high_pp": 33.984375,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 1.25,
+      "comparison": "state_minus_ssm_output",
+      "accuracy_effect_pp": 1.953125,
+      "ci_low_pp": -6.25,
+      "ci_high_pp": 9.765625,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 1.25,
+      "comparison": "ssm_output_minus_final_feature",
+      "accuracy_effect_pp": 2.734375,
+      "ci_low_pp": -5.078125,
+      "ci_high_pp": 9.375,
+      "cluster_count": 32
+    },
+    {
+      "alpha": 1.25,
+      "comparison": "final_feature_minus_original_head",
+      "accuracy_effect_pp": 8.203125,
+      "ci_low_pp": -10.9375,
+      "ci_high_pp": 26.5625,
+      "cluster_count": 32
+    }
+  ]
+}

@@ -38,12 +38,17 @@ class ModelArgs:
     expand: int = 2
     dt_rank: Union[int, str] = 'auto'
     d_conv: int = 4 
+    conv_mode: str = 'fixed'
     pad_vocab_size_multiple: int = 8
     conv_bias: bool = True
     bias: bool = False
     
     def __post_init__(self):
         self.d_inner = int(self.expand * self.d_model)
+        if self.conv_mode not in {'fixed', 'adaptive', 'static_mix'}:
+            raise ValueError(f"unknown conv_mode: {self.conv_mode}")
+        if self.conv_mode != 'fixed' and self.d_conv != 8:
+            raise ValueError("adaptive convolution modes require d_conv=8")
         
         if self.dt_rank == 'auto':
             self.dt_rank = math.ceil(self.d_model / 16)
@@ -190,6 +195,22 @@ class MambaBlock(nn.Module):
             groups=args.d_inner,
             padding=args.d_conv - 1,
         )
+        if args.conv_mode != 'fixed':
+            self.conv_router = nn.Linear(args.d_inner, 4)
+            self.conv_router_anchor = nn.Parameter(torch.zeros(args.d_inner))
+            nn.init.zeros_(self.conv_router.weight)
+            with torch.no_grad():
+                # Begin near width 4 without saturating softmax, so both the
+                # adaptive and static controls can move to other widths.
+                self.conv_router.bias.copy_(torch.tensor([-2.0, -2.0, 2.0, -2.0]))
+            # Tap order follows Conv1d weights: oldest to current. Candidate
+            # widths retain the rightmost 1, 2, 4, or 8 taps.
+            masks = torch.zeros(4, 8)
+            for index, width in enumerate((1, 2, 4, 8)):
+                masks[index, 8 - width :] = 1.0
+            self.register_buffer("conv_width_masks", masks)
+            self.capture_conv_alpha = False
+            self.captured_conv_alpha = None
 
         # x_proj takes in `x` and outputs the input-specific Δ, B, C
         self.x_proj = nn.Linear(args.d_inner, args.dt_rank + args.d_state * 2, bias=False)
@@ -201,6 +222,21 @@ class MambaBlock(nn.Module):
         self.A_log = nn.Parameter(torch.log(A))
         self.D = nn.Parameter(torch.ones(args.d_inner))
         self.out_proj = nn.Linear(args.d_inner, args.d_model, bias=args.bias)
+        # Optional inference-time intervention. The default None preserves the
+        # upstream implementation exactly. A (batch, length) tensor is set by
+        # the task wrapper only for controlled delta-scaling experiments.
+        self.delta_scale_by_position = None
+        # Optional multiplicative gate on the discretized input write. Shape:
+        # (batch, length, d_inner). The task wrapper supplies this only for the
+        # key-routing model variants; None preserves upstream behavior.
+        self.write_route_by_position = None
+        # Optional diagnostic gate on the decay exponent only. A zero at a
+        # position makes deltaA exactly one there while leaving deltaB_u
+        # unchanged, separating shared attenuation from incoming writes.
+        self.decay_scale_by_position = None
+        # Optional diagnostic reset points for the local convolutional history.
+        # Recurrent SSM state is not reset. Shape: (batch, length), boolean.
+        self.conv_reset_by_position = None
         
 
     def forward(self, x):
@@ -223,7 +259,36 @@ class MambaBlock(nn.Module):
         (x, res) = x_and_res.split(split_size=[self.args.d_inner, self.args.d_inner], dim=-1)
 
         x = rearrange(x, 'b l d_in -> b d_in l')
-        x = self.conv1d(x)[:, :, :l]
+        conv_input = x
+        if self.args.conv_mode == 'fixed':
+            x = self.conv1d(conv_input)[:, :, :l]
+        else:
+            current = rearrange(conv_input, 'b d l -> b l d')
+            if self.args.conv_mode == 'adaptive':
+                router_input = current + self.conv_router_anchor
+            else:
+                router_input = self.conv_router_anchor.view(1, 1, -1).expand(b, l, -1)
+            alpha = torch.softmax(self.conv_router(router_input), dim=-1)
+            if self.capture_conv_alpha:
+                self.captured_conv_alpha = alpha.detach()
+            effective_mask = einsum(alpha, self.conv_width_masks, 'b l k, k j -> b l j')
+            windows = F.pad(conv_input, (self.args.d_conv - 1, 0)).unfold(2, self.args.d_conv, 1)
+            kernel = self.conv1d.weight[:, 0, :].view(1, self.args.d_inner, 1, self.args.d_conv)
+            x = (windows * kernel * effective_mask.unsqueeze(1)).sum(dim=-1)
+            if self.conv1d.bias is not None:
+                x = x + self.conv1d.bias.view(1, -1, 1)
+        if self.conv_reset_by_position is not None:
+            if self.args.conv_mode != 'fixed':
+                raise ValueError("convolution-history reset is defined only for fixed convolution")
+            reset = self.conv_reset_by_position.to(device=x.device, dtype=torch.bool)
+            # Recompute each suffix as a fresh convolutional segment. Beyond
+            # d_conv-1 positions this equals the normal convolution exactly.
+            for batch_index in range(b):
+                reset_positions = torch.nonzero(reset[batch_index], as_tuple=False).flatten().tolist()
+                for segment_index, start in enumerate(reset_positions):
+                    stop = reset_positions[segment_index + 1] if segment_index + 1 < len(reset_positions) else l
+                    segment = conv_input[batch_index : batch_index + 1, :, start:stop]
+                    x[batch_index : batch_index + 1, :, start:stop] = self.conv1d(segment)[:, :, : stop - start]
         x = rearrange(x, 'b d_in l -> b l d_in')
         
         x = F.silu(x)
@@ -266,6 +331,11 @@ class MambaBlock(nn.Module):
         
         (delta, B, C) = x_dbl.split(split_size=[self.args.dt_rank, n, n], dim=-1)  # delta: (b, l, dt_rank). B, C: (b, l, n)
         delta = F.softplus(self.dt_proj(delta))  # (b, l, d_in)
+        if self.delta_scale_by_position is not None:
+            scale = self.delta_scale_by_position.to(device=delta.device, dtype=delta.dtype)
+            if scale.ndim == 2:
+                scale = scale.unsqueeze(-1)
+            delta = delta * scale
         
         y = self.selective_scan(x, delta, A, B, C, D)  # This is similar to run_SSM(A, B, C, u) in The Annotated S4 [2]
         
@@ -306,8 +376,17 @@ class MambaBlock(nn.Module):
         # - A is discretized using zero-order hold (ZOH) discretization (see Section 2 Equation 4 in the Mamba paper [1])
         # - B is discretized using a simplified Euler discretization instead of ZOH. From a discussion with authors:
         #   "A is the more important term and the performance doesn't change much with the simplification on B"
-        deltaA = torch.exp(einsum(delta, A, 'b l d_in, d_in n -> b l d_in n'))
+        decay_delta = delta
+        if self.decay_scale_by_position is not None:
+            decay_scale = self.decay_scale_by_position.to(device=delta.device, dtype=delta.dtype)
+            if decay_scale.ndim == 2:
+                decay_scale = decay_scale.unsqueeze(-1)
+            decay_delta = delta * decay_scale
+        deltaA = torch.exp(einsum(decay_delta, A, 'b l d_in, d_in n -> b l d_in n'))
         deltaB_u = einsum(delta, B, u, 'b l d_in, b l n, b l d_in -> b l d_in n')
+        if self.write_route_by_position is not None:
+            route = self.write_route_by_position.to(device=deltaB_u.device, dtype=deltaB_u.dtype)
+            deltaB_u = deltaB_u * route.unsqueeze(-1)
         
         # Perform selective scan (see scan_SSM() in The Annotated S4 [2])
         # Note that the below is sequential, while the official implementation does a much faster parallel scan that

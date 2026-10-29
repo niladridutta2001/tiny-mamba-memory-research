@@ -1,0 +1,21 @@
+model,split,condition,length,query_accuracy,query_count
+Fixed width 4,test_id,ID,128,0.7504544703354817,12102
+Fixed width 4,test_ood_256,OOD,256,0.7122774527547455,23759
+Fixed width 4,test_ood_512,OOD,512,0.6964407939767283,46752
+Fixed width 4,stress_gap_512,Delay stress,512,0.6958747168496253,45912
+Fixed width 4,stress_overwrite_512,Overwrite stress,512,0.696699684242398,46238
+Fixed width 8,test_id,ID,128,0.7659064617418608,12102
+Fixed width 8,test_ood_256,OOD,256,0.7348373248032325,23759
+Fixed width 8,test_ood_512,OOD,512,0.719391683778234,46752
+Fixed width 8,stress_gap_512,Delay stress,512,0.7153903119010281,45912
+Fixed width 8,stress_overwrite_512,Overwrite stress,512,0.7186296985163718,46238
+Static mixture,test_id,ID,128,0.7762353330028094,12102
+Static mixture,test_ood_256,OOD,256,0.7446441348541605,23759
+Static mixture,test_ood_512,OOD,512,0.7294019507186859,46752
+Static mixture,stress_gap_512,Delay stress,512,0.7260629029447639,45912
+Static mixture,stress_overwrite_512,Overwrite stress,512,0.7255504130801506,46238
+Adaptive mixture,test_id,ID,128,0.7894562882168237,12102
+Adaptive mixture,test_ood_256,OOD,256,0.7605959846794899,23759
+Adaptive mixture,test_ood_512,OOD,512,0.7391341546885695,46752
+Adaptive mixture,stress_gap_512,Delay stress,512,0.7357989196724168,45912
+Adaptive mixture,stress_overwrite_512,Overwrite stress,512,0.7397811324019204,46238

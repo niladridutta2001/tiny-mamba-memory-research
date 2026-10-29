@@ -1,0 +1,25 @@
+{
+  "seed": 42,
+  "device": "cuda",
+  "device_name": "NVIDIA GeForce GTX 1650",
+  "parameter_count": 10149,
+  "training": {
+    "loss": 1.2825326934895438,
+    "query_count": 76780,
+    "updates": 300,
+    "elapsed_seconds": 78.4752487000078,
+    "starting_update": 300,
+    "ending_update": 600
+  },
+  "validation": {
+    "loss": 1.0921032690862291,
+    "query_accuracy": 0.5477762551389062,
+    "correct_queries": 4397,
+    "query_count": 8027,
+    "batches": 32,
+    "elapsed_seconds": 1.7564393000211567,
+    "queries_per_second": 4570.041219131976
+  },
+  "peak_gpu_memory_bytes": 53193216,
+  "resumed_from": "results\\a3\\checkpoints\\baseline.pt"
+}

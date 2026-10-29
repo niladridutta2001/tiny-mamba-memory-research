@@ -1,0 +1,16 @@
+model,split,condition,length,query_accuracy,query_count
+Baseline,test_id,ID,128,0.7504544703354817,12102
+Baseline,test_ood_256,OOD,256,0.7122774527547455,23759
+Baseline,test_ood_512,OOD,512,0.6964407939767283,46752
+Baseline,stress_gap_512,Delay stress,512,0.6958747168496253,45912
+Baseline,stress_overwrite_512,Overwrite stress,512,0.696699684242398,46238
+Independent decay,test_id,ID,128,0.7641712113700215,12102
+Independent decay,test_ood_256,OOD,256,0.7270928911149459,23759
+Independent decay,test_ood_512,OOD,512,0.7114561943874059,46752
+Independent decay,stress_gap_512,Delay stress,512,0.7132340128942325,45912
+Independent decay,stress_overwrite_512,Overwrite stress,512,0.7088541891950344,46238
+Coupled gate,test_id,ID,128,0.7464881837712775,12102
+Coupled gate,test_ood_256,OOD,256,0.7098362725703944,23759
+Coupled gate,test_ood_512,OOD,512,0.6883555783709788,46752
+Coupled gate,stress_gap_512,Delay stress,512,0.6905384213277574,45912
+Coupled gate,stress_overwrite_512,Overwrite stress,512,0.6907305679311389,46238

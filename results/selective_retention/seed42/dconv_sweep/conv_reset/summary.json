@@ -1,0 +1,232 @@
+{
+  "diagnostic_only": true,
+  "checkpoint": "results\\selective_retention\\seed42\\event_decay\\u1500\\baseline.pt",
+  "intervention": "Reset only causal convolutional input history immediately before the overwrite SET; retain recurrent SSM state.",
+  "distribution_shift_caveat": "The frozen model was not trained with convolution-history resets.",
+  "pre_delay": 100,
+  "overwrite_position": 133,
+  "post_delays": [
+    0,
+    1,
+    2,
+    4,
+    8,
+    16,
+    32
+  ],
+  "examples_per_condition": 1024,
+  "metrics": [
+    {
+      "mode": "Normal history",
+      "post_delay": 0,
+      "overwrite_accuracy": 0.810546875,
+      "stale_value_error_rate": 0.0888671875,
+      "other_error_rate": 0.1005859375,
+      "n_examples": 1024
+    },
+    {
+      "mode": "Reset at overwrite",
+      "post_delay": 0,
+      "overwrite_accuracy": 0.9052734375,
+      "stale_value_error_rate": 0.0126953125,
+      "other_error_rate": 0.08203125,
+      "n_examples": 1024
+    },
+    {
+      "mode": "Normal history",
+      "post_delay": 1,
+      "overwrite_accuracy": 0.84375,
+      "stale_value_error_rate": 0.0751953125,
+      "other_error_rate": 0.0810546875,
+      "n_examples": 1024
+    },
+    {
+      "mode": "Reset at overwrite",
+      "post_delay": 1,
+      "overwrite_accuracy": 0.94140625,
+      "stale_value_error_rate": 0.0,
+      "other_error_rate": 0.05859375,
+      "n_examples": 1024
+    },
+    {
+      "mode": "Normal history",
+      "post_delay": 2,
+      "overwrite_accuracy": 0.94921875,
+      "stale_value_error_rate": 0.0244140625,
+      "other_error_rate": 0.0263671875,
+      "n_examples": 1024
+    },
+    {
+      "mode": "Reset at overwrite",
+      "post_delay": 2,
+      "overwrite_accuracy": 1.0,
+      "stale_value_error_rate": 0.0,
+      "other_error_rate": 0.0,
+      "n_examples": 1024
+    },
+    {
+      "mode": "Normal history",
+      "post_delay": 4,
+      "overwrite_accuracy": 0.91796875,
+      "stale_value_error_rate": 0.046875,
+      "other_error_rate": 0.03515625,
+      "n_examples": 1024
+    },
+    {
+      "mode": "Reset at overwrite",
+      "post_delay": 4,
+      "overwrite_accuracy": 0.9912109375,
+      "stale_value_error_rate": 0.0068359375,
+      "other_error_rate": 0.001953125,
+      "n_examples": 1024
+    },
+    {
+      "mode": "Normal history",
+      "post_delay": 8,
+      "overwrite_accuracy": 0.869140625,
+      "stale_value_error_rate": 0.0634765625,
+      "other_error_rate": 0.0673828125,
+      "n_examples": 1024
+    },
+    {
+      "mode": "Reset at overwrite",
+      "post_delay": 8,
+      "overwrite_accuracy": 0.97265625,
+      "stale_value_error_rate": 0.0107421875,
+      "other_error_rate": 0.0166015625,
+      "n_examples": 1024
+    },
+    {
+      "mode": "Normal history",
+      "post_delay": 16,
+      "overwrite_accuracy": 0.818359375,
+      "stale_value_error_rate": 0.076171875,
+      "other_error_rate": 0.10546875,
+      "n_examples": 1024
+    },
+    {
+      "mode": "Reset at overwrite",
+      "post_delay": 16,
+      "overwrite_accuracy": 0.955078125,
+      "stale_value_error_rate": 0.0107421875,
+      "other_error_rate": 0.0341796875,
+      "n_examples": 1024
+    },
+    {
+      "mode": "Normal history",
+      "post_delay": 32,
+      "overwrite_accuracy": 0.6806640625,
+      "stale_value_error_rate": 0.1240234375,
+      "other_error_rate": 0.1953125,
+      "n_examples": 1024
+    },
+    {
+      "mode": "Reset at overwrite",
+      "post_delay": 32,
+      "overwrite_accuracy": 0.939453125,
+      "stale_value_error_rate": 0.0107421875,
+      "other_error_rate": 0.0498046875,
+      "n_examples": 1024
+    }
+  ],
+  "contrasts": [
+    {
+      "post_delay": 0,
+      "metric": "accuracy",
+      "reset_effect_pp": 9.47265625,
+      "ci_low": 6.4453125,
+      "ci_high": 12.5
+    },
+    {
+      "post_delay": 0,
+      "metric": "stale",
+      "reset_effect_pp": -7.6171875,
+      "ci_low": -9.47265625,
+      "ci_high": -5.859375
+    },
+    {
+      "post_delay": 1,
+      "metric": "accuracy",
+      "reset_effect_pp": 9.765625,
+      "ci_low": 7.03125,
+      "ci_high": 12.59765625
+    },
+    {
+      "post_delay": 1,
+      "metric": "stale",
+      "reset_effect_pp": -7.51953125,
+      "ci_low": -9.1796875,
+      "ci_high": -5.95703125
+    },
+    {
+      "post_delay": 2,
+      "metric": "accuracy",
+      "reset_effect_pp": 5.078125,
+      "ci_low": 3.80859375,
+      "ci_high": 6.4453125
+    },
+    {
+      "post_delay": 2,
+      "metric": "stale",
+      "reset_effect_pp": -2.44140625,
+      "ci_low": -3.41796875,
+      "ci_high": -1.5625
+    },
+    {
+      "post_delay": 4,
+      "metric": "accuracy",
+      "reset_effect_pp": 7.32421875,
+      "ci_low": 5.76171875,
+      "ci_high": 8.984375
+    },
+    {
+      "post_delay": 4,
+      "metric": "stale",
+      "reset_effect_pp": -4.00390625,
+      "ci_low": -5.2734375,
+      "ci_high": -2.83203125
+    },
+    {
+      "post_delay": 8,
+      "metric": "accuracy",
+      "reset_effect_pp": 10.3515625,
+      "ci_low": 8.49609375,
+      "ci_high": 12.209472656249964
+    },
+    {
+      "post_delay": 8,
+      "metric": "stale",
+      "reset_effect_pp": -5.2734375,
+      "ci_low": -6.640625,
+      "ci_high": -3.90625
+    },
+    {
+      "post_delay": 16,
+      "metric": "accuracy",
+      "reset_effect_pp": 13.671875,
+      "ci_low": 11.42578125,
+      "ci_high": 15.91796875
+    },
+    {
+      "post_delay": 16,
+      "metric": "stale",
+      "reset_effect_pp": -6.54296875,
+      "ci_low": -8.10546875,
+      "ci_high": -5.078125
+    },
+    {
+      "post_delay": 32,
+      "metric": "accuracy",
+      "reset_effect_pp": 25.87890625,
+      "ci_low": 23.14453125,
+      "ci_high": 28.7109375
+    },
+    {
+      "post_delay": 32,
+      "metric": "stale",
+      "reset_effect_pp": -11.328125,
+      "ci_low": -13.28125,
+      "ci_high": -9.47265625
+    }
+  ]
+}

@@ -1,0 +1,430 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[margin=0.70in,top=0.66in,bottom=0.68in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs,tabularx,array}
+\usepackage{graphicx}
+\usepackage[table]{xcolor}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr,titlesec,float}
+
+\definecolor{ink}{HTML}{1F2937}
+\definecolor{accent}{HTML}{185A88}
+\definecolor{muted}{HTML}{596878}
+\hypersetup{colorlinks=true,linkcolor=accent,urlcolor=accent}
+\titleformat{\section}{\large\bfseries\color{ink}}{\thesection}{0.55em}{}
+\titleformat{\subsection}{\normalsize\bfseries\color{ink}}{\thesubsection}{0.5em}{}
+\titlespacing*{\section}{0pt}{0.65em}{0.25em}
+\titlespacing*{\subsection}{0pt}{0.45em}{0.15em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.22em}
+\setlist[itemize]{leftmargin=1.3em,itemsep=0pt,topsep=1pt}
+\setlist[enumerate]{leftmargin=1.4em,itemsep=0pt,topsep=1pt}
+\captionsetup{skip=3pt}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\footnotesize\color{muted} Long-Horizon State Tracking with Compact Mamba}
+\fancyhead[R]{\footnotesize\color{muted} Research Report}
+\fancyfoot[C]{\footnotesize\thepage}
+\renewcommand{\headrulewidth}{0.25pt}
+\newcommand{\SET}{\texttt{SET}}
+\newcommand{\QUERY}{\texttt{QUERY}}
+\newcommand{\NOOP}{\texttt{NOOP}}
+\newcommand{\UNSET}{\texttt{UNSET}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\renewcommand{\arraystretch}{1.10}
+\definecolor{softblue}{HTML}{EEF5F9}
+\definecolor{softgreen}{HTML}{EAF6EE}
+\definecolor{softamber}{HTML}{FFF5DF}
+\definecolor{softred}{HTML}{FBEDEE}
+
+\title{\vspace{-1.8em}\textbf{Long-Horizon State Tracking with Compact Mamba}\\[-0.05em]
+\large Retention, Interference, and a Falsified Key-Routing Hypothesis}
+\author{HackerRank Deep Learning Research Engineer Assignment\\
+\small Primary architecture comparison: seed 42; supplementary diagnostics: seeds 42--46}
+\date{October 2026}
+
+\begin{document}
+\maketitle
+\vspace{-1.45em}
+
+\begin{abstract}\small
+We investigate how a compact one-layer Mamba preserves, overwrites, and retrieves eight logical key--value registers. The trained baseline reaches 69.64\% over all queries in length-512 sequences, yet controlled balanced retrieval falls from 84.38\% at delay 10 to chance at delay 500. Unrelated-key SET events are more damaging than matched NOOP or QUERY controls. We therefore test key-conditioned write routing against a parameter-matched tied-row ablation. Their nearly identical accuracy and routing geometry falsify key selectivity as the source of the small observed gains. Mechanistic follow-ups instead identify accumulated passive transitions as the primary bottleneck: after the width-four convolution has washed out, forcing later NOOP recurrence to identity restores about 97\% accuracy through delay 128. Under altered decay, a separately trained long-horizon linear readout can recover information that the original short-trained classifier cannot, exposing a secondary readout-distribution mismatch. A gate-free adaptive-kernel study reaches the best aggregate stress accuracy but remains near chance on the 511-step final-gap probe and loses both controlled probes to its parameter-matched static mixture. The evidence supports co-designing retention and horizon-stable retrieval rather than adding local mixing or write-routing capacity alone.
+\end{abstract}
+
+\section{Architecture and Task}
+\begin{table}[H]
+\centering\small
+\caption{Task and implementation invariants.}
+\begin{tabularx}{\linewidth}{p{0.20\linewidth}p{0.27\linewidth}Y}
+\toprule
+Component & Fixed setting & Why it matters \\
+\midrule
+Events & 32 \SET, 8 \QUERY, 1 \NOOP{} token & Eight independent keys; four possible assigned values \\
+Prediction & \(\{\UNSET,1,2,3,4\}\) & QUERY contains the key but never the target value \\
+Backbone & 1 layer, \(d_{\rm model}=32\), \(d_{\rm state}=8\), expand 2 & Compact 10,149-parameter baseline \\
+Local mixing & Causal depthwise convolution, width 4 & A SET response can continue for three later steps \\
+SSM memory & \(64\times8=512\) recurrent coordinates & All eight logical keys share one recurrent state \\
+Objective & Query-only CE; non-queries masked with \texttt{-100} & Prevents non-query supervision and target leakage \\
+Verification & 33 automated tests, all passing & Oracle, overwrite, UNSET, masking, gradients, and causality \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+For convolution-processed input \(u_t\), the readable selective scan is
+\begin{align}
+h_t &= \exp(\Delta_tA)\odot h_{t-1}+\Delta_tB_tu_t,\\
+r_t &= C_th_t+D\odot u_t, \qquad A=-\exp(A_{\log})<0.
+\end{align}
+\begin{center}
+\small\fbox{\parbox{0.92\linewidth}{\textbf{Mechanistic decomposition:} repeated \(\exp(\Delta_tA)\) controls retention; \(\Delta_tB_tu_t\) introduces new writes; \(C_th_t+D\odot u_t\) determines what is exposed to the downstream classifier.}}
+\end{center}
+
+\section{Hypotheses and Protocol}
+\begin{table}[H]
+\centering\small
+\caption{Predeclared claims, discriminating tests, and decision rules.}
+\begin{tabularx}{\linewidth}{p{0.12\linewidth}Y Y p{0.20\linewidth}}
+\toprule
+Claim & Experimental contrast & Falsification rule & Outcome \\
+\midrule
+H1: retention & Fixed assignment; increasing NOOP delay & Long delay is not worse than short delay & \cellcolor{softgreen}\textbf{Supported} \\
+H2: interference & Unrelated SET vs matched NOOP/QUERY & SET effect absent above chance floor & \cellcolor{softgreen}\textbf{Supported} \\
+Part B mechanism & Key routing vs parameter-matched tied routing & Gain below 2 pp under dense interference & \cellcolor{softred}\textbf{Falsified} \\
+H4 follow-up & Normal NOOP vs causal identity intervention & No accuracy rescue after conv washout & \cellcolor{softgreen}\textbf{Supported} \\
+H5 diagnostic & Original vs matched long-horizon linear head & Retrained head cannot recover accuracy & \cellcolor{softamber}\textbf{Conditional support} \\
+Adaptive kernel & Token-conditioned vs static width mixture & No controlled-probe advantage over static mixing & \cellcolor{softred}\textbf{Not supported} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+\centering\small
+\caption{Matched training and evaluation protocol.}
+\begin{tabularx}{\linewidth}{p{0.23\linewidth}Y p{0.28\linewidth}}
+\toprule
+Item & Setting & Control \\
+\midrule
+Train / validation & 4,000 / 500 sequences, lengths 32--128 & Same files for all architectures \\
+Fixed tests & 500 each: ID-128, OOD-256/512, delay/overwrite-512 & Exact oracle and Always-UNSET baselines \\
+Optimization & FP32 AdamW, LR \(10^{-3}\), batch 16 & 1,500 updates; checkpoint chosen on validation only \\
+H1 & Balanced 8 keys \(\times\) 4 values; seeds 42--44 & Delays 10, 32, 64, 128, 256, 500 \\
+H2 & 1,024 paired examples/condition; seeds 42--46 & NOOP and unrelated-QUERY active-token controls \\
+Uncertainty & Paired/hierarchical bootstrap where paired & Seed-level H1 intervals labeled \(n=3\) \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Baseline Results and Failure Diagnosis}
+\begin{table}[H]
+\centering\small
+\caption{All-query accuracy (\%) on the fixed assignment splits. The exact dictionary oracle is 100\% on every split.}
+\begin{tabular}{lrrrr}
+\toprule
+Split & Length & 300 updates & 1,500 updates & Always UNSET\\
+\midrule
+ID & 128 & 25.67 & \textbf{75.05} & 23.28\\
+OOD & 256 & 14.81 & \textbf{71.23} & 11.28\\
+OOD & 512 & 10.45 & \textbf{69.64} & 5.97\\
+Delay stress & 512 & 8.64 & \textbf{69.59} & 4.21\\
+Overwrite stress & 512 & 8.86 & \textbf{69.67} & 4.28\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering\small
+\caption{H1 balanced retrieval by SET-to-QUERY delay (mean across seeds 42--44).}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lrrrrrr}
+\toprule
+Delay & 10 & 32 & 64 & 128 & 256 & 500 \\
+\midrule
+Accuracy (\%) & \cellcolor{softgreen}84.38 & 64.58 & 45.83 & 28.13 & 23.96 & \cellcolor{softred}25.00 \\
+Drop from delay 10 (pp) & 0 & 19.80 & 38.55 & 56.25 & 60.42 & 59.38 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+The delay-10 to delay-128 drop is 56.25 pp (95\% seed-level CI 40.72--71.78); delay 500 reaches four-value chance even though aggregate OOD-512 accuracy is 69.64\%.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.78\linewidth]{overleaf_report/figures/retention_by_delay.png}
+\caption{Balanced retrieval degrades with intervening NOOPs across three training seeds. Error bars are seed-level 95\% intervals; wide early intervals reflect \(n=3\), while the approach to chance is consistent across seeds.}
+\label{fig:h1}
+\end{figure}
+
+\begin{table}[H]
+\centering\small
+\caption{H2 at 100\% distractor density (five seeds; accuracy in \%).}
+\begin{tabular}{lrrrr}
+\toprule
+Condition / effect & Delay 10 & Delay 32 & Delay 64 & Delay 128 \\
+\midrule
+NOOP control & 93.16 & 82.23 & 54.16 & 29.47 \\
+Unrelated QUERY & 92.52 & 60.72 & 27.77 & 20.23 \\
+Unrelated SET & 78.67 & 31.74 & 21.80 & 21.21 \\
+SET minus NOOP (pp) & -14.49 & \cellcolor{softred}-50.49 & -32.36 & -8.26 \\
+SET minus QUERY (pp) & -13.85 & -28.98 & -5.98 & +0.98 \\
+\bottomrule
+\end{tabular}
+\end{table}
+The active-token QUERY control rules out a generic ``non-NOOP activity'' explanation at usable accuracies; delay 128 is floor-limited.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.72\linewidth]{overleaf_report/figures/cross_key_interference.png}
+\caption{Five-seed cross-key effects at 100\% distractor density. Negative values mean unrelated SETs are worse than the matched control. The dashed line marks the predeclared -2-point practical margin.}
+\label{fig:h2}
+\end{figure}
+
+\section{Part B: Key-Conditioned Write Routing}
+The proposed model learns \(R\in\mathbb R^{8\times64}\). A SET to key \(k\) uses \(g_k=\sigma(R_k)\) to gate only the input-write term:
+\begin{equation}
+h_t=\exp(\Delta_tA)\odot h_{t-1}+g_k\odot(\Delta_tB_tu_t).
+\end{equation}
+This adds 512 parameters (10,661 total, +5.0\%). Non-SET writes are unchanged. The tied-row ablation keeps the same parameter table but averages rows during computation, eliminating key selectivity while retaining capacity. Both initialize to gate value 0.95.
+
+\begin{table}[H]
+\centering\small
+\caption{Matched 1,500-update models: all-query accuracy (\%).}
+\begin{tabular}{lrrrrr}
+\toprule
+Model & ID-128 & OOD-256 & OOD-512 & Delay & Overwrite\\
+\midrule
+Baseline & 75.05 & 71.23 & 69.64 & 69.59 & \textbf{69.67}\\
+Key-conditioned & \textbf{75.57} & \textbf{71.54} & \textbf{69.86} & \textbf{70.06} & 69.55\\
+Tied routing & 75.50 & 71.42 & 69.75 & 69.96 & 69.50\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering\small
+\caption{Mechanism-specific routing evidence.}
+\begin{tabularx}{\linewidth}{Y C C C C}
+\toprule
+Measure & Delay 10 & Delay 32 & Delay 64 & Delay 128 \\
+\midrule
+Key minus tied at 100\% SET density (pp) & +0.49 & +0.10 & -0.39 & +0.29 \\
+Isolated retention: baseline (\%) & 88.96 & 82.13 & \textbf{63.18} & 33.50 \\
+Isolated retention: key routing (\%) & 93.36 & 84.08 & 59.86 & 38.09 \\
+Isolated retention: tied routing (\%) & 93.36 & \textbf{84.18} & 60.16 & \textbf{38.77} \\
+\bottomrule
+\end{tabularx}
+\vspace{1mm}
+\begin{tabularx}{\linewidth}{Y C C C}
+\toprule
+Learned-router diagnostic & Mean gate & Pairwise cosine & Normalized row distance \\
+\midrule
+Observed value & 0.946 & 0.99958 & 0.0286 \\
+Interpretation & \multicolumn{3}{l}{Near-global write rescaling; no meaningful key-specific partition} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.70\linewidth]{overleaf_report/figures/routing_ablation_effect.png}
+\caption{Mechanism-specific Part B contrast. Confidence intervals remain centered close to zero: key selectivity does not reliably outperform the parameter-matched tied router.}
+\label{fig:partb}
+\end{figure}
+
+\begin{table}[H]
+\centering\small
+\caption{Final overwrite probe and stale-value errors. Each overwrite-count cell has 125 probes.}
+\begin{tabular}{lrrrrr}
+\toprule
+Model & 1 overwrite & 2 & 4 & 8 & Stale error \\
+\midrule
+Baseline & 88.8 & \textbf{88.0} & \textbf{82.4} & 90.4 & \textbf{8.6} \\
+Key-conditioned & \textbf{90.4} & 87.2 & 80.8 & 91.2 & 9.0 \\
+Tied routing & \textbf{90.4} & 87.2 & 80.8 & \textbf{92.0} & 8.8 \\
+\bottomrule
+\end{tabular}
+\end{table}
+\begin{center}
+\small\colorbox{softred}{\parbox{0.93\linewidth}{\textbf{Part B verdict: falsified.} Key-conditioned routing never clears the 2-pp criterion, is matched or exceeded by the tied control, and does not reduce obsolete-value errors.}}
+\end{center}
+
+\section{Mechanistic Follow-up}
+\begin{table}[H]
+\centering\small
+\caption{H4 causal NOOP intervention across five seeds (accuracy in \%).}
+\begin{tabular}{lrrrrp{0.24\linewidth}}
+\toprule
+Transition policy & D10 & D32 & D64 & D128 & Interpretation \\
+\midrule
+Learned NOOP & 93.36 & 81.15 & 54.47 & 29.32 & Natural long-delay collapse \\
+Identity immediately after SET & 22.13 & 22.34 & 22.21 & 21.84 & Removes necessary conv settling \\
+Identity after 3-step washout & \cellcolor{softgreen}96.84 & \cellcolor{softgreen}96.70 & \cellcolor{softgreen}97.05 & \cellcolor{softgreen}96.60 & Late passive transitions are harmful \\
+\bottomrule
+\end{tabular}
+\end{table}
+The post-washout intervention is the largest causal rescue observed. It diagnoses transition dynamics but is an oracle, out-of-distribution perturbation rather than a replacement model.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.82\linewidth]{overleaf_report/figures/noop_identity_diagnostic.png}
+\caption{NOOP identity diagnostic. Immediate freezing removes necessary convolutional settling (orange/purple), while freezing only after three washout steps preserves near-97\% retrieval (green). Raw drift alone is not sufficient evidence; the controlled intervention is the discriminating result.}
+\label{fig:h4}
+\end{figure}
+
+\begin{table}[H]
+\centering\small
+\caption{H5 readout localization on a 511-step gap (accuracy in \%).}
+\begin{tabular}{lrrrr}
+\toprule
+Decay multiplier & State + key probe & \(C_th_t\) probe & Final-feature probe & Original head \\
+\midrule
+\(\alpha=0\) & 86.3 & 67.6 & \cellcolor{softgreen}\textbf{99.6} & \cellcolor{softred}25.8 \\
+\(\alpha=0.1\) & 59.8 & 48.4 & \cellcolor{softgreen}\textbf{97.7} & 29.3 \\
+\(\alpha=1\) & 40.6 & 36.7 & 39.5 & \cellcolor{softred}25.0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+\begin{table}[H]
+\centering\small
+\caption{What the H5 controls do and do not establish.}
+\begin{tabularx}{\linewidth}{p{0.28\linewidth}Y p{0.22\linewidth}}
+\toprule
+Observation & Supported interpretation & Caveat \\
+\midrule
+P3 99.6\% vs original 25.8\% at \(\alpha=0\) & Same 32D feature supports a different linear boundary & Probe sees labeled length-511 data \\
+Fresh short-only head stays near chance & Gain is not initialization or optimizer alone & Frozen-backbone diagnostic \\
+P3 only 39.5\% at \(\alpha=1\) & Readout adaptation alone cannot repair natural recurrence & Linear accessibility, not total information \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{overleaf_report/figures/readout_decodability.png}
+\caption{Held-out probe accuracy along the readout path versus decay multiplier. Under reduced decay, the final feature is highly decodable by a matched long-horizon probe while the original head remains near chance; under natural decay (\(\alpha=1\)), accessibility is much lower throughout.}
+\label{fig:h5}
+\end{figure}
+
+\section{Supplementary Adaptive-Kernel Diagnostic}
+The adaptive causal kernel uses one width-eight depthwise kernel and mixes nested causal masks for effective widths \(\{1,2,4,8\}\). The adaptive router predicts mixture weights from the current token-side representation; the parameter-matched static ablation learns one sequence-independent mixture. All models use the original Mamba recurrence with \emph{no event-conditioned retention gate} and were trained from scratch for 1,500 updates on lengths 32--128. Original Mamba is the fixed-width-four control; width eight changes only the fixed convolution. Because the router does not observe recurrent state directly, this experiment tests token-conditioned local context, not explicit overwrite detection.
+
+\begin{table}[H]
+\centering\small
+\caption{Adaptive-kernel architecture controls and assignment-defined stress results (seed 42, accuracy in \%).}
+\resizebox{\linewidth}{!}{%
+\begin{tabular}{lrrrrrr}
+\toprule
+Model & Params & ID-128 & OOD-512 & Gap-512 & Overwrite-512 & Final-gap probe \\
+\midrule
+Original Mamba (width 4) & 10,149 & 75.05 & 69.64 & 69.59 & 69.67 & 22.8 \\
+Fixed width 8 & 10,405 & 76.59 & 71.94 & 71.54 & 71.86 & 22.6 \\
+Static mixture & 10,729 & 77.62 & 72.94 & 72.61 & 72.56 & 24.4 \\
+Adaptive mixture & 10,729 & \cellcolor{softgreen}78.95 & \cellcolor{softgreen}73.91 & \cellcolor{softgreen}73.58 & \cellcolor{softgreen}73.98 & 23.2 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+\begin{table}[H]
+\centering\small
+\caption{Controlled final-query probes and paired adaptive-kernel contrasts.}
+\begin{tabularx}{\linewidth}{p{0.29\linewidth}rrrY}
+\toprule
+Contrast & Reference (\%) & Adaptive (\%) & Effect (pp) & 95\% paired CI / interpretation \\
+\midrule
+Final gap: adaptive vs static & 24.4 & 23.2 & -1.2 & $[-5.6,3.0]$; both near chance \\
+Final overwrite: adaptive vs static & 93.4 & 92.4 & -1.0 & $[-3.2,1.2]$; no adaptive benefit \\
+Final overwrite: adaptive vs original & 87.4 & 92.4 & +5.0 & $[1.2,8.8]$; capacity/local-mixing gain \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.98\linewidth]{overleaf_report/figures/adaptive_kernel_comparison.png}
+\caption{Gate-free matched overwrite diagnostic. The adaptive router selects wide contexts (expected widths 7.99/6.16/7.55 for NOOP/SET/QUERY), but the static mixture has higher overwrite accuracy at every tested post-delay. Input-dependent routing therefore does not explain the local-mixing gain.}
+\label{fig:adaptive-overwrite}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.98\linewidth]{overleaf_report/figures/adaptive_assignment_stress.png}
+\caption{Assignment-defined stress evaluation. Adaptive mixing has the highest aggregate all-query accuracy, but the controlled final-gap probe remains at 23.2\% (near 25\% four-value chance), and static mixing is slightly better on both designed final probes.}
+\label{fig:adaptive-stress}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.78\linewidth]{overleaf_report/figures/kernel_resource_tradeoff.png}
+\caption{Measured training cost for 1,500 updates on the same GTX 1650. Adaptive mixing takes 1,096.4 s (2.44$\times$ the original) and peaks at 54.8 MiB, versus 656.6 s and 54.3 MiB for the parameter-matched static mixture. The main engineering penalty is compute time rather than memory.}
+\label{fig:adaptive-resources}
+\end{figure}
+
+\small\colorbox{softamber}{\parbox{0.93\linewidth}{\textbf{Supplementary verdict:} token-conditioned convolution is not supported over parameter-matched static mixing. Although adaptive mixing improves aggregate stress accuracy, it is 1.2 pp worse on the final-gap probe and 1.0 pp worse on the final-overwrite probe; both paired intervals include zero. The extreme gap remains near chance. These gate-free seed-42 results isolate local mixing but remain supplementary to the mandatory width-four baseline and Part B comparison.}}
+
+\section{Failure Analysis, Limitations, and Next Step}
+\begin{table}[H]
+\centering\small
+\caption{Evidence-weighted failure map.}
+\begin{tabularx}{\linewidth}{p{0.22\linewidth}Y Y p{0.14\linewidth}}
+\toprule
+Bottleneck & Strongest evidence & Boundary of claim & Priority \\
+\midrule
+Passive transition / retention & 67.3-pp rescue at delay 128 after conv-aware identity & Oracle frozen intervention & \cellcolor{softred}\textbf{Primary} \\
+Cross-key interference & SET distractors lose 14--50 pp vs NOOP & Write suppression/routing does not solve it & \cellcolor{softamber}Secondary \\
+Readout distribution shift & Same 32D feature: 99.6\% probe vs 25.8\% original head & Appears under modified decay; probe uses long labels & \cellcolor{softamber}Conditional \\
+Key-specific write overlap & Keyed and tied routing differ by $<1$ pp & One architecture seed & \cellcolor{softgreen}Not supported \\
+Adaptive local mixing & 23.2\% final-gap probe; -1.2 pp vs static & One seed; CI includes zero & \cellcolor{softgreen}Not primary \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+\centering\small
+\caption{Limitations and reporting safeguards.}
+\begin{tabularx}{\linewidth}{Y Y}
+\toprule
+Limitation & Safeguard in interpretation \\
+\midrule
+Part B architecture comparison uses seed 42 & Do not claim sub-point effects; apply a 2-pp practical threshold \\
+Adaptive-kernel comparison uses seed 42 & Label supplementary; emphasize paired intervals and controlled probes \\
+H1 has three model seeds & Show seed-level intervals and avoid high-precision population claims \\
+Frozen interventions are out of distribution & Label them causal diagnostics, not deployable improvements \\
+Long-trained probes use length-511 labels & Report decodability, not assignment-compliant model accuracy \\
+Readable scan is unoptimized & Report 449.6/953.6/1162.3 s and 50.7/55.2 MiB without kernel claims \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+\centering\small
+\caption{Single most informative next experiment: convolution-aware no-update gating.}
+\begin{tabularx}{\linewidth}{p{0.20\linewidth}Y}
+\toprule
+Design element & Predeclared specification \\
+\midrule
+Mechanism & Keep first \(d_{\rm conv}-1=3\) post-SET transitions free; gate later NOOP recurrence toward identity \\
+Training & Lengths 32--128 only; no supervised or unlabeled length-511 adaptation \\
+Models & Baseline; event-aware gate; parameter-matched event-agnostic gate \\
+Replication & At least five seeds; identical updates and fixed evaluation files \\
+Primary outcomes & Final-query accuracy at delays 128/256/511; immediate overwrite; stale errors; interference \\
+Falsification & No delay-511 gain, or retention gain accompanied by material overwrite penalty \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Reproducibility and Attribution}
+All fixed splits, predictions, checkpoints, confidence intervals, and plots are stored under \texttt{results/}; detailed exploratory analyses are retained separately from this focused report. The principal commands are \texttt{train.py} with \texttt{configs/baseline.yaml}, \texttt{configs/proposed.yaml}, or \texttt{configs/ablation.yaml}, followed by \texttt{part\_b\_compare.py}. Tests run with \texttt{python -m pytest -q -p no:cacheprovider} (33 passed).
+
+The readable Mamba code derives from John Ma's MIT-licensed \texttt{mamba-minimal}; equations follow Gu and Dao's Mamba formulation. The dataset generator and sample data were supplied with the assignment. AI assistance was used substantially for scaffolding, experiment scripts, plotting, and editing. I inspected the code paths, selected the hypotheses and controls, executed the experiments, verified artifacts, and take responsibility for the conclusions.
+
+\begin{thebibliography}{2}\small
+\bibitem{mamba} A. Gu and T. Dao. \emph{Mamba: Linear-Time Sequence Modeling with Selective State Spaces}. arXiv:2312.00752, 2023.
+\bibitem{minimal} J. Ma. \emph{mamba-minimal}: a readable PyTorch implementation. \url{https://github.com/johnma2006/mamba-minimal}, MIT License.
+\end{thebibliography}
+
+\end{document}

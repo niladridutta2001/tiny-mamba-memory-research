@@ -1,0 +1,977 @@
+{
+  "checkpoints": [
+    "results\\extended\\seed42\\u1500\\baseline.pt",
+    "results\\extended\\seed43\\u1500\\baseline.pt",
+    "results\\extended\\seed44\\u1500\\baseline.pt",
+    "results\\extended\\seed45\\u1500\\baseline.pt",
+    "results\\extended\\seed46\\u1500\\baseline.pt"
+  ],
+  "n_models": 5,
+  "examples_per_condition_per_model": 1024,
+  "bootstrap_draws": 10000,
+  "practical_margin_pp": 2.0,
+  "metrics": [
+    {
+      "delay": 10,
+      "density": 0.0,
+      "kind": "set",
+      "accuracy": 0.931640625,
+      "distractor_capture_rate": "",
+      "capture_eligible_n": 0,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 10,
+      "density": 0.0,
+      "kind": "query",
+      "accuracy": 0.931640625,
+      "distractor_capture_rate": "",
+      "capture_eligible_n": 0,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 10,
+      "density": 0.1,
+      "kind": "set",
+      "accuracy": 0.9318359375,
+      "distractor_capture_rate": 0.010366624525916562,
+      "capture_eligible_n": 3955,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 10,
+      "density": 0.1,
+      "kind": "query",
+      "accuracy": 0.937109375,
+      "distractor_capture_rate": "",
+      "capture_eligible_n": 0,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 10,
+      "density": 0.25,
+      "kind": "set",
+      "accuracy": 0.9306640625,
+      "distractor_capture_rate": 0.012391573729863693,
+      "capture_eligible_n": 4035,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 10,
+      "density": 0.25,
+      "kind": "query",
+      "accuracy": 0.940234375,
+      "distractor_capture_rate": "",
+      "capture_eligible_n": 0,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 10,
+      "density": 0.5,
+      "kind": "set",
+      "accuracy": 0.9037109375,
+      "distractor_capture_rate": 0.02128205128205128,
+      "capture_eligible_n": 3900,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 10,
+      "density": 0.5,
+      "kind": "query",
+      "accuracy": 0.9443359375,
+      "distractor_capture_rate": "",
+      "capture_eligible_n": 0,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 10,
+      "density": 0.75,
+      "kind": "set",
+      "accuracy": 0.8423828125,
+      "distractor_capture_rate": 0.03884711779448621,
+      "capture_eligible_n": 3990,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 10,
+      "density": 0.75,
+      "kind": "query",
+      "accuracy": 0.93828125,
+      "distractor_capture_rate": "",
+      "capture_eligible_n": 0,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 10,
+      "density": 1.0,
+      "kind": "set",
+      "accuracy": 0.78671875,
+      "distractor_capture_rate": 0.05642317380352645,
+      "capture_eligible_n": 3970,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 10,
+      "density": 1.0,
+      "kind": "query",
+      "accuracy": 0.9251953125,
+      "distractor_capture_rate": "",
+      "capture_eligible_n": 0,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 32,
+      "density": 0.0,
+      "kind": "set",
+      "accuracy": 0.822265625,
+      "distractor_capture_rate": "",
+      "capture_eligible_n": 0,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 32,
+      "density": 0.0,
+      "kind": "query",
+      "accuracy": 0.822265625,
+      "distractor_capture_rate": "",
+      "capture_eligible_n": 0,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 32,
+      "density": 0.1,
+      "kind": "set",
+      "accuracy": 0.811328125,
+      "distractor_capture_rate": 0.03662714097496706,
+      "capture_eligible_n": 3795,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 32,
+      "density": 0.1,
+      "kind": "query",
+      "accuracy": 0.83984375,
+      "distractor_capture_rate": "",
+      "capture_eligible_n": 0,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 32,
+      "density": 0.25,
+      "kind": "set",
+      "accuracy": 0.76640625,
+      "distractor_capture_rate": 0.05398110661268556,
+      "capture_eligible_n": 3705,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 32,
+      "density": 0.25,
+      "kind": "query",
+      "accuracy": 0.8515625,
+      "distractor_capture_rate": "",
+      "capture_eligible_n": 0,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 32,
+      "density": 0.5,
+      "kind": "set",
+      "accuracy": 0.5908203125,
+      "distractor_capture_rate": 0.10935441370223979,
+      "capture_eligible_n": 3795,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 32,
+      "density": 0.5,
+      "kind": "query",
+      "accuracy": 0.809765625,
+      "distractor_capture_rate": "",
+      "capture_eligible_n": 0,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 32,
+      "density": 0.75,
+      "kind": "set",
+      "accuracy": 0.4193359375,
+      "distractor_capture_rate": 0.1650711513583441,
+      "capture_eligible_n": 3865,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 32,
+      "density": 0.75,
+      "kind": "query",
+      "accuracy": 0.7119140625,
+      "distractor_capture_rate": "",
+      "capture_eligible_n": 0,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 32,
+      "density": 1.0,
+      "kind": "set",
+      "accuracy": 0.3173828125,
+      "distractor_capture_rate": 0.18994845360824741,
+      "capture_eligible_n": 3880,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 32,
+      "density": 1.0,
+      "kind": "query",
+      "accuracy": 0.6072265625,
+      "distractor_capture_rate": "",
+      "capture_eligible_n": 0,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 64,
+      "density": 0.0,
+      "kind": "set",
+      "accuracy": 0.5416015625,
+      "distractor_capture_rate": "",
+      "capture_eligible_n": 0,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 64,
+      "density": 0.0,
+      "kind": "query",
+      "accuracy": 0.5416015625,
+      "distractor_capture_rate": "",
+      "capture_eligible_n": 0,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 64,
+      "density": 0.1,
+      "kind": "set",
+      "accuracy": 0.51640625,
+      "distractor_capture_rate": 0.11764705882352941,
+      "capture_eligible_n": 3825,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 64,
+      "density": 0.1,
+      "kind": "query",
+      "accuracy": 0.5525390625,
+      "distractor_capture_rate": "",
+      "capture_eligible_n": 0,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 64,
+      "density": 0.25,
+      "kind": "set",
+      "accuracy": 0.4408203125,
+      "distractor_capture_rate": 0.16129032258064516,
+      "capture_eligible_n": 3875,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 64,
+      "density": 0.25,
+      "kind": "query",
+      "accuracy": 0.521875,
+      "distractor_capture_rate": "",
+      "capture_eligible_n": 0,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 64,
+      "density": 0.5,
+      "kind": "set",
+      "accuracy": 0.2984375,
+      "distractor_capture_rate": 0.21779548472775564,
+      "capture_eligible_n": 3765,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 64,
+      "density": 0.5,
+      "kind": "query",
+      "accuracy": 0.412890625,
+      "distractor_capture_rate": "",
+      "capture_eligible_n": 0,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 64,
+      "density": 0.75,
+      "kind": "set",
+      "accuracy": 0.2498046875,
+      "distractor_capture_rate": 0.21829733163913595,
+      "capture_eligible_n": 3935,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 64,
+      "density": 0.75,
+      "kind": "query",
+      "accuracy": 0.333203125,
+      "distractor_capture_rate": "",
+      "capture_eligible_n": 0,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 64,
+      "density": 1.0,
+      "kind": "set",
+      "accuracy": 0.21796875,
+      "distractor_capture_rate": 0.20077720207253885,
+      "capture_eligible_n": 3860,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 64,
+      "density": 1.0,
+      "kind": "query",
+      "accuracy": 0.277734375,
+      "distractor_capture_rate": "",
+      "capture_eligible_n": 0,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 128,
+      "density": 0.0,
+      "kind": "set",
+      "accuracy": 0.2947265625,
+      "distractor_capture_rate": "",
+      "capture_eligible_n": 0,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 128,
+      "density": 0.0,
+      "kind": "query",
+      "accuracy": 0.2947265625,
+      "distractor_capture_rate": "",
+      "capture_eligible_n": 0,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 128,
+      "density": 0.1,
+      "kind": "set",
+      "accuracy": 0.2896484375,
+      "distractor_capture_rate": 0.20107816711590296,
+      "capture_eligible_n": 3710,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 128,
+      "density": 0.1,
+      "kind": "query",
+      "accuracy": 0.2947265625,
+      "distractor_capture_rate": "",
+      "capture_eligible_n": 0,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 128,
+      "density": 0.25,
+      "kind": "set",
+      "accuracy": 0.2603515625,
+      "distractor_capture_rate": 0.23776041666666667,
+      "capture_eligible_n": 3840,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 128,
+      "density": 0.25,
+      "kind": "query",
+      "accuracy": 0.2884765625,
+      "distractor_capture_rate": "",
+      "capture_eligible_n": 0,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 128,
+      "density": 0.5,
+      "kind": "set",
+      "accuracy": 0.24765625,
+      "distractor_capture_rate": 0.25703125,
+      "capture_eligible_n": 3840,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 128,
+      "density": 0.5,
+      "kind": "query",
+      "accuracy": 0.2451171875,
+      "distractor_capture_rate": "",
+      "capture_eligible_n": 0,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 128,
+      "density": 0.75,
+      "kind": "set",
+      "accuracy": 0.2392578125,
+      "distractor_capture_rate": 0.24473684210526317,
+      "capture_eligible_n": 3800,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 128,
+      "density": 0.75,
+      "kind": "query",
+      "accuracy": 0.218359375,
+      "distractor_capture_rate": "",
+      "capture_eligible_n": 0,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 128,
+      "density": 1.0,
+      "kind": "set",
+      "accuracy": 0.212109375,
+      "distractor_capture_rate": 0.22146596858638742,
+      "capture_eligible_n": 3820,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 128,
+      "density": 1.0,
+      "kind": "query",
+      "accuracy": 0.20234375,
+      "distractor_capture_rate": "",
+      "capture_eligible_n": 0,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    }
+  ],
+  "contrasts": [
+    {
+      "delay": 10,
+      "density": 0.1,
+      "comparison": "set_vs_noop",
+      "accuracy_effect_pp": 0.01953125,
+      "ci_low": -0.91796875,
+      "ci_high": 0.87890625
+    },
+    {
+      "delay": 10,
+      "density": 0.1,
+      "comparison": "query_vs_noop",
+      "accuracy_effect_pp": 0.546875,
+      "ci_low": -0.05859375,
+      "ci_high": 1.23046875
+    },
+    {
+      "delay": 10,
+      "density": 0.1,
+      "comparison": "set_vs_query",
+      "accuracy_effect_pp": -0.52734375,
+      "ci_low": -1.4453125,
+      "ci_high": 0.2734375
+    },
+    {
+      "delay": 10,
+      "density": 0.25,
+      "comparison": "set_vs_noop",
+      "accuracy_effect_pp": -0.09765625,
+      "ci_low": -1.1918945312499996,
+      "ci_high": 0.9570312500000001
+    },
+    {
+      "delay": 10,
+      "density": 0.25,
+      "comparison": "query_vs_noop",
+      "accuracy_effect_pp": 0.8593750000000001,
+      "ci_low": 0.01953125,
+      "ci_high": 1.8359375
+    },
+    {
+      "delay": 10,
+      "density": 0.25,
+      "comparison": "set_vs_query",
+      "accuracy_effect_pp": -0.9570312500000001,
+      "ci_low": -2.34375,
+      "ci_high": 0.21484375000000003
+    },
+    {
+      "delay": 10,
+      "density": 0.5,
+      "comparison": "set_vs_noop",
+      "accuracy_effect_pp": -2.79296875,
+      "ci_low": -4.6875,
+      "ci_high": -1.0546875
+    },
+    {
+      "delay": 10,
+      "density": 0.5,
+      "comparison": "query_vs_noop",
+      "accuracy_effect_pp": 1.26953125,
+      "ci_low": -0.1171875,
+      "ci_high": 2.8125
+    },
+    {
+      "delay": 10,
+      "density": 0.5,
+      "comparison": "set_vs_query",
+      "accuracy_effect_pp": -4.0625,
+      "ci_low": -6.5625,
+      "ci_high": -1.58203125
+    },
+    {
+      "delay": 10,
+      "density": 0.75,
+      "comparison": "set_vs_noop",
+      "accuracy_effect_pp": -8.92578125,
+      "ci_low": -11.171875,
+      "ci_high": -6.7578125
+    },
+    {
+      "delay": 10,
+      "density": 0.75,
+      "comparison": "query_vs_noop",
+      "accuracy_effect_pp": 0.6640625,
+      "ci_low": -1.15234375,
+      "ci_high": 2.578125
+    },
+    {
+      "delay": 10,
+      "density": 0.75,
+      "comparison": "set_vs_query",
+      "accuracy_effect_pp": -9.58984375,
+      "ci_low": -12.871093750000002,
+      "ci_high": -6.289062500000001
+    },
+    {
+      "delay": 10,
+      "density": 1.0,
+      "comparison": "set_vs_noop",
+      "accuracy_effect_pp": -14.4921875,
+      "ci_low": -16.85595703125,
+      "ci_high": -12.1875
+    },
+    {
+      "delay": 10,
+      "density": 1.0,
+      "comparison": "query_vs_noop",
+      "accuracy_effect_pp": -0.64453125,
+      "ci_low": -2.83203125,
+      "ci_high": 1.6015624999999998
+    },
+    {
+      "delay": 10,
+      "density": 1.0,
+      "comparison": "set_vs_query",
+      "accuracy_effect_pp": -13.847656250000002,
+      "ci_low": -16.99267578125,
+      "ci_high": -10.2734375
+    },
+    {
+      "delay": 32,
+      "density": 0.1,
+      "comparison": "set_vs_noop",
+      "accuracy_effect_pp": -1.09375,
+      "ci_low": -3.4960937499999996,
+      "ci_high": 1.15234375
+    },
+    {
+      "delay": 32,
+      "density": 0.1,
+      "comparison": "query_vs_noop",
+      "accuracy_effect_pp": 1.7578125,
+      "ci_low": 0.87890625,
+      "ci_high": 2.59765625
+    },
+    {
+      "delay": 32,
+      "density": 0.1,
+      "comparison": "set_vs_query",
+      "accuracy_effect_pp": -2.8515625,
+      "ci_low": -5.5078125,
+      "ci_high": -0.41015625
+    },
+    {
+      "delay": 32,
+      "density": 0.25,
+      "comparison": "set_vs_noop",
+      "accuracy_effect_pp": -5.5859375,
+      "ci_low": -10.39111328125,
+      "ci_high": -1.11328125
+    },
+    {
+      "delay": 32,
+      "density": 0.25,
+      "comparison": "query_vs_noop",
+      "accuracy_effect_pp": 2.9296875,
+      "ci_low": 1.5234375,
+      "ci_high": 4.43359375
+    },
+    {
+      "delay": 32,
+      "density": 0.25,
+      "comparison": "set_vs_query",
+      "accuracy_effect_pp": -8.515625,
+      "ci_low": -13.73046875,
+      "ci_high": -3.7109375
+    },
+    {
+      "delay": 32,
+      "density": 0.5,
+      "comparison": "set_vs_noop",
+      "accuracy_effect_pp": -23.14453125,
+      "ci_low": -29.531249999999996,
+      "ci_high": -17.59765625
+    },
+    {
+      "delay": 32,
+      "density": 0.5,
+      "comparison": "query_vs_noop",
+      "accuracy_effect_pp": -1.25,
+      "ci_low": -5.44921875,
+      "ci_high": 2.4609375
+    },
+    {
+      "delay": 32,
+      "density": 0.5,
+      "comparison": "set_vs_query",
+      "accuracy_effect_pp": -21.89453125,
+      "ci_low": -31.699218750000004,
+      "ci_high": -12.968750000000002
+    },
+    {
+      "delay": 32,
+      "density": 0.75,
+      "comparison": "set_vs_noop",
+      "accuracy_effect_pp": -40.29296875,
+      "ci_low": -45.43017578125,
+      "ci_high": -35.546875
+    },
+    {
+      "delay": 32,
+      "density": 0.75,
+      "comparison": "query_vs_noop",
+      "accuracy_effect_pp": -11.03515625,
+      "ci_low": -17.71484375,
+      "ci_high": -5.01953125
+    },
+    {
+      "delay": 32,
+      "density": 0.75,
+      "comparison": "set_vs_query",
+      "accuracy_effect_pp": -29.257812500000004,
+      "ci_low": -39.23828125,
+      "ci_high": -19.237792968750007
+    },
+    {
+      "delay": 32,
+      "density": 1.0,
+      "comparison": "set_vs_noop",
+      "accuracy_effect_pp": -50.48828125,
+      "ci_low": -53.90625,
+      "ci_high": -46.93359375
+    },
+    {
+      "delay": 32,
+      "density": 1.0,
+      "comparison": "query_vs_noop",
+      "accuracy_effect_pp": -21.50390625,
+      "ci_low": -29.453125000000004,
+      "ci_high": -14.003417968750007
+    },
+    {
+      "delay": 32,
+      "density": 1.0,
+      "comparison": "set_vs_query",
+      "accuracy_effect_pp": -28.984375,
+      "ci_low": -37.96875,
+      "ci_high": -19.609375
+    },
+    {
+      "delay": 64,
+      "density": 0.1,
+      "comparison": "set_vs_noop",
+      "accuracy_effect_pp": -2.51953125,
+      "ci_low": -6.52392578125,
+      "ci_high": 1.46484375
+    },
+    {
+      "delay": 64,
+      "density": 0.1,
+      "comparison": "query_vs_noop",
+      "accuracy_effect_pp": 1.09375,
+      "ci_low": -1.3671875,
+      "ci_high": 3.320800781249993
+    },
+    {
+      "delay": 64,
+      "density": 0.1,
+      "comparison": "set_vs_query",
+      "accuracy_effect_pp": -3.61328125,
+      "ci_low": -8.45703125,
+      "ci_high": 0.41015625
+    },
+    {
+      "delay": 64,
+      "density": 0.25,
+      "comparison": "set_vs_noop",
+      "accuracy_effect_pp": -10.078125,
+      "ci_low": -18.61328125,
+      "ci_high": -2.1875
+    },
+    {
+      "delay": 64,
+      "density": 0.25,
+      "comparison": "query_vs_noop",
+      "accuracy_effect_pp": -1.97265625,
+      "ci_low": -7.8125,
+      "ci_high": 3.5937499999999996
+    },
+    {
+      "delay": 64,
+      "density": 0.25,
+      "comparison": "set_vs_query",
+      "accuracy_effect_pp": -8.10546875,
+      "ci_low": -18.65283203125,
+      "ci_high": 1.953125
+    },
+    {
+      "delay": 64,
+      "density": 0.5,
+      "comparison": "set_vs_noop",
+      "accuracy_effect_pp": -24.31640625,
+      "ci_low": -32.91064453125,
+      "ci_high": -15.722167968750007
+    },
+    {
+      "delay": 64,
+      "density": 0.5,
+      "comparison": "query_vs_noop",
+      "accuracy_effect_pp": -12.871093750000002,
+      "ci_low": -21.85546875,
+      "ci_high": -2.83203125
+    },
+    {
+      "delay": 64,
+      "density": 0.5,
+      "comparison": "set_vs_query",
+      "accuracy_effect_pp": -11.4453125,
+      "ci_low": -22.36328125,
+      "ci_high": -0.83984375
+    },
+    {
+      "delay": 64,
+      "density": 0.75,
+      "comparison": "set_vs_noop",
+      "accuracy_effect_pp": -29.1796875,
+      "ci_low": -36.8359375,
+      "ci_high": -21.62109375
+    },
+    {
+      "delay": 64,
+      "density": 0.75,
+      "comparison": "query_vs_noop",
+      "accuracy_effect_pp": -20.83984375,
+      "ci_low": -28.749999999999996,
+      "ci_high": -10.839355468750007
+    },
+    {
+      "delay": 64,
+      "density": 0.75,
+      "comparison": "set_vs_query",
+      "accuracy_effect_pp": -8.33984375,
+      "ci_low": -15.2734375,
+      "ci_high": -1.8359375
+    },
+    {
+      "delay": 64,
+      "density": 1.0,
+      "comparison": "set_vs_noop",
+      "accuracy_effect_pp": -32.36328125,
+      "ci_low": -39.66796875,
+      "ci_high": -24.862792968750007
+    },
+    {
+      "delay": 64,
+      "density": 1.0,
+      "comparison": "query_vs_noop",
+      "accuracy_effect_pp": -26.38671875,
+      "ci_low": -34.0625,
+      "ci_high": -17.28515625
+    },
+    {
+      "delay": 64,
+      "density": 1.0,
+      "comparison": "set_vs_query",
+      "accuracy_effect_pp": -5.9765625,
+      "ci_low": -10.19580078125,
+      "ci_high": -2.01171875
+    },
+    {
+      "delay": 128,
+      "density": 0.1,
+      "comparison": "set_vs_noop",
+      "accuracy_effect_pp": -0.5078125,
+      "ci_low": -3.8481445312499996,
+      "ci_high": 2.676757812499986
+    },
+    {
+      "delay": 128,
+      "density": 0.1,
+      "comparison": "query_vs_noop",
+      "accuracy_effect_pp": 0.0,
+      "ci_low": -2.03125,
+      "ci_high": 2.2265625
+    },
+    {
+      "delay": 128,
+      "density": 0.1,
+      "comparison": "set_vs_query",
+      "accuracy_effect_pp": -0.5078125,
+      "ci_low": -3.2031249999999996,
+      "ci_high": 2.48046875
+    },
+    {
+      "delay": 128,
+      "density": 0.25,
+      "comparison": "set_vs_noop",
+      "accuracy_effect_pp": -3.4375000000000004,
+      "ci_low": -7.460937500000001,
+      "ci_high": -0.17578125
+    },
+    {
+      "delay": 128,
+      "density": 0.25,
+      "comparison": "query_vs_noop",
+      "accuracy_effect_pp": -0.625,
+      "ci_low": -3.1640625,
+      "ci_high": 1.77734375
+    },
+    {
+      "delay": 128,
+      "density": 0.25,
+      "comparison": "set_vs_query",
+      "accuracy_effect_pp": -2.8125,
+      "ci_low": -7.05078125,
+      "ci_high": 1.484863281249993
+    },
+    {
+      "delay": 128,
+      "density": 0.5,
+      "comparison": "set_vs_noop",
+      "accuracy_effect_pp": -4.70703125,
+      "ci_low": -9.18017578125,
+      "ci_high": -0.703125
+    },
+    {
+      "delay": 128,
+      "density": 0.5,
+      "comparison": "query_vs_noop",
+      "accuracy_effect_pp": -4.9609375,
+      "ci_low": -7.871093749999999,
+      "ci_high": -1.6992187499999998
+    },
+    {
+      "delay": 128,
+      "density": 0.5,
+      "comparison": "set_vs_query",
+      "accuracy_effect_pp": 0.25390625,
+      "ci_low": -3.9257812500000004,
+      "ci_high": 4.140625
+    },
+    {
+      "delay": 128,
+      "density": 0.75,
+      "comparison": "set_vs_noop",
+      "accuracy_effect_pp": -5.546875,
+      "ci_low": -10.4296875,
+      "ci_high": -1.2109375
+    },
+    {
+      "delay": 128,
+      "density": 0.75,
+      "comparison": "query_vs_noop",
+      "accuracy_effect_pp": -7.63671875,
+      "ci_low": -11.54296875,
+      "ci_high": -3.57421875
+    },
+    {
+      "delay": 128,
+      "density": 0.75,
+      "comparison": "set_vs_query",
+      "accuracy_effect_pp": 2.08984375,
+      "ci_low": -1.38671875,
+      "ci_high": 5.6640625
+    },
+    {
+      "delay": 128,
+      "density": 1.0,
+      "comparison": "set_vs_noop",
+      "accuracy_effect_pp": -8.26171875,
+      "ci_low": -12.9296875,
+      "ci_high": -3.6914062499999996
+    },
+    {
+      "delay": 128,
+      "density": 1.0,
+      "comparison": "query_vs_noop",
+      "accuracy_effect_pp": -9.23828125,
+      "ci_low": -13.6328125,
+      "ci_high": -4.491699218750007
+    },
+    {
+      "delay": 128,
+      "density": 1.0,
+      "comparison": "set_vs_query",
+      "accuracy_effect_pp": 0.9765625,
+      "ci_low": -2.2265625,
+      "ci_high": 4.238769531249993
+    }
+  ]
+}

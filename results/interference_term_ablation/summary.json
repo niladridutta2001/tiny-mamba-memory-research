@@ -1,0 +1,1174 @@
+{
+  "diagnostic_only": true,
+  "intervention_definition": {
+    "suppress_write": "At unrelated SET events only, set delta*B*u to zero; retain exp(delta*A), token processing, C readout, and D*u.",
+    "suppress_decay": "At unrelated SET events only, set exp(delta*A) to one; retain delta*B*u, token processing, C readout, and D*u."
+  },
+  "distribution_shift_caveat": "Both interventions perturb a frozen model away from its trained hidden-state distribution.",
+  "checkpoints": [
+    "results\\extended\\seed42\\u1500\\baseline.pt",
+    "results\\extended\\seed43\\u1500\\baseline.pt",
+    "results\\extended\\seed44\\u1500\\baseline.pt",
+    "results\\extended\\seed45\\u1500\\baseline.pt",
+    "results\\extended\\seed46\\u1500\\baseline.pt"
+  ],
+  "n_models": 5,
+  "examples_per_condition_per_model": 1024,
+  "bootstrap_draws": 10000,
+  "metrics": [
+    {
+      "delay": 10,
+      "density": 0.0,
+      "mode": "normal",
+      "accuracy": 0.931640625,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 10,
+      "density": 0.0,
+      "mode": "suppress_write",
+      "accuracy": 0.931640625,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 10,
+      "density": 0.0,
+      "mode": "suppress_decay",
+      "accuracy": 0.931640625,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 10,
+      "density": 0.1,
+      "mode": "normal",
+      "accuracy": 0.9318359375,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 10,
+      "density": 0.1,
+      "mode": "suppress_write",
+      "accuracy": 0.8998046875,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 10,
+      "density": 0.1,
+      "mode": "suppress_decay",
+      "accuracy": 0.9306640625,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 10,
+      "density": 0.25,
+      "mode": "normal",
+      "accuracy": 0.9306640625,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 10,
+      "density": 0.25,
+      "mode": "suppress_write",
+      "accuracy": 0.851953125,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 10,
+      "density": 0.25,
+      "mode": "suppress_decay",
+      "accuracy": 0.9275390625,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 10,
+      "density": 0.5,
+      "mode": "normal",
+      "accuracy": 0.9037109375,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 10,
+      "density": 0.5,
+      "mode": "suppress_write",
+      "accuracy": 0.65703125,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 10,
+      "density": 0.5,
+      "mode": "suppress_decay",
+      "accuracy": 0.898828125,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 10,
+      "density": 0.75,
+      "mode": "normal",
+      "accuracy": 0.8423828125,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 10,
+      "density": 0.75,
+      "mode": "suppress_write",
+      "accuracy": 0.4044921875,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 10,
+      "density": 0.75,
+      "mode": "suppress_decay",
+      "accuracy": 0.860546875,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 10,
+      "density": 1.0,
+      "mode": "normal",
+      "accuracy": 0.78671875,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 10,
+      "density": 1.0,
+      "mode": "suppress_write",
+      "accuracy": 0.240234375,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 10,
+      "density": 1.0,
+      "mode": "suppress_decay",
+      "accuracy": 0.821875,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 32,
+      "density": 0.0,
+      "mode": "normal",
+      "accuracy": 0.822265625,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 32,
+      "density": 0.0,
+      "mode": "suppress_write",
+      "accuracy": 0.822265625,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 32,
+      "density": 0.0,
+      "mode": "suppress_decay",
+      "accuracy": 0.822265625,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 32,
+      "density": 0.1,
+      "mode": "normal",
+      "accuracy": 0.811328125,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 32,
+      "density": 0.1,
+      "mode": "suppress_write",
+      "accuracy": 0.772265625,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 32,
+      "density": 0.1,
+      "mode": "suppress_decay",
+      "accuracy": 0.816015625,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 32,
+      "density": 0.25,
+      "mode": "normal",
+      "accuracy": 0.76640625,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 32,
+      "density": 0.25,
+      "mode": "suppress_write",
+      "accuracy": 0.65390625,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 32,
+      "density": 0.25,
+      "mode": "suppress_decay",
+      "accuracy": 0.793359375,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 32,
+      "density": 0.5,
+      "mode": "normal",
+      "accuracy": 0.5908203125,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 32,
+      "density": 0.5,
+      "mode": "suppress_write",
+      "accuracy": 0.426953125,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 32,
+      "density": 0.5,
+      "mode": "suppress_decay",
+      "accuracy": 0.718359375,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 32,
+      "density": 0.75,
+      "mode": "normal",
+      "accuracy": 0.4193359375,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 32,
+      "density": 0.75,
+      "mode": "suppress_write",
+      "accuracy": 0.2654296875,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 32,
+      "density": 0.75,
+      "mode": "suppress_decay",
+      "accuracy": 0.64375,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 32,
+      "density": 1.0,
+      "mode": "normal",
+      "accuracy": 0.3173828125,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 32,
+      "density": 1.0,
+      "mode": "suppress_write",
+      "accuracy": 0.1625,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 32,
+      "density": 1.0,
+      "mode": "suppress_decay",
+      "accuracy": 0.4912109375,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 64,
+      "density": 0.0,
+      "mode": "normal",
+      "accuracy": 0.5416015625,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 64,
+      "density": 0.0,
+      "mode": "suppress_write",
+      "accuracy": 0.5416015625,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 64,
+      "density": 0.0,
+      "mode": "suppress_decay",
+      "accuracy": 0.5416015625,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 64,
+      "density": 0.1,
+      "mode": "normal",
+      "accuracy": 0.51640625,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 64,
+      "density": 0.1,
+      "mode": "suppress_write",
+      "accuracy": 0.4923828125,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 64,
+      "density": 0.1,
+      "mode": "suppress_decay",
+      "accuracy": 0.544921875,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 64,
+      "density": 0.25,
+      "mode": "normal",
+      "accuracy": 0.4408203125,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 64,
+      "density": 0.25,
+      "mode": "suppress_write",
+      "accuracy": 0.375,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 64,
+      "density": 0.25,
+      "mode": "suppress_decay",
+      "accuracy": 0.5322265625,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 64,
+      "density": 0.5,
+      "mode": "normal",
+      "accuracy": 0.2984375,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 64,
+      "density": 0.5,
+      "mode": "suppress_write",
+      "accuracy": 0.2291015625,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 64,
+      "density": 0.5,
+      "mode": "suppress_decay",
+      "accuracy": 0.4521484375,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 64,
+      "density": 0.75,
+      "mode": "normal",
+      "accuracy": 0.2498046875,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 64,
+      "density": 0.75,
+      "mode": "suppress_write",
+      "accuracy": 0.1580078125,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 64,
+      "density": 0.75,
+      "mode": "suppress_decay",
+      "accuracy": 0.41875,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 64,
+      "density": 1.0,
+      "mode": "normal",
+      "accuracy": 0.21796875,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 64,
+      "density": 1.0,
+      "mode": "suppress_write",
+      "accuracy": 0.0974609375,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 64,
+      "density": 1.0,
+      "mode": "suppress_decay",
+      "accuracy": 0.2783203125,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 128,
+      "density": 0.0,
+      "mode": "normal",
+      "accuracy": 0.2947265625,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 128,
+      "density": 0.0,
+      "mode": "suppress_write",
+      "accuracy": 0.2947265625,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 128,
+      "density": 0.0,
+      "mode": "suppress_decay",
+      "accuracy": 0.2947265625,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 128,
+      "density": 0.1,
+      "mode": "normal",
+      "accuracy": 0.2896484375,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 128,
+      "density": 0.1,
+      "mode": "suppress_write",
+      "accuracy": 0.2845703125,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 128,
+      "density": 0.1,
+      "mode": "suppress_decay",
+      "accuracy": 0.3033203125,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 128,
+      "density": 0.25,
+      "mode": "normal",
+      "accuracy": 0.2603515625,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 128,
+      "density": 0.25,
+      "mode": "suppress_write",
+      "accuracy": 0.2443359375,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 128,
+      "density": 0.25,
+      "mode": "suppress_decay",
+      "accuracy": 0.30546875,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 128,
+      "density": 0.5,
+      "mode": "normal",
+      "accuracy": 0.24765625,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 128,
+      "density": 0.5,
+      "mode": "suppress_write",
+      "accuracy": 0.1943359375,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 128,
+      "density": 0.5,
+      "mode": "suppress_decay",
+      "accuracy": 0.3064453125,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 128,
+      "density": 0.75,
+      "mode": "normal",
+      "accuracy": 0.2392578125,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 128,
+      "density": 0.75,
+      "mode": "suppress_write",
+      "accuracy": 0.1275390625,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 128,
+      "density": 0.75,
+      "mode": "suppress_decay",
+      "accuracy": 0.29140625,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 128,
+      "density": 1.0,
+      "mode": "normal",
+      "accuracy": 0.212109375,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 128,
+      "density": 1.0,
+      "mode": "suppress_write",
+      "accuracy": 0.066796875,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    },
+    {
+      "delay": 128,
+      "density": 1.0,
+      "mode": "suppress_decay",
+      "accuracy": 0.1666015625,
+      "n_models": 5,
+      "n_examples_per_model": 1024
+    }
+  ],
+  "contrasts": [
+    {
+      "delay": 10,
+      "density": 0.0,
+      "comparison": "suppress_write_vs_normal",
+      "accuracy_effect_pp": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+    },
+    {
+      "delay": 10,
+      "density": 0.0,
+      "comparison": "suppress_decay_vs_normal",
+      "accuracy_effect_pp": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+    },
+    {
+      "delay": 10,
+      "density": 0.0,
+      "comparison": "suppress_decay_vs_write",
+      "accuracy_effect_pp": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+    },
+    {
+      "delay": 10,
+      "density": 0.1,
+      "comparison": "suppress_write_vs_normal",
+      "accuracy_effect_pp": -3.2031249999999996,
+      "ci_low": -4.43359375,
+      "ci_high": -2.03125
+    },
+    {
+      "delay": 10,
+      "density": 0.1,
+      "comparison": "suppress_decay_vs_normal",
+      "accuracy_effect_pp": -0.1171875,
+      "ci_low": -0.48828125,
+      "ci_high": 0.25390625
+    },
+    {
+      "delay": 10,
+      "density": 0.1,
+      "comparison": "suppress_decay_vs_write",
+      "accuracy_effect_pp": 3.0859375,
+      "ci_low": 1.8159179687500007,
+      "ci_high": 4.453125
+    },
+    {
+      "delay": 10,
+      "density": 0.25,
+      "comparison": "suppress_write_vs_normal",
+      "accuracy_effect_pp": -7.871093749999999,
+      "ci_low": -9.3359375,
+      "ci_high": -6.42578125
+    },
+    {
+      "delay": 10,
+      "density": 0.25,
+      "comparison": "suppress_decay_vs_normal",
+      "accuracy_effect_pp": -0.3125,
+      "ci_low": -1.0546875,
+      "ci_high": 0.37109375
+    },
+    {
+      "delay": 10,
+      "density": 0.25,
+      "comparison": "suppress_decay_vs_write",
+      "accuracy_effect_pp": 7.558593750000001,
+      "ci_low": 5.9375,
+      "ci_high": 9.4140625
+    },
+    {
+      "delay": 10,
+      "density": 0.5,
+      "comparison": "suppress_write_vs_normal",
+      "accuracy_effect_pp": -24.66796875,
+      "ci_low": -28.476562500000004,
+      "ci_high": -20.80078125
+    },
+    {
+      "delay": 10,
+      "density": 0.5,
+      "comparison": "suppress_decay_vs_normal",
+      "accuracy_effect_pp": -0.48828125,
+      "ci_low": -1.6210937500000002,
+      "ci_high": 0.64453125
+    },
+    {
+      "delay": 10,
+      "density": 0.5,
+      "comparison": "suppress_decay_vs_write",
+      "accuracy_effect_pp": 24.1796875,
+      "ci_low": 19.51171875,
+      "ci_high": 28.7890625
+    },
+    {
+      "delay": 10,
+      "density": 0.75,
+      "comparison": "suppress_write_vs_normal",
+      "accuracy_effect_pp": -43.7890625,
+      "ci_low": -47.9296875,
+      "ci_high": -39.3359375
+    },
+    {
+      "delay": 10,
+      "density": 0.75,
+      "comparison": "suppress_decay_vs_normal",
+      "accuracy_effect_pp": 1.8164062500000002,
+      "ci_low": -0.703125,
+      "ci_high": 4.8828125
+    },
+    {
+      "delay": 10,
+      "density": 0.75,
+      "comparison": "suppress_decay_vs_write",
+      "accuracy_effect_pp": 45.60546875,
+      "ci_low": 39.47216796875,
+      "ci_high": 51.28955078125
+    },
+    {
+      "delay": 10,
+      "density": 1.0,
+      "comparison": "suppress_write_vs_normal",
+      "accuracy_effect_pp": -54.6484375,
+      "ci_low": -59.82421875,
+      "ci_high": -49.31640625
+    },
+    {
+      "delay": 10,
+      "density": 1.0,
+      "comparison": "suppress_decay_vs_normal",
+      "accuracy_effect_pp": 3.515625,
+      "ci_low": -1.015625,
+      "ci_high": 9.0625
+    },
+    {
+      "delay": 10,
+      "density": 1.0,
+      "comparison": "suppress_decay_vs_write",
+      "accuracy_effect_pp": 58.1640625,
+      "ci_low": 51.46484375,
+      "ci_high": 64.84375
+    },
+    {
+      "delay": 32,
+      "density": 0.0,
+      "comparison": "suppress_write_vs_normal",
+      "accuracy_effect_pp": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+    },
+    {
+      "delay": 32,
+      "density": 0.0,
+      "comparison": "suppress_decay_vs_normal",
+      "accuracy_effect_pp": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+    },
+    {
+      "delay": 32,
+      "density": 0.0,
+      "comparison": "suppress_decay_vs_write",
+      "accuracy_effect_pp": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+    },
+    {
+      "delay": 32,
+      "density": 0.1,
+      "comparison": "suppress_write_vs_normal",
+      "accuracy_effect_pp": -3.90625,
+      "ci_low": -5.83984375,
+      "ci_high": -2.0703125
+    },
+    {
+      "delay": 32,
+      "density": 0.1,
+      "comparison": "suppress_decay_vs_normal",
+      "accuracy_effect_pp": 0.46875,
+      "ci_low": -0.078125,
+      "ci_high": 1.0546875
+    },
+    {
+      "delay": 32,
+      "density": 0.1,
+      "comparison": "suppress_decay_vs_write",
+      "accuracy_effect_pp": 4.375,
+      "ci_low": 2.6171875,
+      "ci_high": 6.328125
+    },
+    {
+      "delay": 32,
+      "density": 0.25,
+      "comparison": "suppress_write_vs_normal",
+      "accuracy_effect_pp": -11.25,
+      "ci_low": -15.17578125,
+      "ci_high": -7.675292968750006
+    },
+    {
+      "delay": 32,
+      "density": 0.25,
+      "comparison": "suppress_decay_vs_normal",
+      "accuracy_effect_pp": 2.6953125,
+      "ci_low": 1.2104492187500004,
+      "ci_high": 4.2578125
+    },
+    {
+      "delay": 32,
+      "density": 0.25,
+      "comparison": "suppress_decay_vs_write",
+      "accuracy_effect_pp": 13.945312500000002,
+      "ci_low": 9.765625,
+      "ci_high": 18.203125
+    },
+    {
+      "delay": 32,
+      "density": 0.5,
+      "comparison": "suppress_write_vs_normal",
+      "accuracy_effect_pp": -16.38671875,
+      "ci_low": -20.93798828125,
+      "ci_high": -12.812499999999998
+    },
+    {
+      "delay": 32,
+      "density": 0.5,
+      "comparison": "suppress_decay_vs_normal",
+      "accuracy_effect_pp": 12.75390625,
+      "ci_low": 9.70654296875,
+      "ci_high": 15.5859375
+    },
+    {
+      "delay": 32,
+      "density": 0.5,
+      "comparison": "suppress_decay_vs_write",
+      "accuracy_effect_pp": 29.140624999999996,
+      "ci_low": 24.55078125,
+      "ci_high": 34.64892578124999
+    },
+    {
+      "delay": 32,
+      "density": 0.75,
+      "comparison": "suppress_write_vs_normal",
+      "accuracy_effect_pp": -15.390625,
+      "ci_low": -19.43359375,
+      "ci_high": -11.796875
+    },
+    {
+      "delay": 32,
+      "density": 0.75,
+      "comparison": "suppress_decay_vs_normal",
+      "accuracy_effect_pp": 22.44140625,
+      "ci_low": 19.1015625,
+      "ci_high": 25.87890625
+    },
+    {
+      "delay": 32,
+      "density": 0.75,
+      "comparison": "suppress_decay_vs_write",
+      "accuracy_effect_pp": 37.83203125,
+      "ci_low": 33.14453125,
+      "ci_high": 43.88671875
+    },
+    {
+      "delay": 32,
+      "density": 1.0,
+      "comparison": "suppress_write_vs_normal",
+      "accuracy_effect_pp": -15.48828125,
+      "ci_low": -19.27734375,
+      "ci_high": -11.9921875
+    },
+    {
+      "delay": 32,
+      "density": 1.0,
+      "comparison": "suppress_decay_vs_normal",
+      "accuracy_effect_pp": 17.3828125,
+      "ci_low": 8.76904296875,
+      "ci_high": 26.97265625
+    },
+    {
+      "delay": 32,
+      "density": 1.0,
+      "comparison": "suppress_decay_vs_write",
+      "accuracy_effect_pp": 32.87109375,
+      "ci_low": 23.80859375,
+      "ci_high": 42.421875
+    },
+    {
+      "delay": 64,
+      "density": 0.0,
+      "comparison": "suppress_write_vs_normal",
+      "accuracy_effect_pp": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+    },
+    {
+      "delay": 64,
+      "density": 0.0,
+      "comparison": "suppress_decay_vs_normal",
+      "accuracy_effect_pp": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+    },
+    {
+      "delay": 64,
+      "density": 0.0,
+      "comparison": "suppress_decay_vs_write",
+      "accuracy_effect_pp": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+    },
+    {
+      "delay": 64,
+      "density": 0.1,
+      "comparison": "suppress_write_vs_normal",
+      "accuracy_effect_pp": -2.40234375,
+      "ci_low": -5.09765625,
+      "ci_high": -0.13671875
+    },
+    {
+      "delay": 64,
+      "density": 0.1,
+      "comparison": "suppress_decay_vs_normal",
+      "accuracy_effect_pp": 2.8515625,
+      "ci_low": 1.6401367187500004,
+      "ci_high": 4.140625
+    },
+    {
+      "delay": 64,
+      "density": 0.1,
+      "comparison": "suppress_decay_vs_write",
+      "accuracy_effect_pp": 5.25390625,
+      "ci_low": 3.3007812499999996,
+      "ci_high": 7.773437499999999
+    },
+    {
+      "delay": 64,
+      "density": 0.25,
+      "comparison": "suppress_write_vs_normal",
+      "accuracy_effect_pp": -6.582031250000001,
+      "ci_low": -10.91845703125,
+      "ci_high": -3.2026367187500067
+    },
+    {
+      "delay": 64,
+      "density": 0.25,
+      "comparison": "suppress_decay_vs_normal",
+      "accuracy_effect_pp": 9.140625,
+      "ci_low": 7.05029296875,
+      "ci_high": 11.1328125
+    },
+    {
+      "delay": 64,
+      "density": 0.25,
+      "comparison": "suppress_decay_vs_write",
+      "accuracy_effect_pp": 15.72265625,
+      "ci_low": 11.875,
+      "ci_high": 20.83984375
+    },
+    {
+      "delay": 64,
+      "density": 0.5,
+      "comparison": "suppress_write_vs_normal",
+      "accuracy_effect_pp": -6.93359375,
+      "ci_low": -9.94140625,
+      "ci_high": -4.31640625
+    },
+    {
+      "delay": 64,
+      "density": 0.5,
+      "comparison": "suppress_decay_vs_normal",
+      "accuracy_effect_pp": 15.37109375,
+      "ci_low": 10.97607421875,
+      "ci_high": 19.453125
+    },
+    {
+      "delay": 64,
+      "density": 0.5,
+      "comparison": "suppress_decay_vs_write",
+      "accuracy_effect_pp": 22.3046875,
+      "ci_low": 16.484375,
+      "ci_high": 28.418457031249993
+    },
+    {
+      "delay": 64,
+      "density": 0.75,
+      "comparison": "suppress_write_vs_normal",
+      "accuracy_effect_pp": -9.1796875,
+      "ci_low": -12.48046875,
+      "ci_high": -6.171386718750007
+    },
+    {
+      "delay": 64,
+      "density": 0.75,
+      "comparison": "suppress_decay_vs_normal",
+      "accuracy_effect_pp": 16.89453125,
+      "ci_low": 12.1484375,
+      "ci_high": 22.1484375
+    },
+    {
+      "delay": 64,
+      "density": 0.75,
+      "comparison": "suppress_decay_vs_write",
+      "accuracy_effect_pp": 26.07421875,
+      "ci_low": 19.453125,
+      "ci_high": 33.984375
+    },
+    {
+      "delay": 64,
+      "density": 1.0,
+      "comparison": "suppress_write_vs_normal",
+      "accuracy_effect_pp": -12.05078125,
+      "ci_low": -15.156249999999998,
+      "ci_high": -8.69140625
+    },
+    {
+      "delay": 64,
+      "density": 1.0,
+      "comparison": "suppress_decay_vs_normal",
+      "accuracy_effect_pp": 6.03515625,
+      "ci_low": -2.890625,
+      "ci_high": 14.921875000000002
+    },
+    {
+      "delay": 64,
+      "density": 1.0,
+      "comparison": "suppress_decay_vs_write",
+      "accuracy_effect_pp": 18.0859375,
+      "ci_low": 9.51171875,
+      "ci_high": 26.73828125
+    },
+    {
+      "delay": 128,
+      "density": 0.0,
+      "comparison": "suppress_write_vs_normal",
+      "accuracy_effect_pp": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+    },
+    {
+      "delay": 128,
+      "density": 0.0,
+      "comparison": "suppress_decay_vs_normal",
+      "accuracy_effect_pp": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+    },
+    {
+      "delay": 128,
+      "density": 0.0,
+      "comparison": "suppress_decay_vs_write",
+      "accuracy_effect_pp": 0.0,
+      "ci_low": 0.0,
+      "ci_high": 0.0
+    },
+    {
+      "delay": 128,
+      "density": 0.1,
+      "comparison": "suppress_write_vs_normal",
+      "accuracy_effect_pp": -0.5078125,
+      "ci_low": -2.48046875,
+      "ci_high": 1.40625
+    },
+    {
+      "delay": 128,
+      "density": 0.1,
+      "comparison": "suppress_decay_vs_normal",
+      "accuracy_effect_pp": 1.3671875,
+      "ci_low": 0.5078125,
+      "ci_high": 2.40234375
+    },
+    {
+      "delay": 128,
+      "density": 0.1,
+      "comparison": "suppress_decay_vs_write",
+      "accuracy_effect_pp": 1.875,
+      "ci_low": 0.15625,
+      "ci_high": 3.57421875
+    },
+    {
+      "delay": 128,
+      "density": 0.25,
+      "comparison": "suppress_write_vs_normal",
+      "accuracy_effect_pp": -1.6015624999999998,
+      "ci_low": -3.5351562500000004,
+      "ci_high": 0.2934570312499929
+    },
+    {
+      "delay": 128,
+      "density": 0.25,
+      "comparison": "suppress_decay_vs_normal",
+      "accuracy_effect_pp": 4.51171875,
+      "ci_low": 2.1484375,
+      "ci_high": 6.953125
+    },
+    {
+      "delay": 128,
+      "density": 0.25,
+      "comparison": "suppress_decay_vs_write",
+      "accuracy_effect_pp": 6.11328125,
+      "ci_low": 3.57421875,
+      "ci_high": 8.7890625
+    },
+    {
+      "delay": 128,
+      "density": 0.5,
+      "comparison": "suppress_write_vs_normal",
+      "accuracy_effect_pp": -5.33203125,
+      "ci_low": -8.41845703125,
+      "ci_high": -2.59765625
+    },
+    {
+      "delay": 128,
+      "density": 0.5,
+      "comparison": "suppress_decay_vs_normal",
+      "accuracy_effect_pp": 5.87890625,
+      "ci_low": 3.4765625,
+      "ci_high": 8.18359375
+    },
+    {
+      "delay": 128,
+      "density": 0.5,
+      "comparison": "suppress_decay_vs_write",
+      "accuracy_effect_pp": 11.2109375,
+      "ci_low": 7.59765625,
+      "ci_high": 15.48828125
+    },
+    {
+      "delay": 128,
+      "density": 0.75,
+      "comparison": "suppress_write_vs_normal",
+      "accuracy_effect_pp": -11.171875,
+      "ci_low": -14.570312499999998,
+      "ci_high": -7.83203125
+    },
+    {
+      "delay": 128,
+      "density": 0.75,
+      "comparison": "suppress_decay_vs_normal",
+      "accuracy_effect_pp": 5.21484375,
+      "ci_low": 1.8359375,
+      "ci_high": 8.65234375
+    },
+    {
+      "delay": 128,
+      "density": 0.75,
+      "comparison": "suppress_decay_vs_write",
+      "accuracy_effect_pp": 16.38671875,
+      "ci_low": 10.48779296875,
+      "ci_high": 22.59765625
+    },
+    {
+      "delay": 128,
+      "density": 1.0,
+      "comparison": "suppress_write_vs_normal",
+      "accuracy_effect_pp": -14.531250000000002,
+      "ci_low": -18.6328125,
+      "ci_high": -8.456542968750007
+    },
+    {
+      "delay": 128,
+      "density": 1.0,
+      "comparison": "suppress_decay_vs_normal",
+      "accuracy_effect_pp": -4.55078125,
+      "ci_low": -13.125,
+      "ci_high": 4.0625
+    },
+    {
+      "delay": 128,
+      "density": 1.0,
+      "comparison": "suppress_decay_vs_write",
+      "accuracy_effect_pp": 9.98046875,
+      "ci_low": 4.0234375,
+      "ci_high": 15.2734375
+    }
+  ]
+}

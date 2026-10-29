@@ -1,0 +1,242 @@
+[
+  {
+    "hypothesis": "H1",
+    "x": 0,
+    "seed": 42,
+    "accuracy": 0.15625
+  },
+  {
+    "hypothesis": "H1",
+    "x": 1,
+    "seed": 42,
+    "accuracy": 0.1875
+  },
+  {
+    "hypothesis": "H1",
+    "x": 2,
+    "seed": 42,
+    "accuracy": 0.46875
+  },
+  {
+    "hypothesis": "H1",
+    "x": 4,
+    "seed": 42,
+    "accuracy": 0.21875
+  },
+  {
+    "hypothesis": "H1",
+    "x": 10,
+    "seed": 42,
+    "accuracy": 0.25
+  },
+  {
+    "hypothesis": "H1",
+    "x": 32,
+    "seed": 42,
+    "accuracy": 0.28125
+  },
+  {
+    "hypothesis": "H1",
+    "x": 64,
+    "seed": 42,
+    "accuracy": 0.28125
+  },
+  {
+    "hypothesis": "H1",
+    "x": 128,
+    "seed": 42,
+    "accuracy": 0.25
+  },
+  {
+    "hypothesis": "H1",
+    "x": 256,
+    "seed": 42,
+    "accuracy": 0.25
+  },
+  {
+    "hypothesis": "H1",
+    "x": 500,
+    "seed": 42,
+    "accuracy": 0.28125
+  },
+  {
+    "hypothesis": "H2",
+    "x": 0.0,
+    "seed": 0,
+    "accuracy": 0.21875
+  },
+  {
+    "hypothesis": "H2",
+    "x": 0.0,
+    "seed": 1,
+    "accuracy": 0.21875
+  },
+  {
+    "hypothesis": "H2",
+    "x": 0.0,
+    "seed": 2,
+    "accuracy": 0.21875
+  },
+  {
+    "hypothesis": "H2",
+    "x": 0.0,
+    "seed": 3,
+    "accuracy": 0.21875
+  },
+  {
+    "hypothesis": "H2",
+    "x": 0.0,
+    "seed": 4,
+    "accuracy": 0.21875
+  },
+  {
+    "hypothesis": "H2",
+    "x": 0.1,
+    "seed": 0,
+    "accuracy": 0.21875
+  },
+  {
+    "hypothesis": "H2",
+    "x": 0.1,
+    "seed": 1,
+    "accuracy": 0.21875
+  },
+  {
+    "hypothesis": "H2",
+    "x": 0.1,
+    "seed": 2,
+    "accuracy": 0.21875
+  },
+  {
+    "hypothesis": "H2",
+    "x": 0.1,
+    "seed": 3,
+    "accuracy": 0.21875
+  },
+  {
+    "hypothesis": "H2",
+    "x": 0.1,
+    "seed": 4,
+    "accuracy": 0.21875
+  },
+  {
+    "hypothesis": "H2",
+    "x": 0.25,
+    "seed": 0,
+    "accuracy": 0.3125
+  },
+  {
+    "hypothesis": "H2",
+    "x": 0.25,
+    "seed": 1,
+    "accuracy": 0.25
+  },
+  {
+    "hypothesis": "H2",
+    "x": 0.25,
+    "seed": 2,
+    "accuracy": 0.28125
+  },
+  {
+    "hypothesis": "H2",
+    "x": 0.25,
+    "seed": 3,
+    "accuracy": 0.21875
+  },
+  {
+    "hypothesis": "H2",
+    "x": 0.25,
+    "seed": 4,
+    "accuracy": 0.21875
+  },
+  {
+    "hypothesis": "H2",
+    "x": 0.5,
+    "seed": 0,
+    "accuracy": 0.4375
+  },
+  {
+    "hypothesis": "H2",
+    "x": 0.5,
+    "seed": 1,
+    "accuracy": 0.34375
+  },
+  {
+    "hypothesis": "H2",
+    "x": 0.5,
+    "seed": 2,
+    "accuracy": 0.46875
+  },
+  {
+    "hypothesis": "H2",
+    "x": 0.5,
+    "seed": 3,
+    "accuracy": 0.34375
+  },
+  {
+    "hypothesis": "H2",
+    "x": 0.5,
+    "seed": 4,
+    "accuracy": 0.34375
+  },
+  {
+    "hypothesis": "H2",
+    "x": 0.75,
+    "seed": 0,
+    "accuracy": 0.34375
+  },
+  {
+    "hypothesis": "H2",
+    "x": 0.75,
+    "seed": 1,
+    "accuracy": 0.40625
+  },
+  {
+    "hypothesis": "H2",
+    "x": 0.75,
+    "seed": 2,
+    "accuracy": 0.375
+  },
+  {
+    "hypothesis": "H2",
+    "x": 0.75,
+    "seed": 3,
+    "accuracy": 0.375
+  },
+  {
+    "hypothesis": "H2",
+    "x": 0.75,
+    "seed": 4,
+    "accuracy": 0.28125
+  },
+  {
+    "hypothesis": "H2",
+    "x": 1.0,
+    "seed": 0,
+    "accuracy": 0.375
+  },
+  {
+    "hypothesis": "H2",
+    "x": 1.0,
+    "seed": 1,
+    "accuracy": 0.375
+  },
+  {
+    "hypothesis": "H2",
+    "x": 1.0,
+    "seed": 2,
+    "accuracy": 0.53125
+  },
+  {
+    "hypothesis": "H2",
+    "x": 1.0,
+    "seed": 3,
+    "accuracy": 0.5625
+  },
+  {
+    "hypothesis": "H2",
+    "x": 1.0,
+    "seed": 4,
+    "accuracy": 0.5
+  }
+]

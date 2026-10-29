@@ -1,0 +1,9 @@
+name: static_kernel_mix_only
+inherits: baseline.yaml
+model:
+  variant: static_kernel_mix_only
+  d_conv: 8
+  mechanism: input_independent_shared_kernel_mask_without_retention_gate
+  candidate_widths: [1, 2, 4, 8]
+  router: parameter_matched_static_softmax
+  initial_effective_width: 4
