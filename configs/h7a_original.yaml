@@ -1,0 +1,6 @@
+inherits: baseline.yaml
+name: h7a_original
+model:
+  variant: baseline
+training:
+  max_updates: 1500

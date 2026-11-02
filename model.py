@@ -39,6 +39,14 @@ class ModelArgs:
     dt_rank: Union[int, str] = 'auto'
     d_conv: int = 4 
     conv_mode: str = 'fixed'
+    ssm_decay_mode: str = 'baseline'
+    fast_min_rate: float = 1.0
+    slow_max_rate: float = 0.004
+    slow_gate_mode: str = 'none'
+    slow_gate_bias_init: float = -4.0
+    erase_gate_bias_init: float = -4.0
+    write_gate_bias_init: float = -2.0
+    event_embedding_dim: int = 16
     pad_vocab_size_multiple: int = 8
     conv_bias: bool = True
     bias: bool = False
@@ -49,6 +57,21 @@ class ModelArgs:
             raise ValueError(f"unknown conv_mode: {self.conv_mode}")
         if self.conv_mode != 'fixed' and self.d_conv != 8:
             raise ValueError("adaptive convolution modes require d_conv=8")
+        if self.ssm_decay_mode not in {'baseline', 'fast_slow_unconstrained', 'fast_slow'}:
+            raise ValueError(f"unknown SSM decay mode: {self.ssm_decay_mode}")
+        if self.ssm_decay_mode != 'baseline' and self.d_state != 8:
+            raise ValueError("partitioned SSM decay modes require d_state=8")
+        if self.fast_min_rate <= 0 or self.slow_max_rate <= 0:
+            raise ValueError("fast_min_rate and slow_max_rate must be positive")
+        if self.ssm_decay_mode == 'fast_slow' and self.slow_max_rate >= self.fast_min_rate:
+            raise ValueError("slow_max_rate must be smaller than fast_min_rate")
+        if self.slow_gate_mode not in {
+            'none', 'adaptive', 'static', 'decoupled', 'decoupled_tied',
+            'decoupled_no_event', 'decoupled_no_fast'
+        }:
+            raise ValueError(f"unknown slow gate mode: {self.slow_gate_mode}")
+        if self.slow_gate_mode != 'none' and self.ssm_decay_mode != 'fast_slow':
+            raise ValueError("identity-default slow gates require fast_slow decay modes")
         
         if self.dt_rank == 'auto':
             self.dt_rank = math.ceil(self.d_model / 16)
@@ -218,8 +241,53 @@ class MambaBlock(nn.Module):
         # dt_proj projects Δ from dt_rank to d_in
         self.dt_proj = nn.Linear(args.dt_rank, args.d_inner, bias=True)
 
-        A = repeat(torch.arange(1, args.d_state + 1), 'n -> d n', d=args.d_inner)
-        self.A_log = nn.Parameter(torch.log(A))
+        if args.slow_gate_mode in {'adaptive', 'static'}:
+            # Compact channel-wise router: one adaptive scalar per inner
+            # channel, broadcast over the four slow SSM modes. The static
+            # control uses the same parameters with an input-independent one.
+            self.slow_gate_weight = nn.Parameter(torch.zeros(args.d_inner))
+            self.slow_gate_bias = nn.Parameter(torch.full((args.d_inner,), args.slow_gate_bias_init))
+            self.capture_slow_gate = False
+            self.captured_slow_gate = None
+        if args.slow_gate_mode.startswith('decoupled'):
+            # Event-conditioned H8 router.  The tied control retains exactly the
+            # same parameters but averages the two logits during computation.
+            self.event_embedding = nn.Embedding(args.vocab_size, args.event_embedding_dim)
+            self.fast_summary_weight = nn.Parameter(torch.full((args.d_inner, 4), 0.25))
+            self.erase_u_weight = nn.Parameter(torch.zeros(args.d_inner))
+            self.erase_fast_weight = nn.Parameter(torch.zeros(args.d_inner))
+            self.erase_event = nn.Linear(args.event_embedding_dim, args.d_inner, bias=False)
+            self.erase_bias = nn.Parameter(torch.full((args.d_inner,), args.erase_gate_bias_init))
+            self.write_u_weight = nn.Parameter(torch.zeros(args.d_inner))
+            self.write_fast_weight = nn.Parameter(torch.zeros(args.d_inner))
+            self.write_event = nn.Linear(args.event_embedding_dim, args.d_inner, bias=False)
+            self.write_bias = nn.Parameter(torch.full((args.d_inner,), args.write_gate_bias_init))
+            nn.init.normal_(self.erase_event.weight, std=0.02)
+            nn.init.normal_(self.write_event.weight, std=0.02)
+            self.event_ids_by_position = None
+            self.capture_decoupled_gates = False
+            self.captured_erase_gate = None
+            self.captured_write_gate = None
+
+        baseline_rates = repeat(torch.arange(1, args.d_state + 1), 'n -> d n', d=args.d_inner).float()
+        if args.ssm_decay_mode == 'baseline':
+            self.A_log = nn.Parameter(torch.log(baseline_rates))
+        elif args.ssm_decay_mode == 'fast_slow_unconstrained':
+            # Initialization-only control: exactly the same initial A as constrained M1,
+            # but both groups subsequently follow unconstrained softplus rates.
+            fast_rates = torch.tensor((1.1, 2.0, 3.0, 4.0)).view(1, 4).expand(args.d_inner, -1)
+            slow_rates = args.slow_max_rate * torch.tensor((0.2, 0.4, 0.6, 0.8)).view(1, 4)
+            slow_rates = slow_rates.expand(args.d_inner, -1)
+            self.A_fast_theta = nn.Parameter(torch.log(torch.expm1(fast_rates)).clone())
+            self.A_slow_theta = nn.Parameter(torch.log(torch.expm1(slow_rates)).clone())
+        else:
+            fast_initial = torch.arange(1, 5, dtype=torch.float32).view(1, 4).expand(args.d_inner, -1)
+            fast_excess = (fast_initial - args.fast_min_rate).clamp_min(0.1)
+            fast_theta = torch.log(torch.expm1(fast_excess))
+            slow_fraction = torch.tensor((0.2, 0.4, 0.6, 0.8)).view(1, 4).expand(args.d_inner, -1)
+            slow_theta = torch.logit(slow_fraction)
+            self.A_fast_theta = nn.Parameter(fast_theta.clone())
+            self.A_slow_theta = nn.Parameter(slow_theta.clone())
         self.D = nn.Parameter(torch.ones(args.d_inner))
         self.out_proj = nn.Linear(args.d_inner, args.d_model, bias=args.bias)
         # Optional inference-time intervention. The default None preserves the
@@ -237,6 +305,58 @@ class MambaBlock(nn.Module):
         # Optional diagnostic reset points for the local convolutional history.
         # Recurrent SSM state is not reset. Shape: (batch, length), boolean.
         self.conv_reset_by_position = None
+        # Optional diagnostic mask applied only to C_t h_t. Recurrent updates
+        # remain untouched, so this isolates each mode group's readout use.
+        self.readout_mode_mask = None
+
+    def decay_matrix(self) -> torch.Tensor:
+        """Return the negative continuous-time decay matrix A (64, 8)."""
+        if self.args.ssm_decay_mode == 'baseline':
+            return -torch.exp(self.A_log.float())
+        if self.args.ssm_decay_mode == 'fast_slow_unconstrained':
+            fast = -F.softplus(self.A_fast_theta.float())
+            slow = -F.softplus(self.A_slow_theta.float())
+        else:
+            fast = -(self.args.fast_min_rate + F.softplus(self.A_fast_theta.float()))
+            slow = -self.args.slow_max_rate * torch.sigmoid(self.A_slow_theta.float())
+        return torch.cat((fast, slow), dim=-1)
+
+    def slow_update_gate(self, u: torch.Tensor) -> torch.Tensor | None:
+        """Return (batch, length, channels) slow-update interpolation gates."""
+        if self.args.slow_gate_mode == 'none' or self.args.slow_gate_mode.startswith('decoupled'):
+            return None
+        source = u if self.args.slow_gate_mode == 'adaptive' else torch.ones_like(u)
+        return torch.sigmoid(source * self.slow_gate_weight + self.slow_gate_bias)
+
+    def decoupled_slow_gates(
+        self, u: torch.Tensor, fast_state: torch.Tensor, event_ids: torch.Tensor
+    ) -> tuple[torch.Tensor, torch.Tensor]:
+        """Compute H8 erase/write gates after the current fast-state update."""
+        fast_summary = (fast_state * self.fast_summary_weight.unsqueeze(0)).sum(dim=-1)
+        event_feature = self.event_embedding(event_ids)
+        # Fuse the two projections and channel-wise branches. This is
+        # mathematically identical to evaluating erase/write separately, but
+        # avoids several tiny CUDA launches inside every scan timestep.
+        event_weight = torch.cat((self.erase_event.weight, self.write_event.weight), dim=0)
+        event_terms = F.linear(event_feature, event_weight).view(-1, 2, self.args.d_inner)
+        if self.args.slow_gate_mode == 'decoupled_no_event':
+            event_terms = torch.zeros_like(event_terms)
+        if self.args.slow_gate_mode == 'decoupled_no_fast':
+            fast_summary = torch.zeros_like(fast_summary)
+        u_weights = torch.stack((self.erase_u_weight, self.write_u_weight), dim=0)
+        fast_weights = torch.stack((self.erase_fast_weight, self.write_fast_weight), dim=0)
+        biases = torch.stack((self.erase_bias, self.write_bias), dim=0)
+        logits = (
+            u.unsqueeze(1) * u_weights.unsqueeze(0)
+            + fast_summary.unsqueeze(1) * fast_weights.unsqueeze(0)
+            + event_terms + biases.unsqueeze(0)
+        )
+        erase_logits, write_logits = logits.unbind(dim=1)
+        if self.args.slow_gate_mode == 'decoupled_tied':
+            tied = 0.5 * (erase_logits + write_logits)
+            gate = torch.sigmoid(tied)
+            return gate, gate
+        return torch.sigmoid(erase_logits), torch.sigmoid(write_logits)
         
 
     def forward(self, x):
@@ -317,14 +437,14 @@ class MambaBlock(nn.Module):
             mamba_inner_ref(), https://github.com/state-spaces/mamba/blob/main/mamba_ssm/ops/selective_scan_interface.py#L311
             
         """
-        (d_in, n) = self.A_log.shape
+        A = self.decay_matrix()
+        (d_in, n) = A.shape
 
         # Compute ∆ A B C D, the state space parameters.
         #     A, D are input independent (see Mamba paper [1] Section 3.5.2 "Interpretation of A" for why A isn't selective)
         #     ∆, B, C are input-dependent (this is a key difference between Mamba and the linear time invariant S4,
         #                                  and is why Mamba is called **selective** state spaces)
         
-        A = -torch.exp(self.A_log.float())  # shape (d_in, n)
         D = self.D.float()
 
         x_dbl = self.x_proj(x)  # (b, l, dt_rank + 2*n)
@@ -337,12 +457,15 @@ class MambaBlock(nn.Module):
                 scale = scale.unsqueeze(-1)
             delta = delta * scale
         
-        y = self.selective_scan(x, delta, A, B, C, D)  # This is similar to run_SSM(A, B, C, u) in The Annotated S4 [2]
+        slow_gate = self.slow_update_gate(x)
+        if slow_gate is not None and self.capture_slow_gate:
+            self.captured_slow_gate = slow_gate.detach()
+        y = self.selective_scan(x, delta, A, B, C, D, slow_gate)  # This is similar to run_SSM(A, B, C, u) in The Annotated S4 [2]
         
         return y
 
     
-    def selective_scan(self, u, delta, A, B, C, D):
+    def selective_scan(self, u, delta, A, B, C, D, slow_gate=None):
         """Does selective scan algorithm. See:
             - Section 2 State Space Models in the Mamba paper [1]
             - Algorithm 2 in Section 3.2 in the Mamba paper [1]
@@ -392,11 +515,42 @@ class MambaBlock(nn.Module):
         # Note that the below is sequential, while the official implementation does a much faster parallel scan that
         # is additionally hardware-aware (like FlashAttention).
         x = torch.zeros((b, d_in, n), device=deltaA.device)
-        ys = []    
+        ys = []
+        erase_gates = []
+        write_gates = []
+        decoupled = self.args.slow_gate_mode.startswith('decoupled')
+        if decoupled and self.event_ids_by_position is None:
+            raise RuntimeError("decoupled slow gates require event_ids_by_position")
         for i in range(l):
-            x = deltaA[:, i] * x + deltaB_u[:, i]
-            y = einsum(x, C[:, i, :], 'b d_in n, b n -> b d_in')
+            candidate = deltaA[:, i] * x + deltaB_u[:, i]
+            if decoupled:
+                fast = candidate[:, :, :4]
+                erase_gate, write_gate = self.decoupled_slow_gates(
+                    u[:, i], fast, self.event_ids_by_position[:, i]
+                )
+                slow = (
+                    (1.0 - erase_gate.unsqueeze(-1)) * x[:, :, 4:]
+                    + write_gate.unsqueeze(-1) * deltaB_u[:, i, :, 4:]
+                )
+                x = torch.cat((fast, slow), dim=-1)
+                erase_gates.append(erase_gate)
+                write_gates.append(write_gate)
+            elif slow_gate is None:
+                x = candidate
+            else:
+                gate = slow_gate[:, i].unsqueeze(-1)
+                fast = candidate[:, :, :4]
+                slow = (1.0 - gate) * x[:, :, 4:] + gate * candidate[:, :, 4:]
+                x = torch.cat((fast, slow), dim=-1)
+            readout_state = x
+            if self.readout_mode_mask is not None:
+                mask = self.readout_mode_mask.to(device=x.device, dtype=x.dtype).view(1, 1, n)
+                readout_state = x * mask
+            y = einsum(readout_state, C[:, i, :], 'b d_in n, b n -> b d_in')
             ys.append(y)
+        if decoupled and self.capture_decoupled_gates:
+            self.captured_erase_gate = torch.stack(erase_gates, dim=1).detach()
+            self.captured_write_gate = torch.stack(write_gates, dim=1).detach()
         y = torch.stack(ys, dim=1)  # shape (b, l, d_in)
         
         y = y + u * D

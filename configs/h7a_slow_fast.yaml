@@ -1,0 +1,12 @@
+inherits: baseline.yaml
+name: h7a_slow_fast
+model:
+  variant: fast_slow
+  # Baseline validation audit: mean NOOP delta=0.345. A slow-rate cap
+  # of 0.004 implies worst-case mean survival exp(-0.345*0.004*511)=0.494;
+  # initialized slow rates span 0.0008..0.0032. This was fixed before
+  # any long-horizon M1 evaluation.
+  fast_min_rate: 1.0
+  slow_max_rate: 0.004
+training:
+  max_updates: 1500

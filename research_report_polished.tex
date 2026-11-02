@@ -1,5 +1,5 @@
 \documentclass[10pt,a4paper]{article}
-\usepackage[margin=0.70in,top=0.66in,bottom=0.68in]{geometry}
+\usepackage[margin=0.62in,top=0.58in,bottom=0.60in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern,microtype}
@@ -21,7 +21,7 @@
 \titlespacing*{\section}{0pt}{0.65em}{0.25em}
 \titlespacing*{\subsection}{0pt}{0.45em}{0.15em}
 \setlength{\parindent}{0pt}
-\setlength{\parskip}{0.22em}
+\setlength{\parskip}{0.16em}
 \setlist[itemize]{leftmargin=1.3em,itemsep=0pt,topsep=1pt}
 \setlist[enumerate]{leftmargin=1.4em,itemsep=0pt,topsep=1pt}
 \captionsetup{skip=3pt}
@@ -51,13 +51,22 @@
 \begin{document}
 \maketitle
 \vspace{-1.45em}
+\fontsize{9.4pt}{10.9pt}\selectfont
 
 \begin{abstract}\small
-We investigate how a compact one-layer Mamba preserves, overwrites, and retrieves eight logical key--value registers. The trained baseline reaches 69.64\% over all queries in length-512 sequences, yet controlled balanced retrieval falls from 84.38\% at delay 10 to chance at delay 500. Unrelated-key SET events are more damaging than matched NOOP or QUERY controls. We therefore test key-conditioned write routing against a parameter-matched tied-row ablation. Their nearly identical accuracy and routing geometry falsify key selectivity as the source of the small observed gains. Mechanistic follow-ups instead identify accumulated passive transitions as the primary bottleneck: after the width-four convolution has washed out, forcing later NOOP recurrence to identity restores about 97\% accuracy through delay 128. Under altered decay, a separately trained long-horizon linear readout can recover information that the original short-trained classifier cannot, exposing a secondary readout-distribution mismatch. A gate-free adaptive-kernel study reaches the best aggregate stress accuracy but remains near chance on the 511-step final-gap probe and loses both controlled probes to its parameter-matched static mixture. The evidence supports co-designing retention and horizon-stable retrieval rather than adding local mixing or write-routing capacity alone.
+We study whether a compact selective state-space model can maintain eight logical key--value registers when evaluation sequences are four times longer than those used for training. The one-layer Mamba baseline reaches 69.64\% aggregate query accuracy at length 512, but this headline number hides a severe dependency-length failure: balanced retrieval falls from 84.38\% after 10 passive steps to chance after 500. Unrelated-key SET events are more damaging than matched NOOP and QUERY controls, motivating a key-conditioned write router. A parameter-matched tied-row ablation performs essentially identically, and the learned routing rows remain nearly collinear, falsifying key selectivity as the explanation for the small gain. Mechanistic interventions instead implicate recurrent retention. After allowing the width-four convolution to complete its three-step response, forcing later NOOP recurrence to identity restores approximately 97\% accuracy through delay 128. Under modified decay, value information can remain linearly decodable even when the original short-horizon classifier is near chance, revealing a secondary readout-distribution mismatch. A supplementary adaptive-kernel model improves aggregate accuracy but not the controlled final-gap probe. Collectively, the results identify accumulated passive-state evolution as the best-supported primary bottleneck and motivate joint design of retention and horizon-robust readout.
 \end{abstract}
 
-\section{Architecture and Task}
-\begin{table}[H]
+\section{Introduction}
+Selective state-space models combine structured recurrent dynamics with input-dependent selection \cite{s4,mamba}. The task here appears simple at the symbolic level: \SET{} replaces the value associated with one of eight keys, \QUERY{} requests the most recent value, and \NOOP{} leaves the correct dictionary unchanged. It is nevertheless a useful stress test because success requires three behaviors that need not coincide in a learned continuous state: preserve an assignment through long passive intervals, overwrite it quickly when the same key changes, and update other keys without corrupting it. The central research question is therefore not only whether accuracy decreases at length 512, but \emph{which operation fails and why}.
+
+Our investigation follows a sequence of discriminating experiments. We first reproduce the assignment baseline and separate aggregate sequence-length accuracy from controlled SET-to-QUERY delay. We then introduce unrelated SET and QUERY distractors to distinguish cross-key writes from generic active-token processing. The resulting interference motivates the required Part B architecture, key-conditioned write routing, together with a parameter-matched control that removes key selectivity while retaining capacity. When this proposal fails its mechanism-specific comparison, we move inward: frozen interventions isolate recurrent decay from incoming writes, a convolution-aware identity intervention tests whether passive state evolution is causal, and independent linear probes localize how much value information remains accessible along the readout path. Finally, a supplementary adaptive-kernel experiment tests whether better control of short-range convolutional context addresses the same failure. At each stage we distinguish measured behavior, interpretation, and the evidence that would have falsified the claim.
+
+\paragraph{Contributions.} The study provides (i) a reproducible compact-Mamba baseline on the mandated fixed splits; (ii) multi-seed evidence for long-delay degradation and cross-key interference; (iii) a controlled negative result for key-conditioned routing; (iv) causal evidence that late passive transitions, rather than raw hidden-state movement alone, drive much of the observed forgetting; and (v) a readout analysis showing that preservation and retrieval can become misaligned under altered dynamics.
+
+\section{Task and Model}
+Each input timestep is one of 41 logical tokens: one \NOOP, 32 key--value-specific \SET{} tokens, or eight key-specific \QUERY{} tokens. The target vocabulary is \(\{\UNSET,1,2,3,4\}\). Targets at SET and NOOP positions are masked with \texttt{-100}; consequently, the cross-entropy objective and all reported task accuracies use QUERY positions only. The answer is never included in the input. A deterministic dictionary simulator supplies both the labels and a 100\% exact oracle, while the Always-UNSET predictor provides a length-dependent constant baseline.
+\begin{table}[!htbp]
 \centering\small
 \caption{Task and implementation invariants.}
 \begin{tabularx}{\linewidth}{p{0.20\linewidth}p{0.27\linewidth}Y}
@@ -70,7 +79,7 @@ Backbone & 1 layer, \(d_{\rm model}=32\), \(d_{\rm state}=8\), expand 2 & Compac
 Local mixing & Causal depthwise convolution, width 4 & A SET response can continue for three later steps \\
 SSM memory & \(64\times8=512\) recurrent coordinates & All eight logical keys share one recurrent state \\
 Objective & Query-only CE; non-queries masked with \texttt{-100} & Prevents non-query supervision and target leakage \\
-Verification & 33 automated tests, all passing & Oracle, overwrite, UNSET, masking, gradients, and causality \\
+Verification & 34 automated tests, all passing & Oracle, overwrite, UNSET, masking, gradients, and causality \\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -80,29 +89,19 @@ For convolution-processed input \(u_t\), the readable selective scan is
 h_t &= \exp(\Delta_tA)\odot h_{t-1}+\Delta_tB_tu_t,\\
 r_t &= C_th_t+D\odot u_t, \qquad A=-\exp(A_{\log})<0.
 \end{align}
+The event ID is embedded into 32 dimensions, projected to the 64-dimensional inner width, and passed through the causal depthwise convolution and SiLU nonlinearity to obtain \(u_t\). The input-dependent step size \(\Delta_t\) controls how strongly the state both decays and changes; \(B_t\) determines how the current event is written into the eight state modes; and \(C_t\) contracts those modes back into a per-channel output. The direct \(D\odot u_t\) path, output gate, projection, residual connection, and final normalization produce a 32-dimensional feature that is classified by \(\mathrm{Linear}(32,5)\). Because all eight logical keys share these recurrent coordinates and projections, good overwrite behavior does not guarantee either long retention or isolation from unrelated updates.
+
+The implementation preserves four invariants from the upstream model: strictly causal convolution, left-to-right selective scan, the fixed assignment dimensions, and query-only supervision. Changes are injected through optional per-position write or decay multipliers inside the readable scan; when absent, the baseline path is numerically unchanged. Tests cover token/target construction, oracle overwrite semantics, UNSET queries, masking, tensor shape, finite gradients, causality, checkpoint continuation, and the interfaces introduced by the experimental variants.
 \begin{center}
 \small\fbox{\parbox{0.92\linewidth}{\textbf{Mechanistic decomposition:} repeated \(\exp(\Delta_tA)\) controls retention; \(\Delta_tB_tu_t\) introduces new writes; \(C_th_t+D\odot u_t\) determines what is exposed to the downstream classifier.}}
 \end{center}
 
 \section{Hypotheses and Protocol}
-\begin{table}[H]
-\centering\small
-\caption{Predeclared claims, discriminating tests, and decision rules.}
-\begin{tabularx}{\linewidth}{p{0.12\linewidth}Y Y p{0.20\linewidth}}
-\toprule
-Claim & Experimental contrast & Falsification rule & Outcome \\
-\midrule
-H1: retention & Fixed assignment; increasing NOOP delay & Long delay is not worse than short delay & \cellcolor{softgreen}\textbf{Supported} \\
-H2: interference & Unrelated SET vs matched NOOP/QUERY & SET effect absent above chance floor & \cellcolor{softgreen}\textbf{Supported} \\
-Part B mechanism & Key routing vs parameter-matched tied routing & Gain below 2 pp under dense interference & \cellcolor{softred}\textbf{Falsified} \\
-H4 follow-up & Normal NOOP vs causal identity intervention & No accuracy rescue after conv washout & \cellcolor{softgreen}\textbf{Supported} \\
-H5 diagnostic & Original vs matched long-horizon linear head & Retrained head cannot recover accuracy & \cellcolor{softamber}\textbf{Conditional support} \\
-Adaptive kernel & Token-conditioned vs static width mixture & No controlled-probe advantage over static mixing & \cellcolor{softred}\textbf{Not supported} \\
-\bottomrule
-\end{tabularx}
-\end{table}
+The experimental design deliberately moves from behavior to mechanism. H1 removes overwrites and cross-key writes, leaving only elapsed passive transitions. H2 fixes elapsed delay and changes the type and density of intervening activity. Part B then tests whether key-specific control of the input-write term addresses H2. The later interventions are diagnostic perturbations of frozen models, not proposed benchmark replacements; their purpose is to decide which term deserves a trained architectural follow-up.
+The predeclared decision rules are deliberately mechanism-specific. H1 is falsified if balanced long-delay retrieval does not decline; H2 if unrelated SETs are not worse than matched controls above the chance floor; key routing if it fails to exceed the tied control by 2 points; H4 if a convolution-aware identity intervention does not rescue retrieval; H5 if a matched long-horizon readout cannot exploit the modified features; and adaptive convolution if token conditioning does not beat the static mixture on controlled probes.
 
-\begin{table}[H]
+\addtocounter{table}{1}% preserve numbering of the full hypothesis table in the detailed record
+\begin{table}[!htbp]
 \centering\small
 \caption{Matched training and evaluation protocol.}
 \begin{tabularx}{\linewidth}{p{0.23\linewidth}Y p{0.28\linewidth}}
@@ -119,8 +118,12 @@ Uncertainty & Paired/hierarchical bootstrap where paired & Seed-level H1 interva
 \end{tabularx}
 \end{table}
 
+All architecture comparisons use identical generated training data, data order, optimizer settings, and update counts. The initial 300-update baseline follows the requested starting budget but remains near the trivial baselines, so it is extended to 1,500 updates; this deviation is disclosed rather than selecting a favorable stress result. Fixed test labels are never used for checkpoint selection. H1 intervals summarize variation over three independently trained models. H2 and the causal NOOP experiment use five models. Paired bootstrap intervals reuse the same examples across contrasted conditions, while architecture results based only on seed 42 are interpreted using a predeclared two-percentage-point practical threshold rather than sub-point rankings.
+
 \section{Baseline Results and Failure Diagnosis}
-\begin{table}[H]
+\subsection{Aggregate learning and length generalization}
+Table 4 reports accuracy over \emph{every} QUERY in each fixed split. This is appropriate for the assignment-wide benchmark, but it weights the many short and moderate dependencies much more heavily than the single designed final probe in each stress sequence. The controlled analyses below therefore report both aggregate accuracy and final-query behavior.
+\begin{table}[!htbp]
 \centering\small
 \caption{All-query accuracy (\%) on the fixed assignment splits. The exact dictionary oracle is 100\% on every split.}
 \begin{tabular}{lrrrr}
@@ -136,7 +139,12 @@ Overwrite stress & 512 & 8.86 & \textbf{69.67} & 4.28\\
 \end{tabular}
 \end{table}
 
-\begin{table}[H]
+The 300-update model has not yet learned robust state tracking: at ID-128 it reaches 25.67\%, only 2.39 points above Always UNSET, and its stress accuracy is below 9\%. Extending the same configuration to 1,500 updates raises ID-128 accuracy to 75.05\% and retains 69.64\% at OOD-512. The modest 5.41-point drop from ID-128 to OOD-512 suggests useful length generalization in aggregate. It does \emph{not}, however, establish 512-step memory: ordinary long sequences contain many recent SETs, so a model can answer most queries without preserving a value across the full sequence.
+
+\subsection{H1: isolating passive retention}
+For each model seed and delay, the H1 probe balances all \(8\times4\) key--value combinations. A 32-token randomized burn-in is followed by one SET of the tracked key, exactly \(d\) NOOPs, and a final QUERY of that key. No overwrite or unrelated update occurs between SET and QUERY. Thus, changing \(d\) changes only the number of passive recurrent transitions.
+
+\begin{table}[!htbp]
 \centering\small
 \caption{H1 balanced retrieval by SET-to-QUERY delay (mean across seeds 42--44).}
 \resizebox{\linewidth}{!}{%
@@ -150,16 +158,19 @@ Drop from delay 10 (pp) & 0 & 19.80 & 38.55 & 56.25 & 60.42 & 59.38 \\
 \end{tabular}
 }
 \end{table}
-The delay-10 to delay-128 drop is 56.25 pp (95\% seed-level CI 40.72--71.78); delay 500 reaches four-value chance even though aggregate OOD-512 accuracy is 69.64\%.
+The delay-10 to delay-128 drop is 56.25 pp (95\% seed-level CI 40.72--71.78); delay 500 reaches four-value chance even though aggregate OOD-512 accuracy is 69.64\%. H1 is therefore supported: the model's strong aggregate score is compatible with catastrophic failure on a dependency that actually spans the evaluation sequence. The wide early confidence intervals reflect only three training seeds, but all seeds approach chance at the longest delay.
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.78\linewidth]{overleaf_report/figures/retention_by_delay.png}
 \caption{Balanced retrieval degrades with intervening NOOPs across three training seeds. Error bars are seed-level 95\% intervals; wide early intervals reflect \(n=3\), while the approach to chance is consistent across seeds.}
 \label{fig:h1}
 \end{figure}
 
-\begin{table}[H]
+\subsection{H2: separating writes from generic activity}
+H2 keeps the tracked SET-to-QUERY delay fixed and replaces a nested fraction of the intervening NOOP positions with events involving the other seven keys. The SET condition changes an unrelated key--value association; the QUERY condition uses the same positions and key identities but performs no logical write. Each condition contains 1,024 examples per model, balanced over tracked keys and values, and the same base example is reused across conditions. This pairing makes SET-minus-NOOP a total active-write effect and SET-minus-QUERY a more specific estimate of the additional cost of writing.
+
+\begin{table}[!htbp]
 \centering\small
 \caption{H2 at 100\% distractor density (five seeds; accuracy in \%).}
 \begin{tabular}{lrrrr}
@@ -174,23 +185,18 @@ SET minus QUERY (pp) & -13.85 & -28.98 & -5.98 & +0.98 \\
 \bottomrule
 \end{tabular}
 \end{table}
-The active-token QUERY control rules out a generic ``non-NOOP activity'' explanation at usable accuracies; delay 128 is floor-limited.
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.72\linewidth]{overleaf_report/figures/cross_key_interference.png}
-\caption{Five-seed cross-key effects at 100\% distractor density. Negative values mean unrelated SETs are worse than the matched control. The dashed line marks the predeclared -2-point practical margin.}
-\label{fig:h2}
-\end{figure}
+At delays 10--64, unrelated SETs are materially worse than matched QUERYs, so cross-key writing contributes beyond generic active-token processing. At delay 32, for example, SET-minus-NOOP is \(-50.49\) points (95\% hierarchical-bootstrap CI \([-53.91,-46.93]\)) and SET-minus-QUERY is \(-28.98\) points (\([-37.97,-19.61]\)). The QUERY control also degrades strongly at delays 32 and 64, showing that the failure is not purely write collision. Delay 128 is floor-limited: the NOOP control is already near four-value chance, leaving little dynamic range for a mechanism-specific contrast. H2 is supported over the usable operating range, while the floor-limited comparison is treated as inconclusive rather than contradictory.
 
 \section{Part B: Key-Conditioned Write Routing}
+The H2 result suggests a natural architectural hypothesis: unrelated keys may interfere because their SET events write through overlapping inner channels. A key-conditioned router could encourage different logical keys to use different channel patterns. This is intentionally a narrow modification of the input-write pathway; it does not alter the state matrix, recurrent decay, convolution, query readout, or output head.
+
 The proposed model learns \(R\in\mathbb R^{8\times64}\). A SET to key \(k\) uses \(g_k=\sigma(R_k)\) to gate only the input-write term:
 \begin{equation}
 h_t=\exp(\Delta_tA)\odot h_{t-1}+g_k\odot(\Delta_tB_tu_t).
 \end{equation}
-This adds 512 parameters (10,661 total, +5.0\%). Non-SET writes are unchanged. The tied-row ablation keeps the same parameter table but averages rows during computation, eliminating key selectivity while retaining capacity. Both initialize to gate value 0.95.
+This adds 512 parameters (10,661 total, +5.0\%). Non-SET writes are unchanged. The decisive ablation retains the same \(8\times64\) parameter tensor and routing computation but averages its rows before use. It therefore matches parameter count and optimization opportunity while removing the only proposed mechanism---dependence on key identity. Both routed models initialize to gate value 0.95 and are trained for 1,500 updates on the same seed-42 examples and data order as the baseline. The hypothesis is falsified if key-conditioned routing fails to beat this tied control by the predeclared 2-point margin under dense cross-key interference.
 
-\begin{table}[H]
+\begin{table}[!htbp]
 \centering\small
 \caption{Matched 1,500-update models: all-query accuracy (\%).}
 \begin{tabular}{lrrrrr}
@@ -204,7 +210,9 @@ Tied routing & 75.50 & 71.42 & 69.75 & 69.96 & 69.50\\
 \end{tabular}
 \end{table}
 
-\begin{table}[H]
+The routed models are slightly above baseline on four aggregate splits, but the key-conditioned and tied variants differ by at most 0.12 points. Since the tied model cannot isolate keys, these aggregate gains can be explained by additional global write rescaling or optimization capacity. The mechanism-specific dense-interference contrast provides the stronger test.
+
+\begin{table}[!htbp]
 \centering\small
 \caption{Mechanism-specific routing evidence.}
 \begin{tabularx}{\linewidth}{Y C C C C}
@@ -228,14 +236,9 @@ Interpretation & \multicolumn{3}{l}{Near-global write rescaling; no meaningful k
 \end{tabularx}
 \end{table}
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.70\linewidth]{overleaf_report/figures/routing_ablation_effect.png}
-\caption{Mechanism-specific Part B contrast. Confidence intervals remain centered close to zero: key selectivity does not reliably outperform the parameter-matched tied router.}
-\label{fig:partb}
-\end{figure}
+The router geometry explains the behavioral tie. A mean gate of 0.946 leaves the baseline write almost unchanged; pairwise cosine 0.99958 and normalized row distance 0.0286 show that the eight rows learned nearly the same direction and magnitude. Cosine similarity alone would not establish equal magnitude, which is why normalized distance and across-key variance were also inspected. Together these diagnostics indicate near-global write scaling rather than a key-partitioned memory.
 
-\begin{table}[H]
+\begin{table}[!htbp]
 \centering\small
 \caption{Final overwrite probe and stale-value errors. Each overwrite-count cell has 125 probes.}
 \begin{tabular}{lrrrrr}
@@ -248,12 +251,21 @@ Tied routing & \textbf{90.4} & 87.2 & 80.8 & \textbf{92.0} & 8.8 \\
 \bottomrule
 \end{tabular}
 \end{table}
+Each overwrite probe contains an initial assignment followed by 1, 2, 4, or 8 later assignments to the same focus key; consecutive values differ and the final QUERY asks for the newest value. A stale error is narrower than an ordinary error: it occurs only when the prediction equals a previously valid but now obsolete value. Key routing neither improves the overwrite-count curve nor lowers stale-value error, so there is no evidence that its small aggregate gain comes from cleaner replacement of old associations.
 \begin{center}
 \small\colorbox{softred}{\parbox{0.93\linewidth}{\textbf{Part B verdict: falsified.} Key-conditioned routing never clears the 2-pp criterion, is matched or exceeded by the tied control, and does not reduce obsolete-value errors.}}
 \end{center}
 
 \section{Mechanistic Follow-up}
-\begin{table}[H]
+\subsection{Which transition term causes interference?}
+Before introducing a second architecture, we perturb the five frozen baselines at unrelated-SET positions. One intervention suppresses only the recurrent input write \(\Delta_tB_tu_t\), retaining the learned decay and output paths; the other suppresses only attenuation by setting the recurrent retention factor to one while retaining the write. This is a diagnostic of a trained system, not a valid replacement model, because either perturbation changes the hidden-state distribution.
+
+Suppressing unrelated writes does not rescue retrieval and is often strongly harmful (for example, \(-54.65\) points at delay 10 and 100\% density). In contrast, suppressing attenuation improves several intermediate-delay conditions: at 50\% density the effects are \(+12.75\), \(+15.37\), and \(+5.88\) points at delays 32, 64, and 128. The non-monotonic extremes prevent a universal claim, but the discriminating result is clear: simply blocking incoming writes fails, whereas protecting existing state can help. This redirects the investigation from write overlap toward passive and shared decay.
+
+\subsection{H4: is NOOP effectively an identity transition?}
+NOOP is logically passive, but the neural transition need not be. We first measure relative recurrent-state displacement, cumulative path length, and net displacement during repeated NOOPs. Nonzero movement alone is not evidence of failure: a representation may rotate or rescale while remaining decodable. The causal test therefore replaces selected NOOP recurrent transitions by exact identity transitions and measures whether retrieval is restored.
+
+\begin{table}[!htbp]
 \centering\small
 \caption{H4 causal NOOP intervention across five seeds (accuracy in \%).}
 \begin{tabular}{lrrrrp{0.24\linewidth}}
@@ -266,16 +278,25 @@ Identity after 3-step washout & \cellcolor{softgreen}96.84 & \cellcolor{softgree
 \bottomrule
 \end{tabular}
 \end{table}
-The post-washout intervention is the largest causal rescue observed. It diagnoses transition dynamics but is an oracle, out-of-distribution perturbation rather than a replacement model.
+An immediate identity intervention collapses performance because the width-four convolution continues presenting the SET response during the next three timesteps; freezing those transitions truncates the write itself. Allowing exactly \(d_{\rm conv}-1=3\) washout steps resolves this confound. The post-washout intervention is then the largest causal rescue observed, improving delay-128 accuracy by 67.29 points and holding retrieval near 97\% at every tested delay. Natural within-delay drift magnitude does not positively predict error, so the conclusion is not ``all state movement is bad.'' Rather, continued late recurrent evolution after the convolutional write has settled is causally harmful. The intervention remains an oracle, out-of-distribution diagnostic rather than a replacement model.
 
-\begin{figure}[H]
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.82\linewidth]{overleaf_report/figures/noop_identity_diagnostic.png}
 \caption{NOOP identity diagnostic. Immediate freezing removes necessary convolutional settling (orange/purple), while freezing only after three washout steps preserves near-97\% retrieval (green). Raw drift alone is not sufficient evidence; the controlled intervention is the discriminating result.}
 \label{fig:h4}
 \end{figure}
 
-\begin{table}[H]
+\subsection{H5: retention versus readout accessibility}
+The H4 rescue motivates a finer question: if attenuation is reduced, does the original classifier use the preserved information? We multiply recurrent decay during the 511-step NOOP interval by \(\alpha\), where \(\alpha=1\) is the trained dynamics, \(\alpha=0.1\) slows attenuation, and \(\alpha=0\) removes it while leaving the input-write and output pathways active. The backbone is frozen. Independent five-class linear probes are trained on disjoint long-horizon training sequences and evaluated on a held-out set at three internal locations:
+\begin{itemize}
+\item P1 receives the flattened \(64\times8\) recurrent state plus an 8D queried-key one-hot, because the state simultaneously contains all keys;
+\item P2 receives the 64D SSM contraction \(C_th_t\), which tests what the learned query-conditioned state readout exposes;
+\item P3 receives the final normalized 32D backbone feature; P4 is the original jointly trained \(\mathrm{Linear}(32,5)\) task head on that same feature.
+\end{itemize}
+P2 and P3 need no explicit key vector because they are sampled at the QUERY timestep, after the current query has conditioned convolution, \(C_t\), gating, and projection. Probes are trained separately so they diagnose accessibility at each location without changing the backbone or one another.
+
+\begin{table}[!htbp]
 \centering\small
 \caption{H5 readout localization on a 511-step gap (accuracy in \%).}
 \begin{tabular}{lrrrr}
@@ -288,21 +309,8 @@ Decay multiplier & State + key probe & \(C_th_t\) probe & Final-feature probe & 
 \bottomrule
 \end{tabular}
 \end{table}
-\begin{table}[H]
-\centering\small
-\caption{What the H5 controls do and do not establish.}
-\begin{tabularx}{\linewidth}{p{0.28\linewidth}Y p{0.22\linewidth}}
-\toprule
-Observation & Supported interpretation & Caveat \\
-\midrule
-P3 99.6\% vs original 25.8\% at \(\alpha=0\) & Same 32D feature supports a different linear boundary & Probe sees labeled length-511 data \\
-Fresh short-only head stays near chance & Gain is not initialization or optimizer alone & Frozen-backbone diagnostic \\
-P3 only 39.5\% at \(\alpha=1\) & Readout adaptation alone cannot repair natural recurrence & Linear accessibility, not total information \\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-\begin{figure}[H]
+At reduced decay, P3 is almost perfectly linearly separable while the original head remains near chance. Because both consume the same 32D feature, the difference is a decision-boundary mismatch, not missing classifier capacity. A fresh head trained only on ordinary length-32--128 frozen features also remains near chance at 511 steps, ruling out initialization or separate optimization as the explanation. Under natural decay, however, even P3 reaches only 39.5\%; readout retraining alone cannot repair information that the recurrence no longer exposes. H5 is therefore supported conditionally under altered retention, while natural long-horizon failure remains primarily a retention problem.
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.95\linewidth]{overleaf_report/figures/readout_decodability.png}
 \caption{Held-out probe accuracy along the readout path versus decay multiplier. Under reduced decay, the final feature is highly decodable by a matched long-horizon probe while the original head remains near chance; under natural decay (\(\alpha=1\)), accessibility is much lower throughout.}
@@ -310,9 +318,12 @@ P3 only 39.5\% at \(\alpha=1\) & Readout adaptation alone cannot repair natural 
 \end{figure}
 
 \section{Supplementary Adaptive-Kernel Diagnostic}
-The adaptive causal kernel uses one width-eight depthwise kernel and mixes nested causal masks for effective widths \(\{1,2,4,8\}\). The adaptive router predicts mixture weights from the current token-side representation; the parameter-matched static ablation learns one sequence-independent mixture. All models use the original Mamba recurrence with \emph{no event-conditioned retention gate} and were trained from scratch for 1,500 updates on lengths 32--128. Original Mamba is the fixed-width-four control; width eight changes only the fixed convolution. Because the router does not observe recurrent state directly, this experiment tests token-conditioned local context, not explicit overwrite detection.
+The convolution-aware H4 result shows that local processing and recurrent retention interact: the first three apparent NOOPs still carry the width-four response to a preceding SET. We therefore ask whether the model benefits from choosing its effective local history by event context. This experiment is supplementary and deliberately separate from the Part B routing claim.
 
-\begin{table}[H]
+The adaptive causal kernel uses one width-eight depthwise kernel and mixes nested causal masks for effective widths \(\{1,2,4,8\}\). The adaptive router predicts mixture weights from the current token-side representation; the parameter-matched static ablation learns one sequence-independent mixture using the same kernel and parameter budget. A fixed-width-eight model separates the effect of receptive-field size from mixture learning. All models retain the original Mamba recurrence with \emph{no event-conditioned retention gate} and are trained from scratch for 1,500 updates on lengths 32--128. Because the router does not observe recurrent state directly, this test concerns token-conditioned local context, not explicit detection of whether a stored association is obsolete.
+
+\addtocounter{table}{1}% preserve numbering of the full H5-controls table in the detailed record
+\begin{table}[!htbp]
 \centering\small
 \caption{Adaptive-kernel architecture controls and assignment-defined stress results (seed 42, accuracy in \%).}
 \resizebox{\linewidth}{!}{%
@@ -329,7 +340,16 @@ Adaptive mixture & 10,729 & \cellcolor{softgreen}78.95 & \cellcolor{softgreen}73
 }
 \end{table}
 
-\begin{table}[H]
+The distinction between the last three metrics is essential. OOD-512 uses ordinary random length-512 sequences. Gap-512 and Overwrite-512 use the assignment stress generators but still average over \emph{all} queries, most of which have short or moderate dependencies. Final-gap probe scores only the deliberately constructed last QUERY whose focus-key assignment spans approximately 511 steps. The adaptive model therefore improves aggregate stress accuracy without solving the extreme dependency: 73.58\% Gap-512 coexists with only 23.2\% on the final-gap probe.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=0.98\linewidth]{overleaf_report/figures/adaptive_assignment_stress.png}
+\caption{Assignment-defined length-512 stress tests and controlled final-query probes for the original width-four model, fixed width eight, static mixture, and adaptive mixture. Aggregate stress accuracy improves with the larger-kernel variants, but every model remains near chance on the deliberately constructed final-gap query.}
+\label{fig:adaptive-stress}
+\end{figure}
+
+\begin{table}[!htbp]
 \centering\small
 \caption{Controlled final-query probes and paired adaptive-kernel contrasts.}
 \begin{tabularx}{\linewidth}{p{0.29\linewidth}rrrY}
@@ -343,31 +363,29 @@ Final overwrite: adaptive vs original & 87.4 & 92.4 & +5.0 & $[1.2,8.8]$; capaci
 \end{tabularx}
 \end{table}
 
-\begin{figure}[H]
+The adaptive-versus-static rows are the mechanism test. Their paired intervals include zero on both controlled probes, and the point estimates favor static mixing. Adaptive exceeds original Mamba on final overwrite, but the static control shows that wider/local mixing capacity, rather than input-dependent selection, is the conservative explanation. The router itself selects expected widths 7.99, 6.16, and 7.55 for NOOP, SET, and QUERY events, so it does learn event dependence; that dependence simply does not yield the predicted controlled advantage.
+
+\begin{figure}[!htbp]
 \centering
 \includegraphics[width=0.98\linewidth]{overleaf_report/figures/adaptive_kernel_comparison.png}
-\caption{Gate-free matched overwrite diagnostic. The adaptive router selects wide contexts (expected widths 7.99/6.16/7.55 for NOOP/SET/QUERY), but the static mixture has higher overwrite accuracy at every tested post-delay. Input-dependent routing therefore does not explain the local-mixing gain.}
-\label{fig:adaptive-overwrite}
+\caption{Direct static-versus-adaptive kernel diagnostic. The left and center panels measure correct-new-value accuracy and stale-value errors after an overwrite; the right panel confirms that the adaptive router selects event-dependent effective widths. Despite learning different widths for NOOP, SET, and QUERY, adaptive mixing does not consistently outperform the parameter-matched static mixture.}
+\label{fig:adaptive-kernel}
 \end{figure}
 
-\begin{figure}[H]
+Training cost was measured for the complete 1,500-update runs on the same GTX 1650. Original Mamba, fixed width eight, static mixture, and adaptive mixture required 449.6, 524.2, 656.6, and 1,096.4 seconds, respectively. Recorded peak GPU allocations were 50.7, 50.7, 54.3, and 54.8 MiB. Adaptive mixing is therefore 2.44$\times$ slower than original and 1.67$\times$ slower than its parameter-matched static control, while adding only 0.5 MiB over that control; compute time, not memory, is the main engineering cost.
+
+\begin{figure}[!htbp]
 \centering
-\includegraphics[width=0.98\linewidth]{overleaf_report/figures/adaptive_assignment_stress.png}
-\caption{Assignment-defined stress evaluation. Adaptive mixing has the highest aggregate all-query accuracy, but the controlled final-gap probe remains at 23.2\% (near 25\% four-value chance), and static mixing is slightly better on both designed final probes.}
-\label{fig:adaptive-stress}
+\includegraphics[width=0.82\linewidth]{overleaf_report/figures/kernel_resource_tradeoff.png}
+\caption{Measured training time and recorded peak GPU allocation for the gate-free kernel experiment. Adaptive mixing has only a modest memory premium over static mixing, but a substantial runtime premium.}
+\label{fig:kernel-resources}
 \end{figure}
 
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.78\linewidth]{overleaf_report/figures/kernel_resource_tradeoff.png}
-\caption{Measured training cost for 1,500 updates on the same GTX 1650. Adaptive mixing takes 1,096.4 s (2.44$\times$ the original) and peaks at 54.8 MiB, versus 656.6 s and 54.3 MiB for the parameter-matched static mixture. The main engineering penalty is compute time rather than memory.}
-\label{fig:adaptive-resources}
-\end{figure}
-
-\small\colorbox{softamber}{\parbox{0.93\linewidth}{\textbf{Supplementary verdict:} token-conditioned convolution is not supported over parameter-matched static mixing. Although adaptive mixing improves aggregate stress accuracy, it is 1.2 pp worse on the final-gap probe and 1.0 pp worse on the final-overwrite probe; both paired intervals include zero. The extreme gap remains near chance. These gate-free seed-42 results isolate local mixing but remain supplementary to the mandatory width-four baseline and Part B comparison.}}
+\small\colorbox{softamber}{\parbox{0.93\linewidth}{\textbf{Supplementary verdict:} token-conditioned convolution is not supported over matched static mixing: adaptive is 1.2 pp worse on final gap and 1.0 pp worse on final overwrite, both intervals include zero, and extreme retention remains near chance.}}
 
 \section{Failure Analysis, Limitations, and Next Step}
-\begin{table}[H]
+The experiments eliminate several attractive explanations. Aggregate length generalization is not long-horizon memory; suppressing writes does not repair interference; routed capacity does not imply key isolation; and adaptive local context does not solve a 511-step dependency. The evidence instead supports primary recurrent-retention failure plus secondary readout misalignment: passive transitions attenuate and reorganize state, and altered retention can move the final feature outside the short-trained decision geometry.
+\begin{table}[!htbp]
 \centering\small
 \caption{Evidence-weighted failure map.}
 \begin{tabularx}{\linewidth}{p{0.22\linewidth}Y Y p{0.14\linewidth}}
@@ -383,46 +401,16 @@ Adaptive local mixing & 23.2\% final-gap probe; -1.2 pp vs static & One seed; CI
 \end{tabularx}
 \end{table}
 
-\begin{table}[H]
-\centering\small
-\caption{Limitations and reporting safeguards.}
-\begin{tabularx}{\linewidth}{Y Y}
-\toprule
-Limitation & Safeguard in interpretation \\
-\midrule
-Part B architecture comparison uses seed 42 & Do not claim sub-point effects; apply a 2-pp practical threshold \\
-Adaptive-kernel comparison uses seed 42 & Label supplementary; emphasize paired intervals and controlled probes \\
-H1 has three model seeds & Show seed-level intervals and avoid high-precision population claims \\
-Frozen interventions are out of distribution & Label them causal diagnostics, not deployable improvements \\
-Long-trained probes use length-511 labels & Report decodability, not assignment-compliant model accuracy \\
-Readable scan is unoptimized & Report 449.6/953.6/1162.3 s and 50.7/55.2 MiB without kernel claims \\
-\bottomrule
-\end{tabularx}
-\end{table}
+Evidence is strongest for the paired convolution-aware identity rescue and weaker for single-seed architectures or probes trained with long-horizon labels. We therefore treat sub-point gains as null, call probes decodability diagnostics, and do not present frozen interventions as deployable models. The prioritized follow-up learns a gate that permits the three-step convolutional response and then moves passive recurrence toward identity, compared with a parameter-matched event-agnostic gate over five seeds. It is falsified by no delay-511 gain or by a retention gain that harms immediate overwrite or stale-value error.
 
-\begin{table}[H]
-\centering\small
-\caption{Single most informative next experiment: convolution-aware no-update gating.}
-\begin{tabularx}{\linewidth}{p{0.20\linewidth}Y}
-\toprule
-Design element & Predeclared specification \\
-\midrule
-Mechanism & Keep first \(d_{\rm conv}-1=3\) post-SET transitions free; gate later NOOP recurrence toward identity \\
-Training & Lengths 32--128 only; no supervised or unlabeled length-511 adaptation \\
-Models & Baseline; event-aware gate; parameter-matched event-agnostic gate \\
-Replication & At least five seeds; identical updates and fixed evaluation files \\
-Primary outcomes & Final-query accuracy at delays 128/256/511; immediate overwrite; stale errors; interference \\
-Falsification & No delay-511 gain, or retention gain accompanied by material overwrite penalty \\
-\bottomrule
-\end{tabularx}
-\end{table}
+\section{Conclusion}
+The compact Mamba generalizes well in aggregate to length 512 but cannot reliably carry one assignment across hundreds of transitions. Passive retention reaches chance at delay 500; unrelated activity adds interference, yet write suppression and key routing do not remedy it; and convolution-aware identity nearly eliminates degradation through delay 128. Passive recurrent evolution is therefore the best-supported primary bottleneck. The diagnosis is not pure erasure: under reduced decay a new linear head decodes the final feature almost perfectly while the original remains near chance. Under trained decay even the matched probe is weak, so the next model should co-design convolution-aware no-update dynamics and horizon-stable readout rather than rely on extra routing or kernel capacity.
 
 \section{Reproducibility and Attribution}
-All fixed splits, predictions, checkpoints, confidence intervals, and plots are stored under \texttt{results/}; detailed exploratory analyses are retained separately from this focused report. The principal commands are \texttt{train.py} with \texttt{configs/baseline.yaml}, \texttt{configs/proposed.yaml}, or \texttt{configs/ablation.yaml}, followed by \texttt{part\_b\_compare.py}. Tests run with \texttt{python -m pytest -q -p no:cacheprovider} (33 passed).
+Fixed splits, checkpoints, predictions, intervals, and plots are under \texttt{results/}. Primary reproduction runs \texttt{train.py} with \path{configs/baseline.yaml}, \path{configs/proposed.yaml}, or \path{configs/ablation.yaml}, then \texttt{part\_b\_compare.py}; 34 tests pass with \texttt{pytest -q -p no:cacheprovider}. The readable model derives from John Ma's MIT-licensed \texttt{mamba-minimal}; the assignment supplied the generator and sample data. AI assistance supported scaffolding, experiment scripts, plotting, and editing. I selected the hypotheses and controls, executed and checked the experiments, and take responsibility for the conclusions.
 
-The readable Mamba code derives from John Ma's MIT-licensed \texttt{mamba-minimal}; equations follow Gu and Dao's Mamba formulation. The dataset generator and sample data were supplied with the assignment. AI assistance was used substantially for scaffolding, experiment scripts, plotting, and editing. I inspected the code paths, selected the hypotheses and controls, executed the experiments, verified artifacts, and take responsibility for the conclusions.
-
-\begin{thebibliography}{2}\small
+\begin{thebibliography}{3}\small
+\bibitem{s4} A. Gu, K. Goel, and C. R\'e. \emph{Efficiently Modeling Long Sequences with Structured State Spaces}. arXiv:2111.00396, 2021.
 \bibitem{mamba} A. Gu and T. Dao. \emph{Mamba: Linear-Time Sequence Modeling with Selective State Spaces}. arXiv:2312.00752, 2023.
 \bibitem{minimal} J. Ma. \emph{mamba-minimal}: a readable PyTorch implementation. \url{https://github.com/johnma2006/mamba-minimal}, MIT License.
 \end{thebibliography}

@@ -19,9 +19,27 @@ class StateTracker(nn.Module):
         "static_kernel_mix",
         "adaptive_kernel_only",
         "static_kernel_mix_only",
+        "fast_slow_unconstrained",
+        "fast_slow",
+        "slow_identity_gate",
+        "slow_identity_static",
+        "decoupled_event_gate",
+        "decoupled_tied_gate",
+        "decoupled_no_event",
+        "decoupled_no_fast",
     )
 
-    def __init__(self, variant: str = "baseline", route_init: float = 0.95, d_conv: int = 4) -> None:
+    def __init__(
+        self,
+        variant: str = "baseline",
+        route_init: float = 0.95,
+        d_conv: int = 4,
+        fast_min_rate: float = 1.0,
+        slow_max_rate: float = 0.004,
+        slow_gate_bias_init: float = -4.0,
+        erase_gate_bias_init: float = -4.0,
+        write_gate_bias_init: float = -2.0,
+    ) -> None:
         super().__init__()
         if variant not in self.VARIANTS:
             raise ValueError(f"unknown model variant {variant!r}; expected one of {self.VARIANTS}")
@@ -31,6 +49,8 @@ class StateTracker(nn.Module):
             raise ValueError("d_conv must be at least one")
         self.variant = variant
         self.d_conv = d_conv
+        self.fast_min_rate = fast_min_rate
+        self.slow_max_rate = slow_max_rate
         conv_mode = {
             "adaptive_kernel": "adaptive",
             "static_kernel_mix": "static_mix",
@@ -47,6 +67,29 @@ class StateTracker(nn.Module):
                 expand=2,
                 d_conv=d_conv,
                 conv_mode=conv_mode,
+                ssm_decay_mode={
+                    "fast_slow_unconstrained": "fast_slow_unconstrained",
+                    "fast_slow": "fast_slow",
+                    "slow_identity_gate": "fast_slow",
+                    "slow_identity_static": "fast_slow",
+                    "decoupled_event_gate": "fast_slow",
+                    "decoupled_tied_gate": "fast_slow",
+                    "decoupled_no_event": "fast_slow",
+                    "decoupled_no_fast": "fast_slow",
+                }.get(variant, "baseline"),
+                fast_min_rate=fast_min_rate,
+                slow_max_rate=slow_max_rate,
+                slow_gate_mode={
+                    "slow_identity_gate": "adaptive",
+                    "slow_identity_static": "static",
+                    "decoupled_event_gate": "decoupled",
+                    "decoupled_tied_gate": "decoupled_tied",
+                    "decoupled_no_event": "decoupled_no_event",
+                    "decoupled_no_fast": "decoupled_no_fast",
+                }.get(variant, "none"),
+                slow_gate_bias_init=slow_gate_bias_init,
+                erase_gate_bias_init=erase_gate_bias_init,
+                write_gate_bias_init=write_gate_bias_init,
                 vocab_size=41,
             )
         )
@@ -110,6 +153,8 @@ class StateTracker(nn.Module):
             mixer.write_route_by_position = write_routes
             mixer.decay_scale_by_position = decay_scale
             mixer.conv_reset_by_position = conv_reset
+            if mixer.args.slow_gate_mode.startswith("decoupled"):
+                mixer.event_ids_by_position = input_ids
         try:
             hidden = self.backbone.embedding(input_ids)
             for layer in self.backbone.layers:
@@ -121,9 +166,24 @@ class StateTracker(nn.Module):
                 mixer.write_route_by_position = None
                 mixer.decay_scale_by_position = None
                 mixer.conv_reset_by_position = None
+                if mixer.args.slow_gate_mode.startswith("decoupled"):
+                    mixer.event_ids_by_position = None
 
     def forward(self, input_ids: torch.Tensor) -> torch.Tensor:
         return self.head(self.hidden_states(input_ids))
+
+    def set_readout_mode_mask(self, mode: str | None) -> None:
+        """Mask a mode group only in C_t h_t; recurrence is unchanged."""
+        if mode is None:
+            mask = None
+        elif mode == "fast_only":
+            mask = torch.tensor([1, 1, 1, 1, 0, 0, 0, 0], dtype=torch.float32)
+        elif mode == "slow_only":
+            mask = torch.tensor([0, 0, 0, 0, 1, 1, 1, 1], dtype=torch.float32)
+        else:
+            raise ValueError(f"unknown readout mode mask: {mode}")
+        for layer in self.backbone.layers:
+            layer.mixer.readout_mode_mask = mask
 
     def scaled_logits(self, input_ids: torch.Tensor, alpha: float, mode: str) -> torch.Tensor:
         if mode == "global":

@@ -1,0 +1,10 @@
+inherits: baseline.yaml
+name: h8_decoupled_event_gate
+model:
+  variant: decoupled_event_gate
+  fast_min_rate: 1.0
+  slow_max_rate: 0.004
+  erase_gate_bias_init: -4.0
+  write_gate_bias_init: -2.0
+training:
+  max_updates: 1500

@@ -153,6 +153,11 @@ def run(args: argparse.Namespace) -> dict:
         variant=str(model_config.get("variant", "baseline")),
         route_init=float(model_config.get("route_init", 0.95)),
         d_conv=int(model_config.get("d_conv", 4)),
+        fast_min_rate=float(model_config.get("fast_min_rate", 1.0)),
+        slow_max_rate=float(model_config.get("slow_max_rate", 0.004)),
+        slow_gate_bias_init=float(model_config.get("slow_gate_bias_init", -4.0)),
+        erase_gate_bias_init=float(model_config.get("erase_gate_bias_init", -4.0)),
+        write_gate_bias_init=float(model_config.get("write_gate_bias_init", -2.0)),
     ).to(device)
     optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate)
 

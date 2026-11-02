@@ -1,0 +1,9 @@
+inherits: baseline.yaml
+name: h7b_slow_identity_static
+model:
+  variant: slow_identity_static
+  fast_min_rate: 1.0
+  slow_max_rate: 0.004
+  slow_gate_bias_init: -4.0
+training:
+  max_updates: 1500

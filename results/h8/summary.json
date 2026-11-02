@@ -1,0 +1,1382 @@
+{
+  "scope": "Seed-42 pilot; all backbones trained only at lengths 32-128.",
+  "models": [
+    {
+      "model": "M1a_constrained",
+      "parameters": 10149,
+      "validation_accuracy": 0.8223495702005731,
+      "training_seconds": 1696.5587809998542,
+      "peak_gpu_memory_bytes": 53142016
+    },
+    {
+      "model": "H8_independent",
+      "parameters": 13605,
+      "validation_accuracy": 0.9517877164569578,
+      "training_seconds": 8114.27525419998,
+      "peak_gpu_memory_bytes": 63770112
+    },
+    {
+      "model": "H8_tied",
+      "parameters": 13605,
+      "validation_accuracy": 0.996262613678834,
+      "training_seconds": 7022.809046699898,
+      "peak_gpu_memory_bytes": 64418816
+    }
+  ],
+  "metrics": [
+    {
+      "model": "M1a_constrained",
+      "delay": 10,
+      "measurement": "original_head",
+      "accuracy": 1.0,
+      "training_horizon": "backbone_32_128"
+    },
+    {
+      "model": "M1a_constrained",
+      "delay": 10,
+      "measurement": "fast_short_probe",
+      "accuracy": 0.48828125,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "M1a_constrained",
+      "delay": 10,
+      "measurement": "slow_short_probe",
+      "accuracy": 0.5859375,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "M1a_constrained",
+      "delay": 10,
+      "measurement": "full_short_probe",
+      "accuracy": 0.55078125,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "M1a_constrained",
+      "delay": 32,
+      "measurement": "original_head",
+      "accuracy": 1.0,
+      "training_horizon": "backbone_32_128"
+    },
+    {
+      "model": "M1a_constrained",
+      "delay": 32,
+      "measurement": "fast_short_probe",
+      "accuracy": 0.25390625,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "M1a_constrained",
+      "delay": 32,
+      "measurement": "slow_short_probe",
+      "accuracy": 0.5859375,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "M1a_constrained",
+      "delay": 32,
+      "measurement": "full_short_probe",
+      "accuracy": 0.53515625,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "M1a_constrained",
+      "delay": 64,
+      "measurement": "original_head",
+      "accuracy": 1.0,
+      "training_horizon": "backbone_32_128"
+    },
+    {
+      "model": "M1a_constrained",
+      "delay": 64,
+      "measurement": "fast_short_probe",
+      "accuracy": 0.25,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "M1a_constrained",
+      "delay": 64,
+      "measurement": "slow_short_probe",
+      "accuracy": 0.5234375,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "M1a_constrained",
+      "delay": 64,
+      "measurement": "full_short_probe",
+      "accuracy": 0.57421875,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "M1a_constrained",
+      "delay": 128,
+      "measurement": "original_head",
+      "accuracy": 1.0,
+      "training_horizon": "backbone_32_128"
+    },
+    {
+      "model": "M1a_constrained",
+      "delay": 128,
+      "measurement": "fast_short_probe",
+      "accuracy": 0.25,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "M1a_constrained",
+      "delay": 128,
+      "measurement": "slow_short_probe",
+      "accuracy": 0.50390625,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "M1a_constrained",
+      "delay": 128,
+      "measurement": "full_short_probe",
+      "accuracy": 0.49609375,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "M1a_constrained",
+      "delay": 128,
+      "measurement": "fast_long_probe",
+      "accuracy": 0.25,
+      "training_horizon": "128_256_511_diagnostic"
+    },
+    {
+      "model": "M1a_constrained",
+      "delay": 128,
+      "measurement": "slow_long_probe",
+      "accuracy": 0.58203125,
+      "training_horizon": "128_256_511_diagnostic"
+    },
+    {
+      "model": "M1a_constrained",
+      "delay": 128,
+      "measurement": "full_long_probe",
+      "accuracy": 0.56640625,
+      "training_horizon": "128_256_511_diagnostic"
+    },
+    {
+      "model": "M1a_constrained",
+      "delay": 256,
+      "measurement": "original_head",
+      "accuracy": 0.79296875,
+      "training_horizon": "backbone_32_128"
+    },
+    {
+      "model": "M1a_constrained",
+      "delay": 256,
+      "measurement": "fast_short_probe",
+      "accuracy": 0.25,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "M1a_constrained",
+      "delay": 256,
+      "measurement": "slow_short_probe",
+      "accuracy": 0.46875,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "M1a_constrained",
+      "delay": 256,
+      "measurement": "full_short_probe",
+      "accuracy": 0.36328125,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "M1a_constrained",
+      "delay": 256,
+      "measurement": "fast_long_probe",
+      "accuracy": 0.25,
+      "training_horizon": "128_256_511_diagnostic"
+    },
+    {
+      "model": "M1a_constrained",
+      "delay": 256,
+      "measurement": "slow_long_probe",
+      "accuracy": 0.5078125,
+      "training_horizon": "128_256_511_diagnostic"
+    },
+    {
+      "model": "M1a_constrained",
+      "delay": 256,
+      "measurement": "full_long_probe",
+      "accuracy": 0.52734375,
+      "training_horizon": "128_256_511_diagnostic"
+    },
+    {
+      "model": "M1a_constrained",
+      "delay": 511,
+      "measurement": "original_head",
+      "accuracy": 0.39453125,
+      "training_horizon": "backbone_32_128"
+    },
+    {
+      "model": "M1a_constrained",
+      "delay": 511,
+      "measurement": "fast_short_probe",
+      "accuracy": 0.25,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "M1a_constrained",
+      "delay": 511,
+      "measurement": "slow_short_probe",
+      "accuracy": 0.31640625,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "M1a_constrained",
+      "delay": 511,
+      "measurement": "full_short_probe",
+      "accuracy": 0.265625,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "M1a_constrained",
+      "delay": 511,
+      "measurement": "fast_long_probe",
+      "accuracy": 0.25,
+      "training_horizon": "128_256_511_diagnostic"
+    },
+    {
+      "model": "M1a_constrained",
+      "delay": 511,
+      "measurement": "slow_long_probe",
+      "accuracy": 0.578125,
+      "training_horizon": "128_256_511_diagnostic"
+    },
+    {
+      "model": "M1a_constrained",
+      "delay": 511,
+      "measurement": "full_long_probe",
+      "accuracy": 0.578125,
+      "training_horizon": "128_256_511_diagnostic"
+    },
+    {
+      "model": "H8_independent",
+      "delay": 10,
+      "measurement": "original_head",
+      "accuracy": 1.0,
+      "training_horizon": "backbone_32_128"
+    },
+    {
+      "model": "H8_independent",
+      "delay": 10,
+      "measurement": "fast_short_probe",
+      "accuracy": 0.32421875,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "H8_independent",
+      "delay": 10,
+      "measurement": "slow_short_probe",
+      "accuracy": 0.5703125,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "H8_independent",
+      "delay": 10,
+      "measurement": "full_short_probe",
+      "accuracy": 0.58984375,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "H8_independent",
+      "delay": 32,
+      "measurement": "original_head",
+      "accuracy": 0.94140625,
+      "training_horizon": "backbone_32_128"
+    },
+    {
+      "model": "H8_independent",
+      "delay": 32,
+      "measurement": "fast_short_probe",
+      "accuracy": 0.25,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "H8_independent",
+      "delay": 32,
+      "measurement": "slow_short_probe",
+      "accuracy": 0.625,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "H8_independent",
+      "delay": 32,
+      "measurement": "full_short_probe",
+      "accuracy": 0.59765625,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "H8_independent",
+      "delay": 64,
+      "measurement": "original_head",
+      "accuracy": 0.70703125,
+      "training_horizon": "backbone_32_128"
+    },
+    {
+      "model": "H8_independent",
+      "delay": 64,
+      "measurement": "fast_short_probe",
+      "accuracy": 0.25,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "H8_independent",
+      "delay": 64,
+      "measurement": "slow_short_probe",
+      "accuracy": 0.56640625,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "H8_independent",
+      "delay": 64,
+      "measurement": "full_short_probe",
+      "accuracy": 0.5625,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "H8_independent",
+      "delay": 128,
+      "measurement": "original_head",
+      "accuracy": 0.4375,
+      "training_horizon": "backbone_32_128"
+    },
+    {
+      "model": "H8_independent",
+      "delay": 128,
+      "measurement": "fast_short_probe",
+      "accuracy": 0.25,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "H8_independent",
+      "delay": 128,
+      "measurement": "slow_short_probe",
+      "accuracy": 0.4375,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "H8_independent",
+      "delay": 128,
+      "measurement": "full_short_probe",
+      "accuracy": 0.32421875,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "H8_independent",
+      "delay": 128,
+      "measurement": "fast_long_probe",
+      "accuracy": 0.2734375,
+      "training_horizon": "128_256_511_diagnostic"
+    },
+    {
+      "model": "H8_independent",
+      "delay": 128,
+      "measurement": "slow_long_probe",
+      "accuracy": 0.5078125,
+      "training_horizon": "128_256_511_diagnostic"
+    },
+    {
+      "model": "H8_independent",
+      "delay": 128,
+      "measurement": "full_long_probe",
+      "accuracy": 0.5234375,
+      "training_horizon": "128_256_511_diagnostic"
+    },
+    {
+      "model": "H8_independent",
+      "delay": 256,
+      "measurement": "original_head",
+      "accuracy": 0.3125,
+      "training_horizon": "backbone_32_128"
+    },
+    {
+      "model": "H8_independent",
+      "delay": 256,
+      "measurement": "fast_short_probe",
+      "accuracy": 0.25,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "H8_independent",
+      "delay": 256,
+      "measurement": "slow_short_probe",
+      "accuracy": 0.31640625,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "H8_independent",
+      "delay": 256,
+      "measurement": "full_short_probe",
+      "accuracy": 0.25,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "H8_independent",
+      "delay": 256,
+      "measurement": "fast_long_probe",
+      "accuracy": 0.2734375,
+      "training_horizon": "128_256_511_diagnostic"
+    },
+    {
+      "model": "H8_independent",
+      "delay": 256,
+      "measurement": "slow_long_probe",
+      "accuracy": 0.44140625,
+      "training_horizon": "128_256_511_diagnostic"
+    },
+    {
+      "model": "H8_independent",
+      "delay": 256,
+      "measurement": "full_long_probe",
+      "accuracy": 0.44921875,
+      "training_horizon": "128_256_511_diagnostic"
+    },
+    {
+      "model": "H8_independent",
+      "delay": 511,
+      "measurement": "original_head",
+      "accuracy": 0.3125,
+      "training_horizon": "backbone_32_128"
+    },
+    {
+      "model": "H8_independent",
+      "delay": 511,
+      "measurement": "fast_short_probe",
+      "accuracy": 0.25,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "H8_independent",
+      "delay": 511,
+      "measurement": "slow_short_probe",
+      "accuracy": 0.296875,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "H8_independent",
+      "delay": 511,
+      "measurement": "full_short_probe",
+      "accuracy": 0.25,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "H8_independent",
+      "delay": 511,
+      "measurement": "fast_long_probe",
+      "accuracy": 0.2734375,
+      "training_horizon": "128_256_511_diagnostic"
+    },
+    {
+      "model": "H8_independent",
+      "delay": 511,
+      "measurement": "slow_long_probe",
+      "accuracy": 0.3984375,
+      "training_horizon": "128_256_511_diagnostic"
+    },
+    {
+      "model": "H8_independent",
+      "delay": 511,
+      "measurement": "full_long_probe",
+      "accuracy": 0.375,
+      "training_horizon": "128_256_511_diagnostic"
+    },
+    {
+      "model": "H8_tied",
+      "delay": 10,
+      "measurement": "original_head",
+      "accuracy": 1.0,
+      "training_horizon": "backbone_32_128"
+    },
+    {
+      "model": "H8_tied",
+      "delay": 10,
+      "measurement": "fast_short_probe",
+      "accuracy": 0.34765625,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "H8_tied",
+      "delay": 10,
+      "measurement": "slow_short_probe",
+      "accuracy": 0.58984375,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "H8_tied",
+      "delay": 10,
+      "measurement": "full_short_probe",
+      "accuracy": 0.58203125,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "H8_tied",
+      "delay": 32,
+      "measurement": "original_head",
+      "accuracy": 1.0,
+      "training_horizon": "backbone_32_128"
+    },
+    {
+      "model": "H8_tied",
+      "delay": 32,
+      "measurement": "fast_short_probe",
+      "accuracy": 0.25,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "H8_tied",
+      "delay": 32,
+      "measurement": "slow_short_probe",
+      "accuracy": 0.625,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "H8_tied",
+      "delay": 32,
+      "measurement": "full_short_probe",
+      "accuracy": 0.6171875,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "H8_tied",
+      "delay": 64,
+      "measurement": "original_head",
+      "accuracy": 1.0,
+      "training_horizon": "backbone_32_128"
+    },
+    {
+      "model": "H8_tied",
+      "delay": 64,
+      "measurement": "fast_short_probe",
+      "accuracy": 0.25,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "H8_tied",
+      "delay": 64,
+      "measurement": "slow_short_probe",
+      "accuracy": 0.6171875,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "H8_tied",
+      "delay": 64,
+      "measurement": "full_short_probe",
+      "accuracy": 0.65625,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "H8_tied",
+      "delay": 128,
+      "measurement": "original_head",
+      "accuracy": 0.953125,
+      "training_horizon": "backbone_32_128"
+    },
+    {
+      "model": "H8_tied",
+      "delay": 128,
+      "measurement": "fast_short_probe",
+      "accuracy": 0.25,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "H8_tied",
+      "delay": 128,
+      "measurement": "slow_short_probe",
+      "accuracy": 0.62890625,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "H8_tied",
+      "delay": 128,
+      "measurement": "full_short_probe",
+      "accuracy": 0.6015625,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "H8_tied",
+      "delay": 128,
+      "measurement": "fast_long_probe",
+      "accuracy": 0.26953125,
+      "training_horizon": "128_256_511_diagnostic"
+    },
+    {
+      "model": "H8_tied",
+      "delay": 128,
+      "measurement": "slow_long_probe",
+      "accuracy": 0.609375,
+      "training_horizon": "128_256_511_diagnostic"
+    },
+    {
+      "model": "H8_tied",
+      "delay": 128,
+      "measurement": "full_long_probe",
+      "accuracy": 0.625,
+      "training_horizon": "128_256_511_diagnostic"
+    },
+    {
+      "model": "H8_tied",
+      "delay": 256,
+      "measurement": "original_head",
+      "accuracy": 0.55078125,
+      "training_horizon": "backbone_32_128"
+    },
+    {
+      "model": "H8_tied",
+      "delay": 256,
+      "measurement": "fast_short_probe",
+      "accuracy": 0.25,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "H8_tied",
+      "delay": 256,
+      "measurement": "slow_short_probe",
+      "accuracy": 0.41015625,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "H8_tied",
+      "delay": 256,
+      "measurement": "full_short_probe",
+      "accuracy": 0.40625,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "H8_tied",
+      "delay": 256,
+      "measurement": "fast_long_probe",
+      "accuracy": 0.30078125,
+      "training_horizon": "128_256_511_diagnostic"
+    },
+    {
+      "model": "H8_tied",
+      "delay": 256,
+      "measurement": "slow_long_probe",
+      "accuracy": 0.57421875,
+      "training_horizon": "128_256_511_diagnostic"
+    },
+    {
+      "model": "H8_tied",
+      "delay": 256,
+      "measurement": "full_long_probe",
+      "accuracy": 0.55859375,
+      "training_horizon": "128_256_511_diagnostic"
+    },
+    {
+      "model": "H8_tied",
+      "delay": 511,
+      "measurement": "original_head",
+      "accuracy": 0.40234375,
+      "training_horizon": "backbone_32_128"
+    },
+    {
+      "model": "H8_tied",
+      "delay": 511,
+      "measurement": "fast_short_probe",
+      "accuracy": 0.25,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "H8_tied",
+      "delay": 511,
+      "measurement": "slow_short_probe",
+      "accuracy": 0.28125,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "H8_tied",
+      "delay": 511,
+      "measurement": "full_short_probe",
+      "accuracy": 0.33203125,
+      "training_horizon": "10_32_64"
+    },
+    {
+      "model": "H8_tied",
+      "delay": 511,
+      "measurement": "fast_long_probe",
+      "accuracy": 0.28515625,
+      "training_horizon": "128_256_511_diagnostic"
+    },
+    {
+      "model": "H8_tied",
+      "delay": 511,
+      "measurement": "slow_long_probe",
+      "accuracy": 0.52734375,
+      "training_horizon": "128_256_511_diagnostic"
+    },
+    {
+      "model": "H8_tied",
+      "delay": 511,
+      "measurement": "full_long_probe",
+      "accuracy": 0.515625,
+      "training_horizon": "128_256_511_diagnostic"
+    }
+  ],
+  "gate_statistics": [
+    {
+      "model": "H8_independent",
+      "gate": "erase",
+      "event": "NOOP",
+      "mean_gate": 0.05626404285430908,
+      "std_gate": 0.10785499960184097,
+      "min_gate": 0.0015884732129052281,
+      "max_gate": 0.5922647714614868,
+      "values": 541888
+    },
+    {
+      "model": "H8_independent",
+      "gate": "erase",
+      "event": "UNRELATED_SET",
+      "mean_gate": 0.03914999961853027,
+      "std_gate": 0.09200482070446014,
+      "min_gate": 0.00023709099332336336,
+      "max_gate": 0.9736829996109009,
+      "values": 9152
+    },
+    {
+      "model": "H8_independent",
+      "gate": "erase",
+      "event": "FOCUS_SET",
+      "mean_gate": 0.03890105336904526,
+      "std_gate": 0.09031108021736145,
+      "min_gate": 0.00023159872216638178,
+      "max_gate": 0.9743062257766724,
+      "values": 4096
+    },
+    {
+      "model": "H8_independent",
+      "gate": "erase",
+      "event": "QUERY",
+      "mean_gate": 0.028818627819418907,
+      "std_gate": 0.022869978100061417,
+      "min_gate": 0.0004663138824980706,
+      "max_gate": 0.21659477055072784,
+      "values": 10112
+    },
+    {
+      "model": "H8_independent",
+      "gate": "write",
+      "event": "NOOP",
+      "mean_gate": 0.08306020498275757,
+      "std_gate": 0.047848891466856,
+      "min_gate": 0.0022122503723949194,
+      "max_gate": 0.28609034419059753,
+      "values": 541888
+    },
+    {
+      "model": "H8_independent",
+      "gate": "write",
+      "event": "UNRELATED_SET",
+      "mean_gate": 0.14487527310848236,
+      "std_gate": 0.14844711124897003,
+      "min_gate": 0.001421381370164454,
+      "max_gate": 0.9739234447479248,
+      "values": 9152
+    },
+    {
+      "model": "H8_independent",
+      "gate": "write",
+      "event": "FOCUS_SET",
+      "mean_gate": 0.1456136256456375,
+      "std_gate": 0.14711999893188477,
+      "min_gate": 0.0014406904811039567,
+      "max_gate": 0.9631922841072083,
+      "values": 4096
+    },
+    {
+      "model": "H8_independent",
+      "gate": "write",
+      "event": "QUERY",
+      "mean_gate": 0.09907498955726624,
+      "std_gate": 0.0647263303399086,
+      "min_gate": 0.00460822694003582,
+      "max_gate": 0.6325442790985107,
+      "values": 10112
+    },
+    {
+      "model": "H8_tied",
+      "gate": "erase",
+      "event": "NOOP",
+      "mean_gate": 0.01825846917927265,
+      "std_gate": 0.03949480131268501,
+      "min_gate": 4.698194970842451e-05,
+      "max_gate": 0.5104089379310608,
+      "values": 541888
+    },
+    {
+      "model": "H8_tied",
+      "gate": "erase",
+      "event": "UNRELATED_SET",
+      "mean_gate": 0.08458530157804489,
+      "std_gate": 0.14933355152606964,
+      "min_gate": 0.00014126567111816257,
+      "max_gate": 0.9597615599632263,
+      "values": 9152
+    },
+    {
+      "model": "H8_tied",
+      "gate": "erase",
+      "event": "FOCUS_SET",
+      "mean_gate": 0.08437709510326385,
+      "std_gate": 0.14688898622989655,
+      "min_gate": 0.00016224694263655692,
+      "max_gate": 0.9569311738014221,
+      "values": 4096
+    },
+    {
+      "model": "H8_tied",
+      "gate": "erase",
+      "event": "QUERY",
+      "mean_gate": 0.024901386350393295,
+      "std_gate": 0.024661358445882797,
+      "min_gate": 0.0010364593472331762,
+      "max_gate": 0.6927424669265747,
+      "values": 10112
+    },
+    {
+      "model": "H8_tied",
+      "gate": "write",
+      "event": "NOOP",
+      "mean_gate": 0.01825846917927265,
+      "std_gate": 0.03949480131268501,
+      "min_gate": 4.698194970842451e-05,
+      "max_gate": 0.5104089379310608,
+      "values": 541888
+    },
+    {
+      "model": "H8_tied",
+      "gate": "write",
+      "event": "UNRELATED_SET",
+      "mean_gate": 0.08458530157804489,
+      "std_gate": 0.14933355152606964,
+      "min_gate": 0.00014126567111816257,
+      "max_gate": 0.9597615599632263,
+      "values": 9152
+    },
+    {
+      "model": "H8_tied",
+      "gate": "write",
+      "event": "FOCUS_SET",
+      "mean_gate": 0.08437709510326385,
+      "std_gate": 0.14688898622989655,
+      "min_gate": 0.00016224694263655692,
+      "max_gate": 0.9569311738014221,
+      "values": 4096
+    },
+    {
+      "model": "H8_tied",
+      "gate": "write",
+      "event": "QUERY",
+      "mean_gate": 0.024901386350393295,
+      "std_gate": 0.024661358445882797,
+      "min_gate": 0.0010364593472331762,
+      "max_gate": 0.6927424669265747,
+      "values": 10112
+    }
+  ],
+  "drift": [
+    {
+      "model": "M1a_constrained",
+      "delay": 128,
+      "mean_step_relative_drift": 0.01367795467376709,
+      "cumulative_relative_drift": 1.7507781982421875,
+      "net_relative_displacement": 2.6679229736328125,
+      "examples": 64
+    },
+    {
+      "model": "M1a_constrained",
+      "delay": 256,
+      "mean_step_relative_drift": 0.009023339487612247,
+      "cumulative_relative_drift": 2.3099749088287354,
+      "net_relative_displacement": 4.67537784576416,
+      "examples": 64
+    },
+    {
+      "model": "M1a_constrained",
+      "delay": 511,
+      "mean_step_relative_drift": 0.005466541275382042,
+      "cumulative_relative_drift": 2.793402671813965,
+      "net_relative_displacement": 7.416215896606445,
+      "examples": 64
+    },
+    {
+      "model": "H8_independent",
+      "delay": 128,
+      "mean_step_relative_drift": 0.021051134914159775,
+      "cumulative_relative_drift": 2.694545269012451,
+      "net_relative_displacement": 4.624570846557617,
+      "examples": 64
+    },
+    {
+      "model": "H8_independent",
+      "delay": 256,
+      "mean_step_relative_drift": 0.012277580797672272,
+      "cumulative_relative_drift": 3.1430606842041016,
+      "net_relative_displacement": 7.116191864013672,
+      "examples": 64
+    },
+    {
+      "model": "H8_independent",
+      "delay": 511,
+      "mean_step_relative_drift": 0.006837226450443268,
+      "cumulative_relative_drift": 3.4938225746154785,
+      "net_relative_displacement": 9.763105392456055,
+      "examples": 64
+    },
+    {
+      "model": "H8_tied",
+      "delay": 128,
+      "mean_step_relative_drift": 0.007541649974882603,
+      "cumulative_relative_drift": 0.9653311967849731,
+      "net_relative_displacement": 0.7453088760375977,
+      "examples": 64
+    },
+    {
+      "model": "H8_tied",
+      "delay": 256,
+      "mean_step_relative_drift": 0.004890757147222757,
+      "cumulative_relative_drift": 1.2520338296890259,
+      "net_relative_displacement": 0.9290916919708252,
+      "examples": 64
+    },
+    {
+      "model": "H8_tied",
+      "delay": 511,
+      "mean_step_relative_drift": 0.002896033227443695,
+      "cumulative_relative_drift": 1.4798729419708252,
+      "net_relative_displacement": 1.0128474235534668,
+      "examples": 64
+    }
+  ],
+  "overwrite": [
+    {
+      "model": "M1a_constrained",
+      "pre_delay": 32,
+      "post_delay": 0,
+      "retention_accuracy": 0.9947916666666666,
+      "overwrite_accuracy": 0.9375,
+      "stale_value_error_rate": 0.057291666666666664,
+      "examples": 192
+    },
+    {
+      "model": "H8_independent",
+      "pre_delay": 32,
+      "post_delay": 0,
+      "retention_accuracy": 0.96875,
+      "overwrite_accuracy": 0.9895833333333334,
+      "stale_value_error_rate": 0.010416666666666666,
+      "examples": 192
+    },
+    {
+      "model": "H8_tied",
+      "pre_delay": 32,
+      "post_delay": 0,
+      "retention_accuracy": 1.0,
+      "overwrite_accuracy": 1.0,
+      "stale_value_error_rate": 0.0,
+      "examples": 192
+    },
+    {
+      "model": "M1a_constrained",
+      "pre_delay": 32,
+      "post_delay": 1,
+      "retention_accuracy": 0.9947916666666666,
+      "overwrite_accuracy": 0.8802083333333334,
+      "stale_value_error_rate": 0.11458333333333333,
+      "examples": 192
+    },
+    {
+      "model": "H8_independent",
+      "pre_delay": 32,
+      "post_delay": 1,
+      "retention_accuracy": 0.96875,
+      "overwrite_accuracy": 0.9895833333333334,
+      "stale_value_error_rate": 0.010416666666666666,
+      "examples": 192
+    },
+    {
+      "model": "H8_tied",
+      "pre_delay": 32,
+      "post_delay": 1,
+      "retention_accuracy": 1.0,
+      "overwrite_accuracy": 1.0,
+      "stale_value_error_rate": 0.0,
+      "examples": 192
+    },
+    {
+      "model": "M1a_constrained",
+      "pre_delay": 32,
+      "post_delay": 4,
+      "retention_accuracy": 0.9947916666666666,
+      "overwrite_accuracy": 0.7083333333333334,
+      "stale_value_error_rate": 0.28125,
+      "examples": 192
+    },
+    {
+      "model": "H8_independent",
+      "pre_delay": 32,
+      "post_delay": 4,
+      "retention_accuracy": 0.9635416666666666,
+      "overwrite_accuracy": 0.9895833333333334,
+      "stale_value_error_rate": 0.010416666666666666,
+      "examples": 192
+    },
+    {
+      "model": "H8_tied",
+      "pre_delay": 32,
+      "post_delay": 4,
+      "retention_accuracy": 1.0,
+      "overwrite_accuracy": 1.0,
+      "stale_value_error_rate": 0.0,
+      "examples": 192
+    },
+    {
+      "model": "M1a_constrained",
+      "pre_delay": 32,
+      "post_delay": 16,
+      "retention_accuracy": 0.9947916666666666,
+      "overwrite_accuracy": 0.6354166666666666,
+      "stale_value_error_rate": 0.3541666666666667,
+      "examples": 192
+    },
+    {
+      "model": "H8_independent",
+      "pre_delay": 32,
+      "post_delay": 16,
+      "retention_accuracy": 0.8854166666666666,
+      "overwrite_accuracy": 1.0,
+      "stale_value_error_rate": 0.0,
+      "examples": 192
+    },
+    {
+      "model": "H8_tied",
+      "pre_delay": 32,
+      "post_delay": 16,
+      "retention_accuracy": 1.0,
+      "overwrite_accuracy": 0.9947916666666666,
+      "stale_value_error_rate": 0.005208333333333333,
+      "examples": 192
+    },
+    {
+      "model": "M1a_constrained",
+      "pre_delay": 32,
+      "post_delay": 32,
+      "retention_accuracy": 0.9947916666666666,
+      "overwrite_accuracy": 0.6197916666666666,
+      "stale_value_error_rate": 0.3697916666666667,
+      "examples": 192
+    },
+    {
+      "model": "H8_independent",
+      "pre_delay": 32,
+      "post_delay": 32,
+      "retention_accuracy": 0.7760416666666666,
+      "overwrite_accuracy": 0.9270833333333334,
+      "stale_value_error_rate": 0.03125,
+      "examples": 192
+    },
+    {
+      "model": "H8_tied",
+      "pre_delay": 32,
+      "post_delay": 32,
+      "retention_accuracy": 1.0,
+      "overwrite_accuracy": 0.9895833333333334,
+      "stale_value_error_rate": 0.010416666666666666,
+      "examples": 192
+    },
+    {
+      "model": "M1a_constrained",
+      "pre_delay": 100,
+      "post_delay": 0,
+      "retention_accuracy": 0.9895833333333334,
+      "overwrite_accuracy": 0.9739583333333334,
+      "stale_value_error_rate": 0.026041666666666668,
+      "examples": 192
+    },
+    {
+      "model": "H8_independent",
+      "pre_delay": 100,
+      "post_delay": 0,
+      "retention_accuracy": 0.515625,
+      "overwrite_accuracy": 1.0,
+      "stale_value_error_rate": 0.0,
+      "examples": 192
+    },
+    {
+      "model": "H8_tied",
+      "pre_delay": 100,
+      "post_delay": 0,
+      "retention_accuracy": 1.0,
+      "overwrite_accuracy": 1.0,
+      "stale_value_error_rate": 0.0,
+      "examples": 192
+    },
+    {
+      "model": "M1a_constrained",
+      "pre_delay": 100,
+      "post_delay": 1,
+      "retention_accuracy": 0.9895833333333334,
+      "overwrite_accuracy": 0.9375,
+      "stale_value_error_rate": 0.0625,
+      "examples": 192
+    },
+    {
+      "model": "H8_independent",
+      "pre_delay": 100,
+      "post_delay": 1,
+      "retention_accuracy": 0.515625,
+      "overwrite_accuracy": 1.0,
+      "stale_value_error_rate": 0.0,
+      "examples": 192
+    },
+    {
+      "model": "H8_tied",
+      "pre_delay": 100,
+      "post_delay": 1,
+      "retention_accuracy": 1.0,
+      "overwrite_accuracy": 1.0,
+      "stale_value_error_rate": 0.0,
+      "examples": 192
+    },
+    {
+      "model": "M1a_constrained",
+      "pre_delay": 100,
+      "post_delay": 4,
+      "retention_accuracy": 0.9895833333333334,
+      "overwrite_accuracy": 0.8541666666666666,
+      "stale_value_error_rate": 0.14583333333333334,
+      "examples": 192
+    },
+    {
+      "model": "H8_independent",
+      "pre_delay": 100,
+      "post_delay": 4,
+      "retention_accuracy": 0.5052083333333334,
+      "overwrite_accuracy": 1.0,
+      "stale_value_error_rate": 0.0,
+      "examples": 192
+    },
+    {
+      "model": "H8_tied",
+      "pre_delay": 100,
+      "post_delay": 4,
+      "retention_accuracy": 1.0,
+      "overwrite_accuracy": 1.0,
+      "stale_value_error_rate": 0.0,
+      "examples": 192
+    },
+    {
+      "model": "M1a_constrained",
+      "pre_delay": 100,
+      "post_delay": 16,
+      "retention_accuracy": 0.984375,
+      "overwrite_accuracy": 0.7864583333333334,
+      "stale_value_error_rate": 0.20833333333333334,
+      "examples": 192
+    },
+    {
+      "model": "H8_independent",
+      "pre_delay": 100,
+      "post_delay": 16,
+      "retention_accuracy": 0.484375,
+      "overwrite_accuracy": 1.0,
+      "stale_value_error_rate": 0.0,
+      "examples": 192
+    },
+    {
+      "model": "H8_tied",
+      "pre_delay": 100,
+      "post_delay": 16,
+      "retention_accuracy": 0.9947916666666666,
+      "overwrite_accuracy": 1.0,
+      "stale_value_error_rate": 0.0,
+      "examples": 192
+    },
+    {
+      "model": "M1a_constrained",
+      "pre_delay": 100,
+      "post_delay": 32,
+      "retention_accuracy": 0.984375,
+      "overwrite_accuracy": 0.734375,
+      "stale_value_error_rate": 0.2604166666666667,
+      "examples": 192
+    },
+    {
+      "model": "H8_independent",
+      "pre_delay": 100,
+      "post_delay": 32,
+      "retention_accuracy": 0.4895833333333333,
+      "overwrite_accuracy": 0.9114583333333334,
+      "stale_value_error_rate": 0.03125,
+      "examples": 192
+    },
+    {
+      "model": "H8_tied",
+      "pre_delay": 100,
+      "post_delay": 32,
+      "retention_accuracy": 0.96875,
+      "overwrite_accuracy": 1.0,
+      "stale_value_error_rate": 0.0,
+      "examples": 192
+    },
+    {
+      "model": "M1a_constrained",
+      "pre_delay": 256,
+      "post_delay": 0,
+      "retention_accuracy": 0.7604166666666666,
+      "overwrite_accuracy": 0.984375,
+      "stale_value_error_rate": 0.015625,
+      "examples": 192
+    },
+    {
+      "model": "H8_independent",
+      "pre_delay": 256,
+      "post_delay": 0,
+      "retention_accuracy": 0.3229166666666667,
+      "overwrite_accuracy": 1.0,
+      "stale_value_error_rate": 0.0,
+      "examples": 192
+    },
+    {
+      "model": "H8_tied",
+      "pre_delay": 256,
+      "post_delay": 0,
+      "retention_accuracy": 0.5625,
+      "overwrite_accuracy": 1.0,
+      "stale_value_error_rate": 0.0,
+      "examples": 192
+    },
+    {
+      "model": "M1a_constrained",
+      "pre_delay": 256,
+      "post_delay": 1,
+      "retention_accuracy": 0.7552083333333334,
+      "overwrite_accuracy": 0.953125,
+      "stale_value_error_rate": 0.046875,
+      "examples": 192
+    },
+    {
+      "model": "H8_independent",
+      "pre_delay": 256,
+      "post_delay": 1,
+      "retention_accuracy": 0.3229166666666667,
+      "overwrite_accuracy": 1.0,
+      "stale_value_error_rate": 0.0,
+      "examples": 192
+    },
+    {
+      "model": "H8_tied",
+      "pre_delay": 256,
+      "post_delay": 1,
+      "retention_accuracy": 0.5625,
+      "overwrite_accuracy": 1.0,
+      "stale_value_error_rate": 0.0,
+      "examples": 192
+    },
+    {
+      "model": "M1a_constrained",
+      "pre_delay": 256,
+      "post_delay": 4,
+      "retention_accuracy": 0.7552083333333334,
+      "overwrite_accuracy": 0.9114583333333334,
+      "stale_value_error_rate": 0.08333333333333333,
+      "examples": 192
+    },
+    {
+      "model": "H8_independent",
+      "pre_delay": 256,
+      "post_delay": 4,
+      "retention_accuracy": 0.3229166666666667,
+      "overwrite_accuracy": 1.0,
+      "stale_value_error_rate": 0.0,
+      "examples": 192
+    },
+    {
+      "model": "H8_tied",
+      "pre_delay": 256,
+      "post_delay": 4,
+      "retention_accuracy": 0.5625,
+      "overwrite_accuracy": 1.0,
+      "stale_value_error_rate": 0.0,
+      "examples": 192
+    },
+    {
+      "model": "M1a_constrained",
+      "pre_delay": 256,
+      "post_delay": 16,
+      "retention_accuracy": 0.7291666666666666,
+      "overwrite_accuracy": 0.875,
+      "stale_value_error_rate": 0.11979166666666667,
+      "examples": 192
+    },
+    {
+      "model": "H8_independent",
+      "pre_delay": 256,
+      "post_delay": 16,
+      "retention_accuracy": 0.3333333333333333,
+      "overwrite_accuracy": 0.96875,
+      "stale_value_error_rate": 0.010416666666666666,
+      "examples": 192
+    },
+    {
+      "model": "H8_tied",
+      "pre_delay": 256,
+      "post_delay": 16,
+      "retention_accuracy": 0.5520833333333334,
+      "overwrite_accuracy": 1.0,
+      "stale_value_error_rate": 0.0,
+      "examples": 192
+    },
+    {
+      "model": "M1a_constrained",
+      "pre_delay": 256,
+      "post_delay": 32,
+      "retention_accuracy": 0.7135416666666666,
+      "overwrite_accuracy": 0.8645833333333334,
+      "stale_value_error_rate": 0.13020833333333334,
+      "examples": 192
+    },
+    {
+      "model": "H8_independent",
+      "pre_delay": 256,
+      "post_delay": 32,
+      "retention_accuracy": 0.3385416666666667,
+      "overwrite_accuracy": 0.84375,
+      "stale_value_error_rate": 0.052083333333333336,
+      "examples": 192
+    },
+    {
+      "model": "H8_tied",
+      "pre_delay": 256,
+      "post_delay": 32,
+      "retention_accuracy": 0.53125,
+      "overwrite_accuracy": 1.0,
+      "stale_value_error_rate": 0.0,
+      "examples": 192
+    }
+  ],
+  "contrasts": [
+    {
+      "contrast": "H8_independent_minus_M1a_constrained",
+      "delay": 511,
+      "effect_pp": -8.203125,
+      "ci_low_pp": -16.40625,
+      "ci_high_pp": -0.390625,
+      "examples": 256
+    },
+    {
+      "contrast": "H8_independent_minus_H8_tied",
+      "delay": 511,
+      "effect_pp": -8.984375,
+      "ci_low_pp": -16.796875,
+      "ci_high_pp": -1.5625,
+      "examples": 256
+    }
+  ]
+}

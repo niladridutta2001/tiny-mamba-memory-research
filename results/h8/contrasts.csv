@@ -1,0 +1,3 @@
+contrast,delay,effect_pp,ci_low_pp,ci_high_pp,examples
+H8_independent_minus_M1a_constrained,511,-8.203125,-16.40625,-0.390625,256
+H8_independent_minus_H8_tied,511,-8.984375,-16.796875,-1.5625,256

@@ -1,0 +1,13 @@
+delay,contrast,effect_pp,ci_low_pp,ci_high_pp,paired_examples
+10,M1a_constrained_minus_M0_original,17.1875,12.890625,21.875,256
+10,M1a_constrained_minus_M1b_unconstrained,0.0,0.0,0.0,256
+32,M1a_constrained_minus_M0_original,26.953125,21.484375,32.421875,256
+32,M1a_constrained_minus_M1b_unconstrained,0.0,0.0,0.0,256
+64,M1a_constrained_minus_M0_original,48.046875,41.796875,54.296875,256
+64,M1a_constrained_minus_M1b_unconstrained,0.0,0.0,0.0,256
+128,M1a_constrained_minus_M0_original,68.75,63.28125,74.21875,256
+128,M1a_constrained_minus_M1b_unconstrained,4.6875,2.34375,7.421875,256
+256,M1a_constrained_minus_M0_original,56.640625,50.390625,62.890625,256
+256,M1a_constrained_minus_M1b_unconstrained,13.671875,8.984375,18.359375,256
+511,M1a_constrained_minus_M0_original,14.453125,6.640625,22.265625,256
+511,M1a_constrained_minus_M1b_unconstrained,9.375,4.296875,14.84375,256

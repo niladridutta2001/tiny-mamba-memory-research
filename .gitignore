@@ -8,4 +8,5 @@ data/generated/
 results/*.csv
 results/*.json
 results/**/checkpoints/
+results/**/probes/cache/
 results/smoke_a2/

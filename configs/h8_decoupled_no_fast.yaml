@@ -1,0 +1,4 @@
+inherits: h8_decoupled_event_gate.yaml
+name: h8_decoupled_no_fast
+model:
+  variant: decoupled_no_fast

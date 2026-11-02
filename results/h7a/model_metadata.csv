@@ -1,0 +1,4 @@
+model,checkpoint,parameters,validation_accuracy,training_seconds,peak_gpu_memory_bytes
+M0_original,results\extended\seed42\u1500\baseline.pt,10149,0.7919521614550891,449.64432030008174,53193216
+M1a_constrained,results\h7a\checkpoints\M1_fast_slow\baseline.pt,10149,0.8223495702005731,1696.5587809998542,53142016
+M1b_unconstrained,results\h7a\checkpoints\M2_unconstrained\baseline.pt,10149,0.830945558739255,1171.4306284000631,53140992

@@ -1,0 +1,10 @@
+inherits: baseline.yaml
+name: h7a_fast_slow_unconstrained
+model:
+  variant: fast_slow_unconstrained
+  # Identical initial continuous-time decay matrix to M1. Unlike M1, these
+  # rates are ordinary unconstrained softplus parameters after initialization.
+  fast_min_rate: 1.0
+  slow_max_rate: 0.004
+training:
+  max_updates: 1500

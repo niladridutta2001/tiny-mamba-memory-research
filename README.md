@@ -187,6 +187,30 @@ final backbone feature, and the original task head. It also includes 32D
 PCA-based parameter-matched controls. Outputs are under
 `results/h5b_internal_readout/seed42/`.
 
+## H8 decoupled retention and replacement
+
+H8 splits the slow-state update into independently learned erase and write
+gates. Both gates use the current convolution feature, the just-updated fast
+state, and a learned event-token embedding. The tied control has exactly the
+same parameters but enforces `erase_gate == write_gate` during computation.
+
+Train the decisive seed-42 pair with matched 1,500-update budgets:
+
+```powershell
+.\.venv\Scripts\python.exe train.py --config configs\h8_decoupled_event_gate.yaml --output-dir results\h8\checkpoints\independent --device cuda --seed 42
+.\.venv\Scripts\python.exe train.py --config configs\h8_decoupled_tied_gate.yaml --output-dir results\h8\checkpoints\tied --device cuda --seed 42
+```
+
+Then run retention, independently trained state probes, event-conditioned gate
+audits, slow-state drift, and overwrite/SVER diagnostics:
+
+```powershell
+.\.venv\Scripts\python.exe h8_decoupled_retention.py --device cuda
+```
+
+The no-event and no-fast ablation configurations are also provided, but are
+secondary to the parameter-matched independent-versus-tied comparison.
+
 Run the complete baseline training/validation pipeline with:
 
 ```powershell
