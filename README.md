@@ -15,6 +15,21 @@ the upstream license and history.
 Verified locally on an NVIDIA GeForce GTX 1650. A real Mamba forward/backward
 smoke test used approximately 17.4 MiB for a `(2, 32)` input batch.
 
+## Google Colab notebook
+
+[Open `experiment.ipynb` in Google Colab](https://colab.research.google.com/github/niladridutta2001/tiny-mamba-memory-research/blob/master/experiment.ipynb).
+The notebook is designed to run top-to-bottom in a fresh runtime and contains
+dependency setup, assignment data generation, integrity tests, the baseline,
+the key-conditioned proposal, its parameter-matched tied ablation, fixed-data
+evaluation, overwrite/SVER analysis, plots, and findings.
+
+Choose `RUN_MODE = "assignment"` for the requested 300-update starting budget
+or `RUN_MODE = "report"` for the disclosed 1,500-update extension used in the
+paper. `smoke` is explicitly a short CPU/installation demonstration and is not
+a reportable mandatory-baseline result. While this repository is private, the
+first notebook cell accepts a read-only GitHub token through hidden input and
+does not persist it.
+
 ## Reproduce the environment
 
 ```powershell
@@ -37,7 +52,7 @@ uv sync --all-groups --link-mode copy
 3. Establish constant, oracle, and unmodified Mamba baselines.
 4. Diagnose failures by delay, overwrites, and cross-key interference.
 5. Choose one hypothesis-driven modification and a controlled ablation.
-6. Run fixed-data comparisons and produce the notebook and report.
+6. Run fixed-data comparisons and produce the notebook and report. (Complete.)
 
 Part A2 is complete. Fixed evaluation files
 from the assignment's `sample_data.zip` are extracted under `data/generated/`
